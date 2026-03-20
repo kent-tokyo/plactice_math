@@ -1,0 +1,58 @@
+[
+  {
+    "id": "foundations",
+    "label": "基礎",
+    "position": { "x": 0, "y": 200 },
+    "color": "#f59e0b",
+    "description": "数える・数の体系・集合・論理など、数学の土台となる概念群"
+  },
+  {
+    "id": "pure_algebra",
+    "label": "代数学",
+    "position": { "x": 500, "y": 100 },
+    "color": "#8b5cf6",
+    "description": "線形代数・群論・環論・ガロア理論など、構造と演算を扱う分野"
+  },
+  {
+    "id": "pure_analysis",
+    "label": "解析学",
+    "position": { "x": 500, "y": -100 },
+    "color": "#f43f5e",
+    "description": "微分・積分・実解析・関数解析など、連続的な変化を扱う分野"
+  },
+  {
+    "id": "pure_geometry",
+    "label": "幾何学",
+    "position": { "x": 500, "y": 300 },
+    "color": "#06b6d4",
+    "description": "ユークリッド幾何から多様体・代数幾何まで、空間の性質を扱う分野"
+  },
+  {
+    "id": "stochastic",
+    "label": "確率・統計",
+    "position": { "x": 1000, "y": 200 },
+    "color": "#14b8a6",
+    "description": "確率論・統計学・確率過程・情報理論など、不確実性の数学"
+  },
+  {
+    "id": "computational",
+    "label": "最適化・計算",
+    "position": { "x": 1000, "y": 0 },
+    "color": "#3b82f6",
+    "description": "最適化理論・数値解析・機械学習の数理など、計算と最適化の数学"
+  },
+  {
+    "id": "mathematical_modeling",
+    "label": "物理・制御",
+    "position": { "x": 1000, "y": -200 },
+    "color": "#ef4444",
+    "description": "数理物理学・力学系・制御理論など、物理現象のモデル化"
+  },
+  {
+    "id": "social",
+    "label": "社会科学応用",
+    "position": { "x": 1000, "y": 400 },
+    "color": "#f97316",
+    "description": "ゲーム理論・暗号理論など、社会科学への数学の応用"
+  }
+]

@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "counting",
+      "label": "数える",
+      "area": "foundations",
+      "difficulty": 1,
+      "position": { "x": 0, "y": 0 },
+      "description": "ものを数えるという最も基本的な概念。自然数の導入。",
+      "prerequisites": []
+    },
+    {
+      "id": "number-systems",
+      "label": "数の体系",
+      "area": "foundations",
+      "difficulty": 1,
+      "position": { "x": 250, "y": 0 },
+      "description": "自然数から整数、有理数、実数、複素数へと広がる数の世界。",
+      "prerequisites": ["counting"]
+    },
+    {
+      "id": "integers",
+      "label": "整数",
+      "area": "foundations",
+      "difficulty": 1,
+      "position": { "x": 500, "y": -80 },
+      "description": "正の数・負の数・ゼロ。四則演算の性質。",
+      "prerequisites": ["number-systems"]
+    },
+    {
+      "id": "real-numbers",
+      "label": "実数",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 750, "y": -80 },
+      "description": "有理数と無理数を合わせた連続的な数の体系。",
+      "prerequisites": ["integers"]
+    },
+    {
+      "id": "complex-numbers",
+      "label": "複素数",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 1000, "y": -80 },
+      "description": "実数を拡張し、虚数単位iを導入した数の体系。",
+      "prerequisites": ["real-numbers"]
+    },
+    {
+      "id": "set-theory",
+      "label": "集合論",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 250, "y": 160 },
+      "description": "数学の基礎言語。ものの集まりを扱う理論。",
+      "prerequisites": ["counting"]
+    },
+    {
+      "id": "logic",
+      "label": "数理論理学",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 500, "y": 160 },
+      "description": "命題・述語・証明。数学的推論の形式化。",
+      "prerequisites": ["set-theory"]
+    },
+    {
+      "id": "functions",
+      "label": "関数",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 500, "y": 40 },
+      "description": "入力と出力の対応関係。写像の概念。",
+      "prerequisites": ["number-systems", "set-theory"]
+    },
+    {
+      "id": "proof-methods",
+      "label": "証明法",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 750, "y": 160 },
+      "description": "直接証明・背理法・数学的帰納法。",
+      "prerequisites": ["logic"]
+    },
+    {
+      "id": "combinatorics",
+      "label": "組合せ論",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 750, "y": 40 },
+      "description": "順列・組合せ・数え上げの方法。",
+      "prerequisites": ["functions"]
+    },
+    {
+      "id": "relations",
+      "label": "関係",
+      "area": "foundations",
+      "difficulty": 2,
+      "position": { "x": 750, "y": -160 },
+      "description": "同値関係・順序関係。集合上の二項関係の理論。",
+      "prerequisites": ["set-theory", "functions"]
+    },
+    {
+      "id": "order-theory",
+      "label": "順序理論",
+      "area": "foundations",
+      "difficulty": 3,
+      "position": { "x": 1000, "y": 160 },
+      "description": "半順序・全順序・束。順序構造の数学。",
+      "prerequisites": ["set-theory", "proof-methods"]
+    },
+    {
+      "id": "mathematical-logic-advanced",
+      "label": "数理論理学(発展)",
+      "area": "foundations",
+      "difficulty": 3,
+      "position": { "x": 1000, "y": 280 },
+      "description": "モデル理論・証明論。形式的体系の深い理論。",
+      "prerequisites": ["logic", "proof-methods"]
+    },
+    {
+      "id": "axiomatic-set-theory",
+      "label": "公理的集合論",
+      "area": "foundations",
+      "difficulty": 4,
+      "position": { "x": 1250, "y": 40 },
+      "description": "ZFC公理系。集合論の厳密な基礎付け。",
+      "prerequisites": ["set-theory", "mathematical-logic-advanced"]
+    },
+    {
+      "id": "computability",
+      "label": "計算可能性理論",
+      "area": "foundations",
+      "difficulty": 4,
+      "position": { "x": 1250, "y": 280 },
+      "description": "チューリング機械・決定不能性・再帰関数。",
+      "prerequisites": ["mathematical-logic-advanced", "functions"]
+    },
+    {
+      "id": "category-theory",
+      "label": "圏論",
+      "area": "foundations",
+      "difficulty": 4,
+      "position": { "x": 1250, "y": 160 },
+      "description": "対象と射の抽象理論。数学の統一的枠組み。",
+      "prerequisites": ["set-theory", "proof-methods", "functions"]
+    }
+  ],
+  "edges": [
+    { "source": "counting", "target": "number-systems" },
+    { "source": "number-systems", "target": "integers" },
+    { "source": "integers", "target": "real-numbers" },
+    { "source": "real-numbers", "target": "complex-numbers" },
+    { "source": "counting", "target": "set-theory" },
+    { "source": "set-theory", "target": "logic" },
+    { "source": "number-systems", "target": "functions" },
+    { "source": "set-theory", "target": "functions" },
+    { "source": "logic", "target": "proof-methods" },
+    { "source": "functions", "target": "combinatorics" },
+    { "source": "set-theory", "target": "relations" },
+    { "source": "functions", "target": "relations" },
+    { "source": "set-theory", "target": "order-theory" },
+    { "source": "proof-methods", "target": "order-theory" },
+    { "source": "logic", "target": "mathematical-logic-advanced" },
+    { "source": "proof-methods", "target": "mathematical-logic-advanced" },
+    { "source": "set-theory", "target": "axiomatic-set-theory" },
+    { "source": "mathematical-logic-advanced", "target": "axiomatic-set-theory" },
+    { "source": "mathematical-logic-advanced", "target": "computability" },
+    { "source": "functions", "target": "computability" },
+    { "source": "set-theory", "target": "category-theory" },
+    { "source": "proof-methods", "target": "category-theory" },
+    { "source": "functions", "target": "category-theory" }
+  ]
+}
