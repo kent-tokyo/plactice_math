@@ -12,7 +12,7 @@ const MAX_CONCURRENCY = 3;
 function parseArgs() {
   const args = process.argv.slice(2);
   const flags = {
-    node: null as string | null,
+    nodes: [] as string[],
     all: false,
     level: null as string | null,
     allLevels: false,
@@ -24,7 +24,7 @@ function parseArgs() {
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case '--node':
-        flags.node = args[++i];
+        flags.nodes.push(args[++i]);
         break;
       case '--all':
         flags.all = true;
@@ -54,10 +54,10 @@ function getTargetNodeIds(flags: ReturnType<typeof parseArgs>): string[] {
   if (flags.all) {
     return getAllNodes().map(n => n.id);
   }
-  if (flags.node) {
-    return [flags.node];
+  if (flags.nodes.length > 0) {
+    return flags.nodes;
   }
-  console.error('Usage: npx tsx scripts/generate-content.ts --node <nodeId> | --all [--level <level>] [--all-levels] [--with-images] [--force] [--dry-run]');
+  console.error('Usage: npx tsx scripts/generate-content.ts --node <nodeId> [--node <nodeId2> ...] | --all [--level <level>] [--all-levels] [--with-images] [--force] [--dry-run]');
   process.exit(1);
 }
 
@@ -176,9 +176,15 @@ async function main() {
       const label = `${job.nodeId}/${job.level}`;
       console.log(`  [start] ${label}`);
 
-      const result = await generateContent(job.nodeId, {
-        contentLevel: job.level,
-      });
+      let result;
+      try {
+        result = await generateContent(job.nodeId, {
+          contentLevel: job.level,
+        });
+      } catch (err) {
+        console.error(`  [error] ${label}: ${(err as Error).message}`);
+        return { nodeId: job.nodeId, level: job.level, error: true };
+      }
 
       // Save to public/content/{nodeId}/{level}/content.json
       const outDir = path.join(OUTPUT_DIR, job.nodeId, job.level);
