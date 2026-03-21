@@ -1,21 +1,31 @@
-export interface MathNode {
+export type LocalizedStrings = { ja?: string; en?: string; zh?: string };
+
+export interface GraphNode {
   id: string;
   label: string;
-  area: 'foundations' | 'pure_algebra' | 'pure_analysis' | 'pure_geometry' | 'stochastic' | 'computational' | 'mathematical_modeling' | 'social';
+  labels?: LocalizedStrings;
+  area: string;
   difficulty: 1 | 2 | 3 | 4 | 5;
   position: { x: number; y: number };
   description: string;
+  descriptions?: LocalizedStrings;
   prerequisites: string[];
 }
 
-export interface MathEdge {
+/** @deprecated Use GraphNode instead */
+export type MathNode = GraphNode;
+
+export interface GraphEdge {
   source: string;
   target: string;
 }
 
+/** @deprecated Use GraphEdge instead */
+export type MathEdge = GraphEdge;
+
 export interface GraphData {
-  nodes: MathNode[];
-  edges: MathEdge[];
+  nodes: GraphNode[];
+  edges: GraphEdge[];
 }
 
 export type NodeStatus = 'locked' | 'available' | 'in_progress' | 'completed';
@@ -35,12 +45,25 @@ export interface Term {
   definition: string;
 }
 
-export type AreaId = 'foundations' | 'pure_algebra' | 'pure_analysis' | 'pure_geometry' | 'stochastic' | 'computational' | 'mathematical_modeling' | 'social';
+export interface QuizChoice {
+  text: string;
+  isCorrect: boolean;
+}
+
+export interface QuizQuestion {
+  question: string;
+  choices: QuizChoice[];
+  explanation: string;
+}
+
+export type AreaId = string;
 
 export interface AreaMeta {
   id: AreaId;
   label: string;
+  labels?: LocalizedStrings;
   position: { x: number; y: number };
   color: string;
   description: string;
+  descriptions?: LocalizedStrings;
 }

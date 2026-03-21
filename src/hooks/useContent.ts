@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getAvailableLevels, hasIllustration, getContentBasePath } from '@/lib/content-manifest';
-import type { Term } from '@/types';
+import type { Term, QuizQuestion } from '@/types';
 
 export interface ContentData {
   id: string;
@@ -12,6 +12,7 @@ export interface ContentData {
   content: string;
   terms: Term[];
   diagrams: { name: string; svg: string }[];
+  quiz?: QuizQuestion[];
 }
 
 interface UseContentResult {
@@ -23,7 +24,7 @@ interface UseContentResult {
   availableLevels: string[];
 }
 
-export function useContent(nodeId: string, level: string): UseContentResult {
+export function useContent(nodeId: string, level: string, domain?: string): UseContentResult {
   const [data, setData] = useState<ContentData | null>(null);
   const [illustrationUrl, setIllustrationUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ export function useContent(nodeId: string, level: string): UseContentResult {
       setData(null);
 
       try {
-        const levels = await getAvailableLevels(nodeId);
+        const levels = await getAvailableLevels(nodeId, domain);
         if (cancelled) return;
         setAvailableLevels(levels);
 
@@ -53,7 +54,14 @@ export function useContent(nodeId: string, level: string): UseContentResult {
         }
         setResolvedLevel(targetLevel);
 
-        const res = await fetch(`${getContentBasePath()}/content/${nodeId}/${targetLevel}/content.json`);
+        // Try domain-prefixed path first, fall back to legacy path
+        const basePath = getContentBasePath();
+        const domainPrefix = domain ? `${domain}/` : '';
+        let res = await fetch(`${basePath}/content/${domainPrefix}${nodeId}/${targetLevel}/content.json`);
+        if (!res.ok && domain) {
+          // Fallback: try legacy path without domain prefix
+          res = await fetch(`${basePath}/content/${nodeId}/${targetLevel}/content.json`);
+        }
         if (cancelled) return;
         if (!res.ok) {
           setError(true);
@@ -65,9 +73,16 @@ export function useContent(nodeId: string, level: string): UseContentResult {
         setData(json);
 
         // Check illustration
-        const hasImg = await hasIllustration(nodeId, targetLevel);
+        const hasImg = await hasIllustration(nodeId, targetLevel, domain);
         if (!cancelled) {
-          setIllustrationUrl(hasImg ? `${getContentBasePath()}/content/${nodeId}/${targetLevel}/illustration.webp` : null);
+          if (hasImg) {
+            // Try domain path first
+            const domainUrl = `${basePath}/content/${domainPrefix}${nodeId}/${targetLevel}/illustration.webp`;
+            const legacyUrl = `${basePath}/content/${nodeId}/${targetLevel}/illustration.webp`;
+            setIllustrationUrl(domain ? domainUrl : legacyUrl);
+          } else {
+            setIllustrationUrl(null);
+          }
         }
       } catch {
         if (!cancelled) setError(true);
@@ -78,7 +93,7 @@ export function useContent(nodeId: string, level: string): UseContentResult {
 
     load();
     return () => { cancelled = true; };
-  }, [nodeId, level]);
+  }, [nodeId, level, domain]);
 
   return { data, illustrationUrl, loading, error, resolvedLevel, availableLevels };
 }

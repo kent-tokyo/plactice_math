@@ -3,11 +3,10 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Legacy route: redirect to /math/map
-export default function MapPage() {
+export default function LegacyLearnRedirect({ nodeId }: { nodeId: string }) {
   const router = useRouter();
   useEffect(() => {
-    router.replace('/math/map' + window.location.search);
-  }, [router]);
+    router.replace(`/math/learn/${nodeId}`);
+  }, [router, nodeId]);
   return null;
 }

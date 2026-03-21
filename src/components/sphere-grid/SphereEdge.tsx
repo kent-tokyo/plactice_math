@@ -14,6 +14,7 @@ export default function SphereEdge(props: EdgeProps) {
     sourcePosition,
     targetPosition,
     borderRadius: 16,
+    offset: 30,
   });
 
   return (

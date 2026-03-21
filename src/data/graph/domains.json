@@ -1,0 +1,26 @@
+[
+  {
+    "id": "math",
+    "label": "数学",
+    "labels": { "ja": "数学", "en": "Mathematics", "zh": "数学" },
+    "description": "数学の基礎から応用まで、概念のつながりを理解する",
+    "descriptions": { "ja": "数学の基礎から応用まで、概念のつながりを理解する", "en": "Understand the connections between mathematical concepts, from basics to advanced", "zh": "从基础到应用，理解数学概念之间的联系" },
+    "color": "#3b82f6"
+  },
+  {
+    "id": "philosophy",
+    "label": "哲学",
+    "labels": { "ja": "哲学", "en": "Philosophy", "zh": "哲学" },
+    "description": "認識論・倫理学・論理学など、思考の根本を探究する",
+    "descriptions": { "ja": "認識論・倫理学・論理学など、思考の根本を探究する", "en": "Explore the roots of thought: epistemology, ethics, logic, and more", "zh": "探究认识论、伦理学、逻辑学等思想根基" },
+    "color": "#8b5cf6"
+  },
+  {
+    "id": "aws",
+    "label": "AWS",
+    "labels": { "ja": "AWS", "en": "AWS", "zh": "AWS" },
+    "description": "クラウドサービスの構成要素と設計パターンを学ぶ",
+    "descriptions": { "ja": "クラウドサービスの構成要素と設計パターンを学ぶ", "en": "Learn cloud service components and design patterns", "zh": "学习云服务组件与设计模式" },
+    "color": "#f59e0b"
+  }
+]

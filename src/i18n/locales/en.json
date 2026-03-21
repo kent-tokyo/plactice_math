@@ -1,0 +1,52 @@
+{
+  "common": {
+    "backToMap": "← Back to Map",
+    "backToDomains": "← Domains",
+    "backToOverview": "← Overview",
+    "completed": "completed",
+    "loading": "Loading content...",
+    "notFound": "Content not found.",
+    "processing": "Processing..."
+  },
+  "domain": {
+    "selectTitle": "Select a Learning Domain",
+    "selectDescription": "Choose a subject map to start learning"
+  },
+  "level": {
+    "beginner": "Beginner",
+    "standard": "Standard",
+    "advanced": "Advanced"
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "learn": {
+    "termList": "Glossary",
+    "visualGuide": "Visual Guide",
+    "concept": "Concept"
+  },
+  "comprehension": {
+    "title": "Comprehension Check",
+    "description": "Do you understand this concept? If so, mark it as understood and move on.",
+    "startLearning": "Mark as Learning",
+    "understood": "I understand this concept",
+    "alreadyCompleted": "You have already completed this concept"
+  },
+  "quiz": {
+    "title": "Comprehension Quiz",
+    "result": "Quiz Result",
+    "perfect": "Perfect score!",
+    "good": "Well done!",
+    "retry": "Let's review once more",
+    "next": "Next Question",
+    "showResult": "See Results",
+    "proceed": "Continue",
+    "explanation": "Explanation"
+  },
+  "locale": {
+    "ja": "日本語",
+    "en": "EN",
+    "zh": "中文"
+  }
+}

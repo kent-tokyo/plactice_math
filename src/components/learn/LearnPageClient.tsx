@@ -9,26 +9,29 @@ import ComprehensionCheck from '@/components/learn/ComprehensionCheck';
 import { useContent } from '@/hooks/useContent';
 import { useProgress } from '@/hooks/useProgress';
 import { useSettings, type ContentLevel } from '@/hooks/useSettings';
+import { useLocale } from '@/i18n/useLocale';
 import { getNode } from '@/lib/graph';
+import type { DomainId } from '@/types/domain';
 
-const LEVEL_LABELS: Record<ContentLevel, string> = {
-  beginner: '初心者',
-  standard: '標準',
-  advanced: '上級者',
-};
+interface LearnPageClientProps {
+  nodeId: string;
+  domain?: DomainId;
+}
 
-export default function LearnPageClient({ nodeId }: { nodeId: string }) {
+export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps) {
   const router = useRouter();
+  const { t } = useLocale();
 
-  const node = useMemo(() => getNode(nodeId), [nodeId]);
+  const node = useMemo(() => getNode(nodeId, domain), [nodeId, domain]);
   const { contentLevel, setContentLevel } = useSettings();
-  const { progress, updateProgress } = useProgress();
-  const { data, illustrationUrl, loading, error, resolvedLevel, availableLevels } = useContent(nodeId, contentLevel);
+  const { progress, updateProgress } = useProgress(domain);
+  const { data, illustrationUrl, loading, error, resolvedLevel, availableLevels } = useContent(nodeId, contentLevel, domain);
 
   const status = progress[nodeId]?.status ?? 'available';
+  const mapUrl = domain ? `/${domain}/map?area=${node?.area}` : `/map?area=${node?.area}`;
 
   if (!node) {
-    router.replace('/map');
+    router.replace(domain ? `/${domain}/map` : '/map');
     return null;
   }
 
@@ -36,7 +39,7 @@ export default function LearnPageClient({ nodeId }: { nodeId: string }) {
     return (
       <div className="flex h-screen flex-col items-center justify-center gap-4 bg-white dark:bg-zinc-950 text-zinc-500 dark:text-zinc-400">
         <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 dark:border-zinc-600 border-t-blue-500" />
-        <p>コンテンツを読み込んでいます...</p>
+        <p>{t('common.loading')}</p>
       </div>
     );
   }
@@ -44,12 +47,12 @@ export default function LearnPageClient({ nodeId }: { nodeId: string }) {
   if (error || !data) {
     return (
       <div className="flex h-screen flex-col items-center justify-center gap-4 bg-white dark:bg-zinc-950">
-        <p className="text-zinc-500 dark:text-zinc-400">コンテンツが見つかりませんでした。</p>
+        <p className="text-zinc-500 dark:text-zinc-400">{t('common.notFound')}</p>
         <Link
-          href={`/map?area=${node.area}`}
+          href={mapUrl}
           className="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors"
         >
-          マップに戻る
+          {t('common.backToMap')}
         </Link>
       </div>
     );
@@ -59,11 +62,11 @@ export default function LearnPageClient({ nodeId }: { nodeId: string }) {
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       <header className="sticky top-0 z-10 border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-6 py-3">
         <div className="mx-auto max-w-3xl flex items-center gap-4">
-          <Link href={`/map?area=${node.area}`} className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors">
-            ← マップに戻る
+          <Link href={mapUrl} className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors">
+            {t('common.backToMap')}
           </Link>
           <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{node.label}</h1>
-          <span className="text-xs text-zinc-400 dark:text-zinc-500">
+          <span className="text-xs text-zinc-500 dark:text-zinc-400">
             {'★'.repeat(node.difficulty)} · {node.description}
           </span>
           {availableLevels.length > 1 && (
@@ -80,7 +83,7 @@ export default function LearnPageClient({ nodeId }: { nodeId: string }) {
                         : 'bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                     }`}
                   >
-                    {LEVEL_LABELS[level]}
+                    {t(`level.${level}`)}
                   </button>
                 ))}
             </div>
@@ -103,6 +106,8 @@ export default function LearnPageClient({ nodeId }: { nodeId: string }) {
           status={status}
           area={node.area}
           onUpdateProgress={updateProgress}
+          quiz={data.quiz}
+          mapUrl={mapUrl}
         />
       </main>
     </div>

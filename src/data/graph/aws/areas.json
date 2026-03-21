@@ -1,0 +1,56 @@
+[
+  {
+    "id": "compute",
+    "label": "コンピューティング",
+    "labels": { "ja": "コンピューティング", "en": "Compute", "zh": "计算" },
+    "position": { "x": 0, "y": 0 },
+    "color": "#f59e0b",
+    "description": "EC2・Lambda・ECSなどの実行環境",
+    "descriptions": { "ja": "EC2・Lambda・ECSなどの実行環境", "en": "EC2, Lambda, ECS and other execution environments", "zh": "EC2、Lambda、ECS等执行环境" }
+  },
+  {
+    "id": "storage",
+    "label": "ストレージ",
+    "labels": { "ja": "ストレージ", "en": "Storage", "zh": "存储" },
+    "position": { "x": 400, "y": 0 },
+    "color": "#22c55e",
+    "description": "S3・EBS・EFSなどのデータ保存",
+    "descriptions": { "ja": "S3・EBS・EFSなどのデータ保存", "en": "S3, EBS, EFS and other data storage", "zh": "S3、EBS、EFS等数据存储" }
+  },
+  {
+    "id": "networking",
+    "label": "ネットワーキング",
+    "labels": { "ja": "ネットワーキング", "en": "Networking", "zh": "网络" },
+    "position": { "x": 200, "y": -200 },
+    "color": "#8b5cf6",
+    "description": "VPC・Route53・CloudFrontなど",
+    "descriptions": { "ja": "VPC・Route53・CloudFrontなど", "en": "VPC, Route 53, CloudFront and more", "zh": "VPC、Route53、CloudFront等" }
+  },
+  {
+    "id": "security",
+    "label": "セキュリティ",
+    "labels": { "ja": "セキュリティ", "en": "Security", "zh": "安全" },
+    "position": { "x": 200, "y": 200 },
+    "color": "#ef4444",
+    "description": "IAM・KMS・WAFなどのセキュリティサービス",
+    "descriptions": { "ja": "IAM・KMS・WAFなどのセキュリティサービス", "en": "IAM, KMS, WAF and other security services", "zh": "IAM、KMS、WAF等安全服务" }
+  },
+  {
+    "id": "databases",
+    "label": "データベース",
+    "labels": { "ja": "データベース", "en": "Databases", "zh": "数据库" },
+    "position": { "x": 600, "y": 200 },
+    "color": "#3b82f6",
+    "description": "RDS・DynamoDB・ElastiCacheなど",
+    "descriptions": { "ja": "RDS・DynamoDB・ElastiCacheなど", "en": "RDS, DynamoDB, ElastiCache and more", "zh": "RDS、DynamoDB、ElastiCache等" }
+  },
+  {
+    "id": "ai_ml",
+    "label": "AI・機械学習",
+    "labels": { "ja": "AI・機械学習", "en": "AI & ML", "zh": "AI与机器学习" },
+    "position": { "x": 400, "y": 400 },
+    "color": "#06b6d4",
+    "description": "SageMaker・Bedrock・Rekognitionなど",
+    "descriptions": { "ja": "SageMaker・Bedrock・Rekognitionなど", "en": "SageMaker, Bedrock, Rekognition and more", "zh": "SageMaker、Bedrock、Rekognition等" }
+  }
+]

@@ -1,37 +1,84 @@
+import type { GraphData, AreaMeta, AreaId, GraphEdge } from '@/types';
+import type { DomainId, DomainMeta } from '@/types/domain';
+
+// --- Math data ---
+import mathFoundations from './math/foundations.json';
+import mathPureMath from './math/pure-math.json';
+import mathApplied from './math/applied-math.json';
+import mathAreas from './math/areas.json';
+
+// --- Philosophy data ---
+import philosophyAreas from './philosophy/areas.json';
+import philosophyTopics from './philosophy/topics.json';
+
+// --- AWS data ---
+import awsAreas from './aws/areas.json';
+import awsTopics from './aws/topics.json';
+
+// --- Domains ---
+import domainsData from './domains.json';
+
+// Legacy re-exports (backward-compat for existing imports)
 import foundationsData from './foundations.json';
 import pureMathData from './pure-math.json';
 import appliedMathData from './applied-math.json';
 import areasData from './areas.json';
-import type { GraphData, AreaMeta, AreaId, MathEdge } from '@/types';
 
-export function getAllGraphData(): GraphData {
-  const nodes = [
-    ...foundationsData.nodes,
-    ...pureMathData.nodes,
-    ...appliedMathData.nodes,
-  ];
-  const edges = [
-    ...foundationsData.edges,
-    ...pureMathData.edges,
-    ...appliedMathData.edges,
-  ];
-  return { nodes, edges } as GraphData;
+export function getDomains(): DomainMeta[] {
+  return domainsData as DomainMeta[];
 }
 
-export function getAreaMeta(): AreaMeta[] {
-  return areasData as AreaMeta[];
+export function getAllGraphData(domainId?: DomainId): GraphData {
+  switch (domainId) {
+    case 'philosophy':
+      return {
+        nodes: philosophyTopics.nodes as GraphData['nodes'],
+        edges: philosophyTopics.edges,
+      };
+    case 'aws':
+      return {
+        nodes: awsTopics.nodes as GraphData['nodes'],
+        edges: awsTopics.edges,
+      };
+    case 'math':
+    default: {
+      const nodes = [
+        ...mathFoundations.nodes,
+        ...mathPureMath.nodes,
+        ...mathApplied.nodes,
+      ];
+      const edges = [
+        ...mathFoundations.edges,
+        ...mathPureMath.edges,
+        ...mathApplied.edges,
+      ];
+      return { nodes, edges } as GraphData;
+    }
+  }
+}
+
+export function getAreaMeta(domainId?: DomainId): AreaMeta[] {
+  switch (domainId) {
+    case 'philosophy':
+      return philosophyAreas as AreaMeta[];
+    case 'aws':
+      return awsAreas as AreaMeta[];
+    case 'math':
+    default:
+      return mathAreas as AreaMeta[];
+  }
 }
 
 /** Derive inter-area edges by aggregating cross-area edges from the full graph */
-export function getAreaEdges(): MathEdge[] {
-  const graph = getAllGraphData();
+export function getAreaEdges(domainId?: DomainId): GraphEdge[] {
+  const graph = getAllGraphData(domainId);
   const nodeAreaMap = new Map<string, AreaId>();
   for (const n of graph.nodes) {
     nodeAreaMap.set(n.id, n.area);
   }
 
   const seen = new Set<string>();
-  const areaEdges: MathEdge[] = [];
+  const areaEdges: GraphEdge[] = [];
 
   for (const e of graph.edges) {
     const srcArea = nodeAreaMap.get(e.source);
@@ -49,8 +96,8 @@ export function getAreaEdges(): MathEdge[] {
 }
 
 /** Get nodes and edges within a specific area (plus cross-area edges touching area nodes) */
-export function getNodesByArea(areaId: AreaId): GraphData {
-  const graph = getAllGraphData();
+export function getNodesByArea(areaId: AreaId, domainId?: DomainId): GraphData {
+  const graph = getAllGraphData(domainId);
   const areaNodes = graph.nodes.filter(n => n.area === areaId);
   const areaNodeIds = new Set(areaNodes.map(n => n.id));
   const areaEdges = graph.edges.filter(

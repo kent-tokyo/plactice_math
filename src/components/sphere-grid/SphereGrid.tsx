@@ -15,8 +15,10 @@ import { useRouter } from 'next/navigation';
 import SphereNode from './SphereNode';
 import SphereEdge from './SphereEdge';
 import AreaNode from './AreaNode';
-import type { MathNode, MathEdge, NodeStatus, AreaMeta } from '@/types';
+import type { GraphNode, GraphEdge, NodeStatus, AreaMeta } from '@/types';
 import { useViewportPersistence } from '@/hooks/useViewportPersistence';
+import { useLocale } from '@/i18n/useLocale';
+import { localize } from '@/i18n/localize';
 
 const nodeTypes = { sphere: SphereNode, area: AreaNode };
 const edgeTypes = { sphere: SphereEdge };
@@ -25,15 +27,17 @@ interface SphereGridProps {
   level: 'area' | 'detail';
   // Area level props
   areas?: AreaMeta[];
-  areaEdges?: MathEdge[];
+  areaEdges?: GraphEdge[];
   areaNodeCounts?: Record<string, { completed: number; total: number }>;
   onAreaClick?: (areaId: string) => void;
   // Detail level props
-  mathNodes?: MathNode[];
-  mathEdges?: MathEdge[];
+  mathNodes?: GraphNode[];
+  mathEdges?: GraphEdge[];
   nodeStatuses?: Record<string, NodeStatus>;
   // Viewport persistence key
   viewportKey: string;
+  // Domain for navigation
+  domain?: string;
 }
 
 export default function SphereGrid({
@@ -46,13 +50,16 @@ export default function SphereGrid({
   mathEdges,
   nodeStatuses,
   viewportKey,
+  domain,
 }: SphereGridProps) {
   const router = useRouter();
   const { savedViewport, saveViewport } = useViewportPersistence(viewportKey);
+  const { locale } = useLocale();
 
   const handleNodeClick = useCallback((nodeId: string) => {
-    router.push(`/learn/${nodeId}`);
-  }, [router]);
+    const prefix = domain ? `/${domain}` : '';
+    router.push(`${prefix}/learn/${nodeId}`);
+  }, [router, domain]);
 
   const handleAreaClick = useCallback((areaId: string) => {
     onAreaClick?.(areaId);
@@ -66,8 +73,8 @@ export default function SphereGrid({
         position: a.position,
         draggable: false,
         data: {
-          label: a.label,
-          description: a.description,
+          label: localize(locale, a.label, a.labels),
+          description: localize(locale, a.description, a.descriptions),
           color: a.color,
           completedCount: areaNodeCounts?.[a.id]?.completed ?? 0,
           totalCount: areaNodeCounts?.[a.id]?.total ?? 0,
@@ -82,8 +89,8 @@ export default function SphereGrid({
         position: n.position,
         draggable: false,
         data: {
-          label: n.label,
-          description: n.description,
+          label: localize(locale, n.label, n.labels),
+          description: localize(locale, n.description, n.descriptions),
           area: n.area,
           difficulty: n.difficulty,
           status: nodeStatuses?.[n.id] || 'locked',
@@ -92,7 +99,7 @@ export default function SphereGrid({
       }));
     }
     return [];
-  }, [level, areas, areaNodeCounts, handleAreaClick, mathNodes, nodeStatuses, handleNodeClick]);
+  }, [level, areas, areaNodeCounts, handleAreaClick, mathNodes, nodeStatuses, handleNodeClick, locale]);
 
   const edges: Edge[] = useMemo(() => {
     const edgeList = level === 'area' ? areaEdges : mathEdges;

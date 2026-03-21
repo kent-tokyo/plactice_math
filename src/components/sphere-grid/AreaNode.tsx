@@ -1,6 +1,7 @@
 'use client';
 
 import { Handle, Position } from '@xyflow/react';
+import { useLocale } from '@/i18n/useLocale';
 
 interface AreaNodeData {
   label: string;
@@ -14,6 +15,7 @@ interface AreaNodeData {
 
 export default function AreaNode({ id, data }: { id: string; data: AreaNodeData }) {
   const { label, description, color, completedCount, totalCount, onClick } = data;
+  const { t } = useLocale();
   const progress = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   return (
@@ -43,7 +45,7 @@ export default function AreaNode({ id, data }: { id: string; data: AreaNodeData 
           />
         </div>
         <span className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
-          {completedCount}/{totalCount} 完了
+          {completedCount}/{totalCount} {t('common.completed')}
         </span>
       </div>
     </div>

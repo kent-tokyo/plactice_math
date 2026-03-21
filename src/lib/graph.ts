@@ -1,18 +1,37 @@
 import { getAllGraphData } from '@/data/graph';
-import type { MathNode, NodeStatus } from '@/types';
+import type { GraphNode, NodeStatus } from '@/types';
+import type { DomainId } from '@/types/domain';
 
-const graphData = getAllGraphData();
+// Cache per domain
+const cache = new Map<string, ReturnType<typeof getAllGraphData>>();
 
-export function getAllNodes(): MathNode[] {
-  return graphData.nodes;
+function getGraphData(domainId?: DomainId) {
+  const key = domainId || 'math';
+  if (!cache.has(key)) {
+    cache.set(key, getAllGraphData(domainId));
+  }
+  return cache.get(key)!;
 }
 
-export function getAllEdges() {
-  return graphData.edges;
+export function getAllNodes(domainId?: DomainId): GraphNode[] {
+  return getGraphData(domainId).nodes;
 }
 
-export function getNode(nodeId: string): MathNode | undefined {
-  return graphData.nodes.find(n => n.id === nodeId);
+export function getAllEdges(domainId?: DomainId) {
+  return getGraphData(domainId).edges;
+}
+
+export function getNode(nodeId: string, domainId?: DomainId): GraphNode | undefined {
+  // Search specified domain first, then fall back to all domains
+  const result = getGraphData(domainId).nodes.find(n => n.id === nodeId);
+  if (result) return result;
+
+  // Fallback: search across all domains
+  for (const d of ['math', 'philosophy', 'aws'] as DomainId[]) {
+    const found = getGraphData(d).nodes.find(n => n.id === nodeId);
+    if (found) return found;
+  }
+  return undefined;
 }
 
 /**
@@ -22,9 +41,11 @@ export function getNode(nodeId: string): MathNode | undefined {
  */
 export function computeNodeStatuses(
   completedNodeIds: Set<string>,
-  inProgressNodeIds: Set<string>
+  inProgressNodeIds: Set<string>,
+  domainId?: DomainId,
 ): Map<string, NodeStatus> {
   const statuses = new Map<string, NodeStatus>();
+  const graphData = getGraphData(domainId);
 
   for (const node of graphData.nodes) {
     if (completedNodeIds.has(node.id)) {

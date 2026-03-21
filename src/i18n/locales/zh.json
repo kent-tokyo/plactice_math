@@ -1,0 +1,52 @@
+{
+  "common": {
+    "backToMap": "← 返回地图",
+    "backToDomains": "← 选择领域",
+    "backToOverview": "← 总览",
+    "completed": "已完成",
+    "loading": "正在加载内容...",
+    "notFound": "未找到内容。",
+    "processing": "处理中..."
+  },
+  "domain": {
+    "selectTitle": "选择学习领域",
+    "selectDescription": "请选择你想学习的领域"
+  },
+  "level": {
+    "beginner": "入门",
+    "standard": "标准",
+    "advanced": "高级"
+  },
+  "theme": {
+    "toLight": "切换到浅色模式",
+    "toDark": "切换到深色模式"
+  },
+  "learn": {
+    "termList": "术语表",
+    "visualGuide": "可视化指南",
+    "concept": "概念"
+  },
+  "comprehension": {
+    "title": "理解度检查",
+    "description": "你理解了这个概念吗？如果理解了，请点击「已理解」继续学习下一个概念。",
+    "startLearning": "标记为学习中",
+    "understood": "我理解了这个概念",
+    "alreadyCompleted": "你已经掌握了这个概念"
+  },
+  "quiz": {
+    "title": "理解度测验",
+    "result": "测验结果",
+    "perfect": "全部正确！",
+    "good": "做得好！",
+    "retry": "让我们再复习一次",
+    "next": "下一题",
+    "showResult": "查看结果",
+    "proceed": "继续",
+    "explanation": "解析"
+  },
+  "locale": {
+    "ja": "日本語",
+    "en": "EN",
+    "zh": "中文"
+  }
+}

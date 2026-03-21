@@ -1,0 +1,52 @@
+{
+  "common": {
+    "backToMap": "← マップに戻る",
+    "backToDomains": "← ドメイン選択",
+    "backToOverview": "← 全体マップ",
+    "completed": "完了",
+    "loading": "コンテンツを読み込んでいます...",
+    "notFound": "コンテンツが見つかりませんでした。",
+    "processing": "処理中..."
+  },
+  "domain": {
+    "selectTitle": "学習ドメインを選択",
+    "selectDescription": "学びたい分野のマップを選んでください"
+  },
+  "level": {
+    "beginner": "初心者",
+    "standard": "標準",
+    "advanced": "上級者"
+  },
+  "theme": {
+    "toLight": "ライトモードに切替",
+    "toDark": "ダークモードに切替"
+  },
+  "learn": {
+    "termList": "用語一覧",
+    "visualGuide": "ビジュアルガイド",
+    "concept": "概念"
+  },
+  "comprehension": {
+    "title": "理解度チェック",
+    "description": "この概念の内容を理解できましたか？理解できたら「理解した」を押して次の概念に進みましょう。",
+    "startLearning": "学習中にする",
+    "understood": "この概念を理解した",
+    "alreadyCompleted": "この概念は理解済みです"
+  },
+  "quiz": {
+    "title": "理解度クイズ",
+    "result": "クイズ結果",
+    "perfect": "全問正解！",
+    "good": "よくできました！",
+    "retry": "もう一度復習してみましょう",
+    "next": "次の問題",
+    "showResult": "結果を見る",
+    "proceed": "次へ進む",
+    "explanation": "解説"
+  },
+  "locale": {
+    "ja": "日本語",
+    "en": "EN",
+    "zh": "中文"
+  }
+}

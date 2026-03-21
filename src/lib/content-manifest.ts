@@ -5,7 +5,7 @@ interface ManifestEntry {
 
 type Manifest = Record<string, ManifestEntry>;
 
-let cached: Manifest | null = null;
+const cache = new Map<string, Manifest>();
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -13,24 +13,39 @@ export function getContentBasePath(): string {
   return BASE_PATH;
 }
 
-export async function getManifest(): Promise<Manifest> {
-  if (cached) return cached;
-  try {
-    const res = await fetch(`${BASE_PATH}/content/manifest.json`);
-    if (!res.ok) return {};
-    cached = await res.json();
-    return cached!;
-  } catch {
-    return {};
+async function fetchManifest(domain?: string): Promise<Manifest> {
+  const key = domain || '_default';
+  if (cache.has(key)) return cache.get(key)!;
+
+  // Try domain-specific manifest first, then fallback to root
+  const urls = domain
+    ? [`${BASE_PATH}/content/${domain}/manifest.json`, `${BASE_PATH}/content/manifest.json`]
+    : [`${BASE_PATH}/content/manifest.json`];
+
+  for (const url of urls) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        cache.set(key, data);
+        return data;
+      }
+    } catch { /* try next */ }
   }
+
+  return {};
 }
 
-export async function getAvailableLevels(nodeId: string): Promise<string[]> {
-  const manifest = await getManifest();
+export async function getManifest(): Promise<Manifest> {
+  return fetchManifest();
+}
+
+export async function getAvailableLevels(nodeId: string, domain?: string): Promise<string[]> {
+  const manifest = await fetchManifest(domain);
   return manifest[nodeId]?.levels ?? [];
 }
 
-export async function hasIllustration(nodeId: string, level: string): Promise<boolean> {
-  const manifest = await getManifest();
+export async function hasIllustration(nodeId: string, level: string, domain?: string): Promise<boolean> {
+  const manifest = await fetchManifest(domain);
   return manifest[nodeId]?.hasIllustration[level] ?? false;
 }

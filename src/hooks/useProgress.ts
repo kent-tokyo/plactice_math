@@ -11,28 +11,30 @@ interface ProgressEntry {
 
 type ProgressData = Record<string, ProgressEntry>;
 
-const STORAGE_KEY = 'plactice_math_progress';
+function getStorageKey(domain?: string): string {
+  return domain ? `plactice_math_progress_${domain}` : 'plactice_math_progress';
+}
 
-function loadProgress(): ProgressData {
+function loadProgress(domain?: string): ProgressData {
   if (typeof window === 'undefined') return {};
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(getStorageKey(domain));
     return raw ? JSON.parse(raw) : {};
   } catch {
     return {};
   }
 }
 
-function persistProgress(data: ProgressData): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+function persistProgress(data: ProgressData, domain?: string): void {
+  localStorage.setItem(getStorageKey(domain), JSON.stringify(data));
 }
 
-export function useProgress() {
+export function useProgress(domain?: string) {
   const [progress, setProgress] = useState<ProgressData>({});
 
   useEffect(() => {
-    setProgress(loadProgress());
-  }, []);
+    setProgress(loadProgress(domain));
+  }, [domain]);
 
   const updateProgress = useCallback((nodeId: string, status: NodeStatus) => {
     setProgress(prev => {
@@ -49,15 +51,15 @@ export function useProgress() {
           completedAt: status === 'completed' ? now : existing?.completedAt ?? null,
         },
       };
-      persistProgress(updated);
+      persistProgress(updated, domain);
       return updated;
     });
-  }, []);
+  }, [domain]);
 
   const resetProgress = useCallback(() => {
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(getStorageKey(domain));
     setProgress({});
-  }, []);
+  }, [domain]);
 
   return { progress, updateProgress, resetProgress };
 }

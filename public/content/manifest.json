@@ -4,6 +4,38 @@
       "standard"
     ],
     "hasIllustration": {
+      "standard": true
+    }
+  },
+  "number-systems": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    }
+  },
+  "integers": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    }
+  },
+  "ec2": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    }
+  },
+  "truth": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
       "standard": false
     }
   }
