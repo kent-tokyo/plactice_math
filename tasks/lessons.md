@@ -1,4 +1,4 @@
-# plactice_math - 振り返り・教訓
+# study-route - 振り返り・教訓
 
 ## アーキテクチャ判断
 
@@ -46,7 +46,7 @@
 - 教訓: **静的サイトでの言語共有はクエリパラメータが最もコスパが良い。パスプレフィックスはSSRがないと辛い**
 
 ### window.location.hrefとbasePath
-- GitHub Pagesでは`/plactice_math`がbasePathだが、`window.location.href = '/math/map'`ではbasePathが付かず404になる
+- GitHub Pagesでは`/study-route`がbasePathだが、`window.location.href = '/math/map'`ではbasePathが付かず404になる
 - Next.jsの`<Link>`や`router.push`は自動でbasePath付与するが、`window.location.href`は生のブラウザAPIなので手動付与が必要
 - `getContentBasePath()`でプレフィックスを取得して付与することで解決
 - 教訓: **Next.jsのbasePath付与は`<Link>`/`router`のみ。`window.location.href`やfetchでは手動でbasePathを付ける必要がある**
@@ -86,6 +86,12 @@
 - LLMがmarkdownテーブル記法（`| 借方 | 金額 |`）で出力するが、mdxToHtml()にテーブルパーサーがなくプレーンテキストのまま表示された
 - 正規表現でヘッダー行+セパレータ行+データ行を検出し`<table>`に変換して解決
 - 教訓: **コンテンツ生成パイプラインの出力形式を拡張したら、フロントエンドのパーサーも対応する。mdxToHtmlは段階的に機能追加が必要**
+
+### プロジェクト名変更の影響範囲
+- `plactice_math` → `study-route` の変更は想定以上に広範囲に影響した
+- 変更箇所: リポジトリ名、フォルダ名、package.json name、localStorageキー（progress/locale/settings）、metadata、フッター、ポリシーページ、git remote URL
+- localStorageキー変更により既存ユーザーの学習進捗がリセットされる副作用がある
+- 教訓: **プロジェクト名はlocalStorageキーやURLなど多くの場所にハードコードされやすい。名前変更が必要になった場合はgrepで全箇所を洗い出し、マイグレーションの要否も検討すべき**
 
 ### ドメイン追加のスケーラビリティ
 - 新ドメイン追加に必要な作業: (1) areas.json + topics.json作成 (2) domains.json追記 (3) DomainId型追加 (4) index.tsにimport+switch追加 (5) graph.tsのfallback配列追加 (6) generate-content.tsのDOMAIN_IDS追加
@@ -239,9 +245,9 @@
 ## インフラ・運用
 
 ### GitHub Pages のサブパス問題
-- `kent-tokyo.github.io/plactice_math/` でホスティングされるため、アセットのパスが `/plactice_math/` 配下になる
+- `kent-tokyo.github.io/study-route/` でホスティングされるため、アセットのパスが `/study-route/` 配下になる
 - `next.config.ts` の `basePath` は `process.env.NEXT_PUBLIC_BASE_PATH` から取得する設計
-- ビルド時に `NEXT_PUBLIC_BASE_PATH=/plactice_math npm run build` で指定が必要（`.env`に書いても可）
+- ビルド時に `NEXT_PUBLIC_BASE_PATH=/study-route npm run build` で指定が必要（`.env`に書いても可）
 - `.env`に書かずビルドコマンドで渡し忘れると `/_next/...` からアセットを読み込もうとして404になる
 - 教訓: **GitHub Pagesデプロイ時はbasePath指定を忘れずに。ビルドコマンドに環境変数を含めるか、.envに明記する**
 

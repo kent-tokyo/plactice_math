@@ -1,4 +1,4 @@
-# plactice_math - 要件定義
+# study-route - 要件定義
 
 ## プロジェクト概要
 数学・哲学・AWSなど複数ドメインの概念を一歩ずつ学べるWebアプリ。FFXのスフィア盤のようなスキルマップで進捗を可視化し、基礎から専門領域までカバーする。静的サイトとしてGitHub Pagesでホスティング。多言語対応（日本語・英語・中国語）。
@@ -45,7 +45,17 @@
 - 「学習中にする」ボタンによる進捗更新
 - **MDXテーブル表示**: markdownテーブル記法をHTMLの`<table>`に変換（proseスタイル適用）
 - **「トップに戻る」ボタン**: 右下にフローティング上矢印ボタン（スムーズスクロール）
+- **テーマ切替**: ヘッダー右端に太陽/月アイコンボタン
+- **パンくずナビ**: `ドメイン名 / エリア名` 形式でドメイン→全体マップ、エリア→サブマップに遷移
 - DOMPurifyによるHTMLサニタイズ
+
+### 3.5. サイトポリシーページ（/policy）
+- 免責事項（AI生成コンテンツ、会計基準の注意）、プライバシー（localStorageのみ）、使用技術、ライセンス、お問い合わせ
+- 多言語対応（ja/en/zh）、言語セレクター・テーマ切替付き
+
+### 3.6. フッター
+- `© {year} study-route | Site Policy | GitHub` を表示
+- ドメイン選択・学習ページ・ポリシーページに配置（マップページには非表示）
 
 ### 4. 4択クイズシステム
 - **QuizQuestion型**: question, choices (4択), explanation
@@ -54,7 +64,7 @@
 - 数式はMathTextコンポーネントでKaTeXレンダリング
 
 ### 5. 進捗管理
-- **localStorage**に進捗データをJSON保存（`plactice_math_progress_{domain}`）
+- **localStorage**に進捗データをJSON保存（`study-route_progress_{domain}`）
 - ドメインごとに独立した進捗データ
 - ノード完了時に後続ノードの自動解放（全前提クリアで available に）
 - useProgress hookで取得・更新（domain引数対応）
@@ -136,7 +146,7 @@
 
 ### 8. コンテンツレベル設定
 - ヘッダーのトグルで切替（初心者/標準/上級者）
-- localStorageに保存（`plactice_math_content_level`）
+- localStorageに保存（`study-route_content_level`）
 - useSettings hookで取得・更新
 - マップページと学習ページの両方で切替可能
 
@@ -152,7 +162,7 @@
 - **翻訳ファイル**: `src/i18n/locales/{ja,en,zh}.json` — UI文字列の翻訳
 - **コンテキスト**: `LocaleProvider`（React Context）でアプリ全体をラップ
 - **useLocale hook**: `{ locale, setLocale, t }` を返す。`t('key.path')` で翻訳文字列取得
-- **言語設定**: `?lang=`クエリパラメータ > localStorage `plactice_math_locale` > デフォルト(ja)の優先順。切替時はhistory.replaceStateでURL更新（リロードなし）。URLシェアで言語保持
+- **言語設定**: `?lang=`クエリパラメータ > localStorage `study-route_locale` > デフォルト(ja)の優先順。切替時はhistory.replaceStateでURL更新（リロードなし）。URLシェアで言語保持
 - **言語セレクタ**: コンパクトなトグルボタン（日本語 / EN / 中文）、マップヘッダー・ドメイン選択ページ・学習ページヘッダーに配置
 - **翻訳対象**: ナビゲーション、ボタンラベル、ステータス表示、クイズUI、理解度チェック、用語一覧ヘッダー等
 - **データラベル多言語化**: graph JSONの各エリア・ノードに`labels`/`descriptions`オブジェクト（`{ ja, en, zh }`）を追加。`localize(locale, default, labels)`ユーティリティ（`src/i18n/localize.ts`）でランタイム解決。SphereGrid内でノード/エリアデータ構築時にlocalize適用
