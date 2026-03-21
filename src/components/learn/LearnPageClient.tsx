@@ -15,6 +15,8 @@ import LanguageSelector from '@/components/shared/LanguageSelector';
 import Footer from '@/components/shared/Footer';
 import { useTheme } from '@/hooks/useTheme';
 import { getNode } from '@/lib/graph';
+import { getAreaMeta, getDomains } from '@/data/graph';
+import { getContentBasePath } from '@/lib/content-manifest';
 import type { DomainId } from '@/types/domain';
 
 interface LearnPageClientProps {
@@ -28,6 +30,7 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
   const { theme, toggleTheme } = useTheme();
 
   const node = useMemo(() => getNode(nodeId, domain), [nodeId, domain]);
+  const areas = useMemo(() => getAreaMeta(domain), [domain]);
   const { contentLevel, setContentLevel } = useSettings();
   const { progress, updateProgress } = useProgress(domain);
   const { data, illustrationUrl, loading, error, resolvedLevel, availableLevels } = useContent(nodeId, contentLevel, domain);
@@ -68,9 +71,21 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       <header className="sticky top-0 z-10 border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm px-6 py-3">
         <div className="mx-auto max-w-3xl flex items-center gap-4">
-          <Link href={mapUrl} className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors">
-            {t('common.backToMap')}
-          </Link>
+          <div className="flex items-center gap-1 text-sm shrink-0">
+            <a
+              href={`${getContentBasePath()}${domainMapUrl}`}
+              className="text-zinc-400 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
+            >
+              {localize(locale, getDomains().find(d => d.id === domain)?.label || '', getDomains().find(d => d.id === domain)?.labels)}
+            </a>
+            <span className="text-zinc-300 dark:text-zinc-600">/</span>
+            <a
+              href={`${getContentBasePath()}${mapUrl}`}
+              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
+            >
+              {localize(locale, areas.find(a => a.id === node.area)?.label || node.area, areas.find(a => a.id === node.area)?.labels)}
+            </a>
+          </div>
           <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
             {node.number && <span className="text-sm font-normal text-zinc-400 dark:text-zinc-500 mr-1.5">{node.number}</span>}
             {localize(locale, node.label, node.labels)}
