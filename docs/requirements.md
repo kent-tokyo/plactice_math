@@ -31,7 +31,7 @@
 - **エッジ重なり防止**: `getSmoothStepPath` に動的offset（縦方向接続80px / 横方向50px、borderRadius 20px）でノードからエッジを離す
 - **モバイル対応ヘッダー**: `flex flex-col md:flex-row` で2段レイアウト。上段: ナビ+タイトル、下段: 完了数・レベル切替・言語・テーマ。padding `px-4 py-2 md:px-6 md:py-3`
 - **マップ領域**: 外側 `h-screen flex flex-col`、マップ領域 `flex-1 overflow-hidden`（ヘッダー高さに依存しない）
-- **スタートノード表示**: `prerequisites.length === 0` のノードに `START` バッジ + `ring-2 ring-blue-400/50`。初回表示時にスタートノードにフォーカス（padding: 0.5, maxZoom: 1.0）
+- **スタートノード表示**: 詳細マップ: `prerequisites.length === 0` のノードに `START` バッジ + `ring-2 ring-blue-400/50`。全体マップ: `areaEdges`のターゲットに含まれないエリア（入力エッジなし）に `START` バッジ + `ring-2 ring-blue-400/50`。両レベルとも初回表示時にスタートノード/エリアにフォーカス（padding: 0.5, maxZoom: 1.0）
 - ヘッダー: ドメイン選択へ戻るリンク、コンテンツレベルトグル、言語切替、テーマ切替
 
 ### 3. 概念学習ページ（/{domain}/learn/[nodeId]）

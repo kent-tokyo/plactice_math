@@ -67,6 +67,7 @@ export default function SphereGrid({
 
   const nodes: Node[] = useMemo(() => {
     if (level === 'area' && areas) {
+      const targetAreaIds = new Set((areaEdges ?? []).map(e => e.target));
       return areas.map(a => ({
         id: a.id,
         type: 'area',
@@ -78,6 +79,7 @@ export default function SphereGrid({
           color: a.color,
           completedCount: areaNodeCounts?.[a.id]?.completed ?? 0,
           totalCount: areaNodeCounts?.[a.id]?.total ?? 0,
+          isStartArea: !targetAreaIds.has(a.id),
           onClick: handleAreaClick,
         },
       }));
@@ -125,20 +127,33 @@ export default function SphereGrid({
   const shouldFitView = !savedViewport;
 
   const fitViewOptions = useMemo(() => {
-    if (level === 'detail' && mathNodes && !savedViewport) {
-      const startNodeIds = mathNodes
-        .filter(n => n.prerequisites.length === 0)
-        .map(n => n.id);
-      if (startNodeIds.length > 0) {
-        return {
-          nodes: startNodeIds.map(id => ({ id })),
-          padding: 0.5,
-          maxZoom: 1.0,
-        };
+    if (!savedViewport) {
+      if (level === 'area' && areas && areaEdges) {
+        const targetAreaIds = new Set(areaEdges.map(e => e.target));
+        const startAreaIds = areas.filter(a => !targetAreaIds.has(a.id)).map(a => a.id);
+        if (startAreaIds.length > 0) {
+          return {
+            nodes: startAreaIds.map(id => ({ id })),
+            padding: 0.5,
+            maxZoom: 1.0,
+          };
+        }
+      }
+      if (level === 'detail' && mathNodes) {
+        const startNodeIds = mathNodes
+          .filter(n => n.prerequisites.length === 0)
+          .map(n => n.id);
+        if (startNodeIds.length > 0) {
+          return {
+            nodes: startNodeIds.map(id => ({ id })),
+            padding: 0.5,
+            maxZoom: 1.0,
+          };
+        }
       }
     }
     return { padding: 0.3 };
-  }, [level, mathNodes, savedViewport]);
+  }, [level, areas, areaEdges, mathNodes, savedViewport]);
 
   return (
     <div className="h-full w-full">
