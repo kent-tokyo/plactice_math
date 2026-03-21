@@ -43,14 +43,14 @@ export default function ComprehensionCheck({ nodeId, status, area, onUpdateProgr
         <p className="text-emerald-700 dark:text-emerald-300 font-semibold">{t('comprehension.alreadyCompleted')}</p>
         <div className="mt-3 flex justify-center gap-3">
           <button
-            onClick={() => router.push(resolvedMapUrl)}
+            onClick={() => { window.location.href = `${getContentBasePath()}${resolvedMapUrl}`; }}
             className="rounded-md bg-emerald-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
           >
             {t('common.backToMap')}
           </button>
           {domainMapUrl && (
             <button
-              onClick={() => router.push(domainMapUrl)}
+              onClick={() => { window.location.href = `${getContentBasePath()}${domainMapUrl}`; }}
               className="rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-emerald-950 px-6 py-2 text-sm font-medium text-emerald-700 dark:text-emerald-300 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-900"
             >
               {t('common.backToOverview')}
