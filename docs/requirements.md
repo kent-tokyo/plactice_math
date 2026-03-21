@@ -75,10 +75,10 @@
 - useProgress hookで取得・更新（domain引数対応）
 
 ### 6. コンテンツ保存
-- `public/content/{nodeId}/{level}/content.json` — 事前生成コンテンツ（レガシー: mathドメイン）
-- `public/content/{domain}/{nodeId}/{level}/content.json` — ドメインプレフィックス付き（将来対応）
-- `public/content/{nodeId}/{level}/illustration.webp` — Gemini生成画像
-- `public/content/manifest.json` — 生成済みコンテンツのインデックス
+- `public/content/{domain}/{nodeId}/{level}/content.json` — 事前生成コンテンツ（日本語、デフォルト）
+- `public/content/{domain}/{nodeId}/{level}/content.{locale}.json` — 多言語コンテンツ（en/zh）
+- `public/content/{domain}/{nodeId}/{level}/illustration.webp` — Gemini生成画像
+- `public/content/{domain}/manifest.json` — ドメイン別生成済みコンテンツのインデックス
 - content.jsonの形式:
   ```json
   {
@@ -104,8 +104,9 @@
   - `--image-model <model>` 画像生成モデル指定（デフォルト: `gemini-2.5-flash-image`）
   - `--images-only` 既存コンテンツの画像のみ再生成（コンテンツ生成をスキップ）
   - `--quiz-only` 既存コンテンツにクイズのみ追加生成
+  - `--locale <locale>` 既存日本語コンテンツを指定言語に翻訳生成（en/zh）。`content.{locale}.json`として保存。複数指定可
   - 並列実行制御（3並列）、既存スキップ（resume機能）
-  - 実行後に manifest.json と contents-table.md を自動更新
+  - 実行後にドメイン別 manifest.json と contents-table.md を自動更新
   - `dotenv/config`による`.env`自動読み込み（`export`ハック不要）
 - **5段階生成パイプライン**:
   1. Step 1 — MDX生成: 概念説明をプレーンMDXで生成（JSON制約なし、品質向上）
@@ -129,6 +130,12 @@
   - 標準: バランス重視・各セクション2〜3段落・具体例2つ以上
   - 上級者向け: 厳密な定義・証明・各セクション3〜5段落
 - **contents-table.md**: Illust.列・Quiz列・Reviewed列を含む生成状況テーブル（目視確認後に手動で`✓`に変更）
+- **多言語翻訳生成**: `--locale en/zh` フラグで既存日本語コンテンツをLLMで翻訳
+  - MDX本文、用語集、クイズ、SVG図解のラベルすべて翻訳
+  - 翻訳は日本語コンテンツに忠実（独立生成ではない）
+  - `content.{locale}.json` としてドメインディレクトリに保存
+  - manifest.jsonに`locales`フィールド（レベル別利用可能言語）を追加
+  - フロントエンドは`useLocale()`の言語設定に応じて自動的にlocale別ファイルを取得（未翻訳の場合は日本語にフォールバック）
 
 ### 7.5. 画像生成（Google Gemini）
 - Google Gemini の画像生成モデルによる概念のビジュアルガイド画像生成
@@ -173,7 +180,7 @@
 - **翻訳対象**: ナビゲーション、ボタンラベル、ステータス表示、クイズUI、理解度チェック、用語一覧ヘッダー等
 - **データラベル多言語化**: graph JSONの各エリア・ノードに`labels`/`descriptions`オブジェクト（`{ ja, en, zh }`）を追加。`localize(locale, default, labels)`ユーティリティ（`src/i18n/localize.ts`）でランタイム解決。SphereGrid内でノード/エリアデータ構築時にlocalize適用
 - **データラベル対応範囲**: 全3ドメインのエリア・ノードのlabel/descriptionが多言語化済み（数学64ノード含む）
-- **未対応（将来）**: コンテンツ本体のlocale別生成
+- **コンテンツ本体の多言語対応**: `--locale`フラグで日本語コンテンツを翻訳生成。`useContent`がユーザーのlocale設定に基づき`content.{locale}.json`を取得（なければjaフォールバック）
 
 ### 11. マルチドメイン対応
 - **ドメイン定義**: `src/data/graph/domains.json`（id, prefix, label, labels, description, descriptions, color, contentsTableLabel, areaOrder）— ドメインプレフィックス・エリア順序・ラベルなどの一元管理マスタ
