@@ -267,7 +267,8 @@
 - `next.config.ts` の `basePath` は `process.env.NEXT_PUBLIC_BASE_PATH` から取得する設計
 - ビルド時に `NEXT_PUBLIC_BASE_PATH=/study-route npm run build` で指定が必要（`.env`に書いても可）
 - `.env`に書かずビルドコマンドで渡し忘れると `/_next/...` からアセットを読み込もうとして404になる
-- 教訓: **GitHub Pagesデプロイ時はbasePath指定を忘れずに。ビルドコマンドに環境変数を含めるか、.envに明記する**
+- 対策: `build:gh-pages`スクリプト（`NEXT_PUBLIC_BASE_PATH=/study-route next build`）を作成し、`deploy:gh-pages`でビルド+デプロイを一括実行することで渡し忘れを防止
+- 教訓: **GitHub Pagesデプロイ時はbasePath指定を忘れずに。ビルドコマンドに環境変数をハードコードして渡し忘れを構造的に防止すべき**
 
 ### gh-pages デプロイ
 - `npx gh-pages -d out` で `gh-pages` ブランチにデプロイ

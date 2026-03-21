@@ -9,7 +9,8 @@
     "lint": "eslint",
     "generate-content": "npx tsx scripts/generate-content.ts",
     "generate-all": "npx tsx scripts/generate-content.ts --all --all-levels",
-    "deploy:gh-pages": "npx gh-pages -d out"
+    "build:gh-pages": "NEXT_PUBLIC_BASE_PATH=/study-route next build",
+    "deploy:gh-pages": "npm run build:gh-pages && npx gh-pages -d out"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",

@@ -96,6 +96,7 @@
 ### 7. コンテンツ生成（スクリプト）
 - Claude AIによるコンテンツ事前生成
 - 生成物: content.json（MDX、用語集、SVG図解、クイズ）、illustration.webp
+- デプロイ: `npm run deploy:gh-pages`（ビルド+デプロイ一括実行、`NEXT_PUBLIC_BASE_PATH=/study-route`自動付与）
 - CLIスクリプト: `npm run generate-content -- --node <nodeId>`
   - `--all` 全ノード / `--all-levels` 全レベル / `--with-images` 画像生成
   - `--force` 上書き / `--dry-run` 確認のみ
