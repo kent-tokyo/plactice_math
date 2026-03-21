@@ -1,0 +1,99 @@
+{
+  "id": "dfdfbbae-d6d0-4ea7-a811-1d8bb54670d3",
+  "nodeId": "double-entry",
+  "level": "standard",
+  "generatedAt": "2026-03-21T09:00:55.284Z",
+  "content": "# 複式簿記\n\n## 何か — 直感的な説明\n\n複式簿記とは、**すべての取引を「どこからきたか（貸方）」と「どこへいったか（借方）」の2つの側面から同時に記録する方法**です。\n\nたとえば、財布から1000円を取り出して貯金箱に入れたとします。このとき「財布が1000円減った」と「貯金箱が1000円増えた」という2つの事実が同時に起きています。複式簿記はこの「お金の動きには必ず出発点と到着点がある」という当たり前の事実を、**常にペアで記録する**仕組みです。\n\nどんな取引も必ず2つの側面があり、記録した金額の合計は必ず一致する——これが複式簿記の核心です。\n\n---\n\n## なぜ必要か — 数学における位置づけ\n\n複式簿記は、**等式の恒等的な成立**を実務に応用した仕組みです。中心にあるのは次の会計等式です。\n\n$$\n\\text{資産} = \\text{負債} + \\text{純資産（資本）}\n$$\n\nこの等式はどの時点でも、どんな取引の後でも**常に成り立ち続けます**。単式簿記（家計簿のように収入・支出だけを記録する方法）では、この等式が崩れていても気づけません。複式簿記は「両辺に同じ影響を与えるように記録する」ことで、等式の均衡を強制的に維持します。\n\n数学的には、これは**線形代数における不変量の保存**と同じ発想です。取引という「操作」を加えても、会計等式という「不変量」が変わらない——この構造が簿記を単なる記録術ではなく、論理的な体系にしています。誤りがあれば等式が崩れるため、記録の正確性を数学的に検証できる点が最大の強みです。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n複式簿記の中心にある会計等式を改めて確認しましょう。\n\n$$\n\\text{資産} = \\text{負債} + \\text{純資産}\n$$\n\n- **資産**：会社や個人が持っている財産（現金・建物・在庫など）\n- **負債**：他者から借りているもの（銀行借入・買掛金など）\n- **純資産**：資産から負債を引いた正味の財産（自己資本）\n\nすべての取引はこの等式の**左辺（借方・Debit）**と**右辺（貸方・Credit）**に分けて記録されます。取引ごとに\n\n$$\n\\Delta(\\text{借方の合計}) = \\Delta(\\text{貸方の合計})\n$$\n\nが必ず成り立ちます。つまり**借方に記録した金額の合計＝貸方に記録した金額の合計**が常に保証されます。\n\n各勘定科目には「借方が増加」か「貸方が増加」かのルールがあります。\n\n| 科目の種類 | 増加する側 | 減少する側 |\n|-----------|-----------|-----------|\n| 資産       | 借方（左）  | 貸方（右）  |\n| 負債       | 貸方（右）  | 借方（左）  |\n| 純資産     | 貸方（右）  | 借方（左）  |\n| 費用       | 借方（左）  | 貸方（右）  |\n| 収益       | 貸方（右）  | 借方（左）  |\n\nこのルールに従って記録すれば、どの時点でも会計等式が自動的に維持されます。\n\n---\n\n## 具体例\n\n### 例1：日常生活の例——財布とタンス貯金\n\n毎月のお小遣いを管理している場面を想像してください。財布に5000円持っていて、そのうち2000円をタンス貯金に移したとします。\n\n- **借方（タンス貯金が増えた）**：タンス貯金 ＋2000円\n- **貸方（財布が減った）**：財布 ▲2000円\n\nどちらも「資産」ですが、片方が増えてもう片方が同額だけ減る。総財産（5000円）は変わらず、等式は崩れません。これが複式簿記の最もシンプルな形です。\n\n### 例2：銀行からお金を借りる\n\n会社が銀行から100万円を借り入れたとします。\n\n- **借方（現金という資産が増えた）**：現金 ＋1,000,000円\n- **貸方（借入金という負債が増えた）**：借入金 ＋1,000,000円\n\n会計等式で確認すると、左辺（資産）が100万円増え、右辺（負債）も100万円増えるので\n\n$$\n\\text{資産}(+100\\text{万}) = \\text{負債}(+100\\text{万}) + \\text{純資産}(\\pm 0)\n$$\n\n等式は完璧に保たれています。\n\n### 例3：商品を現金で仕入れる\n\n書店が仕入れ業者から書籍を30万円分、現金で購入したとします。\n\n- **借方（在庫という資産が増えた）**：商品 ＋300,000円\n- **貸方（現金という資産が減った）**：現金 ▲300,000円\n\n今度は両方とも資産の変動です。資産の総額は変わらず（片方が増えて片方が同額減る）、負債も純資産も変化しません。等式の均衡は保たれています。\n\n### 例4：商品を現金で売る（収益の記録）\n\n書店が原価10万円の書籍を15万円で販売しました。\n\n- **借方（現金が増えた）**：現金 ＋150,000円\n- **貸方（売上という収益が増えた）**：売上 ＋150,000円\n- **借方（費用が発生した）**：売上原価 ＋100,000円\n- **貸方（在庫が減った）**：商品 ▲100,000円\n\nこの2つの仕訳セットにより、5万円の利益が純資産の増加として反映されます。複式簿記は「どれだけ儲かったか」を等式の変化として自動的に浮かび上がらせます。\n\n---\n\n## つながり — 他の概念との関係\n\n**前提となる知識：**\n- 四則演算と正負の数の理解（増減を＋▲で表す）\n- 等式の基本的な扱い（両辺に同じ操作を加えると等式は保たれる）\n\n**発展的な概念：**\n- **試算表（Trial Balance）**：全勘定の借方合計と貸方合計を集計し、一致することを確認する検証手法\n- **財務諸表（貸借対照表・損益計算書）**：複式簿記の記録を集約してできあがる報告書\n- **行列による会計処理**：取引を行列で表現することで、大量の仕訳を線形代数的に処理する手法（会計情報システムの基礎）\n- **複式簿記の一般化としての「フロー分析」**：ネットワーク上の流量保存則（キルヒホッフの法則など）は複式簿記と同じ数学的構造を持つ\n\n---\n\n## 他分野への応用\n\n**経済学・経営学：**\n国民経済計算（GDP統計）は複式簿記の原理を国家レベルに拡張したものです。ある国の輸出増加は、必ず他国の輸入増加に対応します。国際収支表における「経常収支＋資本収支＝0」は、まさに借方・貸方の均衡を国際規模で表しています。\n\n**物理学（電気回路）：**\nキルヒホッフの電流則（KCL）は「節点に流れ込む電流の総和＝流れ出る電流の総和」を要求します。これは複式簿記の「借方合計＝貸方合計」と完全に同型の数学的構造です。電荷の保存則が複式簿記の等式に対応しています。\n\n**コンピュータサイエンス：**\nデータベースにおける**トランザクション処理**は複式簿記から着想を得ています。銀行振込の処理では「引き落とし口座の残高減少」と「受取口座の残高増加」が**アトミック（不可分）に**実行されます。どちらか一方だけ成功することは許されない——この設計思想は複式簿記の「必ず両側を記録する」原則と同じです。\n\n**環境科学：**\n物質収支分析（マスバランス）では、系に入る物質量と出る物質量・蓄積量の関係を追跡します。「入力＝出力＋蓄積」という式は複式簿記の会計等式と同じ発想であり、化学プロセスの設計や廃棄物管理に広く応用されています。",
+  "terms": [
+    {
+      "term": "複式簿記",
+      "reading": "ふくしきぼき",
+      "en": "Double-Entry Bookkeeping",
+      "definition": "すべての取引を借方と貸方の2つの側面から同時に記録する会計手法。どんな取引でも借方合計と貸方合計が常に一致する。"
+    },
+    {
+      "term": "会計等式",
+      "reading": "かいけいとうしき",
+      "en": "Accounting Equation",
+      "definition": "「資産 ＝ 負債 ＋ 純資産」で表される恒等式。複式簿記のすべての記録はこの等式を常に成立させるように行われる。"
+    },
+    {
+      "term": "借方",
+      "reading": "かりかた",
+      "en": "Debit",
+      "definition": "会計等式の左辺に対応する記録欄。資産・費用の増加、または負債・純資産・収益の減少を記録する側。"
+    },
+    {
+      "term": "貸方",
+      "reading": "かしかた",
+      "en": "Credit",
+      "definition": "会計等式の右辺に対応する記録欄。負債・純資産・収益の増加、または資産・費用の減少を記録する側。"
+    },
+    {
+      "term": "資産",
+      "reading": "しさん",
+      "en": "Assets",
+      "definition": "会社や個人が保有する財産の総称。現金・建物・在庫など、経済的価値を持つものが含まれる。"
+    },
+    {
+      "term": "負債",
+      "reading": "ふさい",
+      "en": "Liabilities",
+      "definition": "他者から借りているものや将来返済・支払いが必要な義務。銀行借入・買掛金などが該当する。"
+    },
+    {
+      "term": "純資産",
+      "reading": "じゅんしさん",
+      "en": "Net Assets (Equity)",
+      "definition": "資産から負債を差し引いた正味の財産。自己資本とも呼ばれ、会計等式の右辺を構成する。"
+    },
+    {
+      "term": "勘定科目",
+      "reading": "かんじょうかもく",
+      "en": "Account Title",
+      "definition": "取引を分類・記録するための名称。資産・負債・純資産・収益・費用の5種類に大別される。"
+    },
+    {
+      "term": "仕訳",
+      "reading": "しわけ",
+      "en": "Journal Entry",
+      "definition": "取引を借方と貸方に分けて勘定科目と金額を記録すること。複式簿記における最小単位の記録操作。"
+    },
+    {
+      "term": "試算表",
+      "reading": "しさんひょう",
+      "en": "Trial Balance",
+      "definition": "全勘定の借方合計と貸方合計を集計し、両者が一致することを確認する検証用の一覧表。"
+    },
+    {
+      "term": "財務諸表",
+      "reading": "ざいむしょひょう",
+      "en": "Financial Statements",
+      "definition": "複式簿記の記録を集約して作成される報告書の総称。貸借対照表・損益計算書などが含まれる。"
+    },
+    {
+      "term": "単式簿記",
+      "reading": "たんしきぼき",
+      "en": "Single-Entry Bookkeeping",
+      "definition": "収入と支出の一方向のみを記録する簡易的な会計手法。家計簿がその典型例で、会計等式の均衡を保証できない。"
+    },
+    {
+      "term": "不変量",
+      "reading": "ふへんりょう",
+      "en": "Invariant",
+      "definition": "ある操作を加えても変化しない量や性質。複式簿記では会計等式がどの取引後も成り立ち続ける不変量に相当する。"
+    },
+    {
+      "term": "トランザクション処理",
+      "reading": "とらんざくしょんしょり",
+      "en": "Transaction Processing",
+      "definition": "複数の操作を不可分な一単位として実行するデータベースの処理方式。複式簿記の「必ず両側を記録する」原則と同じ設計思想を持つ。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 会計等式バナー -->\n  <rect x=\"60\" y=\"18\" width=\"480\" height=\"44\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-opacity=\"0.25\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"36\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" font-weight=\"bold\" opacity=\"0.6\">会計等式（恒等的に成立）</text>\n  <text x=\"300\" y=\"54\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"17\" font-weight=\"bold\">資産　＝　負債　＋　純資産</text>\n\n  <!-- 等式の矢印ライン -->\n  <line x1=\"300\" y1=\"62\" x2=\"300\" y2=\"90\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n\n  <!-- T字勘定 中央構造 -->\n  <!-- T字の縦線 -->\n  <line x1=\"300\" y1=\"100\" x2=\"300\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n  <!-- T字の横線 -->\n  <line x1=\"100\" y1=\"130\" x2=\"500\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n\n  <!-- T字ヘッダ背景 -->\n  <rect x=\"100\" y=\"100\" width=\"400\" height=\"30\" rx=\"0\" fill=\"currentColor\" fill-opacity=\"0.07\"/>\n\n  <!-- 借方ラベル -->\n  <text x=\"200\" y=\"122\" text-anchor=\"middle\" fill=\"#3b82f6\" font-size=\"15\" font-weight=\"bold\">借方（Debit）・左</text>\n  <!-- 貸方ラベル -->\n  <text x=\"400\" y=\"122\" text-anchor=\"middle\" fill=\"#ef4444\" font-size=\"15\" font-weight=\"bold\">貸方（Credit）・右</text>\n\n  <!-- 借方エリア背景 -->\n  <rect x=\"100\" y=\"130\" width=\"200\" height=\"160\" fill=\"#3b82f6\" fill-opacity=\"0.04\"/>\n  <!-- 貸方エリア背景 -->\n  <rect x=\"300\" y=\"130\" width=\"200\" height=\"160\" fill=\"#ef4444\" fill-opacity=\"0.04\"/>\n\n  <!-- 借方内容 -->\n  <text x=\"200\" y=\"158\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" font-weight=\"bold\" opacity=\"0.75\">増加する科目</text>\n  <rect x=\"118\" y=\"165\" width=\"164\" height=\"22\" rx=\"4\" fill=\"#3b82f6\" fill-opacity=\"0.12\"/>\n  <text x=\"200\" y=\"180\" text-anchor=\"middle\" fill=\"#3b82f6\" font-size=\"13\" font-weight=\"bold\">資産 ＋</text>\n\n  <rect x=\"118\" y=\"193\" width=\"164\" height=\"22\" rx=\"4\" fill=\"#3b82f6\" fill-opacity=\"0.09\"/>\n  <text x=\"200\" y=\"208\" text-anchor=\"middle\" fill=\"#3b82f6\" font-size=\"13\" font-weight=\"bold\">費用 ＋</text>\n\n  <line x1=\"120\" y1=\"225\" x2=\"280\" y2=\"225\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <text x=\"200\" y=\"242\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"11\" opacity=\"0.55\">減少する科目</text>\n  <text x=\"200\" y=\"260\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" opacity=\"0.5\">負債▲　純資産▲　収益▲</text>\n  <text x=\"200\" y=\"278\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" opacity=\"0.5\">（例：返済・配当・値引）</text>\n\n  <!-- 貸方内容 -->\n  <text x=\"400\" y=\"158\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" font-weight=\"bold\" opacity=\"0.75\">増加する科目</text>\n  <rect x=\"318\" y=\"165\" width=\"164\" height=\"22\" rx=\"4\" fill=\"#ef4444\" fill-opacity=\"0.12\"/>\n  <text x=\"400\" y=\"180\" text-anchor=\"middle\" fill=\"#ef4444\" font-size=\"13\" font-weight=\"bold\">負債 ＋</text>\n\n  <rect x=\"318\" y=\"193\" width=\"164\" height=\"22\" rx=\"4\" fill=\"#ef4444\" fill-opacity=\"0.09\"/>\n  <text x=\"400\" y=\"208\" text-anchor=\"middle\" fill=\"#ef4444\" font-size=\"13\" font-weight=\"bold\">純資産 ＋　収益 ＋</text>\n\n  <line x1=\"320\" y1=\"225\" x2=\"480\" y2=\"225\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <text x=\"400\" y=\"242\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"11\" opacity=\"0.55\">減少する科目</text>\n  <text x=\"400\" y=\"260\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" opacity=\"0.5\">資産▲　費用▲</text>\n  <text x=\"400\" y=\"278\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" opacity=\"0.5\">（例：現金支出・減価償却）</text>\n\n  <!-- 均衡の矢印 -->\n  <path d=\"M 195 295 Q 195 310 300 315 Q 405 310 405 295\" stroke=\"#22c55e\" stroke-width=\"2\" fill=\"none\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"190,292 195,302 200,292\" fill=\"#22c55e\"/>\n  <polygon points=\"400,292 405,302 410,292\" fill=\"#22c55e\"/>\n  <text x=\"300\" y=\"330\" text-anchor=\"middle\" fill=\"#22c55e\" font-size=\"13\" font-weight=\"bold\">借方合計　＝　貸方合計（常に均衡）</text>\n\n  <!-- 区切り線 -->\n  <line x1=\"60\" y1=\"348\" x2=\"540\" y2=\"348\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n\n  <!-- 具体例：銀行借入 -->\n  <text x=\"300\" y=\"368\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"12\" font-weight=\"bold\" opacity=\"0.7\">【例】銀行から100万円借入</text>\n\n  <!-- 仕訳テーブル -->\n  <rect x=\"80\" y=\"378\" width=\"200\" height=\"32\" rx=\"5\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"180\" y=\"390\" text-anchor=\"middle\" fill=\"#3b82f6\" font-size=\"11\" font-weight=\"bold\">借方</text>\n  <text x=\"180\" y=\"404\" text-anchor=\"middle\" fill=\"#3b82f6\" font-size=\"12\" font-weight=\"bold\">現金　＋1,000,000円</text>\n\n  <text x=\"300\" y=\"397\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"16\" font-weight=\"bold\" opacity=\"0.4\">/</text>\n\n  <rect x=\"320\" y=\"378\" width=\"200\" height=\"32\" rx=\"5\" fill=\"#ef4444\" fill-opacity=\"0.12\" stroke=\"#ef4444\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"420\" y=\"390\" text-anchor=\"middle\" fill=\"#ef4444\" font-size=\"11\" font-weight=\"bold\">貸方</text>\n  <text x=\"420\" y=\"404\" text-anchor=\"middle\" fill=\"#ef4444\" font-size=\"12\" font-weight=\"bold\">借入金　＋1,000,000円</text>\n\n  <!-- 会計等式確認 -->\n  <rect x=\"80\" y=\"422\" width=\"440\" height=\"28\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.08\" stroke=\"#22c55e\" stroke-opacity=\"0.25\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"440\" text-anchor=\"middle\" fill=\"#22c55e\" font-size=\"12\" font-weight=\"bold\">資産(+100万) ＝ 負債(+100万) ＋ 純資産(±0)　✓ 等式保持</text>\n\n  <!-- 不変量の説明 -->\n  <rect x=\"80\" y=\"462\" width=\"440\" height=\"44\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1.2\"/>\n  <text x=\"300\" y=\"480\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"11\" opacity=\"0.7\">どんな取引も「借方＝貸方」のペアで記録されるため</text>\n  <text x=\"300\" y=\"497\" text-anchor=\"middle\" fill=\"currentColor\" font-size=\"11\" opacity=\"0.7\">会計等式は不変量として常に保存される（線形代数の不変量保存と同型）</text>\n\n</svg>"
+    }
+  ]
+}

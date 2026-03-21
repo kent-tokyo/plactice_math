@@ -1,0 +1,87 @@
+{
+  "id": "15297d6c-9403-449b-b2f3-412547af8e76",
+  "nodeId": "journal-entries",
+  "level": "standard",
+  "generatedAt": "2026-03-21T09:03:00.818Z",
+  "content": "# 仕訳\n\n## 何か — 直感的な説明\n\n仕訳とは、**取引が起きるたびにその内容を「借方（左）」と「貸方（右）」に記録する作業**のことです。\n\n日記に「今日あったこと」を書き留めるように、企業は取引が発生するたびに「仕訳帳」という日記帳に記録を残します。ただし普通の日記と違い、仕訳は必ず「何が増えたか・減ったか」を左右に分けて書くというルールがあります。たとえば「現金を払って商品を買った」なら、左に「仕入（費用が発生した）」、右に「現金（資産が減った）」と書く、というイメージです。\n\nこの「左右に分けて書く」というシンプルなルールが、企業のお金の流れを正確に追跡するための出発点になっています。\n\n---\n\n## なぜ必要か — 数学における位置づけ\n\n複式簿記の世界では、すべての取引は**必ず2つ以上の勘定科目に影響を与える**という原則があります。仕訳は、その原則を忠実に記録するための具体的な手続きです。\n\n仕訳を行うことで、「どの勘定科目が、いつ、どれだけ動いたか」を時系列に追跡できます。この記録が積み重なると、後で**総勘定元帳（各科目ごとの集計帳）** へ転記でき、最終的には貸借対照表や損益計算書という財務諸表を作成する土台になります。つまり仕訳は、簿記全体のプロセスにおける**「最初の一手」**であり、ここでミスがあると以降の集計がすべて狂ってしまう、非常に重要な工程です。\n\nまた、仕訳を通じて複式簿記の核心である「借方合計 $=$ 貸方合計」という等式が常に維持されます。この均衡が崩れたとき、どこかで記録ミスが起きたことを即座に検知できる、という自己チェック機能も仕訳が持つ重要な役割です。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n仕訳の中心にあるのは、**複式簿記の基本等式**です。\n\n$$\n\\text{資産} = \\text{負債} + \\text{純資産}\n$$\n\nすべての取引は、この等式を維持したまま記録されなければなりません。仕訳はそれを保証する仕組みです。\n\n仕訳の形式は次のように表されます。\n\n$$\n\\text{（借方）勘定科目} \\quad 金額 \\quad \\big| \\quad \\text{（貸方）勘定科目} \\quad 金額\n$$\n\nそして、どんな仕訳でも以下の等式が成り立ちます。\n\n$$\n\\sum \\text{借方金額} = \\sum \\text{貸方金額}\n$$\n\n勘定科目ごとの「増減の方向」は、次のルールに従います。\n\n| 勘定の種類 | 借方（左）で増加 | 貸方（右）で増加 |\n|:---:|:---:|:---:|\n| 資産 | ✅ 増加 | ❌ 減少 |\n| 負債 | ❌ 減少 | ✅ 増加 |\n| 純資産 | ❌ 減少 | ✅ 増加 |\n| 収益 | ❌ 減少 | ✅ 増加 |\n| 費用 | ✅ 増加 | ❌ 減少 |\n\nこのルールさえ覚えれば、どんな取引も仕訳に落とし込めます。「資産が増えたら左、負債が増えたら右」という感覚を身につけることが最初の目標です。\n\n---\n\n## 具体例\n\n### 例1：日常生活の例 — コンビニでお菓子を買う\n\nあなたが財布から300円を出してお菓子を買ったとします。この瞬間に「現金が300円減り、費用（仕入）が300円分発生した」という取引が発生しています。\n\nこれを仕訳で表すと：\n\n| 借方 | | 貸方 | |\n|---|---|---|---|\n| 仕入（費用） | 300円 | 現金（資産） | 300円 |\n\n- **借方の仕入**：費用が発生したので左（借方）に記録\n- **貸方の現金**：資産が減ったので右（貸方）に記録\n\n日常のちょっとした買い物も、企業の視点で見ると「左右に分けて記録できる取引」になっています。\n\n---\n\n### 例2：銀行から借入をする\n\n会社が銀行から100万円を借り入れて、当座預金に入金された場合。\n\n「当座預金が増えた」＝資産の増加 → 借方\n「借入金が増えた」＝負債の増加 → 貸方\n\n| 借方 | | 貸方 | |\n|---|---|---|---|\n| 当座預金（資産） | 1,000,000円 | 借入金（負債） | 1,000,000円 |\n\nこのケースでは、資産と負債が同時に同じ金額だけ増えています。基本等式 $\\text{資産} = \\text{負債} + \\text{純資産}$ は、両辺が同額増えるので均衡が保たれています。\n\n---\n\n### 例3：サービスを提供して売上が立つ\n\n会社がコンサルティングサービスを提供し、50万円を現金で受け取った場合。\n\n「現金が増えた」＝資産の増加 → 借方\n「売上が立った」＝収益の増加 → 貸方\n\n| 借方 | | 貸方 | |\n|---|---|---|---|\n| 現金（資産） | 500,000円 | 売上（収益） | 500,000円 |\n\n収益は貸方（右）で増加するというルールが確認できます。この仕訳が積み重なることで、期末の「売上合計」が損益計算書に反映されます。\n\n---\n\n### 例4：複数の勘定が絡む仕訳（複合仕訳）\n\n商品80万円を購入し、うち30万円は現金で支払い、残り50万円は後払い（買掛金）とした場合。\n\n| 借方 | | 貸方 | |\n|---|---|---|---|\n| 仕入（費用） | 800,000円 | 現金（資産） | 300,000円 |\n| | | 買掛金（負債） | 500,000円 |\n\n借方合計 $= 800{,}000$、貸方合計 $= 300{,}000 + 500{,}000 = 800{,}000$ となり、等式が成立しています。このように、1つの取引に3つ以上の勘定が絡む「複合仕訳」も、同じ原則で処理できます。\n\n---\n\n## つながり — 他の概念との関係\n\n**前提知識との関係**\n\n仕訳を正しく切るためには、まず**複式簿記（double-entry）** の「借方・貸方」の概念を理解している必要があります。借方・貸方は単なる「左・右」ではなく、勘定科目の種類によって「増加」「減少」の意味が変わります。また、**勘定科目（accounts）** の分類（資産・負債・純資産・収益・費用）を把握していないと、どの科目を借方・貸方のどちらに書くかが判断できません。\n\n**発展先との関係**\n\n仕訳が完成したら、次のステップは**総勘定元帳への転記**です。科目ごとに仕訳の内容をまとめることで、各科目の残高が明らかになります。さらにその先には、**試算表**（借方・貸方の合計が一致しているか確認する表）、そして最終成果物である**貸借対照表・損益計算書**へと続く、一連の流れの起点が仕訳です。\n\n```\n仕訳帳 → 総勘定元帳 → 試算表 → 財務諸表\n  ↑\nここが仕訳の位置\n```\n\n---\n\n## 他分野への応用\n\n**経営管理・management accounting**\n\n仕訳のデータは、コスト分析や予算管理にも活用されます。費用の仕訳を部門別・プロジェクト別に記録することで、どの事業にいくらコストがかかっているかを可視化し、経営判断を支えます。\n\n**コンピュータサイエンス・会計システム**\n\n現代の会計ソフト（例：QuickBooks、弥生会計、SAP）は、ユーザーが入力した取引情報をもとに**自動的に仕訳を生成**します。データベース設計の観点では、仕訳データは「日付・借方科目・貸方科目・金額・摘要」をフィールドに持つレコードとして管理されます。仕訳の二重性（借方 $=$ 貸方）は、データ整合性チェックのロジックとしてそのままシステムに実装されています。\n\n**監査・法律**\n\n税務申告や企業監査では、仕訳帳が重要な証拠書類になります。取引の実態が仕訳に正しく反映されているかを第三者が検証することで、財務報告の信頼性が担保されます。仕訳という「一次記録」の正確性が、社会的な信頼の基盤を支えているともいえます。",
+  "terms": [
+    {
+      "term": "仕訳",
+      "reading": "しわけ",
+      "en": "Journal Entry",
+      "definition": "取引が発生するたびに、その内容を借方（左）と貸方（右）に分けて仕訳帳へ記録する作業。複式簿記における最初の記録工程であり、すべての会計処理の起点となる。"
+    },
+    {
+      "term": "複式簿記",
+      "reading": "ふくしきぼき",
+      "en": "Double-Entry Bookkeeping",
+      "definition": "すべての取引を必ず2つ以上の勘定科目に影響を与えるものとして記録する簿記の方式。借方合計と貸方合計が常に一致するという自己チェック機能を持つ。"
+    },
+    {
+      "term": "借方",
+      "reading": "かりかた",
+      "en": "Debit",
+      "definition": "仕訳における左側の記録欄。資産・費用の増加、および負債・純資産・収益の減少を記録する側。"
+    },
+    {
+      "term": "貸方",
+      "reading": "かしかた",
+      "en": "Credit",
+      "definition": "仕訳における右側の記録欄。負債・純資産・収益の増加、および資産・費用の減少を記録する側。"
+    },
+    {
+      "term": "勘定科目",
+      "reading": "かんじょうかもく",
+      "en": "Account",
+      "definition": "取引の内容を分類・整理するための項目名。資産・負債・純資産・収益・費用の5種類に大別され、仕訳の借方・貸方に記載される。"
+    },
+    {
+      "term": "総勘定元帳",
+      "reading": "そうかんじょうもとちょう",
+      "en": "General Ledger",
+      "definition": "仕訳帳に記録された仕訳を勘定科目ごとに転記・集計する帳簿。各科目の残高を把握するための中心的な帳簿であり、財務諸表作成の基礎となる。"
+    },
+    {
+      "term": "試算表",
+      "reading": "しさんひょう",
+      "en": "Trial Balance",
+      "definition": "総勘定元帳の各勘定科目の借方・貸方の合計または残高を一覧にした表。借方合計と貸方合計が一致するかを確認することで、記録ミスの有無を検証する。"
+    },
+    {
+      "term": "貸借対照表",
+      "reading": "たいしゃくたいしょうひょう",
+      "en": "Balance Sheet",
+      "definition": "一定時点における企業の資産・負債・純資産の状況を示す財務諸表。「資産 = 負債 + 純資産」という基本等式に基づいて作成される。"
+    },
+    {
+      "term": "損益計算書",
+      "reading": "そんえきけいさんしょ",
+      "en": "Income Statement",
+      "definition": "一定期間における企業の収益・費用・利益の状況を示す財務諸表。仕訳で記録された収益・費用の勘定科目の集計から作成される。"
+    },
+    {
+      "term": "複合仕訳",
+      "reading": "ふくごうしわけ",
+      "en": "Compound Journal Entry",
+      "definition": "1つの取引に対して3つ以上の勘定科目が借方・貸方に登場する仕訳。借方合計と貸方合計の等式は通常の仕訳と同様に成立しなければならない。"
+    },
+    {
+      "term": "買掛金",
+      "reading": "かいかけきん",
+      "en": "Accounts Payable",
+      "definition": "商品やサービスを後払い条件で購入した際に発生する未払いの債務。負債に分類され、支払い時に減少する。"
+    },
+    {
+      "term": "純資産",
+      "reading": "じゅんしさん",
+      "en": "Net Assets / Equity",
+      "definition": "資産から負債を差し引いた残余の持分であり、株主資本などを含む。「資産 = 負債 + 純資産」という基本等式の構成要素の一つ。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 背景透明 -->\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"currentColor\">仕訳の構造と簿記フロー</text>\n\n  <!-- ========== 基本等式 ========== -->\n  <rect x=\"120\" y=\"50\" width=\"360\" height=\"38\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"67\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">基本等式：資産 ＝ 負債 ＋ 純資産</text>\n  <text x=\"300\" y=\"82\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">（仕訳はこの等式を常に維持する）</text>\n\n  <!-- ========== 仕訳帳メインボックス ========== -->\n  <!-- 仕訳帳ラベル -->\n  <text x=\"300\" y=\"115\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" font-weight=\"bold\">仕訳帳（取引の記録）</text>\n\n  <!-- 借方ボックス -->\n  <rect x=\"60\" y=\"125\" width=\"200\" height=\"120\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"160\" y=\"148\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#3b82f6\">借方（左）</text>\n\n  <!-- 借方内容 -->\n  <text x=\"80\" y=\"172\" font-size=\"11\" fill=\"currentColor\">✅ 資産　の増加</text>\n  <text x=\"80\" y=\"190\" font-size=\"11\" fill=\"currentColor\">✅ 費用　の発生</text>\n  <text x=\"80\" y=\"208\" font-size=\"11\" fill=\"currentColor\">❌ 負債　の減少</text>\n  <text x=\"80\" y=\"226\" font-size=\"11\" fill=\"currentColor\">❌ 純資産の減少</text>\n  <text x=\"80\" y=\"234\" font-size=\"11\" fill=\"currentColor\">❌ 収益　の減少</text>\n\n  <!-- 中央の縦線（仕訳帳の区切り） -->\n  <line x1=\"300\" y1=\"125\" x2=\"300\" y2=\"245\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-dasharray=\"6,3\"/>\n\n  <!-- ∑借方=∑貸方 -->\n  <text x=\"300\" y=\"260\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">Σ借方金額 ＝ Σ貸方金額</text>\n\n  <!-- 貸方ボックス -->\n  <rect x=\"340\" y=\"125\" width=\"200\" height=\"120\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.09\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <text x=\"440\" y=\"148\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#ef4444\">貸方（右）</text>\n\n  <!-- 貸方内容 -->\n  <text x=\"360\" y=\"172\" font-size=\"11\" fill=\"currentColor\">✅ 負債　の増加</text>\n  <text x=\"360\" y=\"190\" font-size=\"11\" fill=\"currentColor\">✅ 純資産の増加</text>\n  <text x=\"360\" y=\"208\" font-size=\"11\" fill=\"currentColor\">✅ 収益　の増加</text>\n  <text x=\"360\" y=\"226\" font-size=\"11\" fill=\"currentColor\">❌ 資産　の減少</text>\n  <text x=\"360\" y=\"234\" font-size=\"11\" fill=\"currentColor\">❌ 費用　の減少</text>\n\n  <!-- ========== 具体例（複合仕訳） ========== -->\n  <rect x=\"60\" y=\"275\" width=\"480\" height=\"68\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,3\"/>\n  <text x=\"300\" y=\"294\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">例：商品80万円購入（現金30万＋買掛金50万）</text>\n\n  <!-- 例ヘッダ -->\n  <text x=\"130\" y=\"314\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\" font-weight=\"bold\">借方</text>\n  <line x1=\"300\" y1=\"300\" x2=\"300\" y2=\"335\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"450\" y=\"314\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\" font-weight=\"bold\">貸方</text>\n\n  <text x=\"90\" y=\"328\" font-size=\"10.5\" fill=\"currentColor\">仕入（費用）</text>\n  <text x=\"225\" y=\"328\" text-anchor=\"end\" font-size=\"10.5\" fill=\"currentColor\">800,000円</text>\n  <text x=\"315\" y=\"320\" font-size=\"10.5\" fill=\"currentColor\">現金（資産）</text>\n  <text x=\"525\" y=\"320\" text-anchor=\"end\" font-size=\"10.5\" fill=\"currentColor\">300,000円</text>\n  <text x=\"315\" y=\"334\" font-size=\"10.5\" fill=\"currentColor\">買掛金（負債）</text>\n  <text x=\"525\" y=\"334\" text-anchor=\"end\" font-size=\"10.5\" fill=\"currentColor\">500,000円</text>\n\n  <!-- ========== フロー矢印：簿記プロセス ========== -->\n  <text x=\"300\" y=\"366\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" font-style=\"italic\">▼ 転記・集計の流れ</text>\n\n  <!-- フローノード -->\n  <!-- 仕訳帳 -->\n  <rect x=\"30\" y=\"378\" width=\"100\" height=\"34\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"80\" y=\"392\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">仕訳帳</text>\n  <text x=\"80\" y=\"406\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">← ここが仕訳</text>\n\n  <!-- 矢印1 -->\n  <line x1=\"130\" y1=\"395\" x2=\"160\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n\n  <!-- 総勘定元帳 -->\n  <rect x=\"160\" y=\"378\" width=\"110\" height=\"34\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"215\" y=\"392\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" font-weight=\"bold\">総勘定元帳</text>\n  <text x=\"215\" y=\"406\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">科目別に集計</text>\n\n  <!-- 矢印2 -->\n  <line x1=\"270\" y1=\"395\" x2=\"300\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n\n  <!-- 試算表 -->\n  <rect x=\"300\" y=\"378\" width=\"100\" height=\"34\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"350\" y=\"392\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"currentColor\" font-weight=\"bold\">試算表</text>\n  <text x=\"350\" y=\"406\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">誤り検知</text>\n\n  <!-- 矢印3 -->\n  <line x1=\"400\" y1=\"395\" x2=\"430\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n\n  <!-- 財務諸表 -->\n  <rect x=\"430\" y=\"378\" width=\"130\" height=\"34\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.13\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"495\" y=\"392\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"#22c55e\" font-weight=\"bold\">財務諸表</text>\n  <text x=\"495\" y=\"406\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">BS・PL</text>\n\n  <!-- ========== 勘定科目5分類 ========== -->\n  <text x=\"300\" y=\"438\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" font-weight=\"bold\">勘定科目の5分類と増加方向</text>\n\n  <!-- 5分類バー -->\n  <!-- 資産 -->\n  <rect x=\"30\" y=\"447\" width=\"90\" height=\"28\" rx=\"5\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"75\" y=\"459\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\" font-weight=\"bold\">資産</text>\n  <text x=\"75\" y=\"470\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">借方↑</text>\n\n  <!-- 負債 -->\n  <rect x=\"128\" y=\"447\" width=\"90\" height=\"28\" rx=\"5\" fill=\"#ef4444\" fill-opacity=\"0.13\" stroke=\"#ef4444\" stroke-width=\"1.2\"/>\n  <text x=\"173\" y=\"459\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\" font-weight=\"bold\">負債</text>\n  <text x=\"173\" y=\"470\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">貸方↑</text>\n\n  <!-- 純資産 -->\n  <rect x=\"226\" y=\"447\" width=\"90\" height=\"28\" rx=\"5\" fill=\"#ef4444\" fill-opacity=\"0.13\" stroke=\"#ef4444\" stroke-width=\"1.2\"/>\n  <text x=\"271\" y=\"459\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\" font-weight=\"bold\">純資産</text>\n  <text x=\"271\" y=\"470\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">貸方↑</text>\n\n  <!-- 収益 -->\n  <rect x=\"324\" y=\"447\" width=\"90\" height=\"28\" rx=\"5\" fill=\"#ef4444\" fill-opacity=\"0.13\" stroke=\"#ef4444\" stroke-width=\"1.2\"/>\n  <text x=\"369\" y=\"459\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\" font-weight=\"bold\">収益</text>\n  <text x=\"369\" y=\"470\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">貸方↑</text>\n\n  <!-- 費用 -->\n  <rect x=\"422\" y=\"447\" width=\"90\" height=\"28\" rx=\"5\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"467\" y=\"459\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\" font-weight=\"bold\">費用</text>\n  <text x=\"467\" y=\"470\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">借方↑</text>\n\n  <!-- 凡例 -->\n  <rect x=\"30\" y=\"490\" width=\"12\" height=\"12\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.3\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"46\" y=\"501\" font-size=\"10\" fill=\"currentColor\">借方（左）で増加</text>\n  <rect x=\"185\" y=\"490\" width=\"12\" height=\"12\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.25\" stroke=\"#ef4444\" stroke-width=\"1\"/>\n  <text x=\"201\" y=\"501\" font-size=\"10\" fill=\"currentColor\">貸方（右）で増加</text>\n\n  <!-- 自己チェック機能メモ -->\n  <rect x=\"340\" y=\"486\" width=\"220\" height=\"24\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1\"/>\n  <text x=\"450\" y=\"501\" text-anchor=\"middle\" font-size=\"10\" fill=\"#22c55e\" font-weight=\"bold\">自己チェック：Σ借方≠Σ貸方 → 誤り検知</text>\n\n  <!-- 矢印マーカー定義 -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n  </defs>\n\n</svg>"
+    }
+  ]
+}
