@@ -60,7 +60,7 @@
       "difficulty": 2,
       "position": {
         "x": 100,
-        "y": 150
+        "y": 200
       },
       "description": "取引の記録方法と仕訳帳",
       "descriptions": {
@@ -86,7 +86,7 @@
       "difficulty": 2,
       "position": {
         "x": 300,
-        "y": 150
+        "y": 400
       },
       "description": "合計残高試算表・残高試算表",
       "descriptions": {
@@ -111,7 +111,7 @@
       "difficulty": 2,
       "position": {
         "x": 0,
-        "y": 150
+        "y": 400
       },
       "description": "減価償却・引当金・経過勘定",
       "descriptions": {

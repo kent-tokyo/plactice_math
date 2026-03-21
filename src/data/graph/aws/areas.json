@@ -21,7 +21,7 @@
     "id": "networking",
     "label": "ネットワーキング",
     "labels": { "ja": "ネットワーキング", "en": "Networking", "zh": "网络" },
-    "position": { "x": 200, "y": -200 },
+    "position": { "x": 0, "y": -200 },
     "color": "#8b5cf6",
     "description": "VPC・Route53・CloudFront・ELBなど",
     "descriptions": { "ja": "VPC・Route53・CloudFront・ELBなど", "en": "VPC, Route 53, CloudFront, ELB and more", "zh": "VPC、Route53、CloudFront、ELB等" }
@@ -30,7 +30,7 @@
     "id": "security",
     "label": "セキュリティ",
     "labels": { "ja": "セキュリティ", "en": "Security", "zh": "安全" },
-    "position": { "x": 200, "y": 200 },
+    "position": { "x": 0, "y": 200 },
     "color": "#ef4444",
     "description": "IAM・KMS・WAF・Cognitoなどのセキュリティサービス",
     "descriptions": { "ja": "IAM・KMS・WAF・Cognitoなどのセキュリティサービス", "en": "IAM, KMS, WAF, Cognito and other security services", "zh": "IAM、KMS、WAF、Cognito等安全服务" }

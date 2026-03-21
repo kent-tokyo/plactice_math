@@ -6,7 +6,7 @@ import { generateContent, generateQuizOnly } from '../src/lib/content-generator'
 import { generateConceptImage } from '../src/lib/image-generator';
 import { getAllNodes, getNode } from '../src/lib/graph';
 import type { DomainId } from '../src/types/domain';
-import { getDomains, getDomainIds } from '../src/data/graph';
+import { getDomains, getDomainIds, getAreaToDomainMap } from '../src/data/graph';
 
 const DOMAIN_IDS = getDomainIds();
 const domainsData = getDomains();
@@ -16,6 +16,13 @@ const DOMAIN_PREFIXES = Object.fromEntries(domainsData.map(d => [d.id, d.prefix]
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'content');
 const CONTENT_LEVELS = ['beginner', 'standard', 'advanced'] as const;
 const MAX_CONCURRENCY = 3;
+
+const AREA_TO_DOMAIN = getAreaToDomainMap();
+function getDomainForNode(nodeId: string): DomainId {
+  const node = getNode(nodeId);
+  if (!node) throw new Error(`Node "${nodeId}" not found`);
+  return AREA_TO_DOMAIN[node.area] || 'math';
+}
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -101,7 +108,8 @@ function getTargetLevels(flags: ReturnType<typeof parseArgs>): string[] {
 }
 
 function contentExists(nodeId: string, level: string): boolean {
-  return fs.existsSync(path.join(OUTPUT_DIR, nodeId, level, 'content.json'));
+  const domain = getDomainForNode(nodeId);
+  return fs.existsSync(path.join(OUTPUT_DIR, domain, nodeId, level, 'content.json'));
 }
 
 interface ManifestEntry {
@@ -109,17 +117,19 @@ interface ManifestEntry {
   hasIllustration: Record<string, boolean>;
 }
 
-function loadManifest(): Record<string, ManifestEntry> {
-  const manifestPath = path.join(OUTPUT_DIR, 'manifest.json');
+function loadManifest(domainId: DomainId): Record<string, ManifestEntry> {
+  const manifestPath = path.join(OUTPUT_DIR, domainId, 'manifest.json');
   if (fs.existsSync(manifestPath)) {
     return JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
   }
   return {};
 }
 
-function saveManifest(manifest: Record<string, ManifestEntry>): void {
+function saveManifest(domainId: DomainId, manifest: Record<string, ManifestEntry>): void {
+  const domainDir = path.join(OUTPUT_DIR, domainId);
+  fs.mkdirSync(domainDir, { recursive: true });
   fs.writeFileSync(
-    path.join(OUTPUT_DIR, 'manifest.json'),
+    path.join(domainDir, 'manifest.json'),
     JSON.stringify(manifest, null, 2),
   );
 }
@@ -137,7 +147,7 @@ function buildDomainRows(domainId: DomainId, manifest: Record<string, ManifestEn
     let hasQuiz = '-';
     if (entry) {
       for (const level of entry.levels) {
-        const contentPath = path.join(OUTPUT_DIR, node.id, level, 'content.json');
+        const contentPath = path.join(OUTPUT_DIR, domainId, node.id, level, 'content.json');
         try {
           if (fs.existsSync(contentPath)) {
             const data = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
@@ -234,7 +244,8 @@ async function main() {
       const tasks = quizJobs.map(job => async () => {
         const label = `${job.nodeId}/${job.level}`;
         try {
-          const contentPath = path.join(OUTPUT_DIR, job.nodeId, job.level, 'content.json');
+          const domain = getDomainForNode(job.nodeId);
+          const contentPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
           const existing = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
           const quiz = await generateQuizOnly(job.nodeId, existing.content || '', { llmModel: modelName });
           existing.quiz = quiz;
@@ -281,12 +292,13 @@ async function main() {
         if (!node) return { nodeId: job.nodeId, level: job.level, error: true };
 
         try {
-          const contentPath = path.join(OUTPUT_DIR, job.nodeId, job.level, 'content.json');
+          const domain = getDomainForNode(job.nodeId);
+          const contentPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
           const existing = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
           const contentSummary = (existing.content || '').slice(0, 500);
           const img = await generateConceptImage(node.label, node.description, contentSummary, flags.imageModel || undefined);
           if (img?.buffer) {
-            fs.writeFileSync(path.join(OUTPUT_DIR, job.nodeId, job.level, 'illustration.webp'), img.buffer);
+            fs.writeFileSync(path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'illustration.webp'), img.buffer);
             console.log(`  [image] ${label}`);
           } else {
             console.warn(`  [image-empty] ${label}: no image returned`);
@@ -339,8 +351,9 @@ async function main() {
           return { nodeId: job.nodeId, level: job.level, error: true };
         }
 
-        // Save to public/content/{nodeId}/{level}/content.json
-        const outDir = path.join(OUTPUT_DIR, job.nodeId, job.level);
+        // Save to public/content/{domain}/{nodeId}/{level}/content.json
+        const domain = getDomainForNode(job.nodeId);
+        const outDir = path.join(OUTPUT_DIR, domain, job.nodeId, job.level);
         fs.mkdirSync(outDir, { recursive: true });
         fs.writeFileSync(
           path.join(outDir, 'content.json'),
@@ -381,27 +394,40 @@ async function main() {
     }
   }
 
-  // Update manifest
-  const manifest = loadManifest();
+  // Update per-domain manifests
+  const nodesByDomain = new Map<DomainId, string[]>();
   for (const nodeId of nodeIds) {
-    if (!manifest[nodeId]) {
-      manifest[nodeId] = { levels: [], hasIllustration: {} };
-    }
-    for (const level of levels) {
-      if (contentExists(nodeId, level)) {
-        if (!manifest[nodeId].levels.includes(level)) {
-          manifest[nodeId].levels.push(level);
-        }
-        manifest[nodeId].hasIllustration[level] = fs.existsSync(
-          path.join(OUTPUT_DIR, nodeId, level, 'illustration.webp'),
-        );
-      }
-    }
+    const domain = getDomainForNode(nodeId);
+    if (!nodesByDomain.has(domain)) nodesByDomain.set(domain, []);
+    nodesByDomain.get(domain)!.push(nodeId);
   }
 
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  saveManifest(manifest);
-  updateContentsTable(manifest);
+  for (const [domainId, domainNodeIds] of nodesByDomain) {
+    const manifest = loadManifest(domainId);
+    for (const nodeId of domainNodeIds) {
+      if (!manifest[nodeId]) {
+        manifest[nodeId] = { levels: [], hasIllustration: {} };
+      }
+      for (const level of levels) {
+        if (contentExists(nodeId, level)) {
+          if (!manifest[nodeId].levels.includes(level)) {
+            manifest[nodeId].levels.push(level);
+          }
+          manifest[nodeId].hasIllustration[level] = fs.existsSync(
+            path.join(OUTPUT_DIR, domainId, nodeId, level, 'illustration.webp'),
+          );
+        }
+      }
+    }
+    saveManifest(domainId, manifest);
+  }
+
+  // For contents-table, merge all domain manifests
+  const allManifest: Record<string, ManifestEntry> = {};
+  for (const domainId of DOMAIN_IDS) {
+    Object.assign(allManifest, loadManifest(domainId));
+  }
+  updateContentsTable(allManifest);
 
   console.log('\nManifest and contents-table.md updated.');
   console.log('Done!');

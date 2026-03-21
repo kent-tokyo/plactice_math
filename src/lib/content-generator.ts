@@ -125,7 +125,8 @@ function loadPrerequisiteContents(nodeId: string): string {
     if (!prereqNode) continue;
 
     // Try to load existing generated content for this prerequisite
-    const contentPath = path.join(OUTPUT_DIR, prereqId, 'standard', 'content.json');
+    const prereqDomain = AREA_TO_DOMAIN[prereqNode.area] || 'math';
+    const contentPath = path.join(OUTPUT_DIR, prereqDomain, prereqId, 'standard', 'content.json');
     if (fs.existsSync(contentPath)) {
       try {
         const data = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));

@@ -293,7 +293,6 @@
         "zh": "全球CDN服务"
       },
       "prerequisites": [
-        "s3",
         "route53"
       ],
       "number": "03-008"
@@ -344,7 +343,6 @@
         "zh": "创建、发布和管理API"
       },
       "prerequisites": [
-        "lambda",
         "vpc"
       ],
       "number": "03-010"
@@ -443,8 +441,7 @@
         "zh": "Web应用防火墙"
       },
       "prerequisites": [
-        "cloudfront",
-        "elb"
+        "iam"
       ],
       "number": "03-018"
     },
@@ -903,20 +900,12 @@
       "target": "route53"
     },
     {
-      "source": "s3",
-      "target": "cloudfront"
-    },
-    {
       "source": "route53",
       "target": "cloudfront"
     },
     {
       "source": "vpc",
       "target": "elb"
-    },
-    {
-      "source": "lambda",
-      "target": "api-gateway"
     },
     {
       "source": "vpc",
@@ -935,11 +924,7 @@
       "target": "cognito"
     },
     {
-      "source": "cloudfront",
-      "target": "waf"
-    },
-    {
-      "source": "elb",
+      "source": "iam",
       "target": "waf"
     },
     {
@@ -1057,14 +1042,6 @@
     {
       "source": "lambda",
       "target": "dynamodb"
-    },
-    {
-      "source": "sqs",
-      "target": "lambda"
-    },
-    {
-      "source": "sns",
-      "target": "lambda"
     }
   ]
 }

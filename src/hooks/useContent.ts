@@ -24,7 +24,7 @@ interface UseContentResult {
   availableLevels: string[];
 }
 
-export function useContent(nodeId: string, level: string, domain?: string): UseContentResult {
+export function useContent(nodeId: string, level: string, domain: string = 'math'): UseContentResult {
   const [data, setData] = useState<ContentData | null>(null);
   const [illustrationUrl, setIllustrationUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -54,14 +54,9 @@ export function useContent(nodeId: string, level: string, domain?: string): UseC
         }
         setResolvedLevel(targetLevel);
 
-        // Try domain-prefixed path first, fall back to legacy path
         const basePath = getContentBasePath();
         const domainPrefix = domain ? `${domain}/` : '';
-        let res = await fetch(`${basePath}/content/${domainPrefix}${nodeId}/${targetLevel}/content.json`);
-        if (!res.ok && domain) {
-          // Fallback: try legacy path without domain prefix
-          res = await fetch(`${basePath}/content/${nodeId}/${targetLevel}/content.json`);
-        }
+        const res = await fetch(`${basePath}/content/${domainPrefix}${nodeId}/${targetLevel}/content.json`);
         if (cancelled) return;
         if (!res.ok) {
           setError(true);
@@ -72,10 +67,9 @@ export function useContent(nodeId: string, level: string, domain?: string): UseC
         const json: ContentData = await res.json();
         setData(json);
 
-        // Check illustration (always use legacy path since files are at /content/{nodeId}/...)
         const hasImg = await hasIllustration(nodeId, targetLevel, domain);
         if (!cancelled) {
-          setIllustrationUrl(hasImg ? `${basePath}/content/${nodeId}/${targetLevel}/illustration.webp` : null);
+          setIllustrationUrl(hasImg ? `${basePath}/content/${domainPrefix}${nodeId}/${targetLevel}/illustration.webp` : null);
         }
       } catch {
         if (!cancelled) setError(true);
