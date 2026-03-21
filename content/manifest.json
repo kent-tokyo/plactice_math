@@ -12,7 +12,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "integers": {
@@ -28,7 +28,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "truth": {
@@ -44,7 +44,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "utilitarianism": {
@@ -84,7 +84,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "justification": {
@@ -124,7 +124,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "binary-logic": {
@@ -132,7 +132,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "programming-paradigms": {
@@ -148,7 +148,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "os-basics": {
@@ -164,7 +164,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "chemical-bonding": {
@@ -172,7 +172,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "stoichiometry": {
@@ -188,7 +188,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "accounts": {
@@ -196,7 +196,7 @@
       "standard"
     ],
     "hasIllustration": {
-      "standard": false
+      "standard": true
     }
   },
   "journal-entries": {

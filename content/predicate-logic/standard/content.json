@@ -101,5 +101,95 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 背景透明 -->\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">述語論理の構造マップ</text>\n\n  <!-- ===== 中央：述語論理 ===== -->\n  <ellipse cx=\"300\" cy=\"260\" rx=\"72\" ry=\"38\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"254\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">述語論理</text>\n  <text x=\"300\" y=\"271\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">一階述語論理</text>\n\n  <!-- ===== 上部：命題論理（基盤） ===== -->\n  <rect x=\"210\" y=\"55\" width=\"180\" height=\"46\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"74\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">命題論理</text>\n  <text x=\"300\" y=\"90\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">¬ ∧ ∨ → ↔（文全体の真偽）</text>\n\n  <!-- 命題論理 → 述語論理 矢印 -->\n  <line x1=\"300\" y1=\"101\" x2=\"300\" y2=\"218\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"300,222 295,212 305,212\" fill=\"currentColor\"/>\n  <text x=\"315\" y=\"165\" font-size=\"9\" fill=\"currentColor\">拡張</text>\n\n  <!-- ===== 左列：構成要素 ===== -->\n  <!-- 個体・定数・関数 -->\n  <rect x=\"30\" y=\"130\" width=\"140\" height=\"52\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"100\" y=\"150\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">項（term）</text>\n  <text x=\"100\" y=\"165\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">変数 x, y, z</text>\n  <text x=\"100\" y=\"177\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">定数 a, b / 関数 f, g</text>\n\n  <!-- 述語記号 -->\n  <rect x=\"30\" y=\"200\" width=\"140\" height=\"42\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"100\" y=\"218\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">述語記号</text>\n  <text x=\"100\" y=\"234\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">P(x), Q(x,y), x=y</text>\n\n  <!-- 矢印：項・述語 → 中央 -->\n  <line x1=\"170\" y1=\"175\" x2=\"225\" y2=\"248\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <polygon points=\"225,248 216,242 222,234\" fill=\"currentColor\"/>\n  <line x1=\"170\" y1=\"221\" x2=\"225\" y2=\"252\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <polygon points=\"225,252 216,248 220,239\" fill=\"currentColor\"/>\n\n  <!-- ===== 右列：量化子 ===== -->\n  <!-- 全称量化子 -->\n  <rect x=\"430\" y=\"130\" width=\"145\" height=\"52\" rx=\"7\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"502\" y=\"150\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">∀ 全称量化子</text>\n  <text x=\"502\" y=\"165\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">∀x P(x)</text>\n  <text x=\"502\" y=\"178\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">「すべての x について」</text>\n\n  <!-- 存在量化子 -->\n  <rect x=\"430\" y=\"200\" width=\"145\" height=\"52\" rx=\"7\" fill=\"#ef4444\" fill-opacity=\"0.10\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"502\" y=\"220\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">∃ 存在量化子</text>\n  <text x=\"502\" y=\"235\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">∃x P(x)</text>\n  <text x=\"502\" y=\"248\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">「ある x が存在して」</text>\n\n  <!-- 矢印：量化子 → 中央 -->\n  <line x1=\"430\" y1=\"175\" x2=\"374\" y2=\"248\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <polygon points=\"374,248 378,237 384,245\" fill=\"#22c55e\"/>\n  <line x1=\"430\" y1=\"224\" x2=\"374\" y2=\"255\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <polygon points=\"374,255 380,246 385,254\" fill=\"#ef4444\"/>\n\n  <!-- ===== 双対性：量化子間の変換 ===== -->\n  <!-- 双対ボックス -->\n  <rect x=\"400\" y=\"278\" width=\"175\" height=\"60\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.06\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,3\"/>\n  <text x=\"487\" y=\"296\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\">双対性（ド・モルガン）</text>\n  <text x=\"487\" y=\"313\" text-anchor=\"middle\" font-size=\"10\" fill=\"#22c55e\">¬∀x P(x) ≡ ∃x ¬P(x)</text>\n  <text x=\"487\" y=\"328\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\">¬∃x P(x) ≡ ∀x ¬P(x)</text>\n\n  <!-- 双対ボックスと量化子を接続 -->\n  <line x1=\"487\" y1=\"278\" x2=\"502\" y2=\"252\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3,2\"/>\n\n  <!-- ===== 下部：変数の種類 ===== -->\n  <rect x=\"60\" y=\"300\" width=\"220\" height=\"55\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"170\" y=\"319\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">変数のスコープ</text>\n  <text x=\"170\" y=\"335\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">束縛変数：∀x・∃x 内の x</text>\n  <text x=\"170\" y=\"350\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">自由変数：量化子外の変数</text>\n\n  <!-- 矢印：変数スコープ ← 中央 -->\n  <line x1=\"228\" y1=\"281\" x2=\"215\" y2=\"300\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <polygon points=\"215,300 217,289 225,294\" fill=\"currentColor\"/>\n\n  <!-- ===== 下部：意味論（モデル） ===== -->\n  <rect x=\"140\" y=\"385\" width=\"310\" height=\"65\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"295\" y=\"404\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">意味論：解釈 ℳ = (D, ·ᴹ)</text>\n  <text x=\"295\" y=\"421\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">D（定義域）上で変数割り当て s を固定</text>\n  <text x=\"295\" y=\"437\" text-anchor=\"middle\" font-size=\"10\" fill=\"#22c55e\">ℳ ⊨ₛ ∀x φ  ⟺  すべての d∈D で ℳ ⊨ₛ[x↦d] φ</text>\n  <text x=\"295\" y=\"452\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\">ℳ ⊨ₛ ∃x φ  ⟺  ある d∈D で ℳ ⊨ₛ[x↦d] φ</text>\n\n  <!-- 矢印：中央 → 意味論 -->\n  <line x1=\"300\" y1=\"298\" x2=\"300\" y2=\"383\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <polygon points=\"300,385 295,374 305,374\" fill=\"#3b82f6\"/>\n  <text x=\"316\" y=\"345\" font-size=\"9\" fill=\"#3b82f6\">充足関係</text>\n\n  <!-- ===== 最下部：応用 ===== -->\n  <text x=\"300\" y=\"475\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">応用：ZFC集合論 ／ ゲーデル完全性定理 ／ データベース（SQL）／ プログラム検証</text>\n\n  <!-- ===== 具体例ラベル（左上） ===== -->\n  <rect x=\"28\" y=\"56\" width=\"160\" height=\"55\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3,2\"/>\n  <text x=\"108\" y=\"73\" text-anchor=\"middle\" font-size=\"9.5\" font-weight=\"bold\" fill=\"currentColor\">具体例（ℤ上）</text>\n  <text x=\"108\" y=\"88\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">∀x Even(x)→Div2(x)</text>\n  <text x=\"108\" y=\"102\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">∃x (Prime(x)∧Even(x))</text>\n\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "述語論理と命題論理の違いとして最も適切な説明はどれか。",
+      "choices": [
+        {
+          "text": "命題論理は真偽値を扱うが、述語論理は確率的な真偽を扱う。",
+          "isCorrect": false
+        },
+        {
+          "text": "述語論理は「すべての〜」「ある〜が存在する」という量化の表現を含む推論を扱うことができるが、命題論理にはその機能がない。",
+          "isCorrect": true
+        },
+        {
+          "text": "命題論理は変数を扱えるが、述語論理は定数しか扱えない。",
+          "isCorrect": false
+        },
+        {
+          "text": "述語論理は日常言語の翻訳にのみ使われ、数学的証明には用いられない。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "命題論理は文全体のオン/オフ（真偽）を扱うのに対し、述語論理は量化子（$\\forall$, $\\exists$）を用いて「何について」「どのような性質が」成り立つかを細かく表現できる。これが両者の本質的な違いである。"
+    },
+    {
+      "question": "次の論理的同値のうち、量化子のド・モルガン則として正しいものはどれか。",
+      "choices": [
+        {
+          "text": "$\\lnot \\forall x\\, P(x) \\equiv \\forall x\\, \\lnot P(x)$",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\lnot \\exists x\\, P(x) \\equiv \\exists x\\, \\lnot P(x)$",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\lnot \\forall x\\, P(x) \\equiv \\exists x\\, \\lnot P(x)$",
+          "isCorrect": true
+        },
+        {
+          "text": "$\\lnot \\forall x\\, P(x) \\equiv \\exists x\\, P(x)$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "「すべての $x$ が $P$ を満たすわけではない（$\\lnot \\forall x\\, P(x)$）」は「$P$ を満たさない $x$ が存在する（$\\exists x\\, \\lnot P(x)$）」と同値である。これが量化子のド・モルガン則の一つであり、全称量化子の否定は存在量化子に変換され、述語も否定される。"
+    },
+    {
+      "question": "次の2つの論理式の意味の違いとして正しい説明はどれか。ただし $L(x,y)$ は「$x$ は $y$ を愛している」を表し、定義域は人間全体とする。\n式A：$\\forall x\\, \\exists y\\, L(x, y)$\n式B：$\\exists y\\, \\forall x\\, L(x, y)$",
+      "choices": [
+        {
+          "text": "式Aと式Bは量化子の順序が違うだけで、同じ意味を表す。",
+          "isCorrect": false
+        },
+        {
+          "text": "式Aは「全員から愛される特定の人物が存在する」という強い主張であり、式Bは「誰でも誰かしらを愛している」という弱い主張である。",
+          "isCorrect": false
+        },
+        {
+          "text": "式Aは「誰でも誰かしらを愛している」という意味であり、式Bは「全員から愛される特定の人物が存在する」というより強い主張である。",
+          "isCorrect": true
+        },
+        {
+          "text": "式Aは自由変数を含むため真偽が定まらず、式Bのみが閉論理式として真偽を判定できる。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "量化子の順序は意味を大きく変える。式A（$\\forall x\\, \\exists y\\, L(x,y)$）は「各人がそれぞれ誰かを愛している（愛する相手は人によって異なってよい）」を意味する。一方、式B（$\\exists y\\, \\forall x\\, L(x,y)$）は「ある特定の一人が全員から愛されている」という格段に強い主張である。一般に $\\exists y\\, \\forall x\\, \\varphi \\to \\forall x\\, \\exists y\\, \\varphi$ は成り立つが、逆は成り立たない。"
+    },
+    {
+      "question": "「自由変数を含まない論理式」を何と呼び、その特徴として正しいものはどれか。",
+      "choices": [
+        {
+          "text": "原子論理式と呼ばれ、述語記号と項のみから構成されるため量化子を持たない。",
+          "isCorrect": false
+        },
+        {
+          "text": "束縛論理式と呼ばれ、変数割り当て $s$ の選び方によって真偽が変わる。",
+          "isCorrect": false
+        },
+        {
+          "text": "閉論理式（文）と呼ばれ、変数割り当てによらず解釈だけで真偽が決まる。",
+          "isCorrect": true
+        },
+        {
+          "text": "項（term）と呼ばれ、関数記号の適用によって個体を表す式である。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "自由変数を含まない論理式は**閉論理式（文, sentence）**と呼ばれる。自由変数がないということは、すべての変数が何らかの量化子に束縛されているということであり、特定の変数割り当て $s$ に依存せず、解釈 $\\mathcal{M}$ だけで真偽が一意に定まる。これが閉論理式の重要な特徴である。"
+    }
   ]
 }

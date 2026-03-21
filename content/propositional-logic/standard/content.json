@@ -96,5 +96,73 @@
       "definition": "AND・OR・NOTなどのゲートを組み合わせて命題論理の演算を物理的に実現した電子回路のこと。コンピュータのCPUの基本構成要素である。"
     }
   ],
-  "diagrams": []
+  "diagrams": [],
+  "quiz": [
+    {
+      "question": "含意 $P \\Rightarrow Q$ が偽になるのは、次のうちどの場合か？",
+      "choices": [
+        {
+          "text": "$P$ が偽で、$Q$ が偽のとき",
+          "isCorrect": false
+        },
+        {
+          "text": "$P$ が真で、$Q$ が偽のとき",
+          "isCorrect": true
+        },
+        {
+          "text": "$P$ が偽で、$Q$ が真のとき",
+          "isCorrect": false
+        },
+        {
+          "text": "$P$ が真で、$Q$ が真のとき",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "含意 $P \\Rightarrow Q$ が偽になるのは、「前提 $P$ が真なのに結論 $Q$ が偽」の場合だけです。$P$ が偽のときは $Q$ の真偽にかかわらず含意全体は真となります。これは「嘘から何でも導ける（Ex falso quodlibet）」という原則に対応します。"
+    },
+    {
+      "question": "命題 $P \\Rightarrow Q$ と論理的に同値な式はどれか？",
+      "choices": [
+        {
+          "text": "$P \\land \\lnot Q$",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\lnot P \\land Q$",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\lnot P \\lor Q$",
+          "isCorrect": true
+        },
+        {
+          "text": "$\\lnot P \\lor \\lnot Q$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "含意 $P \\Rightarrow Q$ は「$P$ が真で $Q$ が偽」のときのみ偽となります。これは「$P$ が偽、または $Q$ が真」すなわち $\\lnot P \\lor Q$ と全く同じ真理値表を持ちます。コンテンツ中の「試験の合否」の例でも、$\\lnot P \\lor Q \\equiv P \\Rightarrow Q$ として紹介されています。"
+    },
+    {
+      "question": "トートロジー（tautology）の説明として正しいものはどれか？",
+      "choices": [
+        {
+          "text": "すべての真理値の組み合わせで常に偽となる命題式のこと",
+          "isCorrect": false
+        },
+        {
+          "text": "$P$ と $Q$ が同じ真理値を持つときのみ真となる命題式のこと",
+          "isCorrect": false
+        },
+        {
+          "text": "少なくとも一つの真理値の組み合わせで真となる命題式のこと",
+          "isCorrect": false
+        },
+        {
+          "text": "すべての真理値の組み合わせで常に真となる命題式のこと",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "トートロジーとは、命題変数にどのような真理値を割り当てても、常に真となる命題式のことです。代表例は排中律 $P \\lor \\lnot P$ で、「$P$ は真か偽のどちらかである」という古典論理の基本原理です。常に偽となる式は「矛盾（contradiction）」と呼ばれ、トートロジーとは区別されます。"
+    }
+  ]
 }
