@@ -89,5 +89,73 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 背景: 透明 -->\n\n  <!-- ===== 中央: EC2インスタンス ===== -->\n  <!-- 中心ボックス -->\n  <rect x=\"200\" y=\"200\" width=\"200\" height=\"80\" rx=\"12\" ry=\"12\"\n        fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"2.5\"/>\n  <text x=\"300\" y=\"234\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"#3b82f6\">EC2インスタンス</text>\n  <text x=\"300\" y=\"254\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">仮想サーバー（VM）</text>\n  <text x=\"300\" y=\"270\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: t3.micro / m5.large</text>\n\n  <!-- ===== 上部: AMI（設計図） ===== -->\n  <rect x=\"210\" y=\"60\" width=\"180\" height=\"56\" rx=\"10\" ry=\"10\"\n        fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">AMI</text>\n  <text x=\"300\" y=\"100\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Amazon Machine Image</text>\n  <text x=\"300\" y=\"113\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">OS・ソフトウェアの設計図</text>\n  <!-- AMI → EC2 矢印 -->\n  <line x1=\"300\" y1=\"116\" x2=\"300\" y2=\"198\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"300,200 295,190 305,190\" fill=\"currentColor\"/>\n\n  <!-- ===== 左: インスタンスタイプ ===== -->\n  <rect x=\"30\" y=\"195\" width=\"145\" height=\"60\" rx=\"10\" ry=\"10\"\n        fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"102\" y=\"218\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">インスタンスタイプ</text>\n  <text x=\"102\" y=\"234\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">CPU / メモリ / ネットワーク</text>\n  <text x=\"102\" y=\"248\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">スペックの組み合わせ</text>\n  <!-- → EC2 矢印 -->\n  <line x1=\"175\" y1=\"225\" x2=\"198\" y2=\"236\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"200,237 190,231 191,242\" fill=\"currentColor\"/>\n\n  <!-- ===== 右: EBS ===== -->\n  <rect x=\"425\" y=\"195\" width=\"145\" height=\"60\" rx=\"10\" ry=\"10\"\n        fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"497\" y=\"218\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">EBS</text>\n  <text x=\"497\" y=\"234\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Elastic Block Store</text>\n  <text x=\"497\" y=\"248\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">仮想ディスク（データ保存）</text>\n  <!-- EC2 → EBS 矢印 -->\n  <line x1=\"400\" y1=\"237\" x2=\"423\" y2=\"232\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"425,231 414,226 415,237\" fill=\"currentColor\"/>\n\n  <!-- ===== 下: セキュリティグループ ===== -->\n  <rect x=\"190\" y=\"325\" width=\"220\" height=\"56\" rx=\"10\" ry=\"10\"\n        fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"348\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">セキュリティグループ</text>\n  <text x=\"300\" y=\"364\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">通信の許可・拒否を制御</text>\n  <text x=\"300\" y=\"377\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">ファイアウォール機能</text>\n  <!-- EC2 → セキュリティグループ 矢印 -->\n  <line x1=\"300\" y1=\"280\" x2=\"300\" y2=\"323\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\"/>\n  <polygon points=\"300,325 295,315 305,315\" fill=\"#ef4444\"/>\n\n  <!-- ===== 従量課金の計算式 ===== -->\n  <rect x=\"30\" y=\"320\" width=\"155\" height=\"70\" rx=\"10\" ry=\"10\"\n        fill=\"#22c55e\" fill-opacity=\"0.08\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"107\" y=\"342\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#22c55e\">従量課金モデル</text>\n  <text x=\"107\" y=\"358\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">月額 = 単価 × 24h × 30日</text>\n  <text x=\"107\" y=\"373\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: $0.02 × 24 × 30</text>\n  <text x=\"107\" y=\"386\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#22c55e\">= $14.4 / 月</text>\n\n  <!-- ===== 発展概念エリア（下部） ===== -->\n  <rect x=\"28\" y=\"420\" width=\"544\" height=\"82\" rx=\"12\" ry=\"12\"\n        fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"6,3\"/>\n  <text x=\"300\" y=\"442\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">関連サービス・発展概念</text>\n\n  <!-- Auto Scaling -->\n  <rect x=\"42\" y=\"450\" width=\"110\" height=\"38\" rx=\"7\" ry=\"7\"\n        fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"97\" y=\"466\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">Auto Scaling</text>\n  <text x=\"97\" y=\"481\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">自動増減</text>\n\n  <!-- ELB -->\n  <rect x=\"162\" y=\"450\" width=\"110\" height=\"38\" rx=\"7\" ry=\"7\"\n        fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"217\" y=\"466\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">ELB</text>\n  <text x=\"217\" y=\"481\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">負荷分散</text>\n\n  <!-- VPC -->\n  <rect x=\"282\" y=\"450\" width=\"110\" height=\"38\" rx=\"7\" ry=\"7\"\n        fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"337\" y=\"466\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">VPC</text>\n  <text x=\"337\" y=\"481\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">仮想ネットワーク</text>\n\n  <!-- Lambda -->\n  <rect x=\"402\" y=\"450\" width=\"110\" height=\"38\" rx=\"7\" ry=\"7\"\n        fill=\"#22c55e\" fill-opacity=\"0.1\" stroke=\"#22c55e\" stroke-width=\"1.2\"/>\n  <text x=\"457\" y=\"466\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#22c55e\">Lambda</text>\n  <text x=\"457\" y=\"481\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">サーバーレス（発展）</text>\n\n  <!-- EC2 → 関連概念エリアへの矢印 -->\n  <line x1=\"300\" y1=\"280\" x2=\"300\" y2=\"418\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3,4\" opacity=\"0.4\"/>\n\n  <!-- 右側にAWSクラウドのラベル -->\n  <rect x=\"425\" y=\"320\" width=\"145\" height=\"70\" rx=\"10\" ry=\"10\"\n        fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"497\" y=\"343\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">AWSクラウド</text>\n  <text x=\"497\" y=\"359\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">物理サーバーは</text>\n  <text x=\"497\" y=\"373\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Amazonが管理</text>\n  <text x=\"497\" y=\"386\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">利用者は仮想的に使用</text>\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"24\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">EC2 概念マップ</text>\n  <text x=\"300\" y=\"42\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">Amazon Elastic Compute Cloud — 仮想サーバーの構造</text>\n\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "EC2における「Elastic（弾力的）」という名称が示す特性として、最も適切なものはどれか？",
+      "choices": [
+        {
+          "text": "データが暗号化されており、外部からの攻撃に対して柔軟に対応できること",
+          "isCorrect": false
+        },
+        {
+          "text": "アクセス量の増減に応じて、サーバーのリソースを柔軟にスケールアップ・ダウンできること",
+          "isCorrect": true
+        },
+        {
+          "text": "物理サーバーの素材が柔軟性の高い素材で作られており、耐久性が高いこと",
+          "isCorrect": false
+        },
+        {
+          "text": "料金プランが固定ではなく、複数の通貨で支払いができること",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "「Elastic」とは、アクセスが急増したときはインスタンスを増やし、閑散期には減らすという「需要に応じた柔軟なスケーリング」を指します。これがEC2の大きな特徴であり、従来の固定的なオンプレミスサーバーとの本質的な違いです。"
+    },
+    {
+      "question": "EC2のインスタンスを構成する要素のうち、「どの通信を許可・拒否するかを制御する仮想的なファイアウォール」に相当するものはどれか？",
+      "choices": [
+        {
+          "text": "AMI（Amazon Machine Image）",
+          "isCorrect": false
+        },
+        {
+          "text": "EBS（Elastic Block Store）",
+          "isCorrect": false
+        },
+        {
+          "text": "セキュリティグループ",
+          "isCorrect": true
+        },
+        {
+          "text": "インスタンスタイプ",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "セキュリティグループは、EC2インスタンスへの通信を制御する仮想ファイアウォールです。AMIはOSや初期ソフトウェアの設計図、EBSはデータ保存用の仮想ディスク、インスタンスタイプはCPU・メモリなどの性能仕様を指します。それぞれ異なる役割を持ちます。"
+    },
+    {
+      "question": "EC2とAWS Lambdaの関係について、最も正確に述べているものはどれか？",
+      "choices": [
+        {
+          "text": "LambdaはEC2の旧称であり、現在はEC2に統合されている",
+          "isCorrect": false
+        },
+        {
+          "text": "EC2はLambdaの内部で動作しており、LambdaはEC2を管理するツールである",
+          "isCorrect": false
+        },
+        {
+          "text": "LambdaはEC2をより大規模化したサービスであり、より高性能なサーバーを提供する",
+          "isCorrect": false
+        },
+        {
+          "text": "LambdaはEC2よりさらに発展した「サーバーレス」の形態であり、サーバーの管理すら不要にしたサービスである",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "EC2は仮想サーバーを借りて自分で管理するサービスですが、Lambdaはサーバーの存在を意識せずにコードを実行できる「サーバーレス」の発展形です。EC2 → Lambdaの流れは、インフラ管理の手間をさらに省略する方向への進化を示しています。"
+    }
   ]
 }

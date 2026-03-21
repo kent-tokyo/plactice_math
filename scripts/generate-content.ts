@@ -4,11 +4,12 @@ import path from 'path';
 import crypto from 'crypto';
 import { generateContent, generateQuizOnly } from '../src/lib/content-generator';
 import { generateConceptImage } from '../src/lib/image-generator';
-import { getAllNodes } from '../src/lib/graph';
+import { getAllNodes, getNode } from '../src/lib/graph';
 import type { DomainId } from '../src/types/domain';
 
 const DOMAIN_IDS: DomainId[] = ['math', 'philosophy', 'aws', 'cs', 'chemistry', 'accounting'];
 const DOMAIN_LABELS: Record<DomainId, string> = { math: 'Math（数学）', philosophy: 'Philosophy（哲学）', aws: 'AWS', cs: 'Computer Science', chemistry: 'Chemistry（化学）', accounting: 'Accounting（会計・簿記）' };
+const DOMAIN_PREFIXES: Record<DomainId, string> = { math: '01', philosophy: '02', aws: '03', cs: '04', chemistry: '05', accounting: '06' };
 
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'content');
 const CONTENT_LEVELS = ['beginner', 'standard', 'advanced'] as const;
@@ -123,7 +124,9 @@ function saveManifest(manifest: Record<string, ManifestEntry>): void {
 
 function buildDomainRows(domainId: DomainId, manifest: Record<string, ManifestEntry>): string[] {
   const nodes = getAllNodes(domainId);
-  return nodes.map(node => {
+  const prefix = DOMAIN_PREFIXES[domainId];
+  return nodes.map((node, index) => {
+    const no = `${prefix}-${(index + 1).toString().padStart(3, '0')}`;
     const entry = manifest[node.id];
     const beginner = entry?.levels.includes('beginner') ? 'done' : '-';
     const standard = entry?.levels.includes('standard') ? 'done' : '-';
@@ -145,13 +148,13 @@ function buildDomainRows(domainId: DomainId, manifest: Record<string, ManifestEn
       }
     }
     const reviewed = '-';
-    return `| ${node.id} | ${node.label} | ${node.area} | ${beginner} | ${standard} | ${advanced} | ${hasIllust} | ${hasQuiz} | ${reviewed} |`;
+    return `| ${no} | ${node.id} | ${node.label} | ${node.area} | ${beginner} | ${standard} | ${advanced} | ${hasIllust} | ${hasQuiz} | ${reviewed} |`;
   });
 }
 
 function updateContentsTable(manifest: Record<string, ManifestEntry>): void {
-  const header = `| Node ID | Label | Area | Beginner | Standard | Advanced | Illust. | Quiz | Reviewed |
-|---------|-------|------|----------|----------|----------|---------|------|----------|`;
+  const header = `| No. | Node ID | Label | Area | Beginner | Standard | Advanced | Illust. | Quiz | Reviewed |
+|-----|---------|-------|------|----------|----------|----------|---------|------|----------|`;
 
   const sections = DOMAIN_IDS.map(domainId => {
     const rows = buildDomainRows(domainId, manifest);
@@ -272,7 +275,7 @@ async function main() {
 
       const tasks = imageJobs.map(job => async () => {
         const label = `${job.nodeId}/${job.level}`;
-        const node = getAllNodes().find(n => n.id === job.nodeId);
+        const node = getNode(job.nodeId);
         if (!node) return { nodeId: job.nodeId, level: job.level, error: true };
 
         try {
@@ -352,7 +355,7 @@ async function main() {
 
         // Generate illustration if requested
         if (flags.withImages) {
-          const node = getAllNodes().find(n => n.id === job.nodeId);
+          const node = getNode(job.nodeId);
           if (node) {
             try {
               // Pass first 500 chars of generated content as context for better illustrations

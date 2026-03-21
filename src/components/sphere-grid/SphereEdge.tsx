@@ -11,7 +11,7 @@ export default function SphereEdge(props: EdgeProps) {
   const dx = Math.abs(targetX - sourceX);
   const dy = Math.abs(targetY - sourceY);
   const isVertical = dy > dx * 0.8;
-  const offset = isVertical ? 50 : 30;
+  const offset = isVertical ? 80 : 50;
 
   const [edgePath] = getSmoothStepPath({
     sourceX,
@@ -20,7 +20,7 @@ export default function SphereEdge(props: EdgeProps) {
     targetY,
     sourcePosition,
     targetPosition,
-    borderRadius: 16,
+    borderRadius: 20,
     offset,
   });
 

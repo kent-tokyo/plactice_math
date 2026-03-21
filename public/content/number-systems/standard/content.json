@@ -59,5 +59,73 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 420\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n  <!-- 背景：複素数 -->\n  <ellipse cx=\"300\" cy=\"210\" rx=\"285\" ry=\"195\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <!-- 実数 -->\n  <ellipse cx=\"300\" cy=\"220\" rx=\"230\" ry=\"155\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <!-- 有理数 -->\n  <ellipse cx=\"290\" cy=\"230\" rx=\"165\" ry=\"115\" fill=\"#22c55e\" fill-opacity=\"0.08\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <!-- 整数 -->\n  <ellipse cx=\"285\" cy=\"240\" rx=\"108\" ry=\"78\" fill=\"#22c55e\" fill-opacity=\"0.1\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <!-- 自然数 -->\n  <ellipse cx=\"282\" cy=\"248\" rx=\"60\" ry=\"44\" fill=\"#22c55e\" fill-opacity=\"0.15\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n\n  <!-- ラベル：複素数 -->\n  <text x=\"530\" y=\"52\" font-size=\"14\" font-weight=\"bold\" fill=\"#3b82f6\" text-anchor=\"middle\">複素数</text>\n  <text x=\"530\" y=\"70\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">ℂ</text>\n  <text x=\"508\" y=\"88\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.6\" text-anchor=\"middle\">a + bi</text>\n\n  <!-- ラベル：実数 -->\n  <text x=\"496\" y=\"120\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\" text-anchor=\"middle\">実数</text>\n  <text x=\"496\" y=\"137\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">ℝ</text>\n\n  <!-- 無理数ラベル（実数と有理数の間） -->\n  <text x=\"448\" y=\"190\" font-size=\"11\" fill=\"currentColor\" fill-opacity=\"0.75\" text-anchor=\"middle\">（無理数を含む）</text>\n  <text x=\"448\" y=\"205\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.6\" text-anchor=\"middle\">√2, π, e …</text>\n\n  <!-- ラベル：有理数 -->\n  <text x=\"418\" y=\"255\" font-size=\"13\" font-weight=\"bold\" fill=\"#22c55e\" text-anchor=\"middle\">有理数</text>\n  <text x=\"418\" y=\"272\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">ℚ</text>\n  <text x=\"418\" y=\"288\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.6\" text-anchor=\"middle\">p/q 形式</text>\n\n  <!-- ラベル：整数 -->\n  <text x=\"356\" y=\"295\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\" text-anchor=\"middle\">整数</text>\n  <text x=\"356\" y=\"311\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">ℤ</text>\n  <text x=\"356\" y=\"326\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.6\" text-anchor=\"middle\">…−1, 0, 1…</text>\n\n  <!-- ラベル：自然数 -->\n  <text x=\"282\" y=\"240\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\" text-anchor=\"middle\">自然数</text>\n  <text x=\"282\" y=\"256\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">ℕ</text>\n  <text x=\"282\" y=\"272\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.6\" text-anchor=\"middle\">1, 2, 3…</text>\n\n  <!-- 虚数部分ラベル -->\n  <text x=\"90\" y=\"160\" font-size=\"11\" fill=\"#ef4444\" fill-opacity=\"0.85\" text-anchor=\"middle\">虚数部分</text>\n  <text x=\"90\" y=\"175\" font-size=\"10\" fill=\"#ef4444\" fill-opacity=\"0.7\" text-anchor=\"middle\">(bi, b≠0)</text>\n\n  <!-- 拡張の矢印と動機 -->\n  <!-- 自然数→整数 -->\n  <line x1=\"282\" y1=\"294\" x2=\"282\" y2=\"355\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\" stroke-dasharray=\"4,3\"/>\n  <!-- 整数→有理数 -->\n  <!-- 有理数→実数 -->\n  <!-- 実数→複素数 -->\n\n  <!-- 下部：拡張の動機テキスト -->\n  <rect x=\"20\" y=\"360\" width=\"560\" height=\"50\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"378\" font-size=\"11\" fill=\"currentColor\" fill-opacity=\"0.8\" text-anchor=\"middle\" font-weight=\"bold\">拡張の動機（解けなかった方程式）</text>\n  <text x=\"90\" y=\"397\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.7\" text-anchor=\"middle\">ℕ→ℤ: x+3=1</text>\n  <text x=\"220\" y=\"397\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.7\" text-anchor=\"middle\">ℤ→ℚ: 2x=1</text>\n  <text x=\"350\" y=\"397\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.7\" text-anchor=\"middle\">ℚ→ℝ: x²=2</text>\n  <text x=\"490\" y=\"397\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.7\" text-anchor=\"middle\">ℝ→ℂ: x²=−1</text>\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"22\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">数の体系（入れ子構造）</text>\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "数の体系が歴史的に拡張されてきた主な動機として、最も適切なものはどれか。",
+      "choices": [
+        {
+          "text": "より大きな数を表現するために、数の集合を順次追加していったから",
+          "isCorrect": false
+        },
+        {
+          "text": "ある集合の範囲では解けない演算や方程式の問題を解消するために、集合を拡張していったから",
+          "isCorrect": true
+        },
+        {
+          "text": "自然数だけでは計算速度が遅いため、より効率的な数の種類が必要とされたから",
+          "isCorrect": false
+        },
+        {
+          "text": "異なる国の数学者が別々に数を定義したため、それらを統合する必要があったから",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "数の体系の拡張は「困ったこと・解けないこと」を解決するために行われました。例えば、$x + 3 = 1$ を解くために整数、$2x = 1$ を解くために有理数、$x^2 = 2$ を解くために実数、$x^2 = -1$ を解くために複素数が導入されました。各拡張は演算・方程式に対して解が存在しないという問題を解消することが動機です。"
+    },
+    {
+      "question": "有理数 $\\mathbb{Q}$ と実数 $\\mathbb{R}$ の違いについて、数学的に正しい説明はどれか。",
+      "choices": [
+        {
+          "text": "$\\mathbb{Q}$ は有限小数のみを含み、$\\mathbb{R}$ は無限小数も含む",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\mathbb{Q}$ は数直線上で稠密だが完備でなく、$\\mathbb{R}$ は完備性を持つ",
+          "isCorrect": true
+        },
+        {
+          "text": "$\\mathbb{Q}$ は負の数を含まないが、$\\mathbb{R}$ は負の数も含む",
+          "isCorrect": false
+        },
+        {
+          "text": "$\\mathbb{Q}$ と $\\mathbb{R}$ は同じ集合だが、表記の流儀が異なるだけである",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "$\\mathbb{Q}$（有理数）は数直線上で稠密に分布していますが、$\\sqrt{2}$ や $\\pi$ などの無理数が「隙間」として存在するため、完備ではありません。一方、$\\mathbb{R}$（実数）は有理数と無理数の両方を含み、数直線上に隙間のない完備な集合です。この完備性が微積分の基礎となる実数の連続性を支えています。"
+    },
+    {
+      "question": "複素数 $\\mathbb{C}$ が「代数的に閉じた体」であるとはどういう意味か。最も適切な説明を選べ。",
+      "choices": [
+        {
+          "text": "複素数は四則演算（加減乗除）がすべて定義できるということ",
+          "isCorrect": false
+        },
+        {
+          "text": "複素数の範囲では、$i^2 = -1$ を満たす数がちょうど2つ存在するということ",
+          "isCorrect": false
+        },
+        {
+          "text": "任意の $n$ 次方程式が $\\mathbb{C}$ の中に必ず $n$ 個の解を持つということ",
+          "isCorrect": true
+        },
+        {
+          "text": "複素数はこれ以上四則演算で新しい数を生み出せないほど数が多いということ",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "「代数的に閉じた体」とは、代数学の基本定理が保証する性質で、$\\mathbb{C}$ の範囲では任意の $n$ 次方程式が必ず $n$ 個の複素数解（重複を含む）を持つことを意味します。実数 $\\mathbb{R}$ では $x^2 = -1$ のように解が存在しない方程式がありますが、複素数まで拡張することでそのような「解なし」の問題がなくなり、数の拡張はここで一段落します。"
+    }
   ]
 }

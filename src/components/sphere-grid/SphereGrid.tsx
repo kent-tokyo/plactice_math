@@ -83,6 +83,9 @@ export default function SphereGrid({
       }));
     }
     if (level === 'detail' && mathNodes) {
+      const startNodeIds = new Set(
+        mathNodes.filter(n => n.prerequisites.length === 0).map(n => n.id)
+      );
       return mathNodes.map(n => ({
         id: n.id,
         type: 'sphere',
@@ -95,6 +98,7 @@ export default function SphereGrid({
           area: n.area,
           difficulty: n.difficulty,
           status: nodeStatuses?.[n.id] || 'locked',
+          isStartNode: startNodeIds.has(n.id),
           onClick: handleNodeClick,
         },
       }));
@@ -120,6 +124,22 @@ export default function SphereGrid({
   const defaultViewport = savedViewport ?? undefined;
   const shouldFitView = !savedViewport;
 
+  const fitViewOptions = useMemo(() => {
+    if (level === 'detail' && mathNodes && !savedViewport) {
+      const startNodeIds = mathNodes
+        .filter(n => n.prerequisites.length === 0)
+        .map(n => n.id);
+      if (startNodeIds.length > 0) {
+        return {
+          nodes: startNodeIds.map(id => ({ id })),
+          padding: 0.5,
+          maxZoom: 1.0,
+        };
+      }
+    }
+    return { padding: 0.3 };
+  }, [level, mathNodes, savedViewport]);
+
   return (
     <div className="h-full w-full">
       <ReactFlow
@@ -128,6 +148,7 @@ export default function SphereGrid({
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         fitView={shouldFitView}
+        fitViewOptions={fitViewOptions}
         defaultViewport={defaultViewport}
         onMoveEnd={handleMoveEnd}
         minZoom={0.3}

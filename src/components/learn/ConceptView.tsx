@@ -151,6 +151,14 @@ export default function ConceptView({ content, diagrams, illustrationUrl, label 
 function mdxToHtml(mdx: string): string {
   let html = mdx;
 
+  // Step 1: Evacuate $$...$$ display math blocks to placeholders
+  const mathBlocks: string[] = [];
+  html = html.replace(/\$\$([\s\S]*?)\$\$/g, (_match, tex) => {
+    const idx = mathBlocks.length;
+    mathBlocks.push(tex);
+    return `%%DISPLAY_MATH_${idx}%%`;
+  });
+
   html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
   html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
   html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
@@ -181,6 +189,14 @@ function mdxToHtml(mdx: string): string {
 
   html = html.replace(/^(?!<[hulo]|<block|<li|<Diagram|<table|<thead|<tbody|<tr|<td|<th)(.+)$/gm, '<p>$1</p>');
   html = html.replace(/<p>\s*<\/p>/g, '');
+
+  // Step 4: Restore display math blocks (strip any wrapping <p> tags)
+  html = html.replace(/<p>%%DISPLAY_MATH_(\d+)%%<\/p>/g, (_match, idx) => {
+    return `$$${mathBlocks[Number(idx)]}$$`;
+  });
+  html = html.replace(/%%DISPLAY_MATH_(\d+)%%/g, (_match, idx) => {
+    return `$$${mathBlocks[Number(idx)]}$$`;
+  });
 
   return html;
 }

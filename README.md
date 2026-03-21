@@ -1,42 +1,48 @@
-# plactice_math
+# study-route
 
-数学の概念を一歩ずつ学べる個人用Webアプリ。FFXのスフィア盤のようなスキルマップで学習進捗を可視化し、基礎から大学数学までカバーします。
+数学・哲学・AWS・CS・化学・会計など複数ドメインの概念を一歩ずつ学べるWebアプリ。FFXのスフィア盤のようなスキルマップで学習進捗を可視化し、基礎から専門領域までカバーします。
+
+**https://kent-tokyo.github.io/study-route/**
 
 ## 機能
 
-- **スキルマップ** — 18の数学概念をインタラクティブなグラフで表示。前提関係に沿って学習を進める
-- **概念学習** — MDX + KaTeX数式 + SVG図解による学習コンテンツ
-- **進捗管理** — ノードの完了/学習中ステータスをS3で永続化。前提ノード完了で次のノードが解放
-- **AI コンテンツ生成** — Claude APIで学習コンテンツを自動生成
+- **マルチドメイン対応** — 6ドメイン・201ノードの学習コンテンツ（数学64、AWS33、CS28、化学27、哲学25、会計24）
+- **2段階スキルマップ** — エリア概要（Level 1）→ 詳細マップ（Level 2）のドリルダウン。React Flowによるインタラクティブなグラフ表示
+- **スタートノード表示** — 前提なしのノードにSTARTバッジ表示、初回表示時に自動フォーカス
+- **概念学習** — MDX + KaTeX数式 + SVG図解 + ビジュアルガイド画像による学習コンテンツ
+- **4択クイズ** — 各ノードの理解度チェック（クイズ → 理解確認の2段階）
+- **進捗管理** — localStorageに進捗保存。ノード完了で後続ノードが自動解放
+- **コンテンツレベル** — 初心者/標準/上級者の3段階切替
+- **多言語対応** — 日本語・英語・中国語（UI + グラフラベル）
+- **ダークモード** — ライト/ダーク切替、フラッシュ防止付き
+- **モバイル対応** — レスポンシブヘッダー（モバイル2段/デスクトップ1段）
+
+## ドメイン構成
+
+| ドメイン | エリア数 | ノード数 | 説明 |
+|---------|---------|---------|------|
+| 数学 | 8 | 64 | 基礎から大学院数学まで |
+| 哲学 | 5 | 25 | 認識論・倫理学・論理学・形而上学・美学 |
+| AWS | 8 | 33 | コンピューティングからアプリ統合まで |
+| CS | 6 | 28 | 基礎理論・アルゴリズム・システム・AI/ML |
+| 化学 | 6 | 27 | 一般化学・有機・無機・物理化学・生化学 |
+| 会計 | 6 | 24 | 簿記基礎・財務諸表・原価計算・監査 |
 
 ## 技術スタック
 
-- Next.js 16 (App Router, Turbopack)
+- Next.js 16 (App Router, Turbopack, Static Export)
 - React 19 + TypeScript 5
 - Tailwind CSS 4
 - @xyflow/react (React Flow) — グラフ可視化
 - KaTeX — 数式レンダリング
-- AWS S3 — 進捗データ保存
-- Claude API — コンテンツ生成
+- DOMPurify — HTMLサニタイズ
+- GitHub Pages — ホスティング
 
 ## セットアップ
 
 ```bash
 npm install
-cp .env.sample .env.local
 ```
-
-`.env.local` を編集して環境変数を設定:
-
-| 変数名 | 説明 |
-|--------|------|
-| `PASSWORD_HASH` | ログインパスワードのSHA-256ハッシュ |
-| `SESSION_SECRET` | セッショントークン生成用のランダム文字列 |
-| `AWS_ACCESS_KEY_ID` | AWS認証情報 |
-| `AWS_SECRET_ACCESS_KEY` | AWS認証情報 |
-| `AWS_REGION` | S3リージョン（デフォルト: `ap-northeast-1`）|
-| `S3_BUCKET` | S3バケット名（デフォルト: `plactice-math`）|
-| `ANTHROPIC_API_KEY` | Claude APIキー（コンテンツ生成用）|
 
 ## 開発
 
@@ -49,18 +55,38 @@ http://localhost:3000 でアプリが起動します。
 ## コンテンツ生成
 
 ```bash
+# .envにAPIキーを設定
+# ANTHROPIC_API_KEY=sk-...
+# GOOGLE_API_KEY=AIza...
+
+# 単一ノード生成
 npm run generate-content -- --node counting
+
+# 全ノード一括生成
+npm run generate-content -- --all
+
+# オプション
+# --all-levels        全レベル生成
+# --with-images       ビジュアルガイド画像も生成（Gemini）
+# --images-only       画像のみ再生成
+# --quiz-only         クイズのみ追加生成
+# --force             既存コンテンツを上書き
+# --model <model>     LLMモデル指定（デフォルト: claude-sonnet-4-6）
+# --image-model <m>   画像モデル指定（デフォルト: gemini-2.5-flash-image）
 ```
 
-指定ノードの学習コンテンツ（MDX, 用語集, SVG図解）をClaude AIで生成します。
+5段階生成パイプライン: MDX → 用語集 → SVG図解 → セルフレビュー + クイズ（並列）
 
-## ビルド・Lint
+## ビルド・デプロイ
 
 ```bash
-npm run lint
-npm run build
+# ビルド（GitHub Pages用）
+NEXT_PUBLIC_BASE_PATH=/study-route npm run build
+
+# デプロイ
+npx gh-pages -d out
 ```
 
-## デプロイ
+## ライセンス
 
-Vercelにデプロイ済み。環境変数はVercelダッシュボードで設定。
+MIT

@@ -10,6 +10,7 @@ interface SphereNodeData {
   area: string;
   difficulty: number;
   status: NodeStatus;
+  isStartNode?: boolean;
   onClick: (nodeId: string) => void;
   [key: string]: unknown;
 }
@@ -33,15 +34,21 @@ const AREA_COLORS: Record<string, string> = {
 };
 
 export default function SphereNode({ id, data }: { id: string; data: SphereNodeData }) {
-  const { label, description, area, status, onClick } = data;
+  const { label, description, area, status, isStartNode, onClick } = data;
   const isClickable = status !== 'locked';
+  const showStartBadge = isStartNode && status === 'available';
 
   return (
     <div
-      className={`relative rounded-lg border-2 px-4 py-3 min-w-[140px] max-w-[180px] transition-all ${STATUS_STYLES[status]}`}
+      className={`relative rounded-lg border-2 px-4 py-3 min-w-[140px] max-w-[180px] transition-all ${STATUS_STYLES[status]} ${showStartBadge ? 'ring-2 ring-blue-400/50' : ''}`}
       onClick={() => isClickable && onClick(id)}
       title={description}
     >
+      {showStartBadge && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-blue-500 text-white text-[10px] font-bold leading-none whitespace-nowrap">
+          START
+        </div>
+      )}
       <Handle type="target" position={Position.Left} className="!bg-zinc-400 dark:!bg-zinc-600 !w-2 !h-2" />
       <Handle type="source" position={Position.Right} className="!bg-zinc-400 dark:!bg-zinc-600 !w-2 !h-2" />
 

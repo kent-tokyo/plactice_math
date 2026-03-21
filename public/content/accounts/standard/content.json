@@ -101,5 +101,73 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 中央タイトル -->\n  <text x=\"300\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">勘定科目の構造</text>\n\n  <!-- 会計等式 上部 -->\n  <rect x=\"30\" y=\"50\" width=\"540\" height=\"36\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"65\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" font-weight=\"bold\">会計等式</text>\n  <text x=\"300\" y=\"80\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">資産 ＝ 負債 ＋ 純資産　　純資産 ＝ 純資産（期首） ＋ 収益 － 費用</text>\n\n  <!-- 貸借対照表ブロック -->\n  <rect x=\"30\" y=\"110\" width=\"335\" height=\"200\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.07\" stroke=\"#3b82f6\" stroke-opacity=\"0.5\" stroke-width=\"1.5\"/>\n  <text x=\"197\" y=\"130\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">貸借対照表（B/S）</text>\n\n  <!-- 資産ブロック -->\n  <rect x=\"45\" y=\"140\" width=\"140\" height=\"155\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.13\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"115\" y=\"162\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">資産</text>\n  <text x=\"115\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">企業が持つ経済的価値</text>\n  <line x1=\"60\" y1=\"187\" x2=\"170\" y2=\"187\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"115\" y=\"201\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">現金</text>\n  <text x=\"115\" y=\"215\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">売掛金</text>\n  <text x=\"115\" y=\"229\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">建物</text>\n  <text x=\"115\" y=\"243\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">土地</text>\n  <line x1=\"60\" y1=\"253\" x2=\"170\" y2=\"253\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"115\" y=\"267\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\" font-weight=\"bold\">増加 → 借方（左）</text>\n  <text x=\"115\" y=\"281\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\" font-weight=\"bold\">減少 → 貸方（右）</text>\n\n  <!-- 負債ブロック -->\n  <rect x=\"200\" y=\"140\" width=\"150\" height=\"72\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.10\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"275\" y=\"162\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">負債</text>\n  <text x=\"275\" y=\"178\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">返済・支払い義務</text>\n  <line x1=\"212\" y1=\"185\" x2=\"338\" y2=\"185\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"275\" y=\"198\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">借入金　買掛金　未払費用</text>\n\n  <!-- 純資産ブロック -->\n  <rect x=\"200\" y=\"222\" width=\"150\" height=\"73\" rx=\"8\" fill=\"#22c55e\" fill-opacity=\"0.10\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"275\" y=\"244\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">純資産</text>\n  <text x=\"275\" y=\"260\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">正味の財産</text>\n  <line x1=\"212\" y1=\"267\" x2=\"338\" y2=\"267\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"275\" y=\"282\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">資本金　繰越利益剰余金</text>\n\n  <!-- 負債・純資産ルール -->\n  <text x=\"275\" y=\"307\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\" font-weight=\"bold\">増加 → 貸方（右）</text>\n\n  <!-- 損益計算書ブロック -->\n  <rect x=\"380\" y=\"110\" width=\"190\" height=\"200\" rx=\"10\" fill=\"#22c55e\" fill-opacity=\"0.07\" stroke=\"#22c55e\" stroke-opacity=\"0.5\" stroke-width=\"1.5\"/>\n  <text x=\"475\" y=\"130\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">損益計算書（P/L）</text>\n\n  <!-- 収益ブロック -->\n  <rect x=\"393\" y=\"140\" width=\"164\" height=\"72\" rx=\"8\" fill=\"#22c55e\" fill-opacity=\"0.13\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"475\" y=\"162\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">収益</text>\n  <text x=\"475\" y=\"178\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">企業の稼ぎ（利益の源泉）</text>\n  <line x1=\"405\" y1=\"185\" x2=\"545\" y2=\"185\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"475\" y=\"199\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">売上高　受取利息　雑収入</text>\n\n  <!-- 費用ブロック -->\n  <rect x=\"393\" y=\"222\" width=\"164\" height=\"73\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.10\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"475\" y=\"244\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">費用</text>\n  <text x=\"475\" y=\"260\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">収益を得るためのコスト</text>\n  <line x1=\"405\" y1=\"267\" x2=\"545\" y2=\"267\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\"/>\n  <text x=\"475\" y=\"281\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">仕入　給料　減価償却費</text>\n\n  <!-- 収益・費用ルール -->\n  <text x=\"475\" y=\"307\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\" font-weight=\"bold\">増加 → 貸方（右）／借方（左）</text>\n\n  <!-- 接続線: 純資産 ←→ 収益・費用 -->\n  <path d=\"M 350 258 Q 370 258 380 220\" fill=\"none\" stroke=\"currentColor\" stroke-opacity=\"0.4\" stroke-width=\"1.2\" stroke-dasharray=\"5,3\"/>\n  <text x=\"363\" y=\"248\" font-size=\"8\" fill=\"currentColor\" fill-opacity=\"0.7\">当期純利益</text>\n\n  <!-- 借方/貸方説明ボックス -->\n  <rect x=\"30\" y=\"335\" width=\"540\" height=\"80\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"354\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">借方・貸方ルール（仕訳の基本）</text>\n\n  <!-- 借方列 -->\n  <rect x=\"50\" y=\"362\" width=\"230\" height=\"44\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"165\" y=\"378\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">借方（左）に増加</text>\n  <text x=\"165\" y=\"395\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">資産 ／ 費用</text>\n\n  <!-- 貸方列 -->\n  <rect x=\"320\" y=\"362\" width=\"230\" height=\"44\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.10\" stroke=\"#ef4444\" stroke-width=\"1\"/>\n  <text x=\"435\" y=\"378\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#ef4444\">貸方（右）に増加</text>\n  <text x=\"435\" y=\"395\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">負債 ／ 純資産 ／ 収益</text>\n\n  <!-- 仕訳例ボックス -->\n  <rect x=\"30\" y=\"430\" width=\"540\" height=\"78\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"449\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">仕訳例（カフェ開業）</text>\n\n  <text x=\"50\" y=\"467\" font-size=\"9.5\" fill=\"currentColor\">① 借入：</text>\n  <text x=\"100\" y=\"467\" font-size=\"9.5\" fill=\"#3b82f6\">現金100万（資産↑）</text>\n  <text x=\"210\" y=\"467\" font-size=\"9.5\" fill=\"currentColor\">/</text>\n  <text x=\"220\" y=\"467\" font-size=\"9.5\" fill=\"#ef4444\">借入金100万（負債↑）</text>\n\n  <text x=\"50\" y=\"483\" font-size=\"9.5\" fill=\"currentColor\">② 仕入：</text>\n  <text x=\"100\" y=\"483\" font-size=\"9.5\" fill=\"#ef4444\">仕入5万（費用↑）</text>\n  <text x=\"190\" y=\"483\" font-size=\"9.5\" fill=\"currentColor\">/</text>\n  <text x=\"200\" y=\"483\" font-size=\"9.5\" fill=\"#3b82f6\">現金5万（資産↓）</text>\n\n  <text x=\"50\" y=\"499\" font-size=\"9.5\" fill=\"currentColor\">③ 売上：</text>\n  <text x=\"100\" y=\"499\" font-size=\"9.5\" fill=\"#3b82f6\">現金3万（資産↑）</text>\n  <text x=\"190\" y=\"499\" font-size=\"9.5\" fill=\"currentColor\">/</text>\n  <text x=\"200\" y=\"499\" font-size=\"9.5\" fill=\"#22c55e\">売上高3万（収益↑）</text>\n\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "勘定科目は5つの要素に分類されます。次のうち、貸借対照表（B/S）ではなく損益計算書（P/L）に記載される要素の組み合わせはどれですか？",
+      "choices": [
+        {
+          "text": "資産と負債",
+          "isCorrect": false
+        },
+        {
+          "text": "負債と純資産",
+          "isCorrect": false
+        },
+        {
+          "text": "収益と費用",
+          "isCorrect": true
+        },
+        {
+          "text": "資産と収益",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "勘定科目の5要素のうち、「資産・負債・純資産」は貸借対照表（B/S）に、「収益・費用」は損益計算書（P/L）に記載されます。収益は企業の稼ぎ（例：売上高）、費用は収益を得るためのコスト（例：給料・仕入）であり、これらの差額が利益となります。"
+    },
+    {
+      "question": "複式簿記における借方・貸方の記録ルールとして正しいものはどれですか？",
+      "choices": [
+        {
+          "text": "資産が増加したときは貸方（右）に記録する",
+          "isCorrect": false
+        },
+        {
+          "text": "費用が増加したときは借方（左）に記録する",
+          "isCorrect": true
+        },
+        {
+          "text": "収益が増加したときは借方（左）に記録する",
+          "isCorrect": false
+        },
+        {
+          "text": "負債が減少したときは貸方（右）に記録する",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "複式簿記のルールでは、「資産・費用」は増加のときに借方（左）、減少のときに貸方（右）に記録します。一方、「負債・純資産・収益」は増加のときに貸方（右）、減少のときに借方（左）に記録します。このルールは $\\text{資産} = \\text{負債} + \\text{純資産}$ という等式のバランスを保つように設計されています。"
+    },
+    {
+      "question": "八百屋さんが農家から野菜を仕入れ、「代金は来月まとめて払います」と約束しました。この時点で八百屋さんに発生する勘定科目として正しいものはどれですか？",
+      "choices": [
+        {
+          "text": "売掛金（資産）",
+          "isCorrect": false
+        },
+        {
+          "text": "未払費用（負債）",
+          "isCorrect": false
+        },
+        {
+          "text": "買掛金（負債）",
+          "isCorrect": true
+        },
+        {
+          "text": "借入金（負債）",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "「後で払う義務」は買掛金（負債）として記録します。売掛金は逆に「後でもらえる権利」（資産）です。未払費用は給料など継続的なサービスに対する未払い、借入金は金融機関からの借り入れであり、いずれも今回の状況とは異なります。現金の授受がなくても義務が発生した時点で記録するのが発生主義会計の考え方です。"
+    }
   ]
 }
