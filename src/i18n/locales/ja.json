@@ -45,6 +45,10 @@
     "proceed": "次へ進む",
     "explanation": "解説"
   },
+  "search": {
+    "placeholder": "コンテンツを検索...",
+    "noResults": "見つかりませんでした"
+  },
   "locale": {
     "ja": "日本語",
     "en": "EN",

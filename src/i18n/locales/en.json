@@ -45,6 +45,10 @@
     "proceed": "Continue",
     "explanation": "Explanation"
   },
+  "search": {
+    "placeholder": "Search content...",
+    "noResults": "No results found"
+  },
   "locale": {
     "ja": "日本語",
     "en": "EN",

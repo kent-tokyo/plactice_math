@@ -2,7 +2,6 @@
 
 import { useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import ConceptView from '@/components/learn/ConceptView';
 import TermList from '@/components/learn/TermList';
 import ComprehensionCheck from '@/components/learn/ComprehensionCheck';
@@ -58,18 +57,18 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
       <div className="flex h-screen flex-col items-center justify-center gap-4 bg-white dark:bg-zinc-950">
         <p className="text-zinc-500 dark:text-zinc-400">{t('common.notFound')}</p>
         <div className="flex gap-3">
-          <Link
-            href={mapUrl}
+          <a
+            href={`${getContentBasePath()}${mapUrl}`}
             className="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors"
           >
             {t('common.backToMap')}
-          </Link>
-          <Link
-            href={domainMapUrl}
+          </a>
+          <a
+            href={`${getContentBasePath()}${domainMapUrl}`}
             className="rounded-lg bg-zinc-600 px-4 py-2 text-sm text-white hover:bg-zinc-700 transition-colors"
           >
             {t('common.backToOverview')}
-          </Link>
+          </a>
         </div>
       </div>
     );

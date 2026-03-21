@@ -1,12 +1,12 @@
 # study-route - 要件定義
 
 ## プロジェクト概要
-数学・哲学・AWSなど複数ドメインの概念を一歩ずつ学べるWebアプリ。FFXのスフィア盤のようなスキルマップで進捗を可視化し、基礎から専門領域までカバーする。静的サイトとしてGitHub Pagesでホスティング。多言語対応（日本語・英語・中国語）。
+数学・哲学・AWS・コンピュータサイエンス・化学・会計など6ドメイン201ノードの概念を一歩ずつ学べるWebアプリ。FFXのスフィア盤のようなスキルマップで進捗を可視化し、基礎から専門領域までカバーする。静的サイトとしてGitHub Pagesでホスティング。多言語対応（日本語・英語・中国語）。全文検索機能付き。
 
 ## 機能要件
 
 ### 1. ドメイン選択ページ（/）
-- カードグリッドで学習ドメインを表示（数学・哲学・AWS）
+- カードグリッドで学習ドメインを表示（数学・哲学・AWS・CS・化学・会計）
 - 各カードにドメインカラー、ラベル、説明文
 - クリックで `/{domain}/map` に遷移
 - テーマ切替ボタン、言語切替ボタン付き
@@ -20,6 +20,9 @@
   - 数学: 8エリア（foundations, pure_algebra, pure_analysis, pure_geometry, stochastic, computational, mathematical_modeling, social）
   - 哲学: 5エリア（epistemology, ethics, logic, metaphysics, aesthetics）
   - AWS: 8エリア（compute, storage, networking, security, databases, ai_ml, management, app_integration）
+  - CS: 6エリア（foundations_cs, algorithms, systems, networking_cs, pl, ai_cs）
+  - 化学: 6エリア（general_chem, organic, inorganic, physical, analytical, biochem）
+  - 会計: 6エリア（bookkeeping, financial_statements, cost_accounting, tax_accounting, management_accounting, auditing）
 - **詳細マップへの直接遷移**: `?area=xxx` クエリパラメータで初期表示エリアを指定可能
 - ノード間の前提関係（prerequisites）を矢印で表示
 - ノード状態: locked / available / in_progress / completed
@@ -32,7 +35,8 @@
 - **モバイル対応ヘッダー**: `flex flex-col md:flex-row` で2段レイアウト。上段: ナビ+タイトル、下段: 完了数・レベル切替・言語・テーマ。padding `px-4 py-2 md:px-6 md:py-3`
 - **マップ領域**: 外側 `h-screen flex flex-col`、マップ領域 `flex-1 overflow-hidden`（ヘッダー高さに依存しない）
 - **スタートノード表示**: 詳細マップ: `prerequisites.length === 0` のノードに `START` バッジ + `ring-2 ring-blue-400/50`。全体マップ: `areaEdges`のターゲットに含まれないエリア（入力エッジなし）に `START` バッジ + `ring-2 ring-blue-400/50`。両レベルとも初回表示時にスタートノード/エリアにフォーカス（padding: 0.5, maxZoom: 1.0）。**STARTエリアは最も左（低x座標）に配置**し、非STARTエリアを右側に配置することで視覚的にエントリーポイントを明示
-- ヘッダー: ドメイン選択へ戻るリンク、コンテンツレベルトグル、言語切替、テーマ切替
+- **全文検索**: 虫眼鏡アイコンから展開する検索ボックス。ビルド時生成の検索インデックス（`public/search-index.json`）を使用し、全ドメイン横断でコンテンツ本文+用語をsubstringマッチ（クイズは対象外）。ロケール対応、デバウンス付き、最大20件表示
+- ヘッダー: ドメイン選択へ戻るリンク、コンテンツレベルトグル、検索、言語切替、テーマ切替
 
 ### 3. 概念学習ページ（/{domain}/learn/[nodeId]）
 - 事前生成された静的コンテンツ（content.json）をfetchして表示
@@ -108,6 +112,11 @@
   - 並列実行制御（3並列）、既存スキップ（resume機能）
   - 実行後にドメイン別 manifest.json と contents-table.md を自動更新
   - `dotenv/config`による`.env`自動読み込み（`export`ハック不要）
+- **検索インデックス生成**: `scripts/build-search-index.ts`
+  - ビルド時に`public/content/`配下の全content.jsonを読み込み、MDX本文+用語のプレーンテキストインデックスを`public/search-index.json`に出力
+  - KaTeX・マークダウン記法除去、クイズ除外
+  - ja/en/zhの3言語対応
+  - `npm run build`時に自動実行（`package.json`のbuildスクリプトに統合）
 - **5段階生成パイプライン**:
   1. Step 1 — MDX生成: 概念説明をプレーンMDXで生成（JSON制約なし、品質向上）
   2. Step 2 — 用語集生成: MDXを入力に用語集JSONを生成
@@ -184,7 +193,7 @@
 
 ### 11. マルチドメイン対応
 - **ドメイン定義**: `src/data/graph/domains.json`（id, prefix, label, labels, description, descriptions, color, contentsTableLabel, areaOrder）— ドメインプレフィックス・エリア順序・ラベルなどの一元管理マスタ
-- **ドメイン型**: `DomainId = 'math' | 'philosophy' | 'aws'`
+- **ドメイン型**: `DomainId = 'math' | 'philosophy' | 'aws' | 'cs' | 'chemistry' | 'accounting'`
 - **グラフデータ**: `src/data/graph/{domain}/` にドメインごとのエリア・ノード・エッジを配置
 - **汎用型**: `GraphNode`（旧MathNode）、`GraphEdge`（旧MathEdge）、`AreaId = string`
 - **ルーティング**: `/{domain}/map`、`/{domain}/learn/[nodeId]`。旧URL（`/map`、`/learn/[nodeId]`）は`/math/...`にリダイレクト

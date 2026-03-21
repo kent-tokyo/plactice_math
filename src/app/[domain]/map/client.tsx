@@ -12,6 +12,7 @@ import { useSettings, type ContentLevel } from '@/hooks/useSettings';
 import { useLocale } from '@/i18n/useLocale';
 import { localize } from '@/i18n/localize';
 import LanguageSelector from '@/components/shared/LanguageSelector';
+import SearchBox from '@/components/shared/SearchBox';
 import type { NodeStatus, AreaId } from '@/types';
 import type { DomainId } from '@/types/domain';
 
@@ -120,6 +121,7 @@ export default function DomainMapClient({ domain }: { domain: string }) {
               </button>
             ))}
           </div>
+          <SearchBox />
           <LanguageSelector />
           <button
             onClick={toggleTheme}

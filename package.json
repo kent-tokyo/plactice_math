@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx tsx scripts/build-search-index.ts && next build",
     "start": "npx serve out",
     "lint": "eslint",
     "generate-content": "npx tsx scripts/generate-content.ts",
     "generate-all": "npx tsx scripts/generate-content.ts --all --all-levels",
-    "build:gh-pages": "NEXT_PUBLIC_BASE_PATH=/study-route next build",
+    "build:gh-pages": "npx tsx scripts/build-search-index.ts && NEXT_PUBLIC_BASE_PATH=/study-route next build",
     "deploy:gh-pages": "npm run build:gh-pages && npx gh-pages -d out"
   },
   "dependencies": {

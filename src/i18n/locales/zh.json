@@ -45,6 +45,10 @@
     "proceed": "继续",
     "explanation": "解析"
   },
+  "search": {
+    "placeholder": "搜索内容...",
+    "noResults": "未找到结果"
+  },
   "locale": {
     "ja": "日本語",
     "en": "EN",
