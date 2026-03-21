@@ -14,6 +14,118 @@ export interface GeneratedContent {
 const client = new Anthropic();
 
 // ---------------------------------------------------------------------------
+// Domain detection from area
+// ---------------------------------------------------------------------------
+
+const AREA_TO_DOMAIN: Record<string, string> = {
+  // math
+  foundations: 'math', pure_algebra: 'math', pure_analysis: 'math', pure_geometry: 'math',
+  stochastic: 'math', computational: 'math', mathematical_modeling: 'math', social: 'math',
+  // philosophy
+  logic: 'philosophy', epistemology: 'philosophy', ethics: 'philosophy', metaphysics: 'philosophy', aesthetics: 'philosophy',
+  // aws
+  compute: 'aws', storage: 'aws', networking: 'aws', security: 'aws', databases: 'aws',
+  ai_ml: 'aws', management: 'aws', app_integration: 'aws',
+  // cs
+  foundations_cs: 'cs', algorithms: 'cs', systems: 'cs', networking_cs: 'cs', pl: 'cs', ai_cs: 'cs',
+  // chemistry
+  general_chem: 'chemistry', organic: 'chemistry', inorganic: 'chemistry', physical: 'chemistry',
+  analytical: 'chemistry', biochem: 'chemistry',
+  // accounting
+  bookkeeping: 'accounting', financial_statements: 'accounting', cost_accounting: 'accounting',
+  tax_accounting: 'accounting', management_accounting: 'accounting', auditing: 'accounting',
+};
+
+function getDomainFromArea(area: string): string {
+  return AREA_TO_DOMAIN[area] || 'math';
+}
+
+// ---------------------------------------------------------------------------
+// Domain-specific prompt configuration
+// ---------------------------------------------------------------------------
+
+function getDomainPromptConfig(domain: string, level: string): { role: string; subject: string; extra: string; sectionOverrides?: string } {
+  switch (domain) {
+    case 'philosophy':
+      return {
+        role: '哲学教育の専門家',
+        subject: '哲学',
+        extra: '',
+        sectionOverrides: `
+## なぜ必要か — 哲学における位置づけ
+（この概念が哲学のどこで議論され、なぜ重要なのか）
+
+## 核となるアイデア — 主要な議論・立場
+（主要な哲学者の見解を引用しつつ、中心的な議論を正確に述べる）
+
+## 具体例・思考実験
+（最低3つの具体例や思考実験を挙げる。それぞれ異なる角度から概念を照らすこと）
+
+## つながり — 他の概念との関係
+（前提知識や発展先との関係を明示する）
+
+## 現代への応用・影響
+（現代社会・科学・倫理・政治などでこの概念がどう活きているか）`,
+      };
+    case 'aws':
+      return {
+        role: 'AWSクラウドアーキテクトかつ教育の専門家',
+        subject: 'AWSサービス',
+        extra: `
+- AWSの公式ドキュメントに準拠した正確な説明をすること
+- ユースケースと設計パターンを重視すること`,
+        sectionOverrides: `
+## なぜ必要か — クラウドにおける位置づけ
+（このサービスがなぜ存在し、どのような課題を解決するのか）
+
+## 核となるアイデア — 仕組みと主要機能
+（アーキテクチャ、主要な設定項目、料金体系の概要）
+
+## 具体例・ユースケース
+（最低3つのユースケースを挙げる。それぞれ異なるシナリオで説明）
+
+## つながり — 他のサービスとの関係
+（よく組み合わせて使うサービスや、代替サービスとの比較）
+
+## ベストプラクティス
+（セキュリティ・コスト最適化・可用性の観点からの推奨事項）`,
+      };
+    case 'cs':
+      return {
+        role: 'コンピュータサイエンス教育の専門家',
+        subject: 'コンピュータサイエンスの概念',
+        extra: '',
+      };
+    case 'chemistry':
+      return {
+        role: '化学教育の専門家',
+        subject: '化学の概念',
+        extra: '',
+      };
+    case 'accounting':
+      return {
+        role: '会計・簿記教育の専門家（公認会計士レベル）',
+        subject: '会計・簿記の概念',
+        extra: level === 'advanced'
+          ? `
+- 日本基準（J-GAAP）を基本としつつ、IFRS（国際財務報告基準）との主要な差異を詳しく比較すること
+- 米国基準（US-GAAP）にも適宜言及すること
+- 各基準の背景にある考え方の違いも解説すること`
+          : `
+- 日本基準（J-GAAP）を基本として説明すること
+- IFRS（国際財務報告基準）との主要な差異がある場合は簡潔に触れること
+- 日本固有の制度（消費税のインボイス制度等）は明示すること`,
+      };
+    default: // math
+      return {
+        role: '数学教育の専門家',
+        subject: '数学',
+        extra: '',
+      };
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Prerequisite content injection
 // ---------------------------------------------------------------------------
 
@@ -120,28 +232,12 @@ async function stepGenerateMDX(
 ): Promise<string> {
   const levelInstruction = getContentLevelInstruction(contentLevel);
   const difficultyInstruction = getDifficultyInstruction(difficulty);
+  const domain = getDomainFromArea(area);
+  const domainConfig = getDomainPromptConfig(domain, contentLevel);
 
-  const prompt = `あなたは数学教育の専門家です。以下の数学概念について、MDX形式の概念説明コンテンツを生成してください。
-
-概念: ${nodeLabel}（${nodeId}）
-難易度: ${difficulty}/5
-概要: ${description}
-分野: ${area}
-
-${levelInstruction}
-
-${difficultyInstruction}
-${prerequisiteContext}
-
-以下の構成でMDXコンテンツを書いてください（JSON不要、MDXそのものを返してください）:
-
-# ${nodeLabel}
-
-## 何か — 直感的な説明
-（この概念を一言で説明し、初めて出会う読者が「ああ、こういうことか」と思える導入）
-
-## なぜ必要か — 数学における位置づけ
-（この概念が数学のどこで使われ、なぜ重要なのか）
+  const sections = domainConfig.sectionOverrides || `
+## なぜ必要か — ${domainConfig.subject}における位置づけ
+（この概念が${domainConfig.subject}のどこで使われ、なぜ重要なのか）
 
 ## 核となるアイデア — 定義・定理の本質
 （数式は $...$ や $$...$$ のKaTeX形式で。中心的な定義や定理を正確に述べる）
@@ -153,7 +249,28 @@ ${prerequisiteContext}
 （前提知識や発展先との関係を明示する）
 
 ## 他分野への応用
-（物理・化学・経済学・工学・コンピュータサイエンスなどでこの概念がどう使われるか）
+（他の分野でこの概念がどう使われるか）`;
+
+  const prompt = `あなたは${domainConfig.role}です。以下の${domainConfig.subject}の概念について、MDX形式の概念説明コンテンツを生成してください。
+
+概念: ${nodeLabel}（${nodeId}）
+難易度: ${difficulty}/5
+概要: ${description}
+分野: ${area}
+
+${levelInstruction}
+
+${difficultyInstruction}
+${domainConfig.extra}
+${prerequisiteContext}
+
+以下の構成でMDXコンテンツを書いてください（JSON不要、MDXそのものを返してください）:
+
+# ${nodeLabel}
+
+## 何か — 直感的な説明
+（この概念を一言で説明し、初めて出会う読者が「ああ、こういうことか」と思える導入）
+${sections}
 
 注意:
 - 計算問題は出さない（概念理解に特化）
