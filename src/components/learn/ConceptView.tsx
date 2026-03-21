@@ -158,12 +158,28 @@ function mdxToHtml(mdx: string): string {
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
+  // Tables: convert markdown tables to HTML
+  html = html.replace(
+    /(^\|.+\|$\n^\|[-| :]+\|$\n(?:^\|.+\|$\n?)+)/gm,
+    (tableBlock) => {
+      const rows = tableBlock.trim().split('\n');
+      if (rows.length < 2) return tableBlock;
+      const headerCells = rows[0].split('|').filter(c => c.trim() !== '').map(c => `<th>${c.trim()}</th>`).join('');
+      // rows[1] is the separator, skip it
+      const bodyRows = rows.slice(2).map(row => {
+        const cells = row.split('|').filter(c => c.trim() !== '').map(c => `<td>${c.trim()}</td>`).join('');
+        return `<tr>${cells}</tr>`;
+      }).join('');
+      return `<table><thead><tr>${headerCells}</tr></thead><tbody>${bodyRows}</tbody></table>`;
+    }
+  );
+
   html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
   html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
 
   html = html.replace(/^> (.+)$/gm, '<blockquote><p>$1</p></blockquote>');
 
-  html = html.replace(/^(?!<[hulo]|<block|<li|<Diagram)(.+)$/gm, '<p>$1</p>');
+  html = html.replace(/^(?!<[hulo]|<block|<li|<Diagram|<table|<thead|<tbody|<tr|<td|<th)(.+)$/gm, '<p>$1</p>');
   html = html.replace(/<p>\s*<\/p>/g, '');
 
   return html;
