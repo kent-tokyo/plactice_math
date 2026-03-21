@@ -10,6 +10,8 @@ import { useContent } from '@/hooks/useContent';
 import { useProgress } from '@/hooks/useProgress';
 import { useSettings, type ContentLevel } from '@/hooks/useSettings';
 import { useLocale } from '@/i18n/useLocale';
+import { localize } from '@/i18n/localize';
+import LanguageSelector from '@/components/shared/LanguageSelector';
 import { getNode } from '@/lib/graph';
 import type { DomainId } from '@/types/domain';
 
@@ -20,7 +22,7 @@ interface LearnPageClientProps {
 
 export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps) {
   const router = useRouter();
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
 
   const node = useMemo(() => getNode(nodeId, domain), [nodeId, domain]);
   const { contentLevel, setContentLevel } = useSettings();
@@ -65,9 +67,9 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
           <Link href={mapUrl} className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors">
             {t('common.backToMap')}
           </Link>
-          <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{node.label}</h1>
+          <h1 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{localize(locale, node.label, node.labels)}</h1>
           <span className="text-xs text-zinc-500 dark:text-zinc-400">
-            {'★'.repeat(node.difficulty)} · {node.description}
+            {'★'.repeat(node.difficulty)} · {localize(locale, node.description, node.descriptions)}
           </span>
           {availableLevels.length > 1 && (
             <div className="ml-auto flex items-center rounded-md border border-zinc-200 dark:border-zinc-700 overflow-hidden">
@@ -88,6 +90,9 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
                 ))}
             </div>
           )}
+          <div className={availableLevels.length <= 1 ? 'ml-auto' : ''}>
+            <LanguageSelector />
+          </div>
         </div>
       </header>
 
