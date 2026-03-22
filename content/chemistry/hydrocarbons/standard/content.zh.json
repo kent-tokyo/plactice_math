@@ -1,0 +1,101 @@
+{
+  "id": "777fff16-03ff-4595-9fbf-8b735be8ad04",
+  "nodeId": "hydrocarbons",
+  "level": "standard",
+  "locale": "zh",
+  "generatedAt": "2026-03-22T00:54:37.062Z",
+  "content": "# 烃\n\n## 是什么 — 直观的解释\n\n烃，顾名思义，是**仅由碳（C）和氢（H）两种元素构成的有机化合物**的总称。尽管组成简单，但由于碳原子的结合方式千变万化，由此诞生了种类惊人的多样分子。\n\n碳原子是一种拥有4条\"手臂\"（成键臂）的特殊原子。利用这4条手臂，碳原子之间可以像链条一样连接、形成环状结构，或者形成双键、三键。就像**搭积木**一样，仅仅改变碳的连接方式，就能得到气态、液态或固态，气味和反应性截然不同的各种物质。\n\n烃大致可分为4类：碳碳之间**只有单键的烷烃**、**含有双键的烯烃**、**含有三键的炔烃**，以及**含有苯环的芳香族化合物**。理解这4类，是读懂整个有机化学的关键。\n\n---\n\n## 为什么重要 — 在化学体系中的位置\n\n烃是有机化学的**起点**。有机化学中涉及的大多数分子，都是在烃的骨架上加入氧、氮、硫等元素后形成的结构。因此，理解烃的结构与性质，就是为理解醇、醚、胺、羧酸等所有有机化合物奠定基础。\n\n烃还与**能源资源和材料工业直接相关**。石油和天然气几乎都是烃的混合物，汽油、塑料、合成橡胶、医药原料等大多以烃为起始原料制造。这是化学知识与现实社会紧密相连的、极为贴近日常生活的概念。\n\n此外，烃的分类（烷烃、烯烃、炔烃、芳香族）也是**预测反应性差异的框架**。只要知道是哪种类型的烃，就能预判\"这个分子会发生加成反应吗\"\"还是以取代反应为主\"，从而做出合理的判断。\n\n---\n\n## 核心概念 — 定义与理论的本质\n\n### 烷烃（Alkanes）— 饱和烃\n\n烷烃是碳碳之间全部以**单键（C–C）**相连的烃。其通式如下：\n\n$$\n\\text{C}_n\\text{H}_{2n+2} \\quad (n = 1, 2, 3, \\ldots)\n$$\n\n\"饱和\"意味着氢的数量达到最大值。$n=1$ 的甲烷 $\\text{CH}_4$、$n=2$ 的乙烷 $\\text{C}_2\\text{H}_6$、$n=3$ 的丙烷 $\\text{C}_3\\text{H}_8$ 都是典型代表。由于只含单键，电子密度均匀分布在各成键位置，**反应性相对较低**，主要发生燃烧（氧化）反应以及在光照条件下的自由基取代反应。\n\n### 烯烃（Alkenes）— 含双键的烃\n\n烯烃在碳碳之间至少含有一个**双键（C＝C）**。通式为：\n\n$$\n\\text{C}_n\\text{H}_{2n} \\quad (n = 2, 3, 4, \\ldots)\n$$\n\n双键由 $\\sigma$ 键和 $\\pi$ 键两种键构成。其中 $\\pi$ 键的电子束缚较为松弛，**容易受到亲电试剂的进攻**。因此，烯烃的特征是容易发生**加成反应（addition reaction）**。\n\n### 炔烃（Alkynes）— 含三键的烃\n\n炔烃在碳碳之间含有**三键（C≡C）**。通式为：\n\n$$\n\\text{C}_n\\text{H}_{2n-2} \\quad (n = 2, 3, 4, \\ldots)\n$$\n\n三键由1个 $\\sigma$ 键和2个 $\\pi$ 键组成。炔烃的 $\\pi$ 电子比烯烃更为丰富，可以分两步发生加成反应。最简单的炔烃是乙炔 $\\text{HC{\\equiv}CH}$（又称乙炔）。\n\n### 芳香族化合物（Aromatic compounds）— 具有特殊稳定性的环状烃\n\n芳香族烃的代表是苯 $\\text{C}_6\\text{H}_6$。苯具有6个碳原子排列成正六边形的环状结构，**6个 $\\pi$ 电子在整个环上离域（delocalization）**。\n\n$$\n\\text{C}_6\\text{H}_6\n$$\n\n这种电子离域赋予了芳香族化合物特殊的稳定性。尽管含有双键，芳香族化合物却不像烯烃那样容易发生加成反应，而是以**芳香族亲电取代反应（electrophilic aromatic substitution）**为主要反应途径。理解其反应趋势的直觉在于：反应总是倾向于\"不破坏\"环的稳定性。\n\n判断芳香族性的常用标准是**休克尔规则（Hückel's rule）**：对于环状、平面的共轭体系，当 $\\pi$ 电子数为 $4n+2$（$n = 0, 1, 2, \\ldots$）时，具有特殊的稳定性（芳香性）。苯的 $\\pi$ 电子数为6（$n=1$），满足该条件。\n\n---\n\n## 具体示例\n\n### 示例 1：丙烷气体 — 日常生活中的烷烃\n\n用于便携式炉具和野营燃烧器的**丙烷（$\\text{C}_3\\text{H}_8$）**是烷烃的典型代表。3个碳原子排成一列，全部以单键相连。\n\n烷烃只含单键，电子上较为稳定，在常温下几乎不与其他物质反应。然而**一旦点燃，就会发生燃烧（氧化）并释放大量能量**，这正是它被用作炉具热源的原因。需要注意的是，丙烷比空气重（分子量44），泄漏时容易在地板附近积聚，存在一定的安全隐患。\n\n$$\n\\text{C}_3\\text{H}_8 + 5\\text{O}_2 \\rightarrow 3\\text{CO}_2 + 4\\text{H}_2\\text{O}\n$$\n\n烷烃\"只有单键 → 反应性低 → 燃烧是主要反应\"这一规律，在这个贴近日常的例子中得到了很好的体现。\n\n### 示例 2：乙烯 — 使果实成熟的烯烃\n\n**乙烯（$\\text{H}_2\\text{C{=}CH}_2$，乙烯）**是最简单的烯烃。实际上，这种分子也是植物为使果实成熟而自身分泌的**植物激素**。你有没有把香蕉和其他成熟水果放在同一个袋子里，结果香蕉熟得更快的经历？那正是乙烯气体在发挥作用。\n\n从化学角度来看，乙烯的 $\\text{C{=}C}$ 双键是加成反应的活性位点。例如，乙烯与氢气（$\\text{H}_2$）加成得到乙烷（$\\text{C}_2\\text{H}_6$），与溴（$\\text{Br}_2$）加成得到1,2-二溴乙烷。此外，乙烯分子之间发生加聚反应，可制得**聚乙烯**（塑料袋和塑料制品的主要原料）。正是因为有双键这个\"可以反应的位置\"，才能实现各种各样的转化。\n\n### 示例 3：乙炔 — 用于切割与焊接的炔烃\n\n**乙炔（$\\text{HC{\\equiv}CH}$，乙炔）**是用于金属焊接和切割的气体。含有三键，燃烧时温度可达约3500°C，足以轻松熔化钢铁。\n\n三键的 $\\pi$ 电子丰富，反应性强，乙炔可以分两步发生加成反应。第一步加成得到乙烯基化合物（烯烃），再进一步加成则得到烷烃。这种\"可以分阶段反应\"的性质在合成化学中极为有用。此外，乙炔与水加成（水化）生成乙醛的反应，曾是一个重要的工业过程。\n\n### 示例 4：苯与甲苯 — 芳香族化合物的直观印象\n\n**苯（$\\text{C}_6\\text{H}_6$）**是一种具有独特甜味气味的液体，也是\"芳香族\"这一名称的由来（\"aromatic\"= 有芳香气味）。6个碳原子排列成正六边形，$\\pi$ 电子均匀覆盖整个环的状态，常被比喻为**\"电子云甜甜圈\"**。\n\n**甲苯（甲基苯）**是苯环上连接一个甲基（$-\\text{CH}_3$）的结构，在日常生活中常用作涂料溶剂。芳香族化合物擅长在保持环的稳定性的同时，将环上的氢原子\"替换\"为其他基团的取代反应。例如，向甲苯中引入硝基得到三硝基甲苯（TNT）的反应，是芳香族取代反应的著名案例。\n\n---\n\n## 关联 — 与其他概念的关系\n\n### 与前置知识的关系\n\n理解烃，首先需要掌握**化学键**的基础知识。单键、双键、三键的区别，分别对应 $\\sigma$ 键与 $\\pi$ 键数量的不同，这直接决定了反应性的差异。此外，理解碳的**杂化轨道**（$sp^3$、$sp^2$、$sp$）概念，能够更深入地把握各类烃的空间结构和反应性。具体而言，烷烃的碳为 $sp^3$ 杂化（正四面体形），烯烃中双键碳为 $sp^2$ 杂化（平面形），炔烃中三键碳为 $sp$ 杂化（直线形）。\n\n### 在有机化学中的位置\n\n烃是有机化学的**骨架**概念。在此之后学习的：\n\n- **醇与醚**：烃的骨架上加入 $-\\text{OH}$ 或 $-\\text{O}-$ 的结构\n- **羧酸与酯**：含有 $-\\text{COOH}$ 或 $-\\text{COO}-$ 的化合物\n- **胺与酰胺**：含氮的有机化合物\n\n这些都可以理解为\"烃的骨架上连接官能团的产物\"。烃的类型（烷烃系、烯烃系、芳香族系）也会影响官能团的反应性，因此掌握烃的分类，就如同拥有了整个有机化学的地图。\n\n### 与立体化学的关系\n\n烯烃的双键旋转受限，因此会产生**顺-反异构（几何异构）**。即使分子式相同，也存在空间排列不同的两种异构体。这种差异有时会对药物等物质的生理活性产生重大影响，由此引申出立体化学这一进阶概念。\n\n---\n\n## 跨学科应用\n\n### 石油化学与能源工业\n\n原油主要是各种烃的混合物。通过精馏可分离出汽油（$\\text{C}_5$～$\\text{C}_{10}$ 的烷烃混合物）、煤油、柴油、重油等。烯烃和炔烃在石油精炼过程中生成，经进一步加工后成为塑料、合成橡胶、纤维等**高分子材料**的原料。可以说，现代工业社会建立在烃化学的基础之上，毫不夸张。\n\n### 医药与生物化学\n\n许多药物和生物分子以芳香环为骨架。阿司匹林、布洛芬、抗生素、类固醇激素等，苯环及其衍生物是药物化学中的核心结构要素。此外，DNA的碱基（腺嘌呤、鸟嘌呤、胞嘧啶、胸腺嘧啶）也具有芳香性，在生物体内的信息传递中发挥着重要作用。\n\n### 材料科学与高分子化学\n\n乙烯（烯烃）加聚制备聚乙烯、丙烯加聚制备聚丙烯、由炔烃系碳氢化合物制备的导电聚合物（聚乙炔）等，烃是**新材料开发**的基础原料。聚乙炔的发现及其导电性的阐明获得了诺贝尔化学奖（2000年），充分说明烃化学与前沿材料科学之间存在深刻联系。\n\n### 环境科学\n\n由汽车和工厂不完全燃烧产生的**多环芳烃（PAH，Polycyclic Aromatic Hydrocarbons）**是大气污染物，与环境和健康问题密切相关。苯并[a]芘等多环芳烃的致癌性备受关注，对烃化学性质的理解是环境监测和防治技术的基础。",
+  "terms": [
+    {
+      "term": "烃",
+      "reading": "tīng",
+      "en": "Hydrocarbon",
+      "definition": "仅由碳（C）和氢（H）组成的有机化合物的总称。大致分为烷烃、烯烃、炔烃和芳香族化合物。"
+    },
+    {
+      "term": "烷烃",
+      "reading": "wán tīng",
+      "en": "Alkane",
+      "definition": "碳原子之间全部以单键（C–C）相连的饱和烃，通式为 CₙH₂ₙ₊₂。反应性较低，主要发生燃烧反应。"
+    },
+    {
+      "term": "烯烃",
+      "reading": "xī tīng",
+      "en": "Alkene",
+      "definition": "碳原子之间含有至少一个双键（C＝C）的烃，通式为 CₙH₂ₙ。由于π键的存在，容易发生加成反应。"
+    },
+    {
+      "term": "炔烃",
+      "reading": "quē tīng",
+      "en": "Alkyne",
+      "definition": "碳原子之间含有三键（C≡C）的烃，通式为 CₙH₂ₙ₋₂。π电子丰富，反应性高，可进行两阶段加成反应。"
+    },
+    {
+      "term": "芳香族化合物",
+      "reading": "fāng xiāng zú huà hé wù",
+      "en": "Aromatic compound",
+      "definition": "具有苯环等环状结构，π电子发生离域从而具有特殊稳定性的化合物。其主要反应路径为芳香族亲电取代反应，而非加成反应。"
+    },
+    {
+      "term": "σ键",
+      "reading": "σ jiàn",
+      "en": "Sigma bond",
+      "definition": "两个原子轨道沿键轴方向直接重叠而形成的共价键。存在于单键、双键和三键之中。"
+    },
+    {
+      "term": "π键",
+      "reading": "π jiàn",
+      "en": "Pi bond",
+      "definition": "两个原子轨道在键轴侧面重叠而形成的共价键。存在于双键和三键中，容易受到亲电试剂的进攻。"
+    },
+    {
+      "term": "加成反应",
+      "reading": "jiā chéng fǎn yìng",
+      "en": "Addition reaction",
+      "definition": "其他原子或原子团加成到双键或三键上的反应。是烯烃和炔烃的特征反应类型。"
+    },
+    {
+      "term": "芳香族亲电取代反应",
+      "reading": "fāng xiāng zú qīn diàn zǐ qǔ dài fǎn yìng",
+      "en": "Electrophilic aromatic substitution",
+      "definition": "芳香族化合物苯环上的氢原子被亲电试剂替换为其他原子团的反应。反应过程中保持苯环的稳定性。"
+    },
+    {
+      "term": "离域",
+      "reading": "lí yù",
+      "en": "Delocalization",
+      "definition": "电子不固定于某一特定键，而是分散在分子内较大范围的状态。苯中π电子的离域是芳香族化合物稳定性的根本来源。"
+    },
+    {
+      "term": "杂化轨道",
+      "reading": "zá huà guǐ dào",
+      "en": "Hybrid orbital",
+      "definition": "由原子轨道混合而形成的新轨道。碳的sp³、sp²、sp杂化分别解释了烷烃、烯烃、炔烃在空间结构和反应性上的差异。"
+    },
+    {
+      "term": "顺反异构",
+      "reading": "shùn fǎn yì gòu",
+      "en": "Cis-trans isomerism",
+      "definition": "由于双键的旋转受限，具有相同分子式但空间排列不同的两种异构体同时存在的现象。又称几何异构。"
+    },
+    {
+      "term": "加聚反应",
+      "reading": "jiā jù fǎn yìng",
+      "en": "Addition polymerization",
+      "definition": "含有双键的烯烃等单体通过不断发生加成反应而形成高分子的反应。乙烯生成聚乙烯的反应是典型代表。"
+    },
+    {
+      "term": "多环芳香烃",
+      "reading": "duō huán fāng xiāng tīng",
+      "en": "Polycyclic Aromatic Hydrocarbons (PAH)",
+      "definition": "由多个苯环稠合而成的芳香烃的总称。在不完全燃烧中产生，与致癌性等环境和健康问题密切相关。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 中央：烃 -->\n  <ellipse cx=\"300\" cy=\"260\" rx=\"72\" ry=\"36\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"255\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"#3b82f6\">烃</text>\n  <text x=\"300\" y=\"272\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">仅含 C 和 H</text>\n\n  <!-- 上：烷烃 -->\n  <rect x=\"60\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">烷烃</text>\n  <text x=\"130\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">仅含 C–C 单键</text>\n  <text x=\"130\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₊₂</text>\n  <text x=\"130\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 甲烷 CH₄</text>\n\n  <!-- 上右：烯烃 -->\n  <rect x=\"400\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">烯烃</text>\n  <text x=\"470\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">含 C＝C 双键</text>\n  <text x=\"470\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ</text>\n  <text x=\"470\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 乙烯 C₂H₄</text>\n\n  <!-- 下左：炔烃 -->\n  <rect x=\"60\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">炔烃</text>\n  <text x=\"130\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">含 C≡C 三键</text>\n  <text x=\"130\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₋₂</text>\n  <text x=\"130\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 乙炔 C₂H₂</text>\n\n  <!-- 下右：芳香族 -->\n  <rect x=\"400\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">芳香族</text>\n  <text x=\"470\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">苯环·π电子离域</text>\n  <text x=\"470\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">C₆H₆（苯）</text>\n  <text x=\"470\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 苯, 甲苯</text>\n\n  <!-- 接続線：中央→烷烃 -->\n  <line x1=\"240\" y1=\"243\" x2=\"190\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→烯烃 -->\n  <line x1=\"360\" y1=\"243\" x2=\"410\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→炔烃 -->\n  <line x1=\"240\" y1=\"277\" x2=\"190\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→芳香族 -->\n  <line x1=\"360\" y1=\"277\" x2=\"410\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n\n  <!-- 矢印マーカー -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n    <marker id=\"arr2\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#22c55e\"/>\n    </marker>\n    <marker id=\"arr3\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n  <!-- 反応性の軸ラベル -->\n  <!-- 反应性箭头（左侧纵向）-->\n  <line x1=\"22\" y1=\"430\" x2=\"22\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arr3)\"/>\n  <text x=\"14\" y=\"270\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\" transform=\"rotate(-90,14,270)\">反应性（低 → 高）</text>\n\n  <!-- 不饱和度箭头（上方横向）-->\n  <line x1=\"210\" y1=\"15\" x2=\"390\" y2=\"15\" stroke=\"#22c55e\" stroke-width=\"2\" marker-end=\"url(#arr2)\"/>\n  <text x=\"300\" y=\"11\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22c55e\">不饱和度（低 → 高）</text>\n\n  <!-- 结合タイプ比較ライン (烷烃→烯烃→炔烃) -->\n  <!-- σのみ → σ+π → σ+2π -->\n  <!-- ラベル: 键的类型 -->\n  <text x=\"300\" y=\"198\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">键的类型</text>\n  <text x=\"130\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">仅 σ</text>\n  <text x=\"470\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + π</text>\n  <text x=\"130\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + 2π</text>\n  <text x=\"470\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">π 离域化</text>\n\n  <!-- 主な反応ラベル -->\n  <text x=\"50\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">燃烧·</text>\n  <text x=\"50\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">取代反应</text>\n  <text x=\"548\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">加成反应</text>\n  <text x=\"50\" y=\"358\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">加成反应</text>\n  <text x=\"548\" y=\"356\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">亲电</text>\n  <text x=\"548\" y=\"368\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">取代反应</text>\n\n  <!-- 有机化合物基础标签 -->\n  <rect x=\"195\" y=\"290\" width=\"210\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"309\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">有机化学的骨架·出发点</text>\n  <text x=\"300\" y=\"323\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">（其他官能团的基础）</text>\n\n  <!-- ベンゼン環の模式図（小） -->\n  <g transform=\"translate(448,445)\">\n    <polygon points=\"0,-12 10.4,-6 10.4,6 0,12 -10.4,6 -10.4,-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.5\"/>\n    <circle cx=\"0\" cy=\"0\" r=\"6.5\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" opacity=\"0.7\"/>\n  </g>\n\n</svg>"
+    }
+  ],
+  "quiz": []
+}

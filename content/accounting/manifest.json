@@ -29,5 +29,20 @@
     "hasIllustration": {
       "standard": false
     }
+  },
+  "balance-sheet": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja",
+        "en",
+        "zh"
+      ]
+    }
   }
 }

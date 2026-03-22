@@ -34,5 +34,20 @@
         "ja"
       ]
     }
+  },
+  "set-theory": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja",
+        "en",
+        "zh"
+      ]
+    }
   }
 }
