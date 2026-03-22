@@ -20,6 +20,11 @@
     ],
     "hasIllustration": {
       "standard": true
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "stoichiometry": {
@@ -28,6 +33,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "hydrocarbons": {

@@ -139,5 +139,16 @@
       ],
       "explanation": "自然数はすべて整数でもあり（$\\mathbb{N} \\subseteq \\mathbb{Z}$）、整数はすべて有理数でもあり（$\\mathbb{Z} \\subseteq \\mathbb{Q}$）、有理数はすべて実数でもある（$\\mathbb{Q} \\subseteq \\mathbb{R}$）という階層構造が成り立ちます。たとえば $-3$ は整数ですが自然数ではないため $\\mathbb{Z} \\subseteq \\mathbb{N}$ は成り立たず、$\\frac{1}{2}$ は有理数ですが整数ではないため $\\mathbb{Q} \\subseteq \\mathbb{Z}$ も成り立ちません。"
     }
+  ],
+  "quotes": [
+    {
+      "text": "The essence of mathematics lies in its freedom.",
+      "author": "Georg Cantor",
+      "source": "Mathematische Annalen, 1883"
+    },
+    {
+      "text": "A set is a Many that allows itself to be thought of as a One.",
+      "author": "Georg Cantor"
+    }
   ]
 }

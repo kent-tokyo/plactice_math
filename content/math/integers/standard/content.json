@@ -139,5 +139,12 @@
       ],
       "explanation": "数の体系は $\\mathbb{N}$（自然数）$\\subset \\mathbb{Z}$（整数）$\\subset \\mathbb{Q}$（有理数）$\\subset \\mathbb{R}$（実数）$\\subset \\mathbb{C}$（複素数）という包含関係にあります。整数は自然数を含み、有理数に含まれます。有理数が実数より先にくる点や、整数と自然数の順序に注意が必要です。"
     }
+  ],
+  "quotes": [
+    {
+      "text": "God made the integers, all else is the work of man.",
+      "author": "レオポルト・クロネッカー",
+      "source": "Jahresberichte der Deutschen Mathematiker-Vereinigung（1893年）"
+    }
   ]
 }

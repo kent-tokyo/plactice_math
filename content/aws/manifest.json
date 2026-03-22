@@ -20,6 +20,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "vpc": {
@@ -43,6 +48,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "lambda": {
@@ -51,6 +61,11 @@
     ],
     "hasIllustration": {
       "standard": true
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "ecs": {
@@ -59,6 +74,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   }
 }
