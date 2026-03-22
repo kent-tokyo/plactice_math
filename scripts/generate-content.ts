@@ -2,7 +2,7 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { generateContent, generateQuizOnly, translateContent } from '../src/lib/content-generator';
+import { generateContent, generateQuizOnly, translateContent, translateQuiz } from '../src/lib/content-generator';
 import { generateConceptImage } from '../src/lib/image-generator';
 import { getAllNodes, getNode } from '../src/lib/graph';
 import type { DomainId } from '../src/types/domain';
@@ -220,7 +220,9 @@ async function main() {
   const isTranslateMode = targetLocales.length > 0;
 
   console.log(`Target: ${nodeIds.length} node(s) × ${levels.length} level(s) = ${nodeIds.length * levels.length} combination(s)`);
-  if (isTranslateMode) {
+  if (isTranslateMode && flags.quizOnly) {
+    console.log(`Mode: quiz-only translate (${targetLocales.join(', ')})`);
+  } else if (isTranslateMode) {
     console.log(`Mode: translate (${targetLocales.join(', ')})`);
   } else if (flags.quizOnly) {
     console.log('Mode: quiz only (generating quizzes for existing content)');
@@ -232,6 +234,60 @@ async function main() {
   }
   if (flags.force) console.log('Force mode: overwriting existing content');
 
+  // In --quiz-only --locale mode, translate only quizzes for existing translations
+  if (isTranslateMode && flags.quizOnly) {
+    const quizTranslateJobs: { nodeId: string; level: string; locale: string }[] = [];
+    for (const nodeId of nodeIds) {
+      for (const level of levels) {
+        if (!contentExists(nodeId, level, 'ja')) {
+          console.log(`  [skip] ${nodeId}/${level} (no Japanese content)`);
+          continue;
+        }
+        for (const locale of targetLocales) {
+          if (!contentExists(nodeId, level, locale)) {
+            console.log(`  [skip] ${nodeId}/${level}/${locale} (no existing translation — run full translate first)`);
+            continue;
+          }
+          quizTranslateJobs.push({ nodeId, level, locale });
+        }
+      }
+    }
+
+    if (flags.dryRun) {
+      console.log(`\nDry run: ${quizTranslateJobs.length} quiz translation job(s) would be executed:`);
+      for (const job of quizTranslateJobs) {
+        console.log(`  - ${job.nodeId}/${job.level} → ${job.locale}`);
+      }
+    } else if (quizTranslateJobs.length === 0) {
+      console.log('No quiz translation jobs to execute.');
+    } else {
+      console.log(`\nTranslating quizzes for ${quizTranslateJobs.length} content(s) with concurrency ${MAX_CONCURRENCY}...`);
+
+      const tasks = quizTranslateJobs.map(job => async () => {
+        const label = `${job.nodeId}/${job.level} → ${job.locale}`;
+        const domain = getDomainForNode(job.nodeId);
+        try {
+          const jaPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
+          const jaContent = JSON.parse(fs.readFileSync(jaPath, 'utf-8'));
+          if (!jaContent.quiz || jaContent.quiz.length === 0) {
+            console.log(`  [skip] ${label} (no quiz in Japanese content)`);
+            return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+          }
+          const translatedQuiz = await translateQuiz(jaContent.quiz, job.locale, modelName);
+          const localePath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, contentFilename(job.locale));
+          const existingTranslation = JSON.parse(fs.readFileSync(localePath, 'utf-8'));
+          existingTranslation.quiz = translatedQuiz;
+          fs.writeFileSync(localePath, JSON.stringify(existingTranslation, null, 2));
+          console.log(`  [quiz-translated] ${label} (${translatedQuiz.length} questions)`);
+        } catch (err) {
+          console.warn(`  [error] ${label}: ${(err as Error).message}`);
+        }
+        return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+      });
+
+      await runWithConcurrency(tasks, MAX_CONCURRENCY);
+    }
+  } else
   // In --locale mode, translate existing Japanese content
   if (isTranslateMode) {
     const translateJobs: { nodeId: string; level: string; locale: string }[] = [];
@@ -441,6 +497,7 @@ async function main() {
             content: result.content,
             terms: result.terms,
             diagrams: result.diagrams,
+            quiz: result.quiz,
           }, null, 2),
         );
 

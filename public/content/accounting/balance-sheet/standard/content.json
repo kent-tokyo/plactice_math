@@ -1,99 +1,173 @@
 {
-  "id": "708fa4ef-5485-4122-8859-938aa87ab3bb",
+  "id": "26e17391-a132-47a8-b89a-827fc6732f5d",
   "nodeId": "balance-sheet",
   "level": "standard",
-  "generatedAt": "2026-03-22T00:51:16.894Z",
-  "content": "---\ntitle: 貸借対照表\ndifficulty: 2\nfield: financial_statements\nstandard: J-GAAP\n---\n\nimport { Callout } from '@/components/ui/callout'\nimport { Example } from '@/components/ui/example'\nimport { KeyConcept } from '@/components/ui/key-concept'\n\n# 貸借対照表\n\n## 何か — 直感的な説明\n\n貸借対照表とは、ある**特定の時点**において、会社が「何を持っているか」「誰から調達したか」を一覧にした財務諸表です。英語では **Balance Sheet（B/S）** と呼ばれます。\n\nわかりやすくいえば、「ある日の会社の財産状況を写した写真」です。損益計算書が「一定期間の稼ぎ」を表すビデオなら、貸借対照表は「特定日現在の財産」を写したスナップショットです。\n\n<Callout type=\"analogy\">\n💡 **日常生活のたとえ：個人の財産状況**\n\nあなたが「今日現在、自分はどのくらい豊かか」を整理するとき、こう考えるでしょう。\n\n- **持っているもの**：現金10万円、銀行預金50万円、車100万円（資産）\n- **借りているお金**：奨学金ローン80万円（負債）\n- **差し引きの自分の取り分**：80万円（純資産）\n\n貸借対照表はまさにこの整理を、企業規模で行ったものです。\n</Callout>\n\n---\n\n## なぜ必要か — 会計・簿記の概念における位置づけ\n\n### 財務諸表の「核」として\n\n会計の最終目標は、企業の財政状態と経営成績を外部の利害関係者（投資家・銀行・取引先など）に正確に伝えることです。貸借対照表はそのうち**財政状態**を表す書類であり、損益計算書・キャッシュフロー計算書とともに財務諸表の三本柱を構成します。\n\n### 意思決定の基礎情報として\n\n銀行が融資を判断するとき、「この会社は返済できる体力があるか」を知る必要があります。投資家が株を買うとき、「この会社には本当に価値があるか」を確かめる必要があります。貸借対照表はこうした**財務的な健全性の判断材料**として、あらゆるステークホルダーに利用されます。\n\n### 簿記の流れのゴールとして\n\n日常の仕訳 → 元帳転記 → 試算表の作成 → 決算整理（減価償却・引当金・経過勘定）という一連の流れの**最終出力**が財務諸表であり、貸借対照表はその中心に位置します。前提として学んだ試算表と決算整理の仕訳が、最終的にこの一枚の表に集約されるのです。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n### 貸借対照表等式（会計の大原則）\n\n貸借対照表の根幹にある関係式は次のとおりです。\n\n$$\n\\text{資産} = \\text{負債} + \\text{純資産}\n$$\n\nこれを**貸借対照表等式**（または会計等式）といいます。左辺（資産）が「会社が持っている財産の総額」、右辺（負債＋純資産）が「その財産をどのように調達したか」の内訳です。両者は**常に一致します（バランスします）**。これが \"Balance Sheet\" の名前の由来です。\n\n<KeyConcept>\n変形すると次のようにも表せます。\n\n$$\n\\text{純資産} = \\text{資産} - \\text{負債}\n$$\n\n純資産は「負債を全部返した後に残る、株主のもの」です。**自己資本**とも呼ばれます。\n</KeyConcept>\n\n### 3つの構成要素\n\n| 区分 | 意味 | 主な例 |\n|------|------|--------|\n| **資産** | 会社が持つ経済的資源 | 現金・売掛金・建物・機械 |\n| **負債** | 他者から調達した返済義務のある資金 | 借入金・買掛金・社債 |\n| **純資産** | 株主から調達した資金＋これまでの累積利益 | 資本金・利益剰余金 |\n\n### 借方・貸方の配置\n\n貸借対照表は左右に分かれた表形式で示されます。\n\n```\n┌─────────────────┬─────────────────┐\n│   借方（左側）   │   貸方（右側）   │\n│                 │                 │\n│    資　産        │    負　債        │\n│                 │                 │\n│                 │    純資産        │\n└─────────────────┴─────────────────┘\n       左右の合計は必ず一致する\n```\n\n資産は**左側（借方）**、負債と純資産は**右側（貸方）**に配置されます。これは仕訳の借方・貸方の考え方と一致しています。\n\n### 資産・負債の流動・固定区分（J-GAAP）\n\n日本基準では、資産と負債をさらに**流動・固定**に区分して表示します。\n\n- **流動資産・流動負債**：1年以内に現金化または支払いが到来するもの\n- **固定資産・固定負債**：1年を超えるもの\n\nこの区分は「**1年基準（ワン・イヤー・ルール）**」と呼ばれ、短期的な支払い能力の評価に役立ちます。\n\n<Callout type=\"info\">\n📌 **IFRSとの主な差異**\n\nIFRSでは「流動・非流動」の区分表示は同様ですが、**資産の配置順序**が異なることがあります。J-GAAPでは流動性の高いものを上（左）から表示しますが、IFRSでは固定資産を先に表示するケース（逆配列）も認められています。また、IFRSでは「純資産」ではなく「**資本（Equity）**」という用語が使われます。\n</Callout>\n\n---\n\n## 具体例\n\n<Example title=\"例1：日常生活 — 大学生の財産状況\">\n\n大学生のAさんが「今日現在の自分の財産状況」を貸借対照表の形式でまとめてみました。\n\n```\n【Aさんの貸借対照表（今日現在）】単位：万円\n\n資　産              負　債\n─────────────────────────────\n現　金      5      奨学金ローン    80\n銀行預金   50      クレジット残高   5\n自転車     10      ─────────────\n                   負債合計        85\n\n                   純資産（差額）  -20\n                   ─────────────\n資産合計   65      負債・純資産合計 65\n```\n\n純資産がマイナスになっています。これは「今すぐ全部清算すると借金が残る状態（債務超過）」を意味します。企業でこの状態が続くと、倒産リスクが高まります。\n\n等式の確認：$65 = 85 + (-20)$ ✓\n\n</Example>\n\n<Example title=\"例2：小さな会社の創業時 — 資金調達の見える化\">\n\nB社が設立初日に「株主から300万円・銀行から200万円を調達し、全額を現金として持っている」とします。\n\n```\n【B社 貸借対照表（設立初日）】単位：万円\n\n（資産の部）           （負債の部）\n流動資産               流動負債\n  現金預金  500          短期借入金  200\n                       （純資産の部）\n                         資本金      300\n\n資産合計   500         負債・純資産合計  500\n```\n\n$$500 = 200 + 300$$\n\n等式が成立しています。「現金500万円という財産が、どこから来たか」が右側を見ればわかります。銀行に返す義務のある200万円と、株主が出した300万円です。\n\n</Example>\n\n<Example title=\"例3：1年営業後 — 利益が純資産に積み上がる\">\n\nB社が1年間営業して100万円の利益を得た場合、貸借対照表はどう変わるでしょうか。\n\n```\n【B社 貸借対照表（1年後）】単位：万円\n\n（資産の部）           （負債の部）\n流動資産               流動負債\n  現金預金  600          短期借入金  200\n                       （純資産の部）\n                         資本金      300\n                         利益剰余金  100\n\n資産合計   600         負債・純資産合計  600\n```\n\n利益の100万円は**利益剰余金**として純資産に加わります。資産（現金）も100万円増加し、等式は依然として成立します。損益計算書で計算された当期純利益が、貸借対照表の純資産に引き継がれる、というつながりがここで確認できます。\n\n$$600 = 200 + (300 + 100)$$\n\n</Example>\n\n---\n\n## つながり — 他の概念との関係\n\n### 前提知識との関係\n\n```\n仕訳・元帳\n    ↓\n試算表（合計残高試算表）\n    ↓\n決算整理仕訳（減価償却・引当金・経過勘定）\n    ↓\n【貸借対照表】←→ 損益計算書\n```\n\n- **試算表**：貸借対照表の原材料です。試算表の残高欄の各勘定科目が、貸借対照表の各項目に振り分けられます。\n- **決算整理**：試算表の数値を「正しい期末残高」に修正するプロセスです。たとえば、減価償却によって固定資産の帳簿価額が減り、引当金の計上によって負債が増えます。これらの修正が反映されてはじめて、正確な貸借対照表が完成します。\n\n### 損益計算書との関係\n\n貸借対照表と損益計算書は独立した書類ではなく、**当期純利益**を通じて結びついています。\n\n$$\n\\text{期末純資産} = \\text{期首純資産} + \\text{当期純利益} - \\text{配当等}\n$$\n\n損益計算書で計算された当期純利益が、貸借対照表の**利益剰余金**に加算されることで、両者は連動します。\n\n### 発展的な概念へのつながり\n\n| 発展概念 | 貸借対照表との関係 |\n|----------|--------------------|\n| キャッシュフロー計算書 | 現金及び現金同等物（資産）の増減を説明する |\n| 財務比率分析 | 流動比率・自己資本比率など、B/Sの数値を使って経営分析 |\n| 連結財務諸表 | 親子会社をまとめた「グループ全体」のB/S |\n| 減損会計 | 固定資産の帳簿価額を引き下げ、B/Sに反映 |\n\n---\n\n## 他分野への応用\n\n### 経営管理・経営戦略\n\n経営者は貸借対照表を使って「自社の資本効率」を測ります。たとえば **ROE（自己資本利益率）** は純利益を純資産で割った指標で、貸借対照表と損益計算書の両方を使います。「どれだけ少ない純資産で多くの利益を生んでいるか」を評価する指標であり、経営戦略の核心的な尺度です。\n\n$$\nROE = \\frac{\\text{当期純利益}}{\\text{純資産}} \\times 100 \\ (\\%)\n$$\n\n### 銀行・与信管理\n\n銀行やサプライヤーが取引先の信用力を評価するとき、貸借対照表は不可欠なツールです。**自己資本比率**（純資産÷総資産）や**負債比率**（負債÷純資産）を見ることで、「この会社は借金を返せるか」「倒産リスクはどの程度か」を客観的に判断できます。\n\n### 税務・法務\n\n会社法では、配当可能額の計算に純資産（分配可能額）の概念が使われます。また、税務申告においても貸借対照表の期末残高は申告書類の基礎データとなります。中小企業では、**税務申告書に貸借対照表の添付が義務付けられており**、正確な作成が法的にも求められます。\n\n### M&A・企業評価\n\n企業を買収する際、買収価格の計算根拠として貸借対照表上の純資産額（**簿価純資産法**）が用いられることがあります。また、貸借対照表に載っていない無形の価値（ブランド・人材など）との差額が「のれん」として計上されることも、M&Aの文脈では重要なテーマです。\n\n<Callout type=\"summary\">\n📝 **まとめ**\n\n- 貸借対照表は「ある時点の財産状況」を表すスナップショット\n- 核心は $\\text{資産} = \\text{負債} + \\text{純資産}$ という等式\n- 試算表・決算整理を経て作成され、損益計算書と当期純利益で連動する\n- 投資・融資・経営・法務など、あらゆる場面で活用される会計の土台\n</Callout>",
+  "generatedAt": "2026-03-22T01:13:08.787Z",
+  "content": "# 貸借対照表\n\n## 何か — 直感的な説明\n\n貸借対照表（Balance Sheet、略してB/S）とは、**ある特定の時点における企業の「財政状態」を一覧にした表**です。企業が何を持っていて（資産）、誰からお金を調達しているか（負債・純資産）を、まるでスナップショットのように一瞬切り取って見せてくれます。\n\nわかりやすく言えば、**個人の「家計の財産状況まとめ」**と同じイメージです。あなたの財布に3万円、銀行口座に50万円あり、奨学金の残債が100万円あるとします。これをまとめると「持っているもの（資産）53万円、借りているお金（負債）100万円、差し引きで自分の正味財産（純資産）は−47万円」という状態が見えてきます。企業の貸借対照表もまったく同じ発想で作られています。\n\n---\n\n## なぜ必要か — 会計・簿記の概念における位置づけ\n\n企業活動は日々続いていますが、投資家・銀行・取引先など外部のステークホルダーは「この会社は今どのくらい安全か？借金を返せる力があるか？」を知りたいと思っています。損益計算書（P/L）が**一定期間の稼ぎ（フロー）**を示すのに対し、貸借対照表は**ある時点の蓄積（ストック）**を示します。この2つが揃って初めて、企業の全体像が見えてきます。\n\n会計・簿記の学習フローの中では、日々の仕訳→総勘定元帳→試算表という流れを経て、決算整理（減価償却・引当金・経過勘定の計上など）を終えた後に作成される**財務諸表の一つ**です。つまり、貸借対照表は簿記の最終成果物であり、すべての記帳作業の「答え合わせ」の場とも言えます。日本基準（J-GAAP）では、会社法および金融商品取引法のもとで作成が義務づけられており、企業のディスクロージャー（情報開示）の根幹を担っています。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n貸借対照表の最も重要な原則は、**貸借平均の原理（Balance）**です。左側（借方）に資産、右側（貸方）に負債と純資産が並び、必ず以下の等式が成立します。\n\n$$\n\\text{資産} = \\text{負債} + \\text{純資産}\n$$\n\nこの等式は**恒等式**であり、どんな状況でも崩れることはありません。資産は「企業が保有・支配する経済的資源」、負債は「将来返済・引き渡しの義務がある他人資本」、純資産（自己資本）は「資産から負債を差し引いた株主に帰属する正味の持ち分」です。\n\n$$\n\\text{純資産} = \\text{資産} - \\text{負債}\n$$\n\n**各区分の内容（J-GAAP）**\n\n| 区分 | 主な内訳 |\n|------|---------|\n| 流動資産 | 現金・預金、売掛金、棚卸資産など |\n| 固定資産 | 有形固定資産、無形固定資産、投資その他の資産 |\n| 繰延資産 | 創立費、開発費など（限定的） |\n| 流動負債 | 買掛金、短期借入金、未払費用など |\n| 固定負債 | 長期借入金、社債、退職給付引当金など |\n| 純資産 | 資本金、資本剰余金、利益剰余金など |\n\n流動・固定の区分は**正常営業循環基準**と**1年基準**によって判定します。簡単に言えば、「1年以内に現金化・返済するものは流動、それ以上は固定」と覚えておきましょう。\n\n> **IFRSとの主な差異**\n> IFRSでは「繰延資産」の区分が原則として認められず、純資産は「資本」と呼ばれます。また流動・非流動の分類基準の適用方法や、金融商品の公正価値評価の範囲がJ-GAAPと異なります。さらにIFRSでは固定資産から流動資産の順（流動性の低い順）で表示するケースがあります。\n\n---\n\n## 具体例\n\n### 例1：日常生活の例 — 大学生の「個人版貸借対照表」\n\n大学1年生のAさんの財産状況を整理してみましょう。\n\n| 資産（持っているもの） | 金額 | 負債・純資産（調達元） | 金額 |\n|---|---|---|---|\n| 現金・預金 | 20万円 | 奨学金（借入） | 100万円 |\n| スマートフォン | 10万円 | 純資産（自己負担分） | −60万円 |\n| 自転車 | 3万円 | | |\n| 教科書・PC | 7万円 | | |\n| **合計** | **40万円** | **合計** | **40万円** |\n\n資産40万円 ＝ 負債100万円 ＋ 純資産（−60万円）。純資産がマイナスですが、等式は成り立ちます。これが**債務超過**の状態です。個人でも企業でも、この構造はまったく同じです。\n\n---\n\n### 例2：小規模な飲食店の開業時B/S\n\nBさんが資本金300万円で個人会社を設立し、銀行から200万円を借り入れて飲食店を開業した直後の貸借対照表です。\n\n$$\n\\text{資産合計} = \\text{負債合計} + \\text{純資産合計}\n$$\n\n$$\n500\\text{万円} = 200\\text{万円} + 300\\text{万円}\n$$\n\n| 資産 | 金額 | 負債・純資産 | 金額 |\n|---|---|---|---|\n| 現金・預金 | 200万円 | 長期借入金 | 200万円 |\n| 厨房設備（有形固定資産） | 200万円 | 資本金 | 300万円 |\n| 内装工事（有形固定資産） | 100万円 | | |\n| **合計** | **500万円** | **合計** | **500万円** |\n\nこの表から「調達した500万円を、現金・設備・内装に振り向けた」という資金の流れが一目でわかります。**右側が「どこからお金を集めたか（調達源泉）」、左側が「そのお金をどう使ったか（運用形態）」**というのが、貸借対照表の本質的な読み方です。\n\n---\n\n### 例3：決算整理後のB/S — 減価償却の影響\n\n上記の飲食店が1年後、厨房設備（耐用年数10年、定額法）に対して**減価償却**を実施したケースです。\n\n$$\n\\text{減価償却費} = \\frac{200\\text{万円}}{10\\text{年}} = 20\\text{万円}\n$$\n\n厨房設備の帳簿価額は200万円 → **180万円**に減少し、同額が費用計上されて利益剰余金（純資産）も20万円減少します。\n\n| 資産 | 1年後 |\n|---|---|\n| 現金・預金 | （営業の結果で変動） |\n| 厨房設備（純額） | **180万円** |\n\nこれは「設備の価値が時間とともに消費された分を、貸借対照表上に忠実に反映させる」ための手続きです。決算整理が貸借対照表の数字に直結していることが、ここからよくわかります。\n\n---\n\n## つながり — 他の概念との関係\n\n**前提知識との関係**\n\n- **試算表（残高試算表）**：決算整理前の各勘定科目の残高一覧です。貸借対照表は、この試算表に決算整理仕訳を加えた後の残高を、資産・負債・純資産に整理・並び替えることで作成されます。試算表の借方残高が資産側へ、貸方残高が負債・純資産側へ移っていくイメージです。\n\n- **決算整理（減価償却・引当金・経過勘定）**：これらの手続きは、貸借対照表の金額を「実態に合った適正な価値」に修正するために行われます。たとえば、貸倒引当金を設定することで売掛金の純額（回収見込み額）が、減価償却を通じて固定資産の帳簿価額が、それぞれ適切に表示されます。決算整理なしには、正確な貸借対照表は作れません。\n\n**発展先との関係**\n\n- **損益計算書（P/L）**：当期純利益がP/Lで確定し、それが貸借対照表の純資産（利益剰余金）に加算されることで、2つの財務諸表はつながります。\n- **キャッシュフロー計算書（C/F）**：B/Sの現金・預金の期首・期末残高の変動がC/Fと一致します。\n- **財務分析**：流動比率（$= \\text{流動資産} \\div \\text{流動負債} \\times 100$）、自己資本比率（$= \\text{純資産} \\div \\text{総資産} \\times 100$）など、貸借対照表を使った財務指標の計算へと発展します。\n\n---\n\n## 他分野への応用\n\n**金融・投資分析**\n銀行やアナリストは、貸借対照表から企業の**信用力・安全性**を評価します。負債比率や流動比率を見ることで、「この会社は借金を返せるか？」「倒産リスクはどのくらいか？」を定量的に判断します。株式投資では、**PBR（株価純資産倍率）**= 株価 ÷ 1株あたり純資産 という指標に直接使われます。\n\n**法律・M&A（企業買収）**\n企業を買収する際には、対象会社の貸借対照表をもとに**デュー・デリジェンス（財務調査）**が行われます。簿外債務（表に出ていない借金）がないか、資産の評価が適切かを精査することで、適正な買収価格が決まります。貸借対照表は、企業価値評価の出発点となる重要な資料です。\n\n**公共・非営利分野**\n国や地方自治体、NPOでも、同様の発想で「貸借対照表（バランスシート）」が作成されます。国の財務書類では、公共インフラ（道路・橋）が資産として計上され、国債が負債として記録されます。「国のバランスシート」として報道される数字は、まさに貸借対照表の考え方を国家規模に適用したものです。",
   "terms": [
     {
       "term": "貸借対照表",
       "reading": "たいしゃくたいしょうひょう",
       "en": "Balance Sheet",
-      "definition": "特定の時点における企業の資産・負債・純資産の状況を一覧にした財務諸表。英語ではBalance Sheet（B/S）とも呼ばれる。"
+      "definition": "ある特定の時点における企業の財政状態を示す財務諸表。資産・負債・純資産の三区分で構成される。"
     },
     {
       "term": "資産",
       "reading": "しさん",
       "en": "Assets",
-      "definition": "企業が保有する経済的資源の総称。現金・売掛金・建物・機械などが含まれ、貸借対照表の左側（借方）に表示される。"
+      "definition": "企業が保有・支配する経済的資源の総称。貸借対照表の左側（借方）に記載される。"
     },
     {
       "term": "負債",
       "reading": "ふさい",
       "en": "Liabilities",
-      "definition": "他者から調達した返済義務のある資金のこと。借入金・買掛金・社債などが含まれ、貸借対照表の右側（貸方）に表示される。"
+      "definition": "将来的に返済・引き渡しの義務がある他人資本。貸借対照表の右側（貸方）に記載される。"
     },
     {
       "term": "純資産",
       "reading": "じゅんしさん",
       "en": "Net Assets / Equity",
-      "definition": "資産から負債を差し引いた残額であり、株主から調達した資金と累積利益の合計。自己資本とも呼ばれる。"
+      "definition": "資産の合計から負債の合計を差し引いた、株主に帰属する正味の持ち分。自己資本とも呼ばれる。"
     },
     {
-      "term": "貸借対照表等式",
-      "reading": "たいしゃくたいしょうひょうとうしき",
-      "en": "Accounting Equation",
-      "definition": "「資産＝負債＋純資産」という会計の根幹をなす恒等式。貸借対照表の左右は常に一致（バランス）する。"
+      "term": "貸借平均の原理",
+      "reading": "たいしゃくへいきんのげんり",
+      "en": "Accounting Equation / Balance Principle",
+      "definition": "「資産 ＝ 負債 ＋ 純資産」という恒等式が常に成立するという会計の基本原則。"
     },
     {
       "term": "流動資産",
       "reading": "りゅうどうしさん",
       "en": "Current Assets",
-      "definition": "1年以内に現金化される見込みの資産。現金・売掛金・棚卸資産などが該当し、1年基準（ワン・イヤー・ルール）により区分される。"
+      "definition": "1年以内に現金化される見込みの資産。現金・預金、売掛金、棚卸資産などが含まれる。"
     },
     {
       "term": "固定資産",
       "reading": "こていしさん",
-      "en": "Non-current Assets",
-      "definition": "1年を超えて保有・使用される資産。建物・機械・土地などが該当し、長期的な経営基盤を形成する。"
+      "en": "Non-current Assets / Fixed Assets",
+      "definition": "1年を超えて保有・使用する資産。有形固定資産・無形固定資産・投資その他の資産に細分される。"
     },
     {
-      "term": "利益剰余金",
-      "reading": "りえきじょうよきん",
-      "en": "Retained Earnings",
-      "definition": "企業が過去から積み上げてきた累積利益のうち社外へ流出していない部分。損益計算書の当期純利益が加算されることで増加する。"
+      "term": "流動負債",
+      "reading": "りゅうどうふさい",
+      "en": "Current Liabilities",
+      "definition": "1年以内に返済・決済が必要な負債。買掛金、短期借入金、未払費用などが含まれる。"
     },
     {
-      "term": "当期純利益",
-      "reading": "とうきじゅんりえき",
-      "en": "Net Income / Net Profit",
-      "definition": "一会計期間における最終的な利益。損益計算書で算出され、貸借対照表の利益剰余金に加算されることで両者が連動する。"
-    },
-    {
-      "term": "自己資本比率",
-      "reading": "じこしほんひりつ",
-      "en": "Equity Ratio",
-      "definition": "純資産を総資産で割った比率で、企業の財務的安定性を示す指標。比率が高いほど借入依存度が低く健全とされる。"
-    },
-    {
-      "term": "ROE（自己資本利益率）",
-      "reading": "じこしほんりえきりつ",
-      "en": "Return on Equity",
-      "definition": "当期純利益を純資産で割った指標で、株主資本をどれだけ効率よく利益に結びつけたかを示す経営効率の尺度。"
+      "term": "減価償却",
+      "reading": "げんかしょうきゃく",
+      "en": "Depreciation",
+      "definition": "固定資産の取得原価を耐用年数にわたって費用配分する手続き。帳簿価額を実態に即した価値へ修正する。"
     },
     {
       "term": "債務超過",
       "reading": "さいむちょうか",
       "en": "Insolvency / Negative Equity",
-      "definition": "負債の総額が資産の総額を上回り、純資産がマイナスとなっている状態。倒産リスクが高まるとされる。"
+      "definition": "負債の合計が資産の合計を上回り、純資産がマイナスになっている財務状態。"
     },
     {
-      "term": "1年基準（ワン・イヤー・ルール）",
-      "reading": "いちねんきじゅん",
-      "en": "One-Year Rule",
-      "definition": "資産・負債を流動と固定に区分する際の判断基準で、1年以内か否かによって分類する。J-GAAPにおける財務諸表表示の基本ルール。"
+      "term": "損益計算書",
+      "reading": "そんえきけいさんしょ",
+      "en": "Profit and Loss Statement (P/L)",
+      "definition": "一定期間における企業の収益・費用・利益を示す財務諸表。当期純利益が貸借対照表の利益剰余金に連動する。"
     },
     {
-      "term": "のれん",
-      "reading": "のれん",
-      "en": "Goodwill",
-      "definition": "M&Aにおける買収価格と被買収企業の純資産簿価との差額。ブランドや人材など貸借対照表に計上されない無形の価値を反映する。"
+      "term": "流動比率",
+      "reading": "りゅうどうひりつ",
+      "en": "Current Ratio",
+      "definition": "流動資産を流動負債で割った財務指標で、短期的な支払い能力（安全性）を示す。"
+    },
+    {
+      "term": "自己資本比率",
+      "reading": "じこしほんひりつ",
+      "en": "Equity Ratio",
+      "definition": "純資産を総資産で割った財務指標で、企業の財務的安全性・健全性を示す。"
+    },
+    {
+      "term": "利益剰余金",
+      "reading": "りえきじょうよきん",
+      "en": "Retained Earnings",
+      "definition": "企業が過去から積み上げてきた純利益の累積額。純資産の構成要素の一つ。"
+    },
+    {
+      "term": "PBR（株価純資産倍率）",
+      "reading": "ぴーびーあーる（かぶかじゅんしさんばいりつ）",
+      "en": "Price-to-Book Ratio (PBR)",
+      "definition": "株価を1株あたり純資産で割った株式投資の評価指標。貸借対照表の純資産を基礎として算出される。"
     }
   ],
   "diagrams": [
     {
       "name": "concept-diagram.svg",
-      "svg": "<svg viewBox=\"0 0 600 420\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Title -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">貸借対照表の構造</text>\n\n  <!-- Equation -->\n  <text x=\"300\" y=\"60\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">資産 ＝ 負債 ＋ 純資産</text>\n\n  <!-- Main Balance Sheet Frame -->\n  <!-- Left side: Assets -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- Right side: Liabilities + Equity -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n  <!-- Center divider label -->\n  <text x=\"300\" y=\"245\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" transform=\"rotate(0)\">＝</text>\n\n  <!-- LEFT SIDE HEADER: 借方 -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"40\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"160\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">借方（左側）</text>\n\n  <!-- RIGHT SIDE HEADER: 貸方 -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"320\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"440\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">貸方（右側）</text>\n\n  <!-- ASSET SECTION -->\n  <text x=\"160\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#3b82f6\">資　産</text>\n\n  <!-- 流動資産 block -->\n  <rect x=\"55\" y=\"148\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">流動資産</text>\n  <text x=\"160\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">現金・預金</text>\n  <text x=\"160\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">売掛金</text>\n  <text x=\"160\" y=\"214\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">棚卸資産</text>\n  <text x=\"245\" y=\"200\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">1年以内</text>\n\n  <!-- 固定資産 block -->\n  <rect x=\"55\" y=\"250\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.04\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"269\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">固定資産</text>\n  <text x=\"160\" y=\"286\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">建物・機械</text>\n  <text x=\"160\" y=\"301\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">土地</text>\n  <text x=\"160\" y=\"316\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">無形固定資産</text>\n  <text x=\"245\" y=\"302\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">1年超</text>\n\n  <!-- Asset total -->\n  <line x1=\"55\" y1=\"354\" x2=\"265\" y2=\"354\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"85\" y=\"370\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">資産合計</text>\n  <text x=\"255\" y=\"370\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- LIABILITY SECTION -->\n  <!-- 流動負債 block -->\n  <text x=\"440\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#ef4444\">負　債</text>\n\n  <rect x=\"335\" y=\"148\" width=\"210\" height=\"80\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">流動負債</text>\n  <text x=\"440\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">買掛金</text>\n  <text x=\"440\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">短期借入金</text>\n  <text x=\"525\" y=\"190\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">1年以内</text>\n\n  <!-- 固定負債 block -->\n  <rect x=\"335\" y=\"238\" width=\"210\" height=\"60\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.04\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"257\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">固定負債</text>\n  <text x=\"440\" y=\"274\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">長期借入金・社債</text>\n  <text x=\"525\" y=\"263\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">1年超</text>\n\n  <!-- 純資産 section -->\n  <rect x=\"335\" y=\"308\" width=\"210\" height=\"45\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"440\" y=\"327\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">純資産（自己資本）</text>\n  <text x=\"440\" y=\"344\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">資本金・利益剰余金</text>\n\n  <!-- Right total -->\n  <line x1=\"335\" y1=\"365\" x2=\"545\" y2=\"365\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"365\" y=\"380\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">負債・純資産合計</text>\n  <text x=\"535\" y=\"380\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- Center balance symbol -->\n  <text x=\"300\" y=\"235\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\" font-weight=\"bold\">⇌</text>\n\n  <!-- Balance annotation -->\n  <text x=\"300\" y=\"395\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">左右の合計は常に一致（バランス）する</text>\n\n  <!-- 1年基準 annotation -->\n  <rect x=\"100\" y=\"243\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"130\" y=\"253\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">1年基準で区分</text>\n  <rect x=\"380\" y=\"230\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"410\" y=\"240\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">1年基準で区分</text>\n\n</svg>"
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Title -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">貸借対照表（Balance Sheet）の構造</text>\n  <text x=\"300\" y=\"52\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" opacity=\"0.7\">ある特定の時点における財政状態のスナップショット</text>\n\n  <!-- Main Balance Sheet Frame -->\n  <!-- Left side: Assets -->\n  <rect x=\"30\" y=\"70\" width=\"250\" height=\"340\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <!-- Right side: Liabilities + Equity -->\n  <rect x=\"320\" y=\"70\" width=\"250\" height=\"340\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"2\" stroke-opacity=\"0.3\"/>\n\n  <!-- Center divider -->\n  <line x1=\"300\" y1=\"70\" x2=\"300\" y2=\"410\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"6,3\" stroke-opacity=\"0.4\"/>\n\n  <!-- Left Header: 借方 -->\n  <rect x=\"30\" y=\"70\" width=\"250\" height=\"36\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.18\"/>\n  <text x=\"155\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\" font-weight=\"bold\">借方（左側）</text>\n  <text x=\"155\" y=\"98\" text-anchor=\"middle\" font-size=\"13\" fill=\"#3b82f6\" font-weight=\"bold\">資　産</text>\n\n  <!-- Right Header: 貸方 -->\n  <rect x=\"320\" y=\"70\" width=\"250\" height=\"36\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n  <text x=\"445\" y=\"84\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" font-weight=\"bold\" opacity=\"0.7\">貸方（右側）</text>\n  <text x=\"445\" y=\"98\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">負債 ＋ 純資産</text>\n\n  <!-- ===== LEFT: Assets ===== -->\n  <!-- 流動資産 -->\n  <rect x=\"44\" y=\"116\" width=\"222\" height=\"80\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"155\" y=\"132\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">流動資産</text>\n  <text x=\"58\" y=\"148\" font-size=\"10\" fill=\"currentColor\">・現金・預金</text>\n  <text x=\"58\" y=\"162\" font-size=\"10\" fill=\"currentColor\">・売掛金</text>\n  <text x=\"155\" y=\"148\" font-size=\"10\" fill=\"currentColor\">・棚卸資産</text>\n  <text x=\"155\" y=\"162\" font-size=\"10\" fill=\"currentColor\">・短期貸付金</text>\n  <rect x=\"44\" y=\"172\" width=\"222\" height=\"16\" rx=\"3\" fill=\"#3b82f6\" fill-opacity=\"0.06\"/>\n  <text x=\"155\" y=\"183\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">1年以内に現金化できるもの</text>\n\n  <!-- 固定資産 -->\n  <rect x=\"44\" y=\"206\" width=\"222\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"155\" y=\"222\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">固定資産</text>\n  <text x=\"58\" y=\"238\" font-size=\"10\" fill=\"currentColor\">【有形】建物・機械・土地</text>\n  <text x=\"58\" y=\"252\" font-size=\"10\" fill=\"currentColor\">【無形】特許権・ソフトウェア</text>\n  <text x=\"58\" y=\"266\" font-size=\"10\" fill=\"currentColor\">【投資等】投資有価証券</text>\n  <rect x=\"44\" y=\"272\" width=\"222\" height=\"16\" rx=\"3\" fill=\"#3b82f6\" fill-opacity=\"0.06\"/>\n  <text x=\"155\" y=\"283\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">1年超で回収・使用するもの</text>\n\n  <!-- 繰延資産 -->\n  <rect x=\"44\" y=\"306\" width=\"222\" height=\"44\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.05\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"155\" y=\"322\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">繰延資産</text>\n  <text x=\"155\" y=\"338\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">創立費・開発費など（限定的）</text>\n\n  <!-- ===== RIGHT: Liabilities + Equity ===== -->\n  <!-- 流動負債 -->\n  <rect x=\"334\" y=\"116\" width=\"222\" height=\"70\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.10\" stroke=\"#ef4444\" stroke-width=\"1.2\"/>\n  <text x=\"445\" y=\"132\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">流動負債</text>\n  <text x=\"348\" y=\"148\" font-size=\"10\" fill=\"currentColor\">・買掛金</text>\n  <text x=\"445\" y=\"148\" font-size=\"10\" fill=\"currentColor\">・短期借入金</text>\n  <text x=\"348\" y=\"162\" font-size=\"10\" fill=\"currentColor\">・未払費用</text>\n  <text x=\"445\" y=\"162\" font-size=\"10\" fill=\"currentColor\">・前受金</text>\n  <rect x=\"334\" y=\"170\" width=\"222\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.06\"/>\n  <text x=\"445\" y=\"179\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\">1年以内に返済義務があるもの</text>\n\n  <!-- 固定負債 -->\n  <rect x=\"334\" y=\"196\" width=\"222\" height=\"70\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.07\" stroke=\"#ef4444\" stroke-width=\"1.2\"/>\n  <text x=\"445\" y=\"212\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">固定負債</text>\n  <text x=\"348\" y=\"228\" font-size=\"10\" fill=\"currentColor\">・長期借入金</text>\n  <text x=\"445\" y=\"228\" font-size=\"10\" fill=\"currentColor\">・社債</text>\n  <text x=\"348\" y=\"242\" font-size=\"10\" fill=\"currentColor\">・退職給付引当金</text>\n  <rect x=\"334\" y=\"250\" width=\"222\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.06\"/>\n  <text x=\"445\" y=\"259\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\">1年超の返済義務があるもの</text>\n\n  <!-- Bracket for 負債 -->\n  <line x1=\"562\" y1=\"120\" x2=\"566\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <line x1=\"566\" y1=\"120\" x2=\"566\" y2=\"263\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <line x1=\"566\" y1=\"263\" x2=\"562\" y2=\"263\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"575\" y=\"196\" text-anchor=\"middle\" font-size=\"10\" fill=\"#ef4444\" transform=\"rotate(90,575,196)\">他人資本（負債）</text>\n\n  <!-- 純資産 -->\n  <rect x=\"334\" y=\"276\" width=\"222\" height=\"74\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"445\" y=\"294\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">純資産（自己資本）</text>\n  <text x=\"348\" y=\"310\" font-size=\"10\" fill=\"currentColor\">・資本金</text>\n  <text x=\"445\" y=\"310\" font-size=\"10\" fill=\"currentColor\">・資本剰余金</text>\n  <text x=\"348\" y=\"324\" font-size=\"10\" fill=\"currentColor\">・利益剰余金</text>\n  <text x=\"445\" y=\"324\" font-size=\"10\" fill=\"currentColor\">・その他包括利益</text>\n  <rect x=\"334\" y=\"332\" width=\"222\" height=\"12\" rx=\"3\" fill=\"#22c55e\" fill-opacity=\"0.08\"/>\n  <text x=\"445\" y=\"342\" text-anchor=\"middle\" font-size=\"10\" fill=\"#22c55e\">株主に帰属する正味の持ち分</text>\n\n  <!-- Totals -->\n  <rect x=\"30\" y=\"360\" width=\"250\" height=\"26\" rx=\"4\" fill=\"#3b82f6\" fill-opacity=\"0.18\"/>\n  <text x=\"95\" y=\"377\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">資産合計</text>\n  <text x=\"258\" y=\"377\" text-anchor=\"end\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">＝ X 円</text>\n\n  <rect x=\"320\" y=\"360\" width=\"250\" height=\"26\" rx=\"4\" fill=\"currentColor\" fill-opacity=\"0.1\"/>\n  <text x=\"335\" y=\"377\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">負債＋純資産合計</text>\n  <text x=\"558\" y=\"377\" text-anchor=\"end\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">＝ X 円</text>\n\n  <!-- Equation Banner -->\n  <rect x=\"60\" y=\"400\" width=\"480\" height=\"46\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-opacity=\"0.3\"/>\n  <text x=\"300\" y=\"418\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">【貸借平均の原理 — 常に成立する恒等式】</text>\n  <text x=\"300\" y=\"438\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">資産　＝　負債　＋　純資産</text>\n\n  <!-- Bottom labels -->\n  <text x=\"155\" y=\"465\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\" font-weight=\"bold\">← 運用形態（お金の使い道）</text>\n  <text x=\"445\" y=\"465\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" font-weight=\"bold\">調達源泉（資金の出どころ）→</text>\n\n  <!-- Arrow: 右side label -->\n  <line x1=\"320\" y1=\"460\" x2=\"370\" y2=\"460\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.4\" marker-end=\"url(#arrowR)\"/>\n  <line x1=\"280\" y1=\"460\" x2=\"230\" y2=\"460\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-opacity=\"0.6\" marker-end=\"url(#arrowL)\"/>\n\n  <!-- Depreciation note -->\n  <rect x=\"30\" y=\"478\" width=\"540\" height=\"32\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"0.8\" stroke-opacity=\"0.2\"/>\n  <text x=\"300\" y=\"491\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.75\">例）減価償却：固定資産の帳簿価額↓  ＝  利益剰余金（純資産）↓　／　等式は常に維持される</text>\n  <text x=\"300\" y=\"505\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.6\">純資産 ＝ 資産 − 負債　（債務超過：純資産がマイナスになることもある）</text>\n\n  <!-- Defs -->\n  <defs>\n    <marker id=\"arrowR\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\" opacity=\"0.4\"/>\n    </marker>\n    <marker id=\"arrowL\" markerWidth=\"8\" markerHeight=\"8\" refX=\"2\" refY=\"3\" orient=\"auto\">\n      <path d=\"M8,0 L8,6 L0,3 z\" fill=\"#3b82f6\" opacity=\"0.6\"/>\n    </marker>\n  </defs>\n\n</svg>"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "貸借対照表の基本等式 $\\text{資産} = \\text{負債} + \\text{純資産}$ について、正しい説明はどれか。",
+      "choices": [
+        {
+          "text": "この等式は企業が黒字のときだけ成立し、債務超過の状態では崩れる。",
+          "isCorrect": false
+        },
+        {
+          "text": "この等式はどんな状況でも必ず成立する恒等式であり、純資産がマイナスになっても成り立つ。",
+          "isCorrect": true
+        },
+        {
+          "text": "この等式において、左側（借方）には負債と純資産が、右側（貸方）には資産が表示される。",
+          "isCorrect": false
+        },
+        {
+          "text": "この等式は決算整理後にのみ成立し、期中の取引では一時的に崩れることがある。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "貸借対照表の基本等式 $\\text{資産} = \\text{負債} + \\text{純資産}$ は恒等式であり、債務超過（純資産がマイナス）の状態でも例外なく成立します。また、左側（借方）に資産、右側（貸方）に負債と純資産が表示されます。この構造はあらゆる時点・状況で維持されます。"
+    },
+    {
+      "question": "貸借対照表と損益計算書（P/L）の役割の違いとして、最も正確に説明しているものはどれか。",
+      "choices": [
+        {
+          "text": "貸借対照表は一定期間の収益と費用のフローを示し、損益計算書はある時点の財産状況のストックを示す。",
+          "isCorrect": false
+        },
+        {
+          "text": "貸借対照表は企業の収益性を示し、損益計算書は企業の安全性・支払能力を示す。",
+          "isCorrect": false
+        },
+        {
+          "text": "貸借対照表はある特定の時点における財政状態（ストック）を示し、損益計算書は一定期間の経営成績（フロー）を示す。",
+          "isCorrect": true
+        },
+        {
+          "text": "貸借対照表と損益計算書はどちらも同じ期間の情報を示すが、対象となる勘定科目が異なるだけである。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "貸借対照表は「ある特定の時点」における資産・負債・純資産の残高（ストック）を示すのに対し、損益計算書は「一定期間」の収益・費用・利益（フロー）を示します。この2つは視点が異なり、両方が揃って初めて企業の全体像を把握できます。"
+    },
+    {
+      "question": "流動資産と固定資産の分類基準として、正しい組み合わせはどれか。",
+      "choices": [
+        {
+          "text": "流動資産は現金化まで2年以内のもの、固定資産はそれ以上のものと定義される。",
+          "isCorrect": false
+        },
+        {
+          "text": "正常営業循環基準と1年基準が用いられ、1年以内に現金化・返済する資産は流動、それ以上は固定に分類される。",
+          "isCorrect": true
+        },
+        {
+          "text": "有形か無形かによって分類され、土地・建物などの有形のものは流動資産、特許権などの無形のものは固定資産となる。",
+          "isCorrect": false
+        },
+        {
+          "text": "調達コストの大小によって分類され、取得原価が高いものは固定資産、低いものは流動資産となる。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "流動・固定の分類には「正常営業循環基準」と「1年基準」が用いられます。原則として、1年以内に現金化・返済されるものは流動、それを超えるものは固定に分類されます。有形・無形の別や金額の大小は分類基準ではありません。"
     }
   ]
 }

@@ -101,5 +101,73 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background: Cloud Infrastructure -->\n  <rect x=\"10\" y=\"10\" width=\"580\" height=\"500\" rx=\"18\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\"/>\n  <text x=\"30\" y=\"35\" font-size=\"12\" fill=\"currentColor\" fill-opacity=\"0.45\" font-weight=\"bold\">クラウドインフラ（共有物理環境）</text>\n\n  <!-- Internet -->\n  <ellipse cx=\"300\" cy=\"62\" rx=\"70\" ry=\"24\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"58\" font-size=\"13\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">インターネット</text>\n  <text x=\"300\" y=\"73\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">外部ネットワーク</text>\n\n  <!-- Arrow: Internet -> IGW -->\n  <line x1=\"300\" y1=\"86\" x2=\"300\" y2=\"116\" stroke=\"#3b82f6\" stroke-width=\"1.8\" stroke-dasharray=\"4,3\"/>\n  <polygon points=\"300,118 295,109 305,109\" fill=\"#3b82f6\"/>\n\n  <!-- Internet Gateway -->\n  <rect x=\"230\" y=\"118\" width=\"140\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"140\" font-size=\"12\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">インターネットゲートウェイ</text>\n\n  <!-- VPC outer box -->\n  <rect x=\"40\" y=\"168\" width=\"520\" height=\"300\" rx=\"14\" fill=\"currentColor\" fill-opacity=\"0.06\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n  <text x=\"58\" y=\"190\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">VPC　10.0.0.0/16　（65,536アドレス）</text>\n\n  <!-- CIDR label -->\n  <text x=\"480\" y=\"190\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.55\" text-anchor=\"middle\">2¹⁶ = 65536</text>\n\n  <!-- Arrow: IGW -> VPC area -->\n  <line x1=\"300\" y1=\"152\" x2=\"300\" y2=\"168\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <polygon points=\"300,170 295,161 305,161\" fill=\"#3b82f6\"/>\n\n  <!-- Public Subnet -->\n  <rect x=\"60\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"165\" y=\"220\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">パブリックサブネット</text>\n  <text x=\"165\" y=\"234\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">10.0.1.0/24（256アドレス）</text>\n\n  <!-- Web Server in Public -->\n  <rect x=\"90\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.4\"/>\n  <text x=\"165\" y=\"265\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">🌐 Webサーバー</text>\n  <text x=\"165\" y=\"279\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">外部公開・アクセス可</text>\n\n  <!-- Security Group label Public -->\n  <rect x=\"80\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"165\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 セキュリティグループ（SG）</text>\n  <text x=\"165\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">HTTP/HTTPS: 許可</text>\n\n  <!-- Private Subnet -->\n  <rect x=\"330\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1.8\"/>\n  <text x=\"435\" y=\"220\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">プライベートサブネット</text>\n  <text x=\"435\" y=\"234\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">10.0.2.0/24（256アドレス）</text>\n\n  <!-- DB Server in Private -->\n  <rect x=\"360\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"#ef4444\" stroke-width=\"1.4\"/>\n  <text x=\"435\" y=\"265\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">🗄 DBサーバー</text>\n  <text x=\"435\" y=\"279\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">外部から直接アクセス不可</text>\n\n  <!-- Security Group label Private -->\n  <rect x=\"350\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"435\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 セキュリティグループ（SG）</text>\n  <text x=\"435\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">VPC内部のみ: 許可</text>\n\n  <!-- Arrow between subnets (internal traffic) -->\n  <line x1=\"270\" y1=\"267\" x2=\"330\" y2=\"267\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n  <polygon points=\"332,267 323,262 323,272\" fill=\"currentColor\"/>\n  <polygon points=\"268,267 277,262 277,272\" fill=\"currentColor\"/>\n  <text x=\"300\" y=\"260\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">内部通信</text>\n\n  <!-- Network ACL band -->\n  <rect x=\"55\" y=\"195\" width=\"520\" height=\"162\" rx=\"12\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"7,4\"/>\n  <text x=\"540\" y=\"213\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"end\" fill-opacity=\"0.8\">ネットワーク ACL</text>\n\n  <!-- Route Table box -->\n  <rect x=\"130\" y=\"378\" width=\"340\" height=\"34\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"300\" y=\"392\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">📋 ルートテーブル</text>\n  <text x=\"300\" y=\"406\" font-size=\"9.5\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.75\">0.0.0.0/0 → IGW（パブリック）　|　10.0.0.0/16 → local（内部）</text>\n\n  <!-- Arrow: subnets -> route table -->\n  <line x1=\"200\" y1=\"360\" x2=\"230\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"400\" y1=\"360\" x2=\"370\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n\n  <!-- VPN Gateway / Hybrid -->\n  <rect x=\"60\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"140\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🏢 VPNゲートウェイ</text>\n  <text x=\"140\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">オンプレミス接続（ハイブリッド）</text>\n\n  <!-- VPC Peering -->\n  <rect x=\"380\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"460\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🔗 VPCピアリング</text>\n  <text x=\"460\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">他のVPCとの接続</text>\n\n  <!-- Arrows from Route table -->\n  <line x1=\"210\" y1=\"412\" x2=\"160\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"390\" y1=\"412\" x2=\"440\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n\n  <!-- Legend -->\n  <rect x=\"55\" y=\"474\" width=\"490\" height=\"26\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <rect x=\"68\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.5\"/>\n  <text x=\"82\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">パブリック（外部公開）</text>\n  <rect x=\"188\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.5\"/>\n  <text x=\"202\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">プライベート（内部専用）</text>\n  <rect x=\"318\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#22c55e\" fill-opacity=\"0.5\"/>\n  <text x=\"332\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">アクセス制御（SG / ACL）</text>\n  <line x1=\"448\" y1=\"487\" x2=\"468\" y2=\"487\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" stroke-opacity=\"0.6\"/>\n  <text x=\"473\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">拡張接続</text>\n\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "VPCにおいて、CIDR記法で「10.0.0.0/16」と指定した場合、このアドレス範囲に含まれるIPアドレスの総数はいくつか。",
+      "choices": [
+        {
+          "text": "256個",
+          "isCorrect": false
+        },
+        {
+          "text": "1024個",
+          "isCorrect": false
+        },
+        {
+          "text": "65536個",
+          "isCorrect": true
+        },
+        {
+          "text": "16777216個",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "/16 はホスト部のビット数が $32 - 16 = 16$ ビットであることを意味するため、アドレス数は $2^{16} = 65536$ 個となる。/24 なら $2^8 = 256$ 個、/8 なら $2^{24} = 16777216$ 個になる。"
+    },
+    {
+      "question": "VPCにおけるパブリックサブネットとプライベートサブネットの違いとして、正しい説明はどれか。",
+      "choices": [
+        {
+          "text": "パブリックサブネットはIPアドレスの数が多く、プライベートサブネットはIPアドレスの数が少ない。",
+          "isCorrect": false
+        },
+        {
+          "text": "パブリックサブネットはインターネットゲートウェイを通じて外部と通信できるが、プライベートサブネットは外部から直接アクセスできない。",
+          "isCorrect": true
+        },
+        {
+          "text": "パブリックサブネットはセキュリティグループを適用できるが、プライベートサブネットには適用できない。",
+          "isCorrect": false
+        },
+        {
+          "text": "プライベートサブネットは複数のVPCにまたがって配置できるが、パブリックサブネットは1つのVPCにしか配置できない。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "パブリックサブネットはインターネットゲートウェイと接続されており外部との通信が可能であるのに対し、プライベートサブネットはインターネットから直接到達できない内部専用の領域である。これにより、データベースなど外部に公開すべきでないリソースをプライベートサブネットに配置して保護する多層防御が実現できる。"
+    },
+    {
+      "question": "ある企業が自社オフィスのネットワークとVPCをVPNゲートウェイや専用回線で接続し、社員がクラウド上のサーバーに社内にいるときと同じ感覚でアクセスできるようにした構成を何と呼ぶか。",
+      "choices": [
+        {
+          "text": "マルチクラウド構成",
+          "isCorrect": false
+        },
+        {
+          "text": "ゼロトラストネットワーク",
+          "isCorrect": false
+        },
+        {
+          "text": "VPCピアリング構成",
+          "isCorrect": false
+        },
+        {
+          "text": "ハイブリッドクラウド構成",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "オンプレミス（社内既存システム）とクラウド（VPC）を専用回線やVPNで接続し、両者を一体的に利用する構成をハイブリッドクラウドと呼ぶ。VPCはこの場合「社内ネットワークの延長」として機能する。マルチクラウドは複数のクラウドサービスを併用する構成、VPCピアリングは複数のVPC同士を接続する技術であり、いずれも異なる概念である。"
+    }
   ]
 }

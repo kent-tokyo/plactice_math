@@ -111,6 +111,7 @@
   - `--image-model <model>` 画像生成モデル指定（デフォルト: `gemini-2.5-flash-image`）
   - `--images-only` 既存コンテンツの画像のみ再生成（コンテンツ生成をスキップ）
   - `--quiz-only` 既存コンテンツにクイズのみ追加生成
+  - `--quiz-only --locale <locale>` 既存翻訳ファイルにクイズ翻訳のみマージ（全体再翻訳不要、1 APIコール/言語）
   - `--locale <locale>` 既存日本語コンテンツを指定言語に翻訳生成（en/zh）。`content.{locale}.json`として保存。複数指定可
   - 並列実行制御（3並列）、既存スキップ（resume機能）
   - 実行後にドメイン別 manifest.json と contents-table.md を自動更新

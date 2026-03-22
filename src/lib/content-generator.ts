@@ -626,7 +626,7 @@ Rules:
   return parseJsonArray(text, terms);
 }
 
-async function translateQuiz(quiz: QuizQuestion[], locale: string, model: string): Promise<QuizQuestion[]> {
+export async function translateQuiz(quiz: QuizQuestion[], locale: string, model: string): Promise<QuizQuestion[]> {
   if (!quiz || quiz.length === 0) return [];
   const config = LOCALE_LABELS[locale];
   if (!config) throw new Error(`Unsupported locale: ${locale}`);
@@ -639,7 +639,8 @@ Rules:
 - Translate "question", "choices[].text", and "explanation" into ${config.language}
 - Keep "isCorrect" values unchanged
 - Keep KaTeX math expressions unchanged
-- Return only the JSON array (no extra text)`;
+- IMPORTANT: Escape any double quotes inside string values with backslash (\\"). Use curly quotes \u201c\u201d or other alternatives if possible
+- Return only the JSON array (no extra text, no markdown fences)`;
 
   const response = await client.messages.create({
     model,

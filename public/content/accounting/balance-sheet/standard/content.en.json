@@ -97,5 +97,72 @@
       "svg": "<svg viewBox=\"0 0 600 420\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Title -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">Balance Sheet Structure</text>\n\n  <!-- Equation -->\n  <text x=\"300\" y=\"60\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">Assets ＝ Liabilities ＋ Net Assets</text>\n\n  <!-- Main Balance Sheet Frame -->\n  <!-- Left side: Assets -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- Right side: Liabilities + Equity -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n  <!-- Center divider label -->\n  <text x=\"300\" y=\"245\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" transform=\"rotate(0)\">＝</text>\n\n  <!-- LEFT SIDE HEADER: Debit -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"40\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"160\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">Debit (Left Side)</text>\n\n  <!-- RIGHT SIDE HEADER: Credit -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"320\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"440\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">Credit (Right Side)</text>\n\n  <!-- ASSET SECTION -->\n  <text x=\"160\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#3b82f6\">Assets</text>\n\n  <!-- Current Assets block -->\n  <rect x=\"55\" y=\"148\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">Current Assets</text>\n  <text x=\"160\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Cash &amp; Deposits</text>\n  <text x=\"160\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Accounts Receivable</text>\n  <text x=\"160\" y=\"214\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Inventories</text>\n  <text x=\"245\" y=\"200\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">Within 1 Year</text>\n\n  <!-- Fixed Assets block -->\n  <rect x=\"55\" y=\"250\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.04\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"269\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">Non-Current Assets</text>\n  <text x=\"160\" y=\"286\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Buildings &amp; Machinery</text>\n  <text x=\"160\" y=\"301\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Land</text>\n  <text x=\"160\" y=\"316\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Intangible Assets</text>\n  <text x=\"245\" y=\"302\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">Over 1 Year</text>\n\n  <!-- Asset total -->\n  <line x1=\"55\" y1=\"354\" x2=\"265\" y2=\"354\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"85\" y=\"370\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Total Assets</text>\n  <text x=\"255\" y=\"370\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- LIABILITY SECTION -->\n  <!-- Current Liabilities block -->\n  <text x=\"440\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#ef4444\">Liabilities</text>\n\n  <rect x=\"335\" y=\"148\" width=\"210\" height=\"80\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">Current Liabilities</text>\n  <text x=\"440\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Accounts Payable</text>\n  <text x=\"440\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Short-term Borrowings</text>\n  <text x=\"525\" y=\"190\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">Within 1 Year</text>\n\n  <!-- Non-Current Liabilities block -->\n  <rect x=\"335\" y=\"238\" width=\"210\" height=\"60\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.04\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"257\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">Non-Current Liabilities</text>\n  <text x=\"440\" y=\"274\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Long-term Loans &amp; Bonds</text>\n  <text x=\"525\" y=\"263\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">Over 1 Year</text>\n\n  <!-- Net Assets section -->\n  <rect x=\"335\" y=\"308\" width=\"210\" height=\"45\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"440\" y=\"327\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">Net Assets (Equity)</text>\n  <text x=\"440\" y=\"344\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Capital &amp; Retained Earnings</text>\n\n  <!-- Right total -->\n  <line x1=\"335\" y1=\"365\" x2=\"545\" y2=\"365\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"365\" y=\"380\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Total Liabilities &amp; Net Assets</text>\n  <text x=\"535\" y=\"380\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- Center balance symbol -->\n  <text x=\"300\" y=\"235\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\" font-weight=\"bold\">⇌</text>\n\n  <!-- Balance annotation -->\n  <text x=\"300\" y=\"395\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Both sides always balance (are equal)</text>\n\n  <!-- 1-year rule annotation -->\n  <rect x=\"100\" y=\"243\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"130\" y=\"253\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">Classified by 1-year rule</text>\n  <rect x=\"380\" y=\"230\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"410\" y=\"240\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">Classified by 1-year rule</text>\n\n</svg>"
     }
   ],
-  "quiz": []
+  "quiz": [
+    {
+      "question": "Which of the following correctly describes the fundamental accounting equation of the balance sheet: $\\text{Assets} = \\text{Liabilities} + \\text{Net Assets}$?",
+      "choices": [
+        {
+          "text": "This equation holds only when a company is profitable, and breaks down when the company is in a state of insolvency.",
+          "isCorrect": false
+        },
+        {
+          "text": "This equation is an identity that always holds under any circumstances, even when net assets become negative.",
+          "isCorrect": true
+        },
+        {
+          "text": "In this equation, liabilities and net assets appear on the left side (debit), and assets appear on the right side (credit).",
+          "isCorrect": false
+        },
+        {
+          "text": "This equation holds only after closing adjustments, and may temporarily break down during transactions within the fiscal period.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The fundamental accounting equation $\\text{Assets} = \\text{Liabilities} + \\text{Net Assets}$ is an identity that holds without exception, even in cases of insolvency (i.e., when net assets are negative). Assets are displayed on the left side (debit), while liabilities and net assets are displayed on the right side (credit). This structure is maintained at all times and under all circumstances."
+    },
+    {
+      "question": "Which of the following most accurately describes the difference in roles between the balance sheet and the income statement (P/L)?",
+      "choices": [
+        {
+          "text": "The balance sheet shows the flow of revenues and expenses over a given period, while the income statement shows a stock of the financial position at a specific point in time.",
+          "isCorrect": false
+        },
+        {
+          "text": "The balance sheet shows a company's profitability, while the income statement shows a company's financial safety and solvency.",
+          "isCorrect": false
+        },
+        {
+          "text": "The balance sheet shows the financial position (stock) at a specific point in time, while the income statement shows the operating results (flow) over a given period.",
+          "isCorrect": true
+        },
+        {
+          "text": "Both the balance sheet and the income statement present information for the same period, differing only in the accounts they cover.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The balance sheet shows the balances of assets, liabilities, and net assets (stock) at a specific point in time, whereas the income statement shows revenues, expenses, and profit (flow) over a given period. These two statements reflect different perspectives, and together they provide a complete picture of a company's overall financial condition."
+    },
+    {
+      "question": "Which of the following correctly describes the criteria used to classify assets as current or non-current?",
+      "choices": [
+        {
+          "text": "Current assets are defined as those that can be converted to cash within two years, while non-current assets are those that take longer.",
+          "isCorrect": false
+        },
+        {
+          "text": "The normal operating cycle rule and the one-year rule are used; assets expected to be converted to cash or settled within one year are classified as current, and those beyond that are classified as non-current.",
+          "isCorrect": true
+        },
+        {
+          "text": "Assets are classified based on whether they are tangible or intangible; tangible assets such as land and buildings are current assets, while intangible assets such as patents are non-current assets.",
+          "isCorrect": false
+        },
+        {
+          "text": "Assets are classified based on acquisition cost; those with high acquisition costs are non-current assets, while those with low acquisition costs are current assets.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "The classification of assets as current or non-current is based on the \"normal operating cycle rule\" and the \"one-year rule.\" As a general principle, assets expected to be converted to cash or settled within one year are classified as current, while those exceeding one year are classified as non-current. Whether an asset is tangible or intangible, or the size of its monetary value, are not classification criteria."
+    }
+  ]
 }

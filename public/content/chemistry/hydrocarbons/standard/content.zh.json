@@ -97,5 +97,72 @@
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 中央：烃 -->\n  <ellipse cx=\"300\" cy=\"260\" rx=\"72\" ry=\"36\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"255\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"#3b82f6\">烃</text>\n  <text x=\"300\" y=\"272\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">仅含 C 和 H</text>\n\n  <!-- 上：烷烃 -->\n  <rect x=\"60\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">烷烃</text>\n  <text x=\"130\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">仅含 C–C 单键</text>\n  <text x=\"130\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₊₂</text>\n  <text x=\"130\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 甲烷 CH₄</text>\n\n  <!-- 上右：烯烃 -->\n  <rect x=\"400\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">烯烃</text>\n  <text x=\"470\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">含 C＝C 双键</text>\n  <text x=\"470\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ</text>\n  <text x=\"470\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 乙烯 C₂H₄</text>\n\n  <!-- 下左：炔烃 -->\n  <rect x=\"60\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">炔烃</text>\n  <text x=\"130\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">含 C≡C 三键</text>\n  <text x=\"130\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₋₂</text>\n  <text x=\"130\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 乙炔 C₂H₂</text>\n\n  <!-- 下右：芳香族 -->\n  <rect x=\"400\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">芳香族</text>\n  <text x=\"470\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">苯环·π电子离域</text>\n  <text x=\"470\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">C₆H₆（苯）</text>\n  <text x=\"470\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: 苯, 甲苯</text>\n\n  <!-- 接続線：中央→烷烃 -->\n  <line x1=\"240\" y1=\"243\" x2=\"190\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→烯烃 -->\n  <line x1=\"360\" y1=\"243\" x2=\"410\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→炔烃 -->\n  <line x1=\"240\" y1=\"277\" x2=\"190\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→芳香族 -->\n  <line x1=\"360\" y1=\"277\" x2=\"410\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n\n  <!-- 矢印マーカー -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n    <marker id=\"arr2\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#22c55e\"/>\n    </marker>\n    <marker id=\"arr3\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n  <!-- 反応性の軸ラベル -->\n  <!-- 反应性箭头（左侧纵向）-->\n  <line x1=\"22\" y1=\"430\" x2=\"22\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arr3)\"/>\n  <text x=\"14\" y=\"270\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\" transform=\"rotate(-90,14,270)\">反应性（低 → 高）</text>\n\n  <!-- 不饱和度箭头（上方横向）-->\n  <line x1=\"210\" y1=\"15\" x2=\"390\" y2=\"15\" stroke=\"#22c55e\" stroke-width=\"2\" marker-end=\"url(#arr2)\"/>\n  <text x=\"300\" y=\"11\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22c55e\">不饱和度（低 → 高）</text>\n\n  <!-- 结合タイプ比較ライン (烷烃→烯烃→炔烃) -->\n  <!-- σのみ → σ+π → σ+2π -->\n  <!-- ラベル: 键的类型 -->\n  <text x=\"300\" y=\"198\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">键的类型</text>\n  <text x=\"130\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">仅 σ</text>\n  <text x=\"470\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + π</text>\n  <text x=\"130\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + 2π</text>\n  <text x=\"470\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">π 离域化</text>\n\n  <!-- 主な反応ラベル -->\n  <text x=\"50\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">燃烧·</text>\n  <text x=\"50\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">取代反应</text>\n  <text x=\"548\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">加成反应</text>\n  <text x=\"50\" y=\"358\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">加成反应</text>\n  <text x=\"548\" y=\"356\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">亲电</text>\n  <text x=\"548\" y=\"368\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">取代反应</text>\n\n  <!-- 有机化合物基础标签 -->\n  <rect x=\"195\" y=\"290\" width=\"210\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"309\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">有机化学的骨架·出发点</text>\n  <text x=\"300\" y=\"323\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">（其他官能团的基础）</text>\n\n  <!-- ベンゼン環の模式図（小） -->\n  <g transform=\"translate(448,445)\">\n    <polygon points=\"0,-12 10.4,-6 10.4,6 0,12 -10.4,6 -10.4,-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.5\"/>\n    <circle cx=\"0\" cy=\"0\" r=\"6.5\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" opacity=\"0.7\"/>\n  </g>\n\n</svg>"
     }
   ],
-  "quiz": []
+  "quiz": [
+    {
+      "question": "烷烃、烯烃、炔烃的通式组合，正确的是哪一个？",
+      "choices": [
+        {
+          "text": "烷烃：$C_nH_{2n}$，烯烃：$C_nH_{2n+2}$，炔烃：$C_nH_{2n-2}$",
+          "isCorrect": false
+        },
+        {
+          "text": "烷烃：$C_nH_{2n+2}$，烯烃：$C_nH_{2n}$，炔烃：$C_nH_{2n-2}$",
+          "isCorrect": true
+        },
+        {
+          "text": "烷烃：$C_nH_{2n+2}$，烯烃：$C_nH_{2n-2}$，炔烃：$C_nH_{2n}$",
+          "isCorrect": false
+        },
+        {
+          "text": "烷烃：$C_nH_{2n-2}$，烯烃：$C_nH_{2n}$，炔烃：$C_nH_{2n+2}$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "烷烃的碳与碳之间全为单键，氢原子数达到最大值，因此通式为 $C_nH_{2n+2}$；烯烃含有一个双键，氢原子数比烷烃少两个，通式为 $C_nH_{2n}$；炔烃含有一个三键，氢原子数再少两个，通式为 $C_nH_{2n-2}$。碳碳键的数目越多，氢原子数越少（不饱和度越高），记住这一规律即可。"
+    },
+    {
+      "question": "苯（$\\text{C}_6\\text{H}_6$）与同样含有碳碳双键的烯烃不同，倾向于发生取代反应而非加成反应，其主要原因是哪一个？",
+      "choices": [
+        {
+          "text": "苯环的碳原子数多达6个，位阻效应使加成反应难以发生。",
+          "isCorrect": false
+        },
+        {
+          "text": "苯环中的电子离域于整个环上，产生了特殊的稳定性（芳香性）。",
+          "isCorrect": true
+        },
+        {
+          "text": "苯不含氢原子，因此不存在可以发生加成的位置。",
+          "isCorrect": false
+        },
+        {
+          "text": "苯环全部由单键构成，不存在双键。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "苯环由6个碳原子构成正六边形，双键的电子并不固定在某一位置，而是均匀地分布在整个环上（电子离域）。这种被称为「电子海」的状态赋予苯特殊的稳定性（芳香性）。若发生加成反应，这种稳定的离域状态将被破坏，因此苯优先发生以其他基团取代氢原子的取代反应。"
+    },
+    {
+      "question": "以乙烯（$\\text{CH}_2\\text{=CH}_2$）为原料生成聚乙烯的反应类型，以及该反应得以发生的原因，正确的组合是哪一个？",
+      "choices": [
+        {
+          "text": "取代反应——因为含有苯环，氢原子容易被其他基团替换。",
+          "isCorrect": false
+        },
+        {
+          "text": "燃烧反应——烯烃与烷烃一样仅含单键，结构稳定，最容易发生燃烧。",
+          "isCorrect": false
+        },
+        {
+          "text": "加聚反应——碳碳双键容易断开，乙烯分子之间可以依次相互结合。",
+          "isCorrect": true
+        },
+        {
+          "text": "消去反应——因为含有三键，键逐步断裂，分子发生消去。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "乙烯是烯烃，含有一个碳碳双键（$\\text{C=C}$）。双键中的 $\\pi$ 键容易断裂，反应活性较高。利用这一性质，乙烯分子之间依次相互结合，发生加聚反应，生成长链状的聚乙烯 $\\text{(-CH}_2\\text{-CH}_2\\text{-)}_n$。这一反应是生产购物袋、食品容器等塑料制品的重要基础。"
+    }
+  ]
 }
