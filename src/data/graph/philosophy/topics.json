@@ -99,6 +99,81 @@
       "number": "02-004"
     },
     {
+      "id": "inductive-reasoning",
+      "label": "帰納的推論",
+      "labels": {
+        "ja": "帰納的推論",
+        "en": "Inductive Reasoning",
+        "zh": "归纳推理"
+      },
+      "area": "logic",
+      "difficulty": 2,
+      "position": {
+        "x": 175,
+        "y": -200
+      },
+      "description": "個別事例から一般法則を導く推論",
+      "descriptions": {
+        "ja": "個別事例から一般法則を導く推論",
+        "en": "Reasoning from specific cases to general principles",
+        "zh": "从个别事例推导一般法则的推理"
+      },
+      "prerequisites": [
+        "propositional-logic"
+      ],
+      "number": "02-025"
+    },
+    {
+      "id": "dialectics",
+      "label": "弁証法",
+      "labels": {
+        "ja": "弁証法",
+        "en": "Dialectics",
+        "zh": "辩证法"
+      },
+      "area": "logic",
+      "difficulty": 3,
+      "position": {
+        "x": 175,
+        "y": 200
+      },
+      "description": "正・反・合による思考の弁証法的展開",
+      "descriptions": {
+        "ja": "正・反・合による思考の弁証法的展開",
+        "en": "Dialectical development through thesis, antithesis, and synthesis",
+        "zh": "通过正、反、合的辩证法式思维展开"
+      },
+      "prerequisites": [
+        "propositional-logic"
+      ],
+      "number": "02-026"
+    },
+    {
+      "id": "logical-paradoxes",
+      "label": "パラドックス",
+      "labels": {
+        "ja": "パラドックス",
+        "en": "Logical Paradoxes",
+        "zh": "逻辑悖论"
+      },
+      "area": "logic",
+      "difficulty": 3,
+      "position": {
+        "x": 700,
+        "y": -200
+      },
+      "description": "自己言及・無限後退が生む論理的矛盾",
+      "descriptions": {
+        "ja": "自己言及・無限後退が生む論理的矛盾",
+        "en": "Logical contradictions arising from self-reference and infinite regress",
+        "zh": "自我指涉与无穷倒退产生的逻辑矛盾"
+      },
+      "prerequisites": [
+        "predicate-logic"
+      ],
+      "number": "02-027"
+    },
+    {
       "id": "truth",
       "label": "真理論",
       "labels": {
@@ -608,6 +683,18 @@
     {
       "source": "propositional-logic",
       "target": "informal-fallacies"
+    },
+    {
+      "source": "propositional-logic",
+      "target": "inductive-reasoning"
+    },
+    {
+      "source": "propositional-logic",
+      "target": "dialectics"
+    },
+    {
+      "source": "predicate-logic",
+      "target": "logical-paradoxes"
     },
     {
       "source": "propositional-logic",

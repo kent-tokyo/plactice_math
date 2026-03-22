@@ -5,6 +5,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "propositional-logic": {
@@ -28,6 +33,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "deontology": {
@@ -36,6 +46,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "ontology": {
@@ -44,6 +59,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "beauty": {
@@ -52,6 +72,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "predicate-logic": {
@@ -60,6 +85,11 @@
     ],
     "hasIllustration": {
       "standard": true
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "justification": {
@@ -83,6 +113,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   }
 }

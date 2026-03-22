@@ -20,6 +20,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "discrete-math": {
@@ -28,6 +33,11 @@
     ],
     "hasIllustration": {
       "standard": true
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "os-basics": {
@@ -36,6 +46,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "automata": {
@@ -44,6 +59,11 @@
     ],
     "hasIllustration": {
       "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "sorting-searching": {

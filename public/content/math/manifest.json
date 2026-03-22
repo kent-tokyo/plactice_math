@@ -20,6 +20,11 @@
     ],
     "hasIllustration": {
       "standard": true
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
     }
   },
   "integers": {
@@ -49,5 +54,290 @@
         "zh"
       ]
     }
+  },
+  "real-numbers": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
+    }
+  },
+  "complex-numbers": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
+    }
+  },
+  "logic": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
+    }
+  },
+  "functions": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
+    }
+  },
+  "proof-methods": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja"
+      ]
+    }
+  },
+  "combinatorics": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "relations": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "order-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "mathematical-logic-advanced": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "axiomatic-set-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "computability": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "category-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "linear-algebra": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "group-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "number-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "ring-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "field-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "galois-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "module-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "commutative-algebra": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "homological-algebra": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "representation-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "algebraic-number-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "lie-algebras": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "calculus-differential": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "calculus-integral": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "multivariable-calculus": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "sequences-series": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "ode": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "real-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "complex-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "measure-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "pde": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "functional-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "fourier-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "harmonic-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "operator-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "euclidean-geometry": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "analytic-geometry": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "point-set-topology": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "differential-geometry": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "manifolds": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "algebraic-topology": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "riemannian-geometry": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "algebraic-geometry": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "prime-numbers": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "probability": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "statistics": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "information-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "stochastic-processes": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "mathematical-statistics": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "numerical-analysis": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "optimization": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "machine-learning-math": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "combinatorial-optimization": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "dynamical-systems": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "mathematical-physics": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "control-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "game-theory": {
+    "levels": [],
+    "hasIllustration": {}
+  },
+  "cryptography": {
+    "levels": [],
+    "hasIllustration": {}
   }
 }

@@ -164,5 +164,20 @@
       ],
       "explanation": "パウリの排他原理とは「同じ軌道に入る2つの電子はスピンが逆向きでなければならない」というルールです。「エネルギーが低い軌道から順に埋まる」のはaufbau原理、「同エネルギーの軌道に電子が1個ずつ入る」のはフントの規則です。また、電子は固定軌道を回るのではなく、存在確率の「電子雲」として分布しています。"
     }
+  ],
+  "quotes": [
+    {
+      "text": "If, in some cataclysm, all of scientific knowledge were to be destroyed, and only one sentence passed on to the next generations of creatures, what statement would contain the most information in the fewest words? I believe it is the atomic hypothesis that all things are made of atoms.",
+      "author": "Richard Feynman",
+      "source": "The Feynman Lectures on Physics"
+    },
+    {
+      "text": "The electron is not as simple as it looks.",
+      "author": "W. Lawrence Bragg"
+    },
+    {
+      "text": "Anyone who is not shocked by quantum theory has not understood it.",
+      "author": "Niels Bohr"
+    }
   ]
 }

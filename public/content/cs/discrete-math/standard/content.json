@@ -152,5 +152,21 @@
       ],
       "explanation": "数学的帰納法のドミノの比喩では、「最初の1枚を倒す（基底部：$n=1$ での成立）」ことと、「あるドミノが倒れたら必ず次も倒れる仕組みがある（帰納部：$n=k$ での成立 $\\Rightarrow$ $n=k+1$ での成立）」ことの2点が揃って、はじめてすべてのドミノが倒れる（すべての自然数で命題が成立する）と言えます。どちらか一方が欠けても証明は成立しません。"
     }
+  ],
+  "quotes": [
+    {
+      "text": "Mathematics is the queen of the sciences and number theory is the queen of mathematics.",
+      "author": "Carl Friedrich Gauss",
+      "source": "Sartorius von Waltershausen, 'Gauss zum Gedächtnis' (1856)"
+    },
+    {
+      "text": "God made the integers, all else is the work of man.",
+      "author": "Leopold Kronecker",
+      "source": "Jahresberichte der Deutschen Mathematiker-Vereinigung (1893)"
+    },
+    {
+      "text": "In mathematics you don't understand things. You just get used to them.",
+      "author": "John von Neumann"
+    }
   ]
 }

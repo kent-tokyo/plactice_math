@@ -49,6 +49,7 @@
 - SVG図解の埋め込み（ダーク/ライト両テーマ対応）
 - Gemini生成のビジュアルガイド画像表示（スライド風カード）
 - コンテンツレベル切替（利用可能なレベルのみ表示）
+- **名言表示**（QuoteList）: 概念に関連する名言をblockquote形式で表示（青左ボーダー、イタリック、著者・出典付き）。名言がない場合は非表示
 - **4択クイズ**（QuizView）→ 理解度チェック → 「理解した」ボタンの順で表示
 - 理解済み時: 「マップに戻る」（サブマップ=エリア詳細）+「全体マップ」（エリア概要）+「クイズに再挑戦」（クイズがある場合）の3ボタン表示
 - **検索**: ヘッダーに全文検索ボックス（マップページと同じSearchBoxコンポーネント）
@@ -96,13 +97,14 @@
     "content": "MDX文字列",
     "terms": [{ "term": "...", "reading": "...", "en": "...", "definition": "..." }],
     "diagrams": [{ "name": "...", "svg": "..." }],
-    "quiz": [{ "question": "...", "choices": [{ "text": "...", "isCorrect": true/false }], "explanation": "..." }]
+    "quiz": [{ "question": "...", "choices": [{ "text": "...", "isCorrect": true/false }], "explanation": "..." }],
+    "quotes": [{ "text": "名言本文", "author": "著者名", "source": "出典（省略可）" }]
   }
   ```
 
 ### 7. コンテンツ生成（スクリプト）
 - Claude AIによるコンテンツ事前生成
-- 生成物: content.json（MDX、用語集、SVG図解、クイズ）、illustration.webp
+- 生成物: content.json（MDX、用語集、SVG図解、クイズ、名言）、illustration.webp
 - デプロイ: `npm run deploy:gh-pages`（ビルド+デプロイ一括実行、`NEXT_PUBLIC_BASE_PATH=/study-route`自動付与）
 - CLIスクリプト: `npm run generate-content -- --node <nodeId>`
   - `--all` 全ノード / `--all-levels` 全レベル / `--with-images` 画像生成
@@ -112,6 +114,8 @@
   - `--images-only` 既存コンテンツの画像のみ再生成（コンテンツ生成をスキップ）
   - `--quiz-only` 既存コンテンツにクイズのみ追加生成
   - `--quiz-only --locale <locale>` 既存翻訳ファイルにクイズ翻訳のみマージ（全体再翻訳不要、1 APIコール/言語）
+  - `--quotes-only` 既存コンテンツに名言のみ追加生成（適切な名言がなければ空配列）
+  - `--quotes-only --locale <locale>` 既存翻訳ファイルに名言翻訳のみマージ
   - `--locale <locale>` 既存日本語コンテンツを指定言語に翻訳生成（en/zh）。`content.{locale}.json`として保存。複数指定可
   - 並列実行制御（3並列）、既存スキップ（resume機能）
   - 実行後にドメイン別 manifest.json と contents-table.md を自動更新
@@ -121,12 +125,13 @@
   - KaTeX・マークダウン記法除去、クイズ除外
   - ja/en/zhの3言語対応
   - `npm run build`時に自動実行（`package.json`のbuildスクリプトに統合）
-- **5段階生成パイプライン**:
+- **6段階生成パイプライン**:
   1. Step 1 — MDX生成: 概念説明をプレーンMDXで生成（JSON制約なし、品質向上）
   2. Step 2 — 用語集生成: MDXを入力に用語集JSONを生成
   3. Step 3 — SVG図解生成: MDXを入力にSVG文字列を生成
-  4. Step 4 — セルフレビュー: 数学的正確性・KaTeX構文・具体例充実度チェック（Step 5と並列実行）
-  5. Step 5 — クイズ生成: MDXを入力に4択クイズJSON配列を生成（Step 4と並列実行）
+  4. Step 4 — セルフレビュー: 数学的正確性・KaTeX構文・具体例充実度チェック（Step 5/6と並列実行）
+  5. Step 5 — クイズ生成: MDXを入力に4択クイズJSON配列を生成（Step 4/6と並列実行）
+  6. Step 6 — 名言生成: 概念に関連する実在の名言を1〜3個生成（Step 4/5と並列実行）。適切な名言がなければ空配列
 - **ドメイン別プロンプト**: `getDomainPromptConfig()`でドメインごとにロール・セクション構成・追加指示をカスタマイズ
   - 数学: 数学教育の専門家、定義・定理→具体例→応用
   - 哲学: 哲学教育の専門家、主要な議論・立場→思考実験→現代への影響
@@ -144,7 +149,7 @@
   - 上級者向け: 厳密な定義・証明・各セクション3〜5段落
 - **contents-table.md**: Illust.列・Quiz列・Reviewed列を含む生成状況テーブル（目視確認後に手動で`✓`に変更）
 - **多言語翻訳生成**: `--locale en/zh` フラグで既存日本語コンテンツをLLMで翻訳
-  - MDX本文、用語集、クイズ、SVG図解のラベルすべて翻訳
+  - MDX本文、用語集、クイズ、名言、SVG図解のラベルすべて翻訳
   - 翻訳は日本語コンテンツに忠実（独立生成ではない）
   - `content.{locale}.json` としてドメインディレクトリに保存
   - manifest.jsonに`locales`フィールド（レベル別利用可能言語）を追加

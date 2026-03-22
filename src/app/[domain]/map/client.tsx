@@ -102,7 +102,7 @@ export default function DomainMapClient({ domain }: { domain: string }) {
               : localize(locale, domainMeta?.label || domainId, domainMeta?.labels)}
           </h1>
         </div>
-        <div className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
           <span>
             {completedDisplay} / {totalCount} {t('common.completed')}
           </span>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getAvailableLevels, hasIllustration, getContentBasePath } from '@/lib/content-manifest';
-import type { Term, QuizQuestion } from '@/types';
+import type { Term, QuizQuestion, Quote } from '@/types';
 
 export interface ContentData {
   id: string;
@@ -13,6 +13,7 @@ export interface ContentData {
   terms: Term[];
   diagrams: { name: string; svg: string }[];
   quiz?: QuizQuestion[];
+  quotes?: Quote[];
 }
 
 interface UseContentResult {

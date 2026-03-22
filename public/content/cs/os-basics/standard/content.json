@@ -96,5 +96,20 @@
       "definition": "物理メモリよりも大きなメモリ空間をプロセスに提供するOS機能。スワッピングを活用し、プログラムがメモリの物理的配置を意識せずに動作できるようにする。"
     }
   ],
-  "diagrams": []
+  "diagrams": [],
+  "quotes": [
+    {
+      "text": "We have persistent objects, they're called files.",
+      "author": "Ken Thompson"
+    },
+    {
+      "text": "Unix is simple. It just takes a genius to understand its simplicity.",
+      "author": "Dennis Ritchie"
+    },
+    {
+      "text": "The purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise.",
+      "author": "Edsger W. Dijkstra",
+      "source": "The Humble Programmer (ACM Turing Award Lecture, 1972)"
+    }
+  ]
 }

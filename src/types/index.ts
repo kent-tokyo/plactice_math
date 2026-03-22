@@ -57,6 +57,12 @@ export interface QuizQuestion {
   explanation: string;
 }
 
+export interface Quote {
+  text: string;
+  author: string;
+  source?: string;
+}
+
 export type AreaId = string;
 
 export interface AreaMeta {

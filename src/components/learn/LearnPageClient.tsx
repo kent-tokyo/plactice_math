@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import ConceptView from '@/components/learn/ConceptView';
+import QuoteList from '@/components/learn/QuoteList';
 import TermList from '@/components/learn/TermList';
 import ComprehensionCheck from '@/components/learn/ComprehensionCheck';
 import { useContent } from '@/hooks/useContent';
@@ -139,6 +140,7 @@ export default function LearnPageClient({ nodeId, domain }: LearnPageClientProps
       </header>
 
       <main className="mx-auto max-w-3xl px-6 py-8 space-y-10">
+        <QuoteList quotes={data.quotes} />
         <ConceptView
           content={data.content}
           diagrams={data.diagrams}

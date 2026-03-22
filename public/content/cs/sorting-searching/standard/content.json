@@ -157,5 +157,17 @@
       ],
       "explanation": "線形探索は $O(n)$ でデータを先頭から順に調べるため、ソートされていない配列にも適用できます。一方、二分探索はソート済み配列を前提に探索範囲を毎回半分に絞るため $O(\\log n)$ と高速ですが、ソートされていないデータには使えません。それぞれに適した使いどころがあります。"
     }
+  ],
+  "quotes": [
+    {
+      "text": "When in doubt, use brute force.",
+      "author": "Ken Thompson",
+      "source": "Quoted in 'The Unix Programming Environment' by Kernighan and Pike"
+    },
+    {
+      "text": "Binary search is the first algorithm that is nontrivial, and yet it is hard to implement correctly.",
+      "author": "Donald Knuth",
+      "source": "The Art of Computer Programming, Volume 3: Sorting and Searching"
+    }
   ]
 }

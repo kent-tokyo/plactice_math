@@ -2,7 +2,7 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { generateContent, generateQuizOnly, translateContent, translateQuiz } from '../src/lib/content-generator';
+import { generateContent, generateQuizOnly, generateQuotesOnly, generateTermsOnly, translateContent, translateQuiz, translateTermsOnly, translateQuotesOnly } from '../src/lib/content-generator';
 import { generateConceptImage } from '../src/lib/image-generator';
 import { getAllNodes, getNode } from '../src/lib/graph';
 import type { DomainId } from '../src/types/domain';
@@ -34,6 +34,8 @@ function parseArgs() {
     withImages: false,
     imagesOnly: false,
     quizOnly: false,
+    termsOnly: false,
+    quotesOnly: false,
     force: false,
     dryRun: false,
     model: null as string | null,
@@ -64,6 +66,12 @@ function parseArgs() {
         break;
       case '--quiz-only':
         flags.quizOnly = true;
+        break;
+      case '--terms-only':
+        flags.termsOnly = true;
+        break;
+      case '--quotes-only':
+        flags.quotesOnly = true;
         break;
       case '--force':
         flags.force = true;
@@ -220,8 +228,16 @@ async function main() {
   const isTranslateMode = targetLocales.length > 0;
 
   console.log(`Target: ${nodeIds.length} node(s) × ${levels.length} level(s) = ${nodeIds.length * levels.length} combination(s)`);
-  if (isTranslateMode && flags.quizOnly) {
+  if (isTranslateMode && flags.termsOnly) {
+    console.log(`Mode: terms-only translate (${targetLocales.join(', ')})`);
+  } else if (isTranslateMode && flags.quotesOnly) {
+    console.log(`Mode: quotes-only translate (${targetLocales.join(', ')})`);
+  } else if (isTranslateMode && flags.quizOnly) {
     console.log(`Mode: quiz-only translate (${targetLocales.join(', ')})`);
+  } else if (flags.termsOnly) {
+    console.log('Mode: terms only (regenerating terms for existing content)');
+  } else if (flags.quotesOnly) {
+    console.log('Mode: quotes only (generating quotes for existing content)');
   } else if (isTranslateMode) {
     console.log(`Mode: translate (${targetLocales.join(', ')})`);
   } else if (flags.quizOnly) {
@@ -234,6 +250,114 @@ async function main() {
   }
   if (flags.force) console.log('Force mode: overwriting existing content');
 
+  // In --terms-only --locale mode, translate only terms for existing translations
+  if (isTranslateMode && flags.termsOnly) {
+    const termsTranslateJobs: { nodeId: string; level: string; locale: string }[] = [];
+    for (const nodeId of nodeIds) {
+      for (const level of levels) {
+        if (!contentExists(nodeId, level, 'ja')) {
+          console.log(`  [skip] ${nodeId}/${level} (no Japanese content)`);
+          continue;
+        }
+        for (const locale of targetLocales) {
+          if (!contentExists(nodeId, level, locale)) {
+            console.log(`  [skip] ${nodeId}/${level}/${locale} (no existing translation — run full translate first)`);
+            continue;
+          }
+          termsTranslateJobs.push({ nodeId, level, locale });
+        }
+      }
+    }
+
+    if (flags.dryRun) {
+      console.log(`\nDry run: ${termsTranslateJobs.length} terms translation job(s) would be executed:`);
+      for (const job of termsTranslateJobs) {
+        console.log(`  - ${job.nodeId}/${job.level} → ${job.locale}`);
+      }
+    } else if (termsTranslateJobs.length === 0) {
+      console.log('No terms translation jobs to execute.');
+    } else {
+      console.log(`\nTranslating terms for ${termsTranslateJobs.length} content(s) with concurrency ${MAX_CONCURRENCY}...`);
+
+      const tasks = termsTranslateJobs.map(job => async () => {
+        const label = `${job.nodeId}/${job.level} → ${job.locale}`;
+        const domain = getDomainForNode(job.nodeId);
+        try {
+          const jaPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
+          const jaContent = JSON.parse(fs.readFileSync(jaPath, 'utf-8'));
+          if (!jaContent.terms || jaContent.terms.length === 0) {
+            console.log(`  [skip] ${label} (no terms in Japanese content)`);
+            return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+          }
+          const translatedTerms = await translateTermsOnly(jaContent.terms, job.locale, modelName);
+          const localePath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, contentFilename(job.locale));
+          const existingTranslation = JSON.parse(fs.readFileSync(localePath, 'utf-8'));
+          existingTranslation.terms = translatedTerms;
+          fs.writeFileSync(localePath, JSON.stringify(existingTranslation, null, 2));
+          console.log(`  [terms-translated] ${label} (${translatedTerms.length} terms)`);
+        } catch (err) {
+          console.warn(`  [error] ${label}: ${(err as Error).message}`);
+        }
+        return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+      });
+
+      await runWithConcurrency(tasks, MAX_CONCURRENCY);
+    }
+  } else
+  // In --quotes-only --locale mode, translate only quotes for existing translations
+  if (isTranslateMode && flags.quotesOnly) {
+    const quotesTranslateJobs: { nodeId: string; level: string; locale: string }[] = [];
+    for (const nodeId of nodeIds) {
+      for (const level of levels) {
+        if (!contentExists(nodeId, level, 'ja')) {
+          console.log(`  [skip] ${nodeId}/${level} (no Japanese content)`);
+          continue;
+        }
+        for (const locale of targetLocales) {
+          if (!contentExists(nodeId, level, locale)) {
+            console.log(`  [skip] ${nodeId}/${level}/${locale} (no existing translation — run full translate first)`);
+            continue;
+          }
+          quotesTranslateJobs.push({ nodeId, level, locale });
+        }
+      }
+    }
+
+    if (flags.dryRun) {
+      console.log(`\nDry run: ${quotesTranslateJobs.length} quotes translation job(s) would be executed:`);
+      for (const job of quotesTranslateJobs) {
+        console.log(`  - ${job.nodeId}/${job.level} → ${job.locale}`);
+      }
+    } else if (quotesTranslateJobs.length === 0) {
+      console.log('No quotes translation jobs to execute.');
+    } else {
+      console.log(`\nTranslating quotes for ${quotesTranslateJobs.length} content(s) with concurrency ${MAX_CONCURRENCY}...`);
+
+      const tasks = quotesTranslateJobs.map(job => async () => {
+        const label = `${job.nodeId}/${job.level} → ${job.locale}`;
+        const domain = getDomainForNode(job.nodeId);
+        try {
+          const jaPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
+          const jaContent = JSON.parse(fs.readFileSync(jaPath, 'utf-8'));
+          if (!jaContent.quotes || jaContent.quotes.length === 0) {
+            console.log(`  [skip] ${label} (no quotes in Japanese content)`);
+            return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+          }
+          const translatedQuotes = await translateQuotesOnly(jaContent.quotes, job.locale, modelName);
+          const localePath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, contentFilename(job.locale));
+          const existingTranslation = JSON.parse(fs.readFileSync(localePath, 'utf-8'));
+          existingTranslation.quotes = translatedQuotes;
+          fs.writeFileSync(localePath, JSON.stringify(existingTranslation, null, 2));
+          console.log(`  [quotes-translated] ${label} (${translatedQuotes.length} quotes)`);
+        } catch (err) {
+          console.warn(`  [error] ${label}: ${(err as Error).message}`);
+        }
+        return { nodeId: job.nodeId, level: job.level, locale: job.locale };
+      });
+
+      await runWithConcurrency(tasks, MAX_CONCURRENCY);
+    }
+  } else
   // In --quiz-only --locale mode, translate only quizzes for existing translations
   if (isTranslateMode && flags.quizOnly) {
     const quizTranslateJobs: { nodeId: string; level: string; locale: string }[] = [];
@@ -324,7 +448,7 @@ async function main() {
           const jaPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
           const jaContent = JSON.parse(fs.readFileSync(jaPath, 'utf-8'));
           const translated = await translateContent(
-            { content: jaContent.content, terms: jaContent.terms, diagrams: jaContent.diagrams, quiz: jaContent.quiz || [] },
+            { content: jaContent.content, terms: jaContent.terms, diagrams: jaContent.diagrams, quiz: jaContent.quiz || [], quotes: jaContent.quotes },
             job.locale,
             { llmModel: modelName },
           );
@@ -339,6 +463,7 @@ async function main() {
             terms: translated.terms,
             diagrams: translated.diagrams,
             quiz: translated.quiz,
+            quotes: translated.quotes,
           }, null, 2));
           console.log(`  [done] ${label}`);
         } catch (err) {
@@ -385,6 +510,90 @@ async function main() {
           console.log(`  [quiz] ${label} (${quiz.length} questions)`);
         } catch (err) {
           console.warn(`  [quiz-error] ${label}: ${(err as Error).message}`);
+        }
+        return { nodeId: job.nodeId, level: job.level };
+      });
+
+      await runWithConcurrency(tasks, MAX_CONCURRENCY);
+    }
+  } else
+  // In --terms-only mode, regenerate terms for existing content
+  if (flags.termsOnly) {
+    const termsJobs: { nodeId: string; level: string }[] = [];
+    for (const nodeId of nodeIds) {
+      for (const level of levels) {
+        if (!contentExists(nodeId, level)) {
+          console.log(`  [skip] ${nodeId}/${level} (no content exists)`);
+          continue;
+        }
+        termsJobs.push({ nodeId, level });
+      }
+    }
+
+    if (flags.dryRun) {
+      console.log(`\nDry run: ${termsJobs.length} terms job(s) would be executed:`);
+      for (const job of termsJobs) {
+        console.log(`  - ${job.nodeId} (${job.level})`);
+      }
+    } else if (termsJobs.length === 0) {
+      console.log('No terms jobs to execute.');
+    } else {
+      console.log(`\nGenerating terms for ${termsJobs.length} content(s) with concurrency ${MAX_CONCURRENCY}...`);
+
+      const tasks = termsJobs.map(job => async () => {
+        const label = `${job.nodeId}/${job.level}`;
+        try {
+          const domain = getDomainForNode(job.nodeId);
+          const contentPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
+          const existing = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+          const terms = await generateTermsOnly(job.nodeId, existing.content || '', { llmModel: modelName });
+          existing.terms = terms;
+          fs.writeFileSync(contentPath, JSON.stringify(existing, null, 2));
+          console.log(`  [terms] ${label} (${terms.length} terms)`);
+        } catch (err) {
+          console.warn(`  [terms-error] ${label}: ${(err as Error).message}`);
+        }
+        return { nodeId: job.nodeId, level: job.level };
+      });
+
+      await runWithConcurrency(tasks, MAX_CONCURRENCY);
+    }
+  } else
+  // In --quotes-only mode, generate quotes for existing content
+  if (flags.quotesOnly) {
+    const quotesJobs: { nodeId: string; level: string }[] = [];
+    for (const nodeId of nodeIds) {
+      for (const level of levels) {
+        if (!contentExists(nodeId, level)) {
+          console.log(`  [skip] ${nodeId}/${level} (no content exists)`);
+          continue;
+        }
+        quotesJobs.push({ nodeId, level });
+      }
+    }
+
+    if (flags.dryRun) {
+      console.log(`\nDry run: ${quotesJobs.length} quotes job(s) would be executed:`);
+      for (const job of quotesJobs) {
+        console.log(`  - ${job.nodeId} (${job.level})`);
+      }
+    } else if (quotesJobs.length === 0) {
+      console.log('No quotes jobs to execute.');
+    } else {
+      console.log(`\nGenerating quotes for ${quotesJobs.length} content(s) with concurrency ${MAX_CONCURRENCY}...`);
+
+      const tasks = quotesJobs.map(job => async () => {
+        const label = `${job.nodeId}/${job.level}`;
+        try {
+          const domain = getDomainForNode(job.nodeId);
+          const contentPath = path.join(OUTPUT_DIR, domain, job.nodeId, job.level, 'content.json');
+          const existing = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+          const quotes = await generateQuotesOnly(job.nodeId, { llmModel: modelName });
+          existing.quotes = quotes;
+          fs.writeFileSync(contentPath, JSON.stringify(existing, null, 2));
+          console.log(`  [quotes] ${label} (${quotes.length} quotes)`);
+        } catch (err) {
+          console.warn(`  [quotes-error] ${label}: ${(err as Error).message}`);
         }
         return { nodeId: job.nodeId, level: job.level };
       });
@@ -498,6 +707,7 @@ async function main() {
             terms: result.terms,
             diagrams: result.diagrams,
             quiz: result.quiz,
+            quotes: result.quotes,
           }, null, 2),
         );
 

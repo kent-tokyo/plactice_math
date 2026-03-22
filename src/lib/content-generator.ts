@@ -3,13 +3,14 @@ import fs from 'fs';
 import path from 'path';
 import { getNode, getAllNodes } from './graph';
 import { getAreaToDomainMap } from '@/data/graph';
-import type { Term, QuizQuestion } from '@/types';
+import type { Term, QuizQuestion, Quote } from '@/types';
 
 export interface GeneratedContent {
   content: string;
   terms: Term[];
   diagrams: { name: string; svg: string }[];
   quiz: QuizQuestion[];
+  quotes?: Quote[];
 }
 
 const client = new Anthropic();
@@ -536,12 +537,14 @@ export async function generateContent(
   console.log(`  [step 3/4] Generating SVG for "${node.label}"...`);
   const svg = await stepGenerateSVG(rawMdx, node.label, model);
 
-  // Step 4: Self-review + Step 5: Quiz (in parallel)
-  console.log(`  [step 4/5] Reviewing content for "${node.label}"...`);
-  console.log(`  [step 5/5] Generating quiz for "${node.label}"...`);
-  const [reviewedMdx, quiz] = await Promise.all([
+  // Step 4: Self-review + Step 5: Quiz + Step 6: Quotes (in parallel)
+  console.log(`  [step 4/6] Reviewing content for "${node.label}"...`);
+  console.log(`  [step 5/6] Generating quiz for "${node.label}"...`);
+  console.log(`  [step 6/6] Generating quotes for "${node.label}"...`);
+  const [reviewedMdx, quiz, quotes] = await Promise.all([
     stepReview(rawMdx, terms, svg, node.label, model),
     stepGenerateQuiz(rawMdx, node.label, node.difficulty, model),
+    stepGenerateQuotes(node.label, node.area, model),
   ]);
 
   const diagrams: { name: string; svg: string }[] = svg
@@ -555,6 +558,7 @@ export async function generateContent(
     terms,
     diagrams,
     quiz,
+    quotes,
   };
 }
 
@@ -683,13 +687,16 @@ export async function translateContent(
   console.log(`  [step 1/3] Translating MDX to ${locale}...`);
   const translatedMdx = await translateMDX(jaContent.content, locale, model);
 
-  console.log(`  [step 2/3] Translating terms + quiz to ${locale}...`);
-  const [translatedTerms, translatedQuiz] = await Promise.all([
+  console.log(`  [step 2/4] Translating terms + quiz + quotes to ${locale}...`);
+  const [translatedTerms, translatedQuiz, translatedQuotes] = await Promise.all([
     translateTerms(jaContent.terms, locale, model),
     translateQuiz(jaContent.quiz, locale, model),
+    jaContent.quotes && jaContent.quotes.length > 0
+      ? translateQuotes(jaContent.quotes, locale, model)
+      : Promise.resolve([]),
   ]);
 
-  console.log(`  [step 3/3] Translating diagrams to ${locale}...`);
+  console.log(`  [step 3/4] Translating diagrams to ${locale}...`);
   const translatedDiagrams = await Promise.all(
     jaContent.diagrams.map(async (d) => ({
       name: d.name,
@@ -702,6 +709,7 @@ export async function translateContent(
     terms: translatedTerms,
     diagrams: translatedDiagrams,
     quiz: translatedQuiz,
+    quotes: translatedQuotes.length > 0 ? translatedQuotes : undefined,
   };
 }
 
@@ -722,4 +730,126 @@ export async function generateQuizOnly(
   const model = options?.llmModel || 'claude-sonnet-4-6';
   console.log(`  Generating quiz for "${node.label}"...`);
   return stepGenerateQuiz(mdxContent, node.label, node.difficulty, model);
+}
+
+// ---------------------------------------------------------------------------
+// Quote generation
+// ---------------------------------------------------------------------------
+
+async function stepGenerateQuotes(
+  nodeLabel: string,
+  area: string,
+  model: string,
+): Promise<Quote[]> {
+  const domain = getDomainFromArea(area);
+  const domainConfig = getDomainPromptConfig(domain, 'standard');
+
+  const prompt = `あなたは${domainConfig.role}です。「${nodeLabel}」に関連する有名な名言を1〜3個選んでください。
+
+条件:
+- その概念に直接関連する名言であること
+- 実在する人物の実際の名言であること（捏造しない）
+- 出典（書名など）が判明している場合は含めること
+- 適切な名言が見つからない場合は空配列を返すこと
+
+以下の形式のJSON配列のみを返してください（他のテキストは不要）:
+
+[
+  { "text": "名言本文", "author": "著者名", "source": "出典（書名）" }
+]
+
+注意:
+- source は出典が不明な場合は省略可能
+- 名言が見つからない場合は空配列 [] を返す`;
+
+  const response = await client.messages.create({
+    model,
+    max_tokens: 2000,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const text = response.content[0].type === 'text' ? response.content[0].text : '';
+  return parseJsonArray(text, []);
+}
+
+async function translateQuotes(quotes: Quote[], locale: string, model: string): Promise<Quote[]> {
+  if (!quotes || quotes.length === 0) return [];
+  const config = LOCALE_LABELS[locale];
+  if (!config) throw new Error(`Unsupported locale: ${locale}`);
+
+  const prompt = `Translate the following quotes into ${config.language}. Return a JSON array with the same structure.
+
+${JSON.stringify(quotes, null, 2)}
+
+Rules:
+- "text": translate the quote into ${config.language}
+- "author": translate the author name into ${config.language} (use the commonly known name in that language)
+- "source": translate the source title if applicable
+- Return only the JSON array (no extra text)`;
+
+  const response = await client.messages.create({
+    model,
+    max_tokens: 2000,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  const text = response.content[0].type === 'text' ? response.content[0].text : '';
+  return parseJsonArray(text, quotes);
+}
+
+// ---------------------------------------------------------------------------
+// Standalone quote generation (for --quotes-only mode)
+// ---------------------------------------------------------------------------
+
+export async function generateQuotesOnly(
+  nodeId: string,
+  options?: { llmModel?: string },
+): Promise<Quote[]> {
+  const node = getNode(nodeId);
+  if (!node) {
+    throw new Error(`Node "${nodeId}" not found in graph data`);
+  }
+
+  const model = options?.llmModel || 'claude-sonnet-4-6';
+  console.log(`  Generating quotes for "${node.label}"...`);
+  return stepGenerateQuotes(node.label, node.area, model);
+}
+
+// ---------------------------------------------------------------------------
+// Standalone terms re-generation (for --terms-only mode)
+// ---------------------------------------------------------------------------
+
+export async function generateTermsOnly(
+  nodeId: string,
+  mdxContent: string,
+  options?: { llmModel?: string },
+): Promise<Term[]> {
+  const node = getNode(nodeId);
+  if (!node) {
+    throw new Error(`Node "${nodeId}" not found in graph data`);
+  }
+
+  const model = options?.llmModel || 'claude-sonnet-4-6';
+  console.log(`  Generating terms for "${node.label}"...`);
+  return stepGenerateTerms(mdxContent, node.label, model);
+}
+
+// ---------------------------------------------------------------------------
+// Standalone translation functions for terms and quotes
+// ---------------------------------------------------------------------------
+
+export async function translateTermsOnly(
+  terms: Term[],
+  locale: string,
+  model: string,
+): Promise<Term[]> {
+  return translateTerms(terms, locale, model);
+}
+
+export async function translateQuotesOnly(
+  quotes: Quote[],
+  locale: string,
+  model: string,
+): Promise<Quote[]> {
+  return translateQuotes(quotes, locale, model);
 }
