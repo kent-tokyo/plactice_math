@@ -45,5 +45,20 @@
     "hasIllustration": {
       "standard": false
     }
+  },
+  "sorting-searching": {
+    "levels": [
+      "standard"
+    ],
+    "hasIllustration": {
+      "standard": false
+    },
+    "locales": {
+      "standard": [
+        "ja",
+        "en",
+        "zh"
+      ]
+    }
   }
 }

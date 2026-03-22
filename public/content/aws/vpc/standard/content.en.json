@@ -1,0 +1,107 @@
+{
+  "id": "a89215fa-dde3-473f-b546-e529f8414344",
+  "nodeId": "vpc",
+  "level": "standard",
+  "locale": "en",
+  "generatedAt": "2026-03-22T00:41:00.760Z",
+  "content": "# VPC (Virtual Private Cloud Network)\n\n## What is it — Intuitive explanation\n\nA VPC (Virtual Private Cloud) is your own private network space built inside a public cloud. Think of it as having a dedicated, partitioned area within a massive data center on the internet.\n\nA useful analogy is renting a dedicated floor in a large open office building. The building itself (the cloud infrastructure) is shared with other companies, but your floor has its own controlled access — you manage who comes and goes, and outsiders can't simply walk in. In the world of cloud computing, a VPC is exactly that \"dedicated floor.\"\n\n## Why it matters — Its role in the bigger picture\n\nCloud services (AWS, Google Cloud, Azure, etc.) have countless businesses and individuals sharing the same physical infrastructure. Without any separation, servers belonging to different users would be mixed together, creating serious security and privacy risks. VPC is the fundamental network isolation mechanism that solves this problem.\n\nIn network design, a VPC serves as the \"foundation.\" Every decision — which servers to expose to the public, which to keep internal, and which sources of traffic to allow — is made around the structure of the VPC. It is a central concept you cannot avoid when trying to understand modern cloud architecture.\n\n## The core idea — Definitions and key concepts\n\nThe heart of a VPC is the **logical partitioning of an IP address space**. When you create a VPC, you start by specifying an address range using CIDR (Classless Inter-Domain Routing) notation.\n\n$$\n\\text{Example: } 10.0.0.0/16 \\Rightarrow 10.0.0.0 \\sim 10.0.255.255 \\text{ — a total of } 2^{16} = 65536 \\text{ addresses}\n$$\n\nThis range is further divided into smaller units called **subnets**.\n\n$$\n10.0.1.0/24 \\Rightarrow 10.0.1.0 \\sim 10.0.1.255 \\text{ — a total of } 2^{8} = 256 \\text{ addresses}\n$$\n\nThere are two main types of subnets:\n\n- **Public subnet**: A zone that can communicate with the outside world through an internet gateway\n- **Private subnet**: An internal-only zone that is not directly accessible from the internet\n\nTraffic flow within a VPC is controlled by **security groups** and **network ACLs (Access Control Lists)**. These let you define rules specifying which IP addresses and port numbers are allowed or denied.\n\n## Concrete examples\n\n### Example 1: An apartment building (everyday analogy)\n\nImagine a large apartment building (a cloud data center) housing many residents (cloud users). Your apartment (your VPC) is locked — other residents cannot enter without permission.\n\nInside your apartment, you can further divide the space into a \"living room (public subnet)\" and a \"bedroom (private subnet).\" The living room welcomes guests, but the bedroom is only for family. The rules on your front door lock (security groups) can be configured in detail: \"delivery personnel may enter the lobby only; family members may access all rooms.\" This mirrors the structure of a VPC exactly.\n\n### Example 2: A typical web service setup\n\nConsider building an e-commerce website (an online shopping service).\n\n- **Web servers placed in the public subnet** → accessible from users' browsers\n- **Database servers placed in the private subnet** → not directly accessible from the internet\n\nWith this setup, even if the web server is compromised in an attack, the database exists only on the internal network and is therefore much harder to reach directly. This is a classic example of **defense in depth** achieved through VPC design.\n\n### Example 3: Hybrid connection with an on-premises corporate network\n\nConsider a company that wants to integrate its existing on-premises systems with the cloud. Using a VPN gateway or AWS Direct Connect, the company can link its office network to its VPC over a dedicated connection.\n\nIn this scenario, the VPC functions as an extension of the corporate internal network into the cloud. Employees can access cloud servers just as they would access on-premises servers, with secure communication that remains invisible to the outside world. This is known as a **hybrid cloud** architecture.\n\n## Connections — Relationships to other concepts\n\nThe following background knowledge will deepen your understanding of VPCs:\n\n- **IP addresses and CIDR notation**: How network addressing works — directly relevant to defining the scope of a VPC\n- **Routing**: The mechanism that determines which path a packet (a unit of data) takes to reach its destination\n- **DNS (Domain Name System)**: Translates domain names into IP addresses. Private DNS also exists within a VPC\n\nOnce you understand VPCs, you can explore the following related concepts:\n\n- **Subnet design**: Multi-AZ (Availability Zone) configurations for higher availability\n- **VPC Peering / Transit Gateway**: Technologies for connecting multiple VPCs to build larger networks\n- **Security groups and network ACLs**: Detailed design of access control\n- **Zero trust networking**: A more modern security model that goes beyond the perimeter-based defense of traditional VPCs\n\n## Applications in other fields\n\n**In software development and DevOps**, isolating development, staging, and production environments into separate VPCs ensures that mistakes or misconfigurations in one environment cannot affect production. It is standard practice to prevent accidents — such as accidentally deleting production data — through VPC-level isolation.\n\n**In finance and healthcare**, systems that handle personal information or financial data are subject to strict regulatory requirements (such as data protection laws and HIPAA for healthcare). A standard compliance approach is to isolate databases in private subnets within a VPC and log all access activity.\n\n**In IoT (Internet of Things)**, data sent by factory machine sensors and smart devices is received by dedicated servers inside a VPC, with only minimal information exposed to the public internet. As the number of devices grows, thoughtful network design becomes increasingly critical, and the organized structure provided by a VPC becomes indispensable.",
+  "terms": [
+    {
+      "term": "VPC",
+      "reading": "",
+      "en": "Virtual Private Cloud",
+      "definition": "A logically isolated private network space built on a public cloud. Users can manage their own IP address ranges and routing."
+    },
+    {
+      "term": "CIDR",
+      "reading": "",
+      "en": "Classless Inter-Domain Routing",
+      "definition": "A method of expressing a range of IP addresses using a prefix length (slash notation). For example, 10.0.0.0/16 represents 65,536 addresses."
+    },
+    {
+      "term": "Subnet",
+      "reading": "",
+      "en": "Subnet",
+      "definition": "A network unit that further divides the IP address space of a VPC into smaller segments. There are two types: public and private."
+    },
+    {
+      "term": "Public Subnet",
+      "reading": "",
+      "en": "Public Subnet",
+      "definition": "A subnet that can communicate with the external internet through an internet gateway. Resources that are accessed from a browser, such as web servers, are placed here."
+    },
+    {
+      "term": "Private Subnet",
+      "reading": "",
+      "en": "Private Subnet",
+      "definition": "An internal-only subnet that cannot be accessed directly from the internet. Used for placing highly sensitive resources such as database servers."
+    },
+    {
+      "term": "Security Group",
+      "reading": "",
+      "en": "Security Group",
+      "definition": "A virtual firewall that controls inbound and outbound traffic for instances within a VPC. Access permission rules are defined based on IP addresses and port numbers."
+    },
+    {
+      "term": "Network ACL",
+      "reading": "",
+      "en": "Network ACL (Access Control List)",
+      "definition": "An access control list that controls the allowance or denial of traffic at the subnet level. Used in combination with security groups for multi-layered defense."
+    },
+    {
+      "term": "Internet Gateway",
+      "reading": "",
+      "en": "Internet Gateway",
+      "definition": "A component that serves as the entry and exit point for connecting a VPC to the external internet. Enables internet communication from public subnets."
+    },
+    {
+      "term": "IP Address",
+      "reading": "",
+      "en": "IP Address",
+      "definition": "A numerical address used to identify devices on a network. In a VPC, it is used to define the range of the address space using CIDR notation."
+    },
+    {
+      "term": "Routing",
+      "reading": "",
+      "en": "Routing",
+      "definition": "The mechanism that determines which path packets (chunks of data) take to reach their destination on a network. Within a VPC, this is controlled by route tables."
+    },
+    {
+      "term": "Hybrid Cloud",
+      "reading": "",
+      "en": "Hybrid Cloud",
+      "definition": "An architecture that connects and integrates on-premises environments with cloud environments via VPN or dedicated lines. The VPC is used as an extension of the corporate network in the cloud."
+    },
+    {
+      "term": "VPC Peering",
+      "reading": "",
+      "en": "VPC Peering",
+      "definition": "A feature that privately connects multiple VPCs to enable mutual communication. Can also be used for VPC connections across different accounts or regions."
+    },
+    {
+      "term": "DNS",
+      "reading": "",
+      "en": "Domain Name System",
+      "definition": "A mechanism that translates between domain names and IP addresses. A private DNS also exists within a VPC and is used for name resolution of internal resources."
+    },
+    {
+      "term": "Availability Zone",
+      "reading": "",
+      "en": "Availability Zone (AZ)",
+      "definition": "A group of physically independent data centers located within a cloud provider's region. Availability is improved by distributing subnets across multiple AZs."
+    },
+    {
+      "term": "Zero Trust Network",
+      "reading": "",
+      "en": "Zero Trust Network",
+      "definition": "A security model that goes beyond perimeter defense models like VPCs, continuously verifying and authenticating all access. Based on the concept of never unconditionally trusting even internal networks."
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background: Cloud Infrastructure -->\n  <rect x=\"10\" y=\"10\" width=\"580\" height=\"500\" rx=\"18\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\"/>\n  <text x=\"30\" y=\"35\" font-size=\"12\" fill=\"currentColor\" fill-opacity=\"0.45\" font-weight=\"bold\">Cloud Infrastructure (Shared Physical Environment)</text>\n\n  <!-- Internet -->\n  <ellipse cx=\"300\" cy=\"62\" rx=\"70\" ry=\"24\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"58\" font-size=\"13\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">Internet</text>\n  <text x=\"300\" y=\"73\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">External Network</text>\n\n  <!-- Arrow: Internet -> IGW -->\n  <line x1=\"300\" y1=\"86\" x2=\"300\" y2=\"116\" stroke=\"#3b82f6\" stroke-width=\"1.8\" stroke-dasharray=\"4,3\"/>\n  <polygon points=\"300,118 295,109 305,109\" fill=\"#3b82f6\"/>\n\n  <!-- Internet Gateway -->\n  <rect x=\"230\" y=\"118\" width=\"140\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"140\" font-size=\"12\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">Internet Gateway</text>\n\n  <!-- VPC outer box -->\n  <rect x=\"40\" y=\"168\" width=\"520\" height=\"300\" rx=\"14\" fill=\"currentColor\" fill-opacity=\"0.06\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n  <text x=\"58\" y=\"190\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">VPC　10.0.0.0/16　(65,536 addresses)</text>\n\n  <!-- CIDR label -->\n  <text x=\"480\" y=\"190\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.55\" text-anchor=\"middle\">2¹⁶ = 65536</text>\n\n  <!-- Arrow: IGW -> VPC area -->\n  <line x1=\"300\" y1=\"152\" x2=\"300\" y2=\"168\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <polygon points=\"300,170 295,161 305,161\" fill=\"#3b82f6\"/>\n\n  <!-- Public Subnet -->\n  <rect x=\"60\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"165\" y=\"220\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">Public Subnet</text>\n  <text x=\"165\" y=\"234\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">10.0.1.0/24 (256 addresses)</text>\n\n  <!-- Web Server in Public -->\n  <rect x=\"90\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.4\"/>\n  <text x=\"165\" y=\"265\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">🌐 Web Server</text>\n  <text x=\"165\" y=\"279\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">Publicly exposed · Accessible</text>\n\n  <!-- Security Group label Public -->\n  <rect x=\"80\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"165\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 Security Group (SG)</text>\n  <text x=\"165\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">HTTP/HTTPS: Allowed</text>\n\n  <!-- Private Subnet -->\n  <rect x=\"330\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1.8\"/>\n  <text x=\"435\" y=\"220\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">Private Subnet</text>\n  <text x=\"435\" y=\"234\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">10.0.2.0/24 (256 addresses)</text>\n\n  <!-- DB Server in Private -->\n  <rect x=\"360\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"#ef4444\" stroke-width=\"1.4\"/>\n  <text x=\"435\" y=\"265\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">🗄 DB Server</text>\n  <text x=\"435\" y=\"279\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">Not directly accessible externally</text>\n\n  <!-- Security Group label Private -->\n  <rect x=\"350\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"435\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 Security Group (SG)</text>\n  <text x=\"435\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">VPC internal only: Allowed</text>\n\n  <!-- Arrow between subnets (internal traffic) -->\n  <line x1=\"270\" y1=\"267\" x2=\"330\" y2=\"267\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n  <polygon points=\"332,267 323,262 323,272\" fill=\"currentColor\"/>\n  <polygon points=\"268,267 277,262 277,272\" fill=\"currentColor\"/>\n  <text x=\"300\" y=\"260\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">Internal Traffic</text>\n\n  <!-- Network ACL band -->\n  <rect x=\"55\" y=\"195\" width=\"520\" height=\"162\" rx=\"12\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"7,4\"/>\n  <text x=\"540\" y=\"213\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"end\" fill-opacity=\"0.8\">Network ACL</text>\n\n  <!-- Route Table box -->\n  <rect x=\"130\" y=\"378\" width=\"340\" height=\"34\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"300\" y=\"392\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">📋 Route Table</text>\n  <text x=\"300\" y=\"406\" font-size=\"9.5\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.75\">0.0.0.0/0 → IGW (public)　|　10.0.0.0/16 → local (internal)</text>\n\n  <!-- Arrow: subnets -> route table -->\n  <line x1=\"200\" y1=\"360\" x2=\"230\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"400\" y1=\"360\" x2=\"370\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n\n  <!-- VPN Gateway / Hybrid -->\n  <rect x=\"60\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"140\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🏢 VPN Gateway</text>\n  <text x=\"140\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">On-premises connection (Hybrid)</text>\n\n  <!-- VPC Peering -->\n  <rect x=\"380\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"460\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🔗 VPC Peering</text>\n  <text x=\"460\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">Connection to other VPCs</text>\n\n  <!-- Arrows from Route table -->\n  <line x1=\"210\" y1=\"412\" x2=\"160\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"390\" y1=\"412\" x2=\"440\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n\n  <!-- Legend -->\n  <rect x=\"55\" y=\"474\" width=\"490\" height=\"26\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <rect x=\"68\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.5\"/>\n  <text x=\"82\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">Public (Externally exposed)</text>\n  <rect x=\"188\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.5\"/>\n  <text x=\"202\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">Private (Internal only)</text>\n  <rect x=\"318\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#22c55e\" fill-opacity=\"0.5\"/>\n  <text x=\"332\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">Access Control (SG / ACL)</text>\n  <line x1=\"448\" y1=\"487\" x2=\"468\" y2=\"487\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" stroke-opacity=\"0.6\"/>\n  <text x=\"473\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">Extended Connection</text>\n\n</svg>"
+    }
+  ],
+  "quiz": []
+}

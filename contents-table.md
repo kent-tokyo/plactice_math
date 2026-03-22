@@ -1,5 +1,5 @@
 # Content Generation Status
-Last updated: 2026-03-21
+Last updated: 2026-03-22
 
 ## Math（数学）
 
@@ -10,7 +10,7 @@ Last updated: 2026-03-21
 | 01-003 | integers | 整数 | foundations | - | done | - | - | done | - |
 | 01-004 | real-numbers | 実数 | foundations | - | - | - | - | - | - |
 | 01-005 | complex-numbers | 複素数 | foundations | - | - | - | - | - | - |
-| 01-006 | set-theory | 集合論 | foundations | - | - | - | - | - | - |
+| 01-006 | set-theory | 集合論 | foundations | - | done | - | - | - | - |
 | 01-007 | logic | 数理論理学 | foundations | - | - | - | - | - | - |
 | 01-008 | functions | 関数 | foundations | - | - | - | - | - | - |
 | 01-009 | proof-methods | 証明法 | foundations | - | - | - | - | - | - |
@@ -147,7 +147,7 @@ Last updated: 2026-03-21
 | 04-003 | automata | オートマトン理論 | foundations_cs | - | done | - | - | - | - |
 | 04-004 | complexity | 計算量理論 | foundations_cs | - | - | - | - | - | - |
 | 04-005 | data-structures | データ構造 | algorithms | - | - | - | - | - | - |
-| 04-006 | sorting-searching | ソートと探索 | algorithms | - | - | - | - | - | - |
+| 04-006 | sorting-searching | ソートと探索 | algorithms | - | done | - | - | - | - |
 | 04-007 | graph-algorithms | グラフアルゴリズム | algorithms | - | - | - | - | - | - |
 | 04-008 | dynamic-programming | 動的計画法 | algorithms | - | - | - | - | - | - |
 | 04-009 | os-basics | OS基礎 | systems | - | done | - | - | - | - |
@@ -177,7 +177,7 @@ Last updated: 2026-03-21
 | 05-003 | stoichiometry | 化学量論 | general_chem | - | done | - | - | - | - |
 | 05-004 | states-of-matter | 物質の状態 | general_chem | - | - | - | - | - | - |
 | 05-005 | solutions | 溶液 | general_chem | - | - | - | - | - | - |
-| 05-006 | hydrocarbons | 炭化水素 | organic | - | - | - | - | - | - |
+| 05-006 | hydrocarbons | 炭化水素 | organic | - | done | - | - | - | - |
 | 05-007 | functional-groups | 官能基 | organic | - | - | - | - | - | - |
 | 05-008 | organic-reactions | 有機反応 | organic | - | - | - | - | - | - |
 | 05-009 | stereochemistry | 立体化学 | organic | - | - | - | - | - | - |
@@ -206,7 +206,7 @@ Last updated: 2026-03-21
 | 06-003 | journal-entries | 仕訳 | bookkeeping | - | done | - | - | - | - |
 | 06-004 | trial-balance | 試算表 | bookkeeping | - | - | - | - | - | - |
 | 06-005 | closing-entries | 決算整理 | bookkeeping | - | - | - | - | - | - |
-| 06-006 | balance-sheet | 貸借対照表 | financial_statements | - | - | - | - | - | - |
+| 06-006 | balance-sheet | 貸借対照表 | financial_statements | - | done | - | - | - | - |
 | 06-007 | income-statement | 損益計算書 | financial_statements | - | - | - | - | - | - |
 | 06-008 | cash-flow | キャッシュフロー計算書 | financial_statements | - | - | - | - | - | - |
 | 06-009 | financial-analysis | 財務分析 | financial_statements | - | - | - | - | - | - |

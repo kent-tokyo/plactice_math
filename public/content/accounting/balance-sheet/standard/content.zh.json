@@ -1,0 +1,101 @@
+{
+  "id": "dad83e94-899b-4cde-b9e8-26180c6bb576",
+  "nodeId": "balance-sheet",
+  "level": "standard",
+  "locale": "zh",
+  "generatedAt": "2026-03-22T00:56:29.371Z",
+  "content": "---\ntitle: 资产负债表\ndifficulty: 2\nfield: financial_statements\nstandard: J-GAAP\n---\n\nimport { Callout } from '@/components/ui/callout'\nimport { Example } from '@/components/ui/example'\nimport { KeyConcept } from '@/components/ui/key-concept'\n\n# 资产负债表\n\n## 是什么 — 直观的解释\n\n资产负债表是一张财务报表，用于列示在**某一特定时点**，企业\"拥有什么\"以及\"资金从何而来\"。英文称为 **Balance Sheet（B/S）**。\n\n简单来说，它就像是\"某一天企业财务状况的一张照片\"。如果说利润表是记录\"一段时期内盈亏情况\"的视频，那么资产负债表就是反映\"特定日期财产状况\"的快照。\n\n<Callout type=\"analogy\">\n💡 **日常生活类比：个人财务状况**\n\n当你整理\"截至今天，自己有多少财富\"时，大概会这样思考：\n\n- **拥有的东西**：现金1000元、银行存款5000元、汽车10万元（资产）\n- **借来的钱**：助学贷款8万元（负债）\n- **扣除后属于自己的部分**：2.2万元（净资产）\n\n资产负债表正是将这种整理方式，放大到企业层面来呈现的。\n</Callout>\n\n---\n\n## 为什么需要它 — 在会计与簿记体系中的定位\n\n### 作为财务报表的\"核心\"\n\n会计的最终目标，是将企业的财务状况和经营成果准确地传达给外部利益相关者（投资者、银行、业务伙伴等）。资产负债表正是反映其中**财务状况**的文件，与利润表、现金流量表共同构成财务报表的三大支柱。\n\n### 作为决策的基础信息\n\n银行在判断是否放贷时，需要了解\"这家公司有没有还款能力\"。投资者在买入股票时，需要确认\"这家公司是否真的有价值\"。资产负债表正是作为**财务健康状况判断依据**，被各类利益相关者广泛使用的工具。\n\n### 作为簿记流程的最终输出\n\n日常分录 → 过账至总账 → 编制试算表 → 期末调整（折旧、准备金、递延项目），这一系列流程的**最终输出**就是财务报表，而资产负债表正处于其核心位置。之前所学的试算表和期末调整分录，最终都汇聚到这一张表中。\n\n---\n\n## 核心思想 — 定义与本质\n\n### 资产负债表等式（会计基本原则）\n\n资产负债表的根基是以下关系式：\n\n$$\n\\text{资产} = \\text{负债} + \\text{净资产}\n$$\n\n这称为**资产负债表等式**（又称会计等式）。左边（资产）是\"企业所拥有财产的总额\"，右边（负债＋净资产）是\"该财产的资金来源构成\"。两者**始终相等（保持平衡）**，这也是\"Balance Sheet\"名称的由来。\n\n<KeyConcept>\n变形后可以写成：\n\n$$\n\\text{净资产} = \\text{资产} - \\text{负债}\n$$\n\n净资产是\"偿还所有负债后剩余的、属于股东的部分\"，也称为**所有者权益**。\n</KeyConcept>\n\n### 三大构成要素\n\n| 项目 | 含义 | 主要示例 |\n|------|------|--------|\n| **资产** | 企业持有的经济资源 | 现金、应收账款、房屋、机械设备 |\n| **负债** | 从他方筹集的、须承担偿还义务的资金 | 借款、应付账款、公司债券 |\n| **净资产** | 股东投入的资金＋历年累积利润 | 股本、留存收益 |\n\n### 借方与贷方的排列\n\n资产负债表以左右分栏的表格形式呈现：\n\n```\n┌─────────────────┬─────────────────┐\n│   借方（左侧）   │   贷方（右侧）   │\n│                 │                 │\n│    资　产        │    负　债        │\n│                 │                 │\n│                 │    净资产        │\n└─────────────────┴─────────────────┘\n       左右合计必须相等\n```\n\n资产列于**左侧（借方）**，负债与净资产列于**右侧（贷方）**。这与会计分录中借贷方的逻辑一致。\n\n### 资产与负债的流动性分类（J-GAAP）\n\n依据日本会计准则，资产与负债须进一步区分为**流动与非流动**两类进行列示：\n\n- **流动资产、流动负债**：1年内可变现或须偿付的项目\n- **非流动资产、非流动负债**：超过1年的项目\n\n这一区分标准称为\"**一年基准（One-Year Rule）**\"，有助于评估短期偿付能力。\n\n<Callout type=\"info\">\n📌 **与IFRS的主要差异**\n\nIFRS同样采用\"流动/非流动\"的分类列示方式，但**资产的排列顺序**可能有所不同。J-GAAP按流动性由高到低从上（左）往下排列；而IFRS允许将非流动资产置于前列的逆序排列方式。此外，IFRS使用\"**权益（Equity）**\"这一术语，而非\"净资产\"。\n</Callout>\n\n---\n\n## 具体示例\n\n<Example title=\"示例1：日常生活 — 大学生的财务状况\">\n\n大学生小A将\"截至今天的个人财务状况\"整理成资产负债表的形式：\n\n```\n【小A的资产负债表（截至今日）】单位：万元\n\n资　产              负　债\n─────────────────────────────\n现　金      0.5    助学贷款        8\n银行存款    5      信用卡欠款      0.5\n自行车      1      ─────────────\n                   负债合计        8.5\n\n                   净资产（差额）  -2\n                   ─────────────\n资产合计    6.5    负债及净资产合计 6.5\n```\n\n净资产为负数，意味着\"若立即变现清偿，仍有债务剩余（资不抵债）\"。企业若长期处于这种状态，破产风险将大幅上升。\n\n等式验证：$6.5 = 8.5 + (-2)$ ✓\n\n</Example>\n\n<Example title=\"示例2：小公司创立之初 — 资金来源的可视化\">\n\nB公司成立第一天，\"从股东处筹得300万元、从银行借入200万元，全部以现金形式持有\"。\n\n```\n【B公司 资产负债表（成立当日）】单位：万元\n\n（资产项目）           （负债项目）\n流动资产               流动负债\n  现金及存款  500        短期借款    200\n                       （净资产项目）\n                         股本        300\n\n资产合计     500       负债及净资产合计  500\n```\n\n$$500 = 200 + 300$$\n\n等式成立。查看右侧即可了解\"500万元现金的资金来源\"：其中200万元是须偿还给银行的债务，300万元是股东出资的资本。\n\n</Example>\n\n<Example title=\"示例3：经营一年后 — 利润积累至净资产\">\n\n若B公司经营一年后获得100万元利润，资产负债表将如何变化？\n\n```\n【B公司 资产负债表（一年后）】单位：万元\n\n（资产项目）           （负债项目）\n流动资产               流动负债\n  现金及存款  600        短期借款    200\n                       （净资产项目）\n                         股本        300\n                         留存收益    100\n\n资产合计     600       负债及净资产合计  600\n```\n\n100万元利润以**留存收益**的形式计入净资产。资产（现金）同步增加100万元，等式依然成立。在这里可以清晰地看到：利润表中计算出的本期净利润，被承接至资产负债表的净资产中，两张报表由此相互衔接。\n\n$$600 = 200 + (300 + 100)$$\n\n</Example>\n\n---\n\n## 关联性 — 与其他概念的关系\n\n### 与前置知识的关系\n\n```\n分录与总账\n    ↓\n试算表（合计余额试算表）\n    ↓\n期末调整分录（折旧、准备金、递延项目）\n    ↓\n【资产负债表】←→ 利润表\n```\n\n- **试算表**：资产负债表的原材料。试算表余额栏中的各科目，被分配至资产负债表的各对应项目中。\n- **期末调整**：将试算表数据修正为\"正确期末余额\"的过程。例如，计提折旧会减少非流动资产的账面价值，计提准备金会增加负债。只有将这些调整全部纳入，才能完成一张准确的资产负债表。\n\n### 与利润表的关系\n\n资产负债表与利润表并非相互独立的文件，二者通过**本期净利润**紧密相连：\n\n$$\n\\text{期末净资产} = \\text{期初净资产} + \\text{本期净利润} - \\text{股利等}\n$$\n\n利润表计算出的本期净利润，加计至资产负债表的**留存收益**中，两张报表由此联动。\n\n### 向进阶概念的延伸\n\n| 进阶概念 | 与资产负债表的关系 |\n|----------|--------------------|\n| 现金流量表 | 解释现金及现金等价物（资产）的增减变动 |\n| 财务比率分析 | 流动比率、自有资本比率等，均以B/S数据为基础进行经营分析 |\n| 合并财务报表 | 将母子公司合并后呈现\"集团整体\"的B/S |\n| 资产减值会计 | 将非流动资产账面价值下调并反映至B/S |\n\n---\n\n## 在其他领域的应用\n\n### 经营管理与经营战略\n\n经营者借助资产负债表衡量\"企业自身的资本效率\"。例如，**ROE（净资产收益率）** 是净利润除以净资产的指标，需同时运用资产负债表与利润表的数据。它衡量的是\"以较少的净资产创造了多少利润\"，是经营战略中的核心评估尺度。\n\n$$\nROE = \\frac{\\text{本期净利润}}{\\text{净资产}} \\times 100 \\ (\\%)\n$$\n\n### 银行业务与信用管理\n\n银行和供应商在评估交易对象的信用状况时，资产负债表是不可或缺的工具。通过查看**自有资本比率**（净资产÷总资产）和**负债比率**（负债÷净资产），可以客观判断\"这家公司能否偿还债务\"以及\"破产风险有多大\"。\n\n### 税务与法务\n\n根据公司法，可分配股利的计算需要用到净资产（可分配额）的概念。在税务申报中，资产负债表的期末余额也是申报文件的基础数据。对于中小企业而言，**税务申报书须附报资产负债表**，准确编制在法律层面同样是强制要求。\n\n### 并购与企业估值\n\n在收购企业时，资产负债表上的净资产金额（**账面净资产法**）有时会作为收购定价的计算依据。此外，账面净资产与企业实际价值之间的差额——即品牌、人才等未在资产负债表上体现的无形价值——以\"商誉\"的形式被确认，这在并购场景中也是重要议题。\n\n<Callout type=\"summary\">\n📝 **总结**\n\n- 资产负债表是反映\"某一时点财务状况\"的快照\n- 核心是 $\\text{资产} = \\text{负债} + \\text{净资产}$ 这一等式\n- 经由试算表和期末调整编制完成，并通过本期净利润与利润表相互衔接\n- 是投资、融资、经营、法务等各类场景中广泛运用的会计基础\n</Callout>",
+  "terms": [
+    {
+      "term": "资产负债表",
+      "reading": "zīchǎn fùzhài biǎo",
+      "en": "Balance Sheet",
+      "definition": "列示企业在特定时点的资产、负债及净资产状况的财务报表。英文称为Balance Sheet（B/S）。"
+    },
+    {
+      "term": "资产",
+      "reading": "zīchǎn",
+      "en": "Assets",
+      "definition": "企业所拥有的经济资源的总称。包括现金、应收账款、建筑物、机器设备等，列示于资产负债表的左侧（借方）。"
+    },
+    {
+      "term": "负债",
+      "reading": "fùzhài",
+      "en": "Liabilities",
+      "definition": "从他方筹集的具有偿还义务的资金。包括借款、应付账款、公司债券等，列示于资产负债表的右侧（贷方）。"
+    },
+    {
+      "term": "净资产",
+      "reading": "jìng zīchǎn",
+      "en": "Net Assets / Equity",
+      "definition": "资产减去负债后的余额，是股东出资与累计利润的合计。也称为所有者权益。"
+    },
+    {
+      "term": "资产负债表等式",
+      "reading": "zīchǎn fùzhài biǎo děngshì",
+      "en": "Accounting Equation",
+      "definition": "「资产＝负债＋净资产」这一构成会计核心的恒等式。资产负债表的左右两侧始终保持平衡。"
+    },
+    {
+      "term": "流动资产",
+      "reading": "liúdòng zīchǎn",
+      "en": "Current Assets",
+      "definition": "预计在1年内变现的资产。包括现金、应收账款、存货等，依据一年期标准（一年规则）进行划分。"
+    },
+    {
+      "term": "非流动资产",
+      "reading": "fēi liúdòng zīchǎn",
+      "en": "Non-current Assets",
+      "definition": "持有或使用期限超过1年的资产。包括建筑物、机器设备、土地等，构成企业长期经营的基础。"
+    },
+    {
+      "term": "留存收益",
+      "reading": "liúcún shōuyì",
+      "en": "Retained Earnings",
+      "definition": "企业历年累计利润中未向外部分配的部分。随着利润表中本期净利润的加入而增加。"
+    },
+    {
+      "term": "本期净利润",
+      "reading": "běnqī jìng lìrùn",
+      "en": "Net Income / Net Profit",
+      "definition": "一个会计期间内的最终利润。由利润表计算得出，并加计至资产负债表的留存收益中，从而使两张报表相互衔接。"
+    },
+    {
+      "term": "产权比率（权益比率）",
+      "reading": "quányì bǐlǜ",
+      "en": "Equity Ratio",
+      "definition": "净资产除以总资产所得的比率，是衡量企业财务稳定性的指标。该比率越高，说明对借款的依赖程度越低，财务状况越健康。"
+    },
+    {
+      "term": "ROE（净资产收益率）",
+      "reading": "jìng zīchǎn shōuyìlǜ",
+      "en": "Return on Equity",
+      "definition": "本期净利润除以净资产所得的指标，衡量企业将股东权益转化为利润的效率，是反映经营效率的重要尺度。"
+    },
+    {
+      "term": "资不抵债",
+      "reading": "zī bù dǐ zhài",
+      "en": "Insolvency / Negative Equity",
+      "definition": "负债总额超过资产总额，导致净资产为负值的状态。通常意味着企业破产风险显著上升。"
+    },
+    {
+      "term": "一年期标准（一年规则）",
+      "reading": "yī nián qī biāozhǔn",
+      "en": "One-Year Rule",
+      "definition": "将资产和负债划分为流动与非流动的判断标准，以是否在1年内到期为依据进行分类。是日本会计准则（J-GAAP）中财务报表列报的基本规则。"
+    },
+    {
+      "term": "商誉",
+      "reading": "shāngyù",
+      "en": "Goodwill",
+      "definition": "并购中收购价格与被收购企业净资产账面价值之间的差额。反映了品牌、人才等未在资产负债表中单独确认的无形价值。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 420\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Title -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">资产负债表的结构</text>\n\n  <!-- Equation -->\n  <text x=\"300\" y=\"60\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">资产 ＝ 负债 ＋ 净资产</text>\n\n  <!-- Main Balance Sheet Frame -->\n  <!-- Left side: Assets -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- Right side: Liabilities + Equity -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"300\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n  <!-- Center divider label -->\n  <text x=\"300\" y=\"245\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\" transform=\"rotate(0)\">＝</text>\n\n  <!-- LEFT SIDE HEADER: 借方 -->\n  <rect x=\"40\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"40\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"160\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">借方（左侧）</text>\n\n  <!-- RIGHT SIDE HEADER: 贷方 -->\n  <rect x=\"320\" y=\"80\" width=\"240\" height=\"36\" rx=\"8\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <rect x=\"320\" y=\"104\" width=\"240\" height=\"12\" rx=\"0\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"none\"/>\n  <text x=\"440\" y=\"103\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">贷方（右侧）</text>\n\n  <!-- ASSET SECTION -->\n  <text x=\"160\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#3b82f6\">资　产</text>\n\n  <!-- 流动资产 block -->\n  <rect x=\"55\" y=\"148\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">流动资产</text>\n  <text x=\"160\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">现金・存款</text>\n  <text x=\"160\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">应收账款</text>\n  <text x=\"160\" y=\"214\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">存货</text>\n  <text x=\"245\" y=\"200\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">1年以内</text>\n\n  <!-- 固定资产 block -->\n  <rect x=\"55\" y=\"250\" width=\"210\" height=\"90\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.04\" stroke=\"#3b82f6\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"160\" y=\"269\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">固定资产</text>\n  <text x=\"160\" y=\"286\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">建筑・机械</text>\n  <text x=\"160\" y=\"301\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">土地</text>\n  <text x=\"160\" y=\"316\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">无形固定资产</text>\n  <text x=\"245\" y=\"302\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">1年以上</text>\n\n  <!-- Asset total -->\n  <line x1=\"55\" y1=\"354\" x2=\"265\" y2=\"354\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"85\" y=\"370\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">资产合计</text>\n  <text x=\"255\" y=\"370\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- LIABILITY SECTION -->\n  <!-- 流动负债 block -->\n  <text x=\"440\" y=\"135\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"#ef4444\">负　债</text>\n\n  <rect x=\"335\" y=\"148\" width=\"210\" height=\"80\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"167\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">流动负债</text>\n  <text x=\"440\" y=\"184\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">应付账款</text>\n  <text x=\"440\" y=\"199\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">短期借款</text>\n  <text x=\"525\" y=\"190\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">1年以内</text>\n\n  <!-- 固定负债 block -->\n  <rect x=\"335\" y=\"238\" width=\"210\" height=\"60\" rx=\"6\" fill=\"#ef4444\" fill-opacity=\"0.04\" stroke=\"#ef4444\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"440\" y=\"257\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#ef4444\">长期负债</text>\n  <text x=\"440\" y=\"274\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">长期借款・公司债</text>\n  <text x=\"525\" y=\"263\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">1年以上</text>\n\n  <!-- 净资产 section -->\n  <rect x=\"335\" y=\"308\" width=\"210\" height=\"45\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"440\" y=\"327\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">净资产（所有者权益）</text>\n  <text x=\"440\" y=\"344\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">股本・留存收益</text>\n\n  <!-- Right total -->\n  <line x1=\"335\" y1=\"365\" x2=\"545\" y2=\"365\" stroke=\"currentColor\" stroke-width=\"1\"/>\n  <text x=\"365\" y=\"380\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">负债・净资产合计</text>\n  <text x=\"535\" y=\"380\" text-anchor=\"end\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">XXX</text>\n\n  <!-- Center balance symbol -->\n  <text x=\"300\" y=\"235\" text-anchor=\"middle\" font-size=\"20\" fill=\"currentColor\" font-weight=\"bold\">⇌</text>\n\n  <!-- Balance annotation -->\n  <text x=\"300\" y=\"395\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">左右合计始终相等（保持平衡）</text>\n\n  <!-- 1年基准 annotation -->\n  <rect x=\"100\" y=\"243\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"130\" y=\"253\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">按1年标准划分</text>\n  <rect x=\"380\" y=\"230\" width=\"60\" height=\"14\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.05\"/>\n  <text x=\"410\" y=\"240\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"currentColor\">按1年标准划分</text>\n\n</svg>"
+    }
+  ],
+  "quiz": []
+}

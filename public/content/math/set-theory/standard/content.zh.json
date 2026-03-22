@@ -1,0 +1,77 @@
+{
+  "id": "c4d07ddc-a6f3-4f42-8583-e13a1b0211cb",
+  "nodeId": "set-theory",
+  "level": "standard",
+  "locale": "zh",
+  "generatedAt": "2026-03-22T00:37:53.118Z",
+  "content": "# 集合论（Set Theory）\n\n## 是什么 — 直观的解释\n\n集合是**能够明确区分的事物的整体**。例如\"1到5的整数的集合\"或\"日本都道府县的集合\"，当哪些事物包含在内、哪些不包含在内能够清晰确定时，我们就称之为集合。集合中的每个个体称为**元素**。\n\n集合用花括号 $\\{\\}$ 表示。例如写作 $A = \\{1, 2, 3, 4, 5\\}$。元素 $a$ 属于集合 $A$ 记作 $a \\in A$，不属于则记作 $a \\notin A$。这种\"属于或不属于\"的二元明确性，正是集合论的出发点。\n\n## 为什么需要 — 在数学中的地位\n\n集合论是现代数学的**共同语言**。数、函数、空间、概率等数学中的一切概念，都借助集合来严格定义。例如，\"函数\"被定义为两个集合之间的一种特殊对应关系，\"全体自然数\"也被构造为具有特定性质的集合。学习集合论，相当于理解数学这座大厦的根基。\n\n自19世纪末格奥尔格·康托尔创立集合论以来，数学的基础便建立在这一框架之上。掌握集合的语言，不仅能够统一地理解不同领域的数学论述，甚至可以比较\"无穷\"的大小。大学数学的各门课程中集合记号频繁出现，正是因为它是数学的核心所在。\n\n## 核心思想 — 定义与定理的本质\n\n集合之间最基本的关系是**子集**。若集合 $A$ 的所有元素也都属于集合 $B$，则写作 $A \\subseteq B$（$A$ 是 $B$ 的子集）。当 $A \\subseteq B$ 且 $B \\subseteq A$ 时，定义 $A = B$。\n\n集合的基本运算有以下三种：\n\n$$A \\cup B = \\{x \\mid x \\in A \\text{ 或 } x \\in B\\} \\quad \\text{（并集）}$$\n\n$$A \\cap B = \\{x \\mid x \\in A \\text{ 且 } x \\in B\\} \\quad \\text{（交集）}$$\n\n$$A \\setminus B = \\{x \\mid x \\in A \\text{ 且 } x \\notin B\\} \\quad \\text{（差集）}$$\n\n此外，对于全集 $U$，$A$ 的**补集**定义为 $A^c = U \\setminus A$。这些运算满足德摩根定律 $(A \\cup B)^c = A^c \\cap B^c$、$(A \\cap B)^c = A^c \\cup B^c$ 等与逻辑运算相对应的优美性质。\n\n## 具体示例 — 贴近生活的例子\n\n**例1：班级同学与兴趣爱好**　设某班中，$A$＝\"喜欢音乐的同学的集合\"，$B$＝\"喜欢运动的同学的集合\"。则 $A \\cup B$ 表示\"喜欢音乐或运动的同学\"，$A \\cap B$ 表示\"两者都喜欢的同学\"，$A \\setminus B$ 表示\"喜欢音乐但不喜欢运动的同学\"。画出韦恩图，各个区域便能直观地呈现出来。\n\n**例2：数的集合的层次结构**　设自然数、整数、有理数、实数的集合分别为 $\\mathbb{N}, \\mathbb{Z}, \\mathbb{Q}, \\mathbb{R}$，则有\n$$\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$$\n这样一条子集的链。\"整数必然也是有理数\"这一看似理所当然的事实，通过集合的包含关系得到了精确的表达。集合的语言就这样清晰地整理了数系的结构。\n\n## 联系 — 与其他概念的关系\n\n集合论与**逻辑学**有深刻的关联。并集对应逻辑中的\"或（$\\lor$）\"，交集对应\"且（$\\land$）\"，补集对应\"否定（$\\lnot$）\"，集合运算的法则与命题逻辑的法则具有同构的结构。\n\n在集合上定义**映射（函数）**，进而构建起代数学、分析学与拓扑学。当两个集合之间存在双射（bijection）时，它们被视为\"同样大小\"，这引出了康托尔的**基数**（濃度）概念。可以证明，全体自然数与全体整数具有相同的基数，而全体实数则构成一个\"更大的\"无穷集合。\n\n## 跨学科应用 — 在物理、化学、经济学、工程学等领域的应用\n\n**概率论与统计学**中，概率空间中的\"事件\"被定义为集合。掷骰子实验中\"出现偶数的事件\"就是集合 $\\{2, 4, 6\\}$，而并集与交集直接对应\"至少有一个发生\"与\"同时发生\"的概率计算。数据科学中的数据筛选与合并操作（如 SQL 的 JOIN）在本质上也是集合运算。\n\n**计算机科学与工程学**中，数据库查询和程序的类型系统都用集合论的语言来描述。此外，逻辑电路的设计基于布尔代数——一种与集合运算同构的代数系统——AND、OR、NOT 门分别对应交集、并集和补集。**经济学**中，偏好关系、预算集合、博弈论中的策略集合等，用集合来形式化经济主体行为是标准的研究方法。",
+  "terms": [
+    {
+      "term": "集合",
+      "reading": "jí hé",
+      "en": "Set",
+      "definition": "能够明确区分的对象的整体。其中哪些对象属于该集合、哪些不属于，均有明确的界定。"
+    },
+    {
+      "term": "元素",
+      "reading": "yuán sù",
+      "en": "Element",
+      "definition": "构成集合的各个对象。$a \\in A$ 表示「$a$ 是集合 $A$ 的元素」。"
+    },
+    {
+      "term": "子集",
+      "reading": "zǐ jí",
+      "en": "Subset",
+      "definition": "若集合 $A$ 的所有元素也都属于集合 $B$，则记作 $A \\subseteq B$，称「$A$ 是 $B$ 的子集」。"
+    },
+    {
+      "term": "并集",
+      "reading": "bìng jí",
+      "en": "Union",
+      "definition": "$A \\cup B$：所有属于 $A$ 或属于 $B$（至少之一）的元素所构成的集合。"
+    },
+    {
+      "term": "交集",
+      "reading": "jiāo jí",
+      "en": "Intersection",
+      "definition": "$A \\cap B$：所有同时属于 $A$ 和 $B$ 的元素所构成的集合。"
+    },
+    {
+      "term": "补集",
+      "reading": "bǔ jí",
+      "en": "Complement",
+      "definition": "相对于全集 $U$，$A^c = U \\setminus A$：所有属于 $U$ 但不属于 $A$ 的元素所构成的集合。"
+    },
+    {
+      "term": "差集",
+      "reading": "chā jí",
+      "en": "Set Difference",
+      "definition": "$A \\setminus B$：所有属于 $A$ 但不属于 $B$ 的元素所构成的集合。"
+    },
+    {
+      "term": "空集",
+      "reading": "kōng jí",
+      "en": "Empty Set",
+      "definition": "不包含任何元素的集合，记作 $\\emptyset$ 或 $\\{\\}$。空集是任意集合的子集。"
+    },
+    {
+      "term": "基数（势）",
+      "reading": "jī shù（shì）",
+      "en": "Cardinality",
+      "definition": "描述集合「大小」的概念。对于有限集合，基数对应元素的个数；对于无限集合，也可用于比较其大小。"
+    },
+    {
+      "term": "德摩根定律",
+      "reading": "dé mó gēn dìng lǜ",
+      "en": "De Morgan's Laws",
+      "definition": "$(A \\cup B)^c = A^c \\cap B^c$ 以及 $(A \\cap B)^c = A^c \\cup B^c$ 成立的定律。是联系集合运算与逻辑运算的重要性质。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 420\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n  <!-- 背景なし（透明） -->\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"currentColor\">集合的基本运算（韦恩图）</text>\n\n  <!-- ===== 全体集合の枠 ===== -->\n  <!-- 上段左: 和集合 -->\n  <rect x=\"20\" y=\"50\" width=\"170\" height=\"130\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"5,3\"/>\n  <text x=\"105\" y=\"45\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">全集 U</text>\n  <!-- A circle -->\n  <circle cx=\"80\" cy=\"115\" r=\"40\" fill=\"#3b82f6\" fill-opacity=\"0.25\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <!-- B circle -->\n  <circle cx=\"115\" cy=\"115\" r=\"40\" fill=\"#3b82f6\" fill-opacity=\"0.25\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"65\" y=\"118\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">A</text>\n  <text x=\"132\" y=\"118\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">B</text>\n  <text x=\"105\" y=\"195\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">A ∪ B（并集）</text>\n\n  <!-- 上段中: 積集合 -->\n  <rect x=\"215\" y=\"50\" width=\"170\" height=\"130\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"5,3\"/>\n  <text x=\"300\" y=\"45\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">全集 U</text>\n  <!-- A circle (gray) -->\n  <circle cx=\"275\" cy=\"115\" r=\"40\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- B circle (gray) -->\n  <circle cx=\"310\" cy=\"115\" r=\"40\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- intersection highlight -->\n  <clipPath id=\"clipA\">\n    <circle cx=\"275\" cy=\"115\" r=\"40\"/>\n  </clipPath>\n  <circle cx=\"310\" cy=\"115\" r=\"40\" fill=\"#3b82f6\" fill-opacity=\"0.45\" stroke=\"none\" clip-path=\"url(#clipA)\"/>\n  <text x=\"260\" y=\"118\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">A</text>\n  <text x=\"327\" y=\"118\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">B</text>\n  <text x=\"300\" y=\"195\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">A ∩ B（交集）</text>\n\n  <!-- 上段右: 補集合 -->\n  <rect x=\"410\" y=\"50\" width=\"170\" height=\"130\" rx=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"5,3\"/>\n  <text x=\"495\" y=\"45\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">全集 U</text>\n  <!-- U fill -->\n  <rect x=\"410\" y=\"50\" width=\"170\" height=\"130\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"none\"/>\n  <!-- A circle (cut out visually with white-ish) -->\n  <circle cx=\"495\" cy=\"115\" r=\"40\" fill=\"white\" fill-opacity=\"0.55\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <!-- re-draw A circle fill with low opacity currentColor for dark mode compat -->\n  <circle cx=\"495\" cy=\"115\" r=\"40\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"495\" y=\"118\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">A</text>\n  <text x=\"495\" y=\"195\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">Aᶜ（补集）</text>\n\n  <!-- ===== 下段: 部分集合の関係 ===== -->\n  <!-- 大きな円 B -->\n  <ellipse cx=\"150\" cy=\"320\" rx=\"110\" ry=\"70\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.8\"/>\n  <text x=\"215\" y=\"295\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#22c55e\">B</text>\n  <!-- 中くらいの円 A -->\n  <ellipse cx=\"140\" cy=\"325\" rx=\"70\" ry=\"45\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"175\" y=\"305\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">A</text>\n  <!-- 小さい円 C -->\n  <ellipse cx=\"130\" cy=\"330\" rx=\"38\" ry=\"25\" fill=\"#ef4444\" fill-opacity=\"0.22\" stroke=\"#ef4444\" stroke-width=\"1.8\"/>\n  <text x=\"130\" y=\"334\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#ef4444\">C</text>\n  <!-- ラベル -->\n  <text x=\"150\" y=\"405\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">子集的嵌套结构</text>\n  <text x=\"150\" y=\"420\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">C ⊆ A ⊆ B</text>\n\n  <!-- ===== 右下: 数の集合の階層 ===== -->\n  <text x=\"420\" y=\"230\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">数集的层次结构</text>\n  <!-- ℝ -->\n  <ellipse cx=\"420\" cy=\"320\" rx=\"105\" ry=\"75\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n  <text x=\"495\" y=\"265\" font-size=\"12\" fill=\"currentColor\">ℝ（实数）</text>\n  <!-- ℚ -->\n  <ellipse cx=\"415\" cy=\"325\" rx=\"75\" ry=\"52\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n  <text x=\"463\" y=\"283\" font-size=\"11\" fill=\"currentColor\">ℚ（有理数）</text>\n  <!-- ℤ -->\n  <ellipse cx=\"410\" cy=\"330\" rx=\"48\" ry=\"33\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n  <text x=\"430\" y=\"305\" font-size=\"10\" fill=\"currentColor\">ℤ（整数）</text>\n  <!-- ℕ -->\n  <ellipse cx=\"405\" cy=\"335\" rx=\"26\" ry=\"18\" fill=\"#3b82f6\" fill-opacity=\"0.25\" stroke=\"#3b82f6\" stroke-width=\"1.3\"/>\n  <text x=\"405\" y=\"338\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">ℕ</text>\n  <text x=\"420\" y=\"410\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ</text>\n</svg>"
+    }
+  ],
+  "quiz": []
+}

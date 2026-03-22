@@ -1,0 +1,90 @@
+{
+  "id": "dd123d84-b7b6-431f-9077-0925fafa2c82",
+  "nodeId": "sorting-searching",
+  "level": "standard",
+  "locale": "en",
+  "generatedAt": "2026-03-22T00:52:20.706Z",
+  "content": "# Sorting and Searching\n\n## What is it — Intuitive explanation\n\n\"Sorting\" is the process of arranging data according to a defined rule. \"Searching\" is the process of finding a specific value within a collection of data. Both are among the most fundamental operations that computers perform on a daily basis.\n\nImagine you're trying to find a specific book in a disorganized pile. If the books are arranged alphabetically by title, you can quickly zero in on the one you want by following the alphabet. First you **sort**, then you **search** — and that act of organizing makes the searching dramatically easier. This relationship is the essence of sorting and searching.\n\n## Why it matters — Its place in computer science\n\nSorting and searching are among the most foundational building blocks in all of algorithms. Nearly every system we use daily — database queries, search engine results, game leaderboards, social media timelines — is powered by these algorithms.\n\nSorting and searching are also ideal subjects for exploring **computational complexity** and **efficiency**. They provide a natural starting point for asking: \"How much faster can a clever approach be compared to a brute-force one?\" This question sits at the core of computer science education. Going beyond simply knowing how to use these algorithms, it is crucial to understand **why a given algorithm is fast**.\n\n## Core ideas — The essence of definitions and theorems\n\n### Fundamentals of sorting\n\nGiven a sequence of $n$ elements $a_1, a_2, \\ldots, a_n$, sorting means finding a rearrangement (a permutation $\\sigma$) such that\n\n$$a_{\\sigma(1)} \\leq a_{\\sigma(2)} \\leq \\cdots \\leq a_{\\sigma(n)}$$\n\nThe table below summarizes representative sorting algorithms and their complexities.\n\n| Algorithm | Average complexity | Worst-case complexity | Characteristics |\n|---|---|---|---|\n| Bubble sort | $O(n^2)$ | $O(n^2)$ | Simple but slow |\n| Selection sort | $O(n^2)$ | $O(n^2)$ | Straightforward to implement |\n| Insertion sort | $O(n^2)$ | $O(n^2)$ | Efficient for small or nearly sorted data |\n| Merge sort | $O(n \\log n)$ | $O(n \\log n)$ | Stable and consistent |\n| Quicksort | $O(n \\log n)$ | $O(n^2)$ | Among the fastest in practice |\n\nIntuitively, $O(n \\log n)$ means \"when $n$ doubles, the processing time grows only a little more than double.\" Compared to $O(n^2)$, the gap widens significantly as the number of elements grows.\n\n### Fundamentals of searching\n\n**Linear search**: Examines elements one by one from the beginning of the sequence. In the worst case, all $n$ elements must be checked, giving a complexity of $O(n)$.\n\n**Binary search**: A fast search method that works on a **sorted** sequence. It compares the target value against the middle element and determines which half of the remaining range must contain the target, repeatedly halving the search space.\n\n$$\\text{comparisons required} \\leq \\lceil \\log_2 n \\rceil$$\n\nFor example, when $n = 1{,}000{,}000$, linear search may require up to one million comparisons, while binary search needs at most $\\lceil \\log_2 1{,}000{,}000 \\rceil = 20$. This is a concrete illustration of why sorting data in advance is worthwhile.\n\n## Concrete examples\n\n### Example 1: Everyday life — Looking up a word in a dictionary\n\nWhen using a physical dictionary, do you flip through every page from the beginning? Of course not. Because a dictionary is **pre-sorted** alphabetically, you naturally perform something close to binary search without even thinking about it.\n\n\"Looking for `mathematics`\" → open to the middle → if you land past `m`, go left; if before `m`, go right → halve the range again… If the dictionary were not sorted, this intuition would be completely useless. **Fast searching is only possible because sorting has already been done** — a relationship that shows up in everyday life.\n\n### Example 2: How bubble sort works\n\nBubble sort is the simplest sorting algorithm: repeatedly compare adjacent elements and swap them if they are out of order.\n\n```\nInitial state: [5, 3, 8, 1, 4]\n\nPass 1:\n[3, 5, 8, 1, 4]  ← swap 5 and 3\n[3, 5, 8, 1, 4]  ← 5 and 8 stay\n[3, 5, 1, 8, 4]  ← swap 8 and 1\n[3, 5, 1, 4, 8]  ← swap 8 and 4 (8 \"bubbles up\" to the end)\n\nPass 2:\n[3, 1, 5, 4, 8]  ← swap 5 and 1\n[3, 1, 4, 5, 8]  ← swap 5 and 4\n[3, 1, 4, 5, 8]  ← 5 and 8 stay\n\nPass 3:\n[1, 3, 4, 5, 8]  ← swap 3 and 1\n[1, 3, 4, 5, 8]  ← remainder stays\n\nFinal result: [1, 3, 4, 5, 8]\n```\n\nJust like bubbles rising to the surface of water, larger numbers drift to the right end of the array with each pass. It is simple to understand, but its $O(n^2)$ complexity makes it unsuitable for large datasets.\n\n### Example 3: Binary search in action\n\nLet's trace a search for `7` in the sorted array `[1, 3, 5, 7, 9, 11, 13, 15]`.\n\n```\nArray:   [1,  3,  5,  7,  9, 11, 13, 15]\nIndex:    0   1   2   3   4   5   6   7\n\nStep 1: left=0, right=7, mid=3 → a[3]=7 → Found!\n```\n\nNow let's search for `11`.\n\n```\nStep 1: left=0, right=7, mid=3 → a[3]=7 < 11 → go right half\nStep 2: left=4, right=7, mid=5 → a[5]=11 → Found!\n```\n\nThe target value was located among 8 elements in just 2 comparisons. This is the power of $O(\\log n)$.\n\n### Example 4: Insertion sort and sorting a hand of cards\n\nWhen organizing a hand of playing cards, what do you do? Most people naturally \"insert each new card into its correct position among the cards already in order.\" That is exactly insertion sort.\n\n```\nHand (left side already sorted):\n[3] | 5, 1, 4, 2  ← insert 5 → [3, 5]\n[3, 5] | 1, 4, 2  ← insert 1 → [1, 3, 5]\n[1, 3, 5] | 4, 2  ← insert 4 → [1, 3, 4, 5]\n[1, 3, 4, 5] | 2  ← insert 2 → [1, 2, 3, 4, 5]\n```\n\nWhen the hand is already nearly in order, the correct insertion point is found almost immediately, making the process very fast. This builds the intuition that insertion sort can be surprisingly efficient on **nearly sorted data**.\n\n## Connections — Relationships with other concepts\n\n### Prerequisite concepts\n\n**Arrays and lists** are the primary data structures on which sorting and searching operate. The ability to access any element in $O(1)$ time is exactly what enables binary search to \"jump to the middle\" so efficiently. **Tree structures** give concrete form to the binary search idea, leading to the **binary search tree (BST)**, where search, insertion, and deletion can all be performed in $O(\\log n)$. **Hash tables** take searching even further, achieving $O(1)$ lookup without any sorting at all. The progression from sorting → binary search → hash tables forms a coherent thread united by the common theme of speeding up search.\n\n### Where these ideas lead\n\nA solid understanding of sorting and searching makes it natural to appreciate **computational complexity theory** (including the proof that comparison-based sorting cannot be faster than $O(n \\log n)$) and the necessity of **advanced data structures** such as heaps, B-trees, and tries. These topics also serve as a bridge to higher-level algorithm design techniques such as **divide and conquer** (the organizing principle behind merge sort and quicksort) and **dynamic programming**.\n\n## Applications in other fields\n\n**Databases and information retrieval**: Relational databases use index structures such as B-trees to enable fast searches over large datasets. The SQL `ORDER BY` clause is a direct application of sorting algorithms.\n\n**Bioinformatics**: Specialized string searching and sorting algorithms are used to rapidly query databases of DNA sequences for particular gene patterns. Because billions of base pairs must be handled, the choice of an efficient algorithm directly determines the speed of research.\n\n**E-commerce and recommendation systems**: Displaying products sorted by price or rating is a direct application of sorting. Recommendation systems rely on **Approximate Nearest Neighbor (ANN) search** — an advanced descendant of sorting and searching — to quickly find similar users or products.\n\n**Operating systems**: Sorting and searching concepts are deeply embedded in process scheduling (priority queues) and file system directory management. When you sort files by name, the OS is running a sorting algorithm behind the scenes.",
+  "terms": [
+    {
+      "term": "Sort",
+      "reading": "",
+      "en": "Sort",
+      "definition": "The operation of rearranging data according to a fixed rule (such as ascending or descending order). Also called sorting."
+    },
+    {
+      "term": "Search",
+      "reading": "",
+      "en": "Search",
+      "definition": "The operation of finding elements that match a specific value or condition within a collection of data. Also called lookup."
+    },
+    {
+      "term": "Computational Complexity",
+      "reading": "",
+      "en": "Computational Complexity",
+      "definition": "A measure of the amount of time or memory an algorithm requires to solve a problem, expressed as a function of the input size n. Often expressed using Big-O notation."
+    },
+    {
+      "term": "Bubble Sort",
+      "reading": "",
+      "en": "Bubble Sort",
+      "definition": "A sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in the wrong order. Both average and worst-case complexity are O(n²). The implementation is simple, but it is not suitable for large datasets."
+    },
+    {
+      "term": "Selection Sort",
+      "reading": "",
+      "en": "Selection Sort",
+      "definition": "A sorting algorithm that repeatedly selects the minimum value from the unsorted portion and swaps it with the element at the front. Both average and worst-case complexity are O(n²)."
+    },
+    {
+      "term": "Insertion Sort",
+      "reading": "",
+      "en": "Insertion Sort",
+      "definition": "A sorting algorithm that takes elements from the unsorted portion one at a time and inserts each into the correct position within the sorted portion. It operates efficiently on nearly sorted data."
+    },
+    {
+      "term": "Merge Sort",
+      "reading": "",
+      "en": "Merge Sort",
+      "definition": "A sorting algorithm based on the divide and conquer approach that recursively splits a list in half and then merges (combines) the halves to produce a sorted result. Both average and worst-case complexity are O(n log n), and it is a stable sort."
+    },
+    {
+      "term": "Quick Sort",
+      "reading": "",
+      "en": "Quick Sort",
+      "definition": "A sorting algorithm that selects a reference value called a pivot, partitions elements into those smaller and those larger than the pivot, and recursively sorts each partition. Average complexity is O(n log n), making it extremely fast in practice."
+    },
+    {
+      "term": "Linear Search",
+      "reading": "",
+      "en": "Linear Search",
+      "definition": "The simplest search algorithm, which examines elements in an array sequentially from the beginning. Its complexity is O(n)."
+    },
+    {
+      "term": "Binary Search",
+      "reading": "",
+      "en": "Binary Search",
+      "definition": "A fast search algorithm for sorted arrays that compares the middle element with the target value and repeatedly halves the search range. Its complexity is O(log n)."
+    },
+    {
+      "term": "Divide and Conquer",
+      "reading": "",
+      "en": "Divide and Conquer",
+      "definition": "An algorithm design technique that recursively breaks a problem into smaller subproblems, solves each one, and combines the results to solve the original problem. It is the underlying design principle of merge sort and quick sort."
+    },
+    {
+      "term": "Binary Search Tree (BST)",
+      "reading": "",
+      "en": "Binary Search Tree (BST)",
+      "definition": "A tree data structure in which each node follows the rule that smaller values are stored in the left subtree and larger values in the right subtree. Search, insertion, and deletion can each be performed in O(log n)."
+    },
+    {
+      "term": "Hash Table",
+      "reading": "",
+      "en": "Hash Table",
+      "definition": "A data structure that uses a hash function to convert keys into array indices, enabling average O(1) search, insertion, and deletion."
+    }
+  ],
+  "diagrams": [],
+  "quiz": []
+}

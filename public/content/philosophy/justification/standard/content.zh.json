@@ -1,0 +1,101 @@
+{
+  "id": "b3405c42-9c8e-4a57-8461-2d88ce2de843",
+  "nodeId": "justification",
+  "level": "standard",
+  "locale": "zh",
+  "generatedAt": "2026-03-22T00:39:46.539Z",
+  "content": "# 正当化\n\n## 是什么 — 直观的解释\n\n\"我认为这是正确的\"与\"我**知道**这是正确的\"之间，究竟有什么区别？**正当化（justification）** 是指将单纯的信念提升为\"知识\"所需的条件——即持有某一信念时具备**充分的根据与理由**。\n\n举个例子，假设你相信\"明天会下雨\"。如果你是根据天气预报、气压变化或云层状况等依据而产生这一信念，那么这个信念就具有\"正当化\"。反之，如果仅仅是\"感觉好像会这样\"，那么即便真的下了雨，也很难说你\"知道\"它会下雨。正当化是用来区分\"有根据的信念\"与\"无根据的信念\"的概念工具。\n\n这一概念处于认识论（epistemology）的核心位置，作为回答\"什么是知识\"这一问题的三大支柱之一，长期以来与真理、信念一起被广泛讨论。\n\n---\n\n## 为什么需要它 — 在数学中的定位\n\n数学中的\"证明\"可以被视为正当化最严格的形式。要**知道**某命题 $P$ 为真，仅仅\"感觉 $P$ 是正确的\"是不够的。必须通过从公理和定理出发、逐步积累逻辑推理来**正当化** $P$。从这个意义上说，数学证明正是认识论意义上的正当化过程的具体实现。\n\n此外，在数理逻辑和计算机科学中，\"证明的存在\"本身作为知识的标准发挥着重要作用。在形式化证明系统（希尔伯特式系统、自然演绎等）中，命题 $\\varphi$ \"可被证明\"记作 $\\vdash \\varphi$，这可以解读为\"存在正当化 $\\varphi$ 的根据\"这一状态的符号化表达。探究真理概念（$\\models \\varphi$）与可证明性（$\\vdash \\varphi$）之间关系的**可靠性与完全性定理**，正是追问\"正当化与真理是否一致\"的问题。\n\n---\n\n## 核心思想 — 定义与定理的本质\n\n认识论中对知识的经典定义是源于柏拉图对话录的 **JTB（Justified True Belief，得到正当化的真信念）理论**。根据该理论，主体 $S$ 知道命题 $P$（$S$ knows that $P$）当且仅当以下三个条件同时成立：\n\n$$\nS \\text{ knows that } P \\iff\n\\begin{cases}\n(1) & P \\text{ 是真的（True）} \\\\\n(2) & S \\text{ 相信 } P \\text{（Belief）} \\\\\n(3) & S \\text{ 对 } P \\text{ 的信念是得到正当化的（Justified）}\n\\end{cases}\n$$\n\n其中条件 $(3)$ 对应**正当化**。形式上，将正当化定义为关系 $J(S, P)$，即\"$S$ 持有相信 $P$ 的适当根据与证据\"。\n\n正当化主要有两种研究进路。**内在主义（internalism）** 认为，正当化的根据应当来自认识主体的\"内部\"——即主体可以访问的信念与经验。而**外在主义（externalism）** 则认为，即使主体无法直接访问，只要信念形成过程在客观上是可靠的，正当化便可成立。例如，在可靠性主义（reliabilism）中，正当化被理解为：\n\n$$\nJ(S, P) \\iff \\text{$S$ 对 $P$ 的信念是由可靠的过程产生的}\n$$\n\n这里\"可靠的过程\"是指能够以较高概率产生真信念的认知过程（知觉、记忆、逻辑推理等）。\n\n1963年埃德蒙德·葛梯尔（Edmund Gettier）发表的著名反例（**葛梯尔问题**）表明，存在满足JTB三个条件却难以称之为\"知识\"的情形，从而迫使人们重新审视正当化条件。这使得\"正当化是什么\"成为当代认识论中的核心未解问题之一。\n\n---\n\n## 具体示例\n\n### 例1：数学证明带来的正当化\n\n考虑\"$\\sqrt{2}$ 是无理数\"这一命题。如果你只是\"感觉好像是这样\"，那就谈不上知识。然而，当你理解并能够跟随用归谬法（反证法）写出的证明时，你的信念便被逻辑推理这一正当化过程所支撑。\n\n让我们确认一下证明的骨架。假设 $\\sqrt{2}$ 是有理数，则可以用互质的整数 $p,\\, q$（$q \\neq 0$）表示为 $\\sqrt{2} = p/q$。两边平方得 $2q^2 = p^2$，由于 $p^2$ 是偶数，$p$ 也是偶数。令 $p = 2k$，则 $2q^2 = 4k^2$，即 $q^2 = 2k^2$，从而 $q$ 也是偶数。这与 $p$ 和 $q$ 互质的假设矛盾。因此 $\\sqrt{2}$ 是无理数。\n\n数学中的证明，正是这种最有力的正当化形式。每一步都从公理、定义或已知定理中逻辑地推导而来，这保证了正当化的\"确定性\"。\n\n### 例2：知觉带来的正当化（及其局限）\n\n当你向窗外望去并相信\"外面天晴\"时，这一信念通过**视觉知觉**得到正当化。从内在主义的角度来看，你\"当下正在访问\"这一经验，便是正当化的根据。然而，如果你实际上被极其精巧的穹顶所包围，看到的只是投影出来的影像呢？信念的内容是假的，但正当化过程（从主体的视角来看）完全相同。这暗示了即使存在正当化，知识也可能无法成立——这是葛梯尔式情形的一种形态。\n\n### 例3：通过葛梯尔问题审视正当化条件\n\n以下是对葛梯尔（1963）经典案例的简化介绍。假设你有充分的根据（过去目击、当事人亲口说明等）长期相信同事田中拥有一辆福特车。此外，你还有一位朋友铃木，但你不知道铃木在哪里。你从对田中的正当化信念出发，通过逻辑析取引入，推导出命题 $P$：\n\n$$\nP \\equiv \\text{「田中拥有福特车」} \\lor \\text{「铃木在巴塞罗那」}\n$$\n\n然而实际上，田中并没有福特车（根据有误），但偶然地，铃木确实在巴塞罗那。此时 $P$ 为**真**，你**相信** $P$，而且你对 $P$ 的信念是**得到正当化的**（从关于田中的证据逻辑推导而来）。然而，直觉上很难说你\"知道\"铃木在巴塞罗那。这种满足JTB三个条件却难以称之为知识的情形，促使人们对正当化条件进行了更为精细的探讨。\n\n### 例4：统计证据带来的正当化\n\n考虑科学中的假设检验。对于某种新药具有疗效的命题 $H$，若临床试验得到 $p < 0.05$ 的结果，研究者对 $H$ 的信念便通过统计证据得到了正当化。然而，这种正当化并不能保证\"$H$ 必然为真\"，而是**概率性、暂定性的正当化**。这样的科学推理提示我们：正当化并非\"全有或全无\"，而是存在**程度之分（degree of justification）**。在贝叶斯认识论中，这一程度被形式化为后验概率 $P(H \\mid E)$。\n\n---\n\n## 关联 — 与其他概念的关系\n\n正当化与**真理（truth）**和**信念（belief）**共同构成JTB理论中知识的三要素。因此，理解真理论是重要的前提知识。\"$P$ 为真\"这一条件与\"对 $P$ 的信念得到正当化\"这一条件是相互独立的要求——真实但未经正当化的信念（偶然的正确猜测），以及经过正当化但为假的信念（基于错误根据的合理推论），都不能被视为知识。\n\n作为进阶主题，正当化与**认识论文脉主义**（知识主张的真值条件依赖于语境）、**缺省逻辑**（将正当化形式化为\"可被击败的推理\"）、**证明论**（数学中正当化的形式化体系）等概念相互关联。此外，作为对葛梯尔问题的回应而提出的**因果说**（信念与事实之间需要适当的因果链）和**不可击败性说**（正当化不会被错误信念所推翻）也是重要的发展方向。\n\n---\n\n## 在其他领域的应用\n\n在**计算机科学与人工智能**领域，正当化是\"可解释AI（XAI）\"的概念基础。机器学习模型输出的判断是否\"得到正当化\"——即得出该结论的过程是否基于可信的根据——在医疗诊断、自动驾驶等高风险应用中是至关重要的问题。此外，在逻辑程序设计（Prolog）和知识表示中，**基于正当化的真值维护系统（JTMS: Justification-based Truth Maintenance System）**被广泛使用，它能够根据前提的变化动态更新信念的正当化状态。\n\n在**法学与司法**领域，正当化同样扮演着核心角色。刑事审判中\"排除合理怀疑的证明（proof beyond reasonable doubt）\"，要求对有罪判决这一信念的正当化达到极高的证据标准。这可以被视为将认识论意义上的正当化标准转化为法律语境的产物。\n\n在**科学哲学**领域，科学知识的正当化——归纳推理如何能够正当化对普遍规律的信念（**归纳问题**）——被卡尔·波普尔（Karl Popper）和托马斯·库恩（Thomas Kuhn）等人深入探讨。波普尔的证伪主义承认\"正当化的不可能性\"，并在此基础上提出以可证伪性作为**知识的替代标准**，这也可以被解读为对正当化问题的一种回应。",
+  "terms": [
+    {
+      "term": "正当化",
+      "reading": "せいとうか",
+      "en": "Justification",
+      "definition": "ある信念を単なる推測ではなく知識として認めるために必要な、十分な根拠・理由が存在する状態。認識論において真理・信念とともに知識の三要素のひとつを構成する。"
+    },
+    {
+      "term": "JTB理論",
+      "reading": "じぇいてぃーびーりろん",
+      "en": "Justified True Belief Theory",
+      "definition": "「知識とは正当化された真なる信念である」とするプラトン以来の古典的な知識の定義。主体Sが命題Pを知るには、Pが真であること・SがPを信じること・その信念が正当化されていることの三条件を要求する。"
+    },
+    {
+      "term": "ゲティア問題",
+      "reading": "げてぃあもんだい",
+      "en": "Gettier Problem",
+      "definition": "1963年にエドモンド・ゲティアが示した、JTBの三条件をすべて満たしながらも直観的に「知識」と呼びにくい反例。正当化条件の再検討を促した現代認識論の中心的問題。"
+    },
+    {
+      "term": "内在主義",
+      "reading": "ないざいしゅぎ",
+      "en": "Internalism",
+      "definition": "正当化の根拠は認識主体が内省的にアクセスできる信念や経験の内側に求められるべきだとする立場。主体の視点から見えるものだけが正当化の基盤となる。"
+    },
+    {
+      "term": "外在主義",
+      "reading": "がいざいしゅぎ",
+      "en": "Externalism",
+      "definition": "主体がアクセスできなくても、信念形成プロセスが客観的に信頼できれば正当化は成立するとする立場。信頼性主義（reliabilism）がその代表例。"
+    },
+    {
+      "term": "信頼性主義",
+      "reading": "しんらいせいしゅぎ",
+      "en": "Reliabilism",
+      "definition": "外在主義の一形態で、信念が真の信念を高い確率で産出する信頼できる認知プロセス（知覚・記憶・論理的推論など）によって形成されていれば正当化されるとする理論。"
+    },
+    {
+      "term": "認識論",
+      "reading": "にんしきろん",
+      "en": "Epistemology",
+      "definition": "「知識とは何か」「われわれはいかにして知ることができるか」を探求する哲学の一分野。正当化・真理・信念の概念分析を中核とする。"
+    },
+    {
+      "term": "健全性・完全性定理",
+      "reading": "けんぜんせい・かんぜんせいていり",
+      "en": "Soundness and Completeness Theorem",
+      "definition": "形式的証明体系において、証明可能性（⊢φ）と意味論的真理（⊨φ）が一致することを保証する定理。正当化（証明）と真理の対応関係を数学的に問う。"
+    },
+    {
+      "term": "帰謬法（背理法）",
+      "reading": "きびゅうほう（はいりほう）",
+      "en": "Proof by Contradiction (Reductio ad Absurdum)",
+      "definition": "ある命題の否定を仮定し、矛盾を導くことでもとの命題の真を示す証明技法。数学における論理的正当化の代表的な手法のひとつ。"
+    },
+    {
+      "term": "ベイズ主義的認識論",
+      "reading": "べいずしゅぎてきにんしきろん",
+      "en": "Bayesian Epistemology",
+      "definition": "信念の正当化の程度を事後確率P(H|E)として形式化し、証拠Eが得られるたびに信念の確率を更新するアプローチ。正当化を「全か無か」ではなく連続的な程度として捉える。"
+    },
+    {
+      "term": "帰納の問題",
+      "reading": "きのうのもんだい",
+      "en": "Problem of Induction",
+      "definition": "有限の観察事例から普遍的な法則への信念をいかにして正当化できるかという哲学的問題。ヒュームが提起し、科学的知識の正当化の基盤を問う科学哲学の核心的課題。"
+    },
+    {
+      "term": "反証主義",
+      "reading": "はんしょうしゅぎ",
+      "en": "Falsificationism",
+      "definition": "カール・ポパーが提唱した科学的知識の基準で、帰納による正当化の不可能性を認めた上で、反証可能性（falsifiability）を科学と非科学を区別する規準として提案する立場。"
+    },
+    {
+      "term": "正当化に基づく真理維持システム（JTMS）",
+      "reading": "せいとうかにもとづくしんりいじしすてむ",
+      "en": "Justification-based Truth Maintenance System (JTMS)",
+      "definition": "人工知能・論理プログラミングで用いられるシステムで、前提の変化に応じて各信念の正当化状態を動的に追跡・更新する仕組み。"
+    },
+    {
+      "term": "因果説",
+      "reading": "いんがせつ",
+      "en": "Causal Theory of Knowledge",
+      "definition": "ゲティア問題への応答として提案された理論で、真の正当化された信念が知識となるためには、信念と事実の間に適切な因果連鎖が存在しなければならないとする。"
+    }
+  ],
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background transparent -->\n\n  <!-- ========== TITLE ========== -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"currentColor\">正当化（Justification）的结构</text>\n\n  <!-- ========== JTB 三条件 ベン図 ========== -->\n  <!-- 三つの円：真理・信念・正当化 -->\n  <!-- 真理 circle -->\n  <circle cx=\"240\" cy=\"165\" r=\"80\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <!-- 信念 circle -->\n  <circle cx=\"360\" cy=\"165\" r=\"80\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n  <!-- 正当化 circle -->\n  <circle cx=\"300\" cy=\"255\" r=\"80\" fill=\"#ef4444\" fill-opacity=\"0.12\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n\n  <!-- Labels outside circles -->\n  <text x=\"178\" y=\"128\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">真理</text>\n  <text x=\"178\" y=\"143\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">(True)</text>\n  <text x=\"422\" y=\"128\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#22c55e\">信念</text>\n  <text x=\"422\" y=\"143\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22c55e\">(Belief)</text>\n  <text x=\"300\" y=\"355\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">正当化</text>\n  <text x=\"300\" y=\"370\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\">(Justified)</text>\n\n  <!-- Center label: 知識 -->\n  <text x=\"300\" y=\"206\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">知识</text>\n  <text x=\"300\" y=\"221\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Knowledge)</text>\n\n  <!-- JTB label -->\n  <text x=\"300\" y=\"90\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" font-style=\"italic\">JTB 理论：S 知道 P ⟺ (1)∧(2)∧(3)</text>\n\n  <!-- ========== DIVIDER ========== -->\n  <line x1=\"30\" y1=\"395\" x2=\"570\" y2=\"395\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\" stroke-dasharray=\"4,3\"/>\n\n  <!-- ========== 正当化のアプローチ ========== -->\n  <text x=\"300\" y=\"420\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">正当化的进路</text>\n\n  <!-- 内在主義 box -->\n  <rect x=\"40\" y=\"432\" width=\"230\" height=\"72\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"155\" y=\"452\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">内在主义</text>\n  <text x=\"155\" y=\"468\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Internalism)</text>\n  <text x=\"155\" y=\"485\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">根据在主体内部</text>\n  <text x=\"155\" y=\"499\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">（可访问信念与经验）</text>\n\n  <!-- 外在主義 box -->\n  <rect x=\"330\" y=\"432\" width=\"230\" height=\"72\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"445\" y=\"452\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">外在主义</text>\n  <text x=\"445\" y=\"468\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Externalism / Reliabilism)</text>\n  <text x=\"445\" y=\"485\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">通过可靠过程产生</text>\n  <text x=\"445\" y=\"499\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">信念即为充分条件</text>\n\n  <!-- VS arrow between -->\n  <text x=\"300\" y=\"473\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">vs</text>\n  <line x1=\"270\" y1=\"468\" x2=\"245\" y2=\"468\" stroke=\"currentColor\" stroke-opacity=\"0.5\" stroke-width=\"1.2\" marker-end=\"url(#arr)\"/>\n  <line x1=\"330\" y1=\"468\" x2=\"355\" y2=\"468\" stroke=\"currentColor\" stroke-opacity=\"0.5\" stroke-width=\"1.2\" marker-end=\"url(#arr)\"/>\n\n  <!-- ========== GETTIER 問題 注記 ========== -->\n  <!-- arrow from knowledge zone down to gettier note -->\n  <line x1=\"300\" y1=\"270\" x2=\"300\" y2=\"385\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arrowRed)\"/>\n  <text x=\"310\" y=\"328\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">葛梯尔问题</text>\n  <text x=\"310\" y=\"341\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">满足JTB但</text>\n  <text x=\"310\" y=\"354\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">并非知识的情形</text>\n\n  <!-- ========== 数学的証明の注記 ========== -->\n  <!-- small box top right -->\n  <rect x=\"430\" y=\"55\" width=\"155\" height=\"62\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"507\" y=\"73\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">数学证明</text>\n  <text x=\"507\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">正当化的最严格形式</text>\n  <text x=\"507\" y=\"103\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">⊢ φ ⟷ J(S, φ) 存在</text>\n\n  <!-- small box top left -->\n  <rect x=\"15\" y=\"55\" width=\"155\" height=\"62\" rx=\"8\" fill=\"#22c55e\" fill-opacity=\"0.08\" stroke=\"#22c55e\" stroke-width=\"1.2\"/>\n  <text x=\"92\" y=\"73\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#22c55e\">有据 vs 无据</text>\n  <text x=\"92\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">\"知道\"与</text>\n  <text x=\"92\" y=\"103\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">\"相信\"的差异</text>\n\n  <!-- ========== ARROW DEFS ========== -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"7\" markerHeight=\"7\" refX=\"5\" refY=\"3.5\" orient=\"auto\">\n      <path d=\"M0,0 L7,3.5 L0,7 Z\" fill=\"currentColor\" fill-opacity=\"0.5\"/>\n    </marker>\n    <marker id=\"arrowRed\" markerWidth=\"7\" markerHeight=\"7\" refX=\"5\" refY=\"3.5\" orient=\"auto\">\n      <path d=\"M0,0 L7,3.5 L0,7 Z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n</svg>"
+    }
+  ],
+  "quiz": []
+}
