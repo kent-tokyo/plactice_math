@@ -34,8 +34,8 @@
       "area": "foundations",
       "difficulty": 1,
       "position": {
-        "x": 375,
-        "y": 0
+        "x": 350,
+        "y": -100
       },
       "description": "自然数から整数、有理数、実数、複素数へと広がる数の世界。",
       "descriptions": {
@@ -59,8 +59,8 @@
       "area": "foundations",
       "difficulty": 1,
       "position": {
-        "x": 750,
-        "y": -120
+        "x": 700,
+        "y": -200
       },
       "description": "正の数・負の数・ゼロ。四則演算の性質。",
       "descriptions": {
@@ -84,8 +84,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 1125,
-        "y": -120
+        "x": 1050,
+        "y": -100
       },
       "description": "有理数と無理数を合わせた連続的な数の体系。",
       "descriptions": {
@@ -109,8 +109,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 1500,
-        "y": -120
+        "x": 1400,
+        "y": -300
       },
       "description": "実数を拡張し、虚数単位iを導入した数の体系。",
       "descriptions": {
@@ -134,8 +134,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 375,
-        "y": 240
+        "x": 350,
+        "y": 100
       },
       "description": "数学の基礎言語。ものの集まりを扱う理論。",
       "descriptions": {
@@ -159,8 +159,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 750,
-        "y": 240
+        "x": 700,
+        "y": 200
       },
       "description": "命題・述語・証明。数学的推論の形式化。",
       "descriptions": {
@@ -184,8 +184,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 750,
-        "y": 60
+        "x": 700,
+        "y": 0
       },
       "description": "入力と出力の対応関係。写像の概念。",
       "descriptions": {
@@ -210,8 +210,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 1125,
-        "y": 240
+        "x": 1050,
+        "y": 300
       },
       "description": "直接証明・背理法・数学的帰納法。",
       "descriptions": {
@@ -235,8 +235,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 1125,
-        "y": 60
+        "x": 1050,
+        "y": 100
       },
       "description": "順列・組合せ・数え上げの方法。",
       "descriptions": {
@@ -260,8 +260,8 @@
       "area": "foundations",
       "difficulty": 2,
       "position": {
-        "x": 1125,
-        "y": -240
+        "x": 1050,
+        "y": -300
       },
       "description": "同値関係・順序関係。集合上の二項関係の理論。",
       "descriptions": {
@@ -286,8 +286,8 @@
       "area": "foundations",
       "difficulty": 3,
       "position": {
-        "x": 1500,
-        "y": 240
+        "x": 1400,
+        "y": -100
       },
       "description": "半順序・全順序・束。順序構造の数学。",
       "descriptions": {
@@ -312,8 +312,8 @@
       "area": "foundations",
       "difficulty": 3,
       "position": {
-        "x": 1500,
-        "y": 420
+        "x": 1400,
+        "y": 100
       },
       "description": "モデル理論・証明論。形式的体系の深い理論。",
       "descriptions": {
@@ -338,8 +338,8 @@
       "area": "foundations",
       "difficulty": 4,
       "position": {
-        "x": 1875,
-        "y": 60
+        "x": 1750,
+        "y": -100
       },
       "description": "ZFC公理系。集合論の厳密な基礎付け。",
       "descriptions": {
@@ -364,8 +364,8 @@
       "area": "foundations",
       "difficulty": 4,
       "position": {
-        "x": 1875,
-        "y": 420
+        "x": 1750,
+        "y": 100
       },
       "description": "チューリング機械・決定不能性・再帰関数。",
       "descriptions": {
@@ -390,8 +390,8 @@
       "area": "foundations",
       "difficulty": 4,
       "position": {
-        "x": 1875,
-        "y": 240
+        "x": 1400,
+        "y": 300
       },
       "description": "対象と射の抽象理論。数学の統一的枠組み。",
       "descriptions": {
@@ -449,32 +449,16 @@
       "target": "combinatorics"
     },
     {
-      "source": "set-theory",
-      "target": "relations"
-    },
-    {
       "source": "functions",
       "target": "relations"
     },
     {
-      "source": "set-theory",
-      "target": "order-theory"
-    },
-    {
       "source": "proof-methods",
       "target": "order-theory"
     },
     {
-      "source": "logic",
-      "target": "mathematical-logic-advanced"
-    },
-    {
       "source": "proof-methods",
       "target": "mathematical-logic-advanced"
-    },
-    {
-      "source": "set-theory",
-      "target": "axiomatic-set-theory"
     },
     {
       "source": "mathematical-logic-advanced",
@@ -487,10 +471,6 @@
     {
       "source": "functions",
       "target": "computability"
-    },
-    {
-      "source": "set-theory",
-      "target": "category-theory"
     },
     {
       "source": "proof-methods",
