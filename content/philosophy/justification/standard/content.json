@@ -95,5 +95,95 @@
       "name": "concept-diagram.svg",
       "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background transparent -->\n\n  <!-- ========== TITLE ========== -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"bold\" fill=\"currentColor\">正当化（Justification）の構造</text>\n\n  <!-- ========== JTB 三条件 ベン図 ========== -->\n  <!-- 三つの円：真理・信念・正当化 -->\n  <!-- 真理 circle -->\n  <circle cx=\"240\" cy=\"165\" r=\"80\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <!-- 信念 circle -->\n  <circle cx=\"360\" cy=\"165\" r=\"80\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n  <!-- 正当化 circle -->\n  <circle cx=\"300\" cy=\"255\" r=\"80\" fill=\"#ef4444\" fill-opacity=\"0.12\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n\n  <!-- Labels outside circles -->\n  <text x=\"178\" y=\"128\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">真理</text>\n  <text x=\"178\" y=\"143\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">(True)</text>\n  <text x=\"422\" y=\"128\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#22c55e\">信念</text>\n  <text x=\"422\" y=\"143\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22c55e\">(Belief)</text>\n  <text x=\"300\" y=\"355\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">正当化</text>\n  <text x=\"300\" y=\"370\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\">(Justified)</text>\n\n  <!-- Center label: 知識 -->\n  <text x=\"300\" y=\"206\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">知識</text>\n  <text x=\"300\" y=\"221\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Knowledge)</text>\n\n  <!-- JTB label -->\n  <text x=\"300\" y=\"90\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\" font-style=\"italic\">JTB 理論：S は P を知る ⟺ (1)∧(2)∧(3)</text>\n\n  <!-- ========== DIVIDER ========== -->\n  <line x1=\"30\" y1=\"395\" x2=\"570\" y2=\"395\" stroke=\"currentColor\" stroke-opacity=\"0.3\" stroke-width=\"1\" stroke-dasharray=\"4,3\"/>\n\n  <!-- ========== 正当化のアプローチ ========== -->\n  <text x=\"300\" y=\"420\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">正当化へのアプローチ</text>\n\n  <!-- 内在主義 box -->\n  <rect x=\"40\" y=\"432\" width=\"230\" height=\"72\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"155\" y=\"452\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">内在主義</text>\n  <text x=\"155\" y=\"468\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Internalism)</text>\n  <text x=\"155\" y=\"485\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">根拠は主体の内側</text>\n  <text x=\"155\" y=\"499\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">（信念・経験へのアクセス）</text>\n\n  <!-- 外在主義 box -->\n  <rect x=\"330\" y=\"432\" width=\"230\" height=\"72\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"445\" y=\"452\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">外在主義</text>\n  <text x=\"445\" y=\"468\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">(Externalism / Reliabilism)</text>\n  <text x=\"445\" y=\"485\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">信頼できるプロセスで</text>\n  <text x=\"445\" y=\"499\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">信念が産出されれば十分</text>\n\n  <!-- VS arrow between -->\n  <text x=\"300\" y=\"473\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">vs</text>\n  <line x1=\"270\" y1=\"468\" x2=\"245\" y2=\"468\" stroke=\"currentColor\" stroke-opacity=\"0.5\" stroke-width=\"1.2\" marker-end=\"url(#arr)\"/>\n  <line x1=\"330\" y1=\"468\" x2=\"355\" y2=\"468\" stroke=\"currentColor\" stroke-opacity=\"0.5\" stroke-width=\"1.2\" marker-end=\"url(#arr)\"/>\n\n  <!-- ========== GETTIER 問題 注記 ========== -->\n  <!-- arrow from knowledge zone down to gettier note -->\n  <line x1=\"300\" y1=\"270\" x2=\"300\" y2=\"385\" stroke=\"#ef4444\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arrowRed)\"/>\n  <text x=\"310\" y=\"328\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">ゲティア問題</text>\n  <text x=\"310\" y=\"341\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">JTBを満たすが</text>\n  <text x=\"310\" y=\"354\" text-anchor=\"start\" font-size=\"10\" fill=\"#ef4444\">知識でないケース</text>\n\n  <!-- ========== 数学的証明の注記 ========== -->\n  <!-- small box top right -->\n  <rect x=\"430\" y=\"55\" width=\"155\" height=\"62\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.08\" stroke=\"#3b82f6\" stroke-width=\"1.2\"/>\n  <text x=\"507\" y=\"73\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#3b82f6\">数学的証明</text>\n  <text x=\"507\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">正当化の最厳密な形式</text>\n  <text x=\"507\" y=\"103\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">⊢ φ ⟷ J(S, φ) 存在</text>\n\n  <!-- small box top left -->\n  <rect x=\"15\" y=\"55\" width=\"155\" height=\"62\" rx=\"8\" fill=\"#22c55e\" fill-opacity=\"0.08\" stroke=\"#22c55e\" stroke-width=\"1.2\"/>\n  <text x=\"92\" y=\"73\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"#22c55e\">根拠あり vs なし</text>\n  <text x=\"92\" y=\"88\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">「知っている」と</text>\n  <text x=\"92\" y=\"103\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">「信じている」の差</text>\n\n  <!-- ========== ARROW DEFS ========== -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"7\" markerHeight=\"7\" refX=\"5\" refY=\"3.5\" orient=\"auto\">\n      <path d=\"M0,0 L7,3.5 L0,7 Z\" fill=\"currentColor\" fill-opacity=\"0.5\"/>\n    </marker>\n    <marker id=\"arrowRed\" markerWidth=\"7\" markerHeight=\"7\" refX=\"5\" refY=\"3.5\" orient=\"auto\">\n      <path d=\"M0,0 L7,3.5 L0,7 Z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n</svg>"
     }
+  ],
+  "quiz": [
+    {
+      "question": "JTB理論において、主体 $S$ が命題 $P$ を「知っている」と言えるための3つの条件の組み合わせとして正しいものはどれか。",
+      "choices": [
+        {
+          "text": "$P$ が真である・$S$ が $P$ を疑っている・$S$ の疑いが正当化されている",
+          "isCorrect": false
+        },
+        {
+          "text": "$P$ が真である・$S$ が $P$ を信じている・$S$ の $P$ への信念が正当化されている",
+          "isCorrect": true
+        },
+        {
+          "text": "$P$ が真である・$S$ が $P$ を信じている・$S$ が $P$ を他者に説明できる",
+          "isCorrect": false
+        },
+        {
+          "text": "$P$ が証明可能である・$S$ が $P$ を信じている・$S$ の信念が多数の人に共有されている",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "JTB（Justified True Belief）理論では、知識の成立に①真理（True）②信念（Belief）③正当化（Justified）の3条件すべてが必要です。「他者への説明可能性」や「多数への共有」は条件に含まれません。"
+    },
+    {
+      "question": "ゲティア問題が認識論にとって重要である理由として最も適切なものはどれか。",
+      "choices": [
+        {
+          "text": "JTB理論の「真理」条件が不要であることを示したから",
+          "isCorrect": false
+        },
+        {
+          "text": "JTB理論の3条件をすべて満たしていても、直観的に「知識」とは言いにくい事例が存在することを示したから",
+          "isCorrect": true
+        },
+        {
+          "text": "正当化された信念は必ず真であることを証明したから",
+          "isCorrect": false
+        },
+        {
+          "text": "信頼性主義（reliabilism）が唯一正しい正当化理論であることを示したから",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "ゲティア（1963）は、JTBの3条件を満たしながらも「知識」と呼ぶには不自然な反例を提示しました。これにより「正当化とは何か」の再検討が必要となり、現代認識論の中心的課題となっています。"
+    },
+    {
+      "question": "正当化における「内在主義（internalism）」と「外在主義（externalism）」の違いとして正しい説明はどれか。",
+      "choices": [
+        {
+          "text": "内在主義は正当化に証明を必要とし、外在主義は証明を不要とする立場である",
+          "isCorrect": false
+        },
+        {
+          "text": "内在主義は信念の数が多いほど正当化が強まるとし、外在主義は信念の質を重視する立場である",
+          "isCorrect": false
+        },
+        {
+          "text": "内在主義は正当化の根拠を認識主体がアクセスできる内的なものに求め、外在主義は主体がアクセスできなくても信念形成プロセスが客観的に信頼できれば正当化が成立するとする",
+          "isCorrect": true
+        },
+        {
+          "text": "内在主義は正当化を確率で表現し、外在主義は正当化を論理的証明のみに限定する",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "内在主義は主体が「内側からアクセスできる」経験や信念を正当化の根拠とします。外在主義（例：信頼性主義）は、主体がそのプロセスを意識できなくても、信念形成プロセスが客観的に信頼できれば正当化は成立すると考えます。"
+    },
+    {
+      "question": "正当化の「程度（degree of justification）」という考え方を最もよく示している例はどれか。",
+      "choices": [
+        {
+          "text": "背理法による $\\sqrt{2}$ の無理数の証明は、各推論ステップが公理から導かれるため、正当化が完全に存在するか否かの二値で判定される",
+          "isCorrect": false
+        },
+        {
+          "text": "臨床試験で $p < 0.05$ が得られた仮説への信念は、真であることが保証されるわけではなく、確率的・暫定的に正当化されるにすぎない",
+          "isCorrect": true
+        },
+        {
+          "text": "ゲティア問題は、正当化が「全か無か」で決まることを証明した",
+          "isCorrect": false
+        },
+        {
+          "text": "JTB理論では、正当化は真理条件と独立していないため、程度を考えることに意味はない",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "統計的仮説検定における $p < 0.05$ のような統計的証拠は、命題が真であることを確実に保証するわけではなく、確率的・暫定的な正当化を与えるにすぎません。これは正当化が二値ではなく「程度」を持つことを示す好例であり、ベイズ主義では事後確率 $P(H \\mid E)$ として形式化されます。"
+    }
   ]
 }

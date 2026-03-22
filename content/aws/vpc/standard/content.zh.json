@@ -1,107 +1,174 @@
 {
-  "id": "6a076d12-be6d-4c2d-8e39-48c4b2a890bf",
+  "id": "a7af67a3-fdd0-4d71-ad0f-3e2e6077bc21",
   "nodeId": "vpc",
   "level": "standard",
   "locale": "zh",
-  "generatedAt": "2026-03-22T00:41:15.588Z",
-  "content": "# VPC（虚拟私有云网络）\n\n## 是什么 — 直观的解释\n\nVPC（Virtual Private Cloud）是在公有云上创建的\"专属私有网络空间\"。可以把它想象成在互联网上某个巨大数据中心里，拥有一块只属于自己的隔离区域。\n\n举个例子，这就像在一栋大型开放式写字楼里租下\"专属公司楼层\"的感觉。楼本身（云基础设施）与其他公司共享，但自己楼层的进出由自己管理，外人无法随意进入。在云计算的世界里，VPC 就相当于这个\"专属楼层\"。\n\n## 为什么需要它 — 在整体架构中的定位\n\n云服务（AWS、Google Cloud、Azure 等）由全球各地的企业和个人共享同一套物理基础设施。如果不加以隔离，不同用户的服务器混杂在一起，就会产生安全和隐私方面的问题。VPC 正是解决这一问题的基础网络隔离机制。\n\n在网络设计中，VPC 扮演着\"地基\"的角色。哪些服务器对外公开、哪些服务器仅供内部使用、允许哪些来源的访问——所有这些判断都以 VPC 的结构为核心展开。VPC 是理解现代云架构绕不开的核心概念。\n\n## 核心思想 — 定义与本质\n\nVPC 的核心在于 **IP 地址空间的逻辑划分**。创建 VPC 时，首先需要用 CIDR（无类别域间路由）记法指定地址范围。\n\n$$\n\\text{例: } 10.0.0.0/16 \\Rightarrow 10.0.0.0 \\sim 10.0.255.255 \\text{ 的 } 2^{16} = 65536 \\text{ 个地址}\n$$\n\n这个范围可以进一步划分为称为**子网**的更小单元。\n\n$$\n10.0.1.0/24 \\Rightarrow 10.0.1.0 \\sim 10.0.1.255 \\text{ 的 } 2^{8} = 256 \\text{ 个地址}\n$$\n\n子网主要分为两类：\n\n- **公有子网**：可通过互联网网关与外部通信的区域\n- **私有子网**：无法从外部直接访问的内部专用区域\n\n此外，VPC 内部的流量通过**安全组**和**网络 ACL（访问控制列表）**进行管控。可以以规则的形式定义允许或拒绝哪些 IP 地址、哪些端口号的通信。\n\n## 具体示例\n\n### 示例1：公寓楼结构（日常生活类比）\n\n想象一栋大型公寓楼（云数据中心），楼里住着许多住户（云用户）。你的房间（VPC）有锁，其他住户无法擅自进入。\n\n房间内部还可以进一步划分为\"客厅（公有子网）\"和\"卧室（私有子网）\"。客厅可以接待来客，卧室只有家人才能进入。门锁规则（安全组）可以精细设置为\"快递员只能到门口，家人可以进所有房间\"。这就是 VPC 结构的真实写照。\n\n### 示例2：Web 服务的典型架构\n\n以搭建一个电商网站（网购服务）为例：\n\n- 将 Web 服务器部署在**公有子网** → 用户浏览器可以访问\n- 将数据库服务器部署在**私有子网** → 无法从互联网直接访问\n\n这种架构下，即使 Web 服务器遭到攻击，数据库也因仅存在于内部网络而不易受到直接威胁。这是 VPC 实现\"纵深防御\"的典型案例。\n\n### 示例3：企业本地环境与云的混合连接\n\n假设某企业希望将现有的本地系统（on-premises 环境）与云进行联动。可以通过 VPN 网关或 AWS Direct Connect，将公司办公室的网络与 VPC 以专线连接。\n\n在这种情况下，VPC 充当云上\"企业内网的延伸\"。员工可以像在公司内部一样访问云端服务器，实现对外不可见的安全通信。这种架构称为**混合云**。\n\n## 关联 — 与其他概念的关系\n\n理解 VPC 之前，掌握以下基础知识会有很大帮助：\n\n- **IP 地址与 CIDR 记法**：网络地址的运作方式，与 VPC 的范围指定直接相关\n- **路由**：决定数据包（数据单元）经由哪条路径传输的机制\n- **DNS（域名系统）**：域名与 IP 地址之间的转换，VPC 内部也存在私有 DNS\n\n理解 VPC 之后，可以进一步学习以下概念：\n\n- **子网设计**：用于提高可用性的多可用区（AZ）架构\n- **VPC 对等连接 / Transit Gateway**：连接多个 VPC 以构建更大规模网络的技术\n- **安全组与网络 ACL**：访问控制的精细化设计\n- **零信任网络**：超越 VPC 边界防御的更现代化安全模型\n\n## 在其他领域的应用\n\n**软件开发与 DevOps** 中，将开发环境、预发布环境和生产环境分别隔离在不同的 VPC 中，可以防止误操作或配置错误影响生产环境。在 VPC 层面进行隔离，从而避免\"在生产环境误删数据\"此类事故，已成为业界通行的设计方案。\n\n**金融与医疗领域**中，处理个人信息或金融数据的系统受到法规（如中国的个人信息保护法，医疗领域的 HIPAA 等）的严格约束。将数据库隔离在 VPC 私有子网中并记录访问日志的架构，是满足合规要求的标准做法。\n\n**IoT（物联网）领域**中，工厂机械传感器和智能设备发送的数据由 VPC 内的专用服务器接收，对外部互联网仅公开最少量的信息——这种设计被广泛采用。随着设备数量的增加，网络设计的重要性愈发凸显，VPC 所提供的清晰有序的结构也变得不可或缺。",
+  "generatedAt": "2026-03-22T01:16:23.649Z",
+  "content": "# VPC（虚拟私有云网络）\n\n## 是什么 — 直观的解释\n\nVPC（Virtual Private Cloud）是在公有云上构建的\"专属私有网络空间\"。你可以把它想象成在互联网上某个庞大数据中心里，拥有一块只属于自己的隔离区域。\n\n打个比方，这就像在一栋开放式办公楼里租用\"自家专属楼层\"。大楼本身（云基础设施）与其他公司共享，但自家楼层的门禁由自己管理，外人无法随意进入。在云计算的世界里，这个\"专属楼层\"就是 VPC。\n\n## 为什么需要它 — 在整体架构中的定位\n\n云服务（AWS、Google Cloud、Azure 等）由全球众多企业和个人共享同一套物理基础设施。若没有隔离机制，不同用户的服务器相互混杂，将带来严重的安全和隐私问题。VPC 正是解决这一问题的基础网络隔离机制。\n\n在网络设计中，VPC 扮演着\"地基\"的角色。哪些服务器对外公开、哪些仅供内部使用、允许哪些来源的访问——所有这些决策都以 VPC 的结构为核心展开。理解现代云架构，VPC 是绕不开的核心概念。\n\n## 核心思想 — 定义与本质\n\nVPC 的核心在于 **对 IP 地址空间进行逻辑划分**。创建 VPC 时，首先需要用 CIDR（无类别域间路由）记法指定地址范围。\n\n$$\n\\text{例: } 10.0.0.0/16 \\Rightarrow 10.0.0.0 \\sim 10.0.255.255 \\text{ 的 } 2^{16} = 65536 \\text{ 个地址}\n$$\n\n这个范围可以进一步划分为称为**子网**的更小单元。\n\n$$\n10.0.1.0/24 \\Rightarrow 10.0.1.0 \\sim 10.0.1.255 \\text{ 的 } 2^{8} = 256 \\text{ 个地址}\n$$\n\n子网主要分为两类：\n\n- **公有子网**：通过互联网网关与外部进行通信的区域\n- **私有子网**：无法从外部直接访问的内部专用区域\n\n此外，VPC 内部的流量通过**安全组**和**网络 ACL（访问控制列表）**进行管控，通过规则定义允许或拒绝哪些 IP 地址、哪些端口的通信。\n\n## 具体示例\n\n### 示例1：公寓楼结构（日常生活类比）\n\n想象一栋大型公寓楼（云数据中心），楼里住着许多住户（云用户）。你的房间（VPC）有锁，其他住户无法擅自进入。\n\n房间内部还可以进一步划分为\"客厅（公有子网）\"和\"卧室（私有子网）\"。客厅可以接待来访者，卧室只有家人才能进入。门禁规则（安全组）可以细化设置，例如\"快递员只能到门口，家人可进入全部房间\"。这正是 VPC 结构的真实写照。\n\n### 示例2：Web 服务的典型架构\n\n以搭建一个电商平台（网上购物服务）为例：\n\n- 将 Web 服务器部署在**公有子网** → 用户浏览器可直接访问\n- 将数据库服务器部署在**私有子网** → 无法从互联网直接访问\n\n在这种架构下，即使 Web 服务器遭到攻击，由于数据库仅存在于内部网络，也不容易直接受到波及。这是 VPC 实现\"纵深防御\"的典型案例。\n\n### 示例3：企业本地环境与云的混合连接\n\n假设某企业希望将内部现有系统（本地部署环境）与云进行联动。可以通过 VPN 网关或 AWS Direct Connect，将公司办公网络与 VPC 以专线方式连接。\n\n此时，VPC 作为云上\"内部网络的延伸\"发挥作用。员工可以像身处公司内部一样访问云上的服务器，同时实现对外不可见的安全通信。这种架构称为**混合云**架构。\n\n## 关联概念 — 与其他概念的关系\n\n理解 VPC 时，掌握以下基础知识会有很大帮助：\n\n- **IP 地址与 CIDR 记法**：网络地址的工作原理，直接关系到 VPC 的范围指定\n- **路由**：决定数据包（数据单元）通过哪条路径传输的机制\n- **DNS（域名系统）**：域名与 IP 地址之间的转换，VPC 内部也存在私有 DNS\n\n理解 VPC 之后，可以进一步拓展到以下概念：\n\n- **子网设计**：通过多可用区（AZ）部署提升系统可用性\n- **VPC 对等连接 / Transit Gateway**：连接多个 VPC 以构建更大规模网络的技术\n- **安全组与网络 ACL**：访问控制的详细设计\n- **零信任网络**：超越 VPC 边界防御的更现代化安全模型\n\n## 在其他领域的应用\n\n**软件开发与 DevOps** 领域，将开发环境、预发布环境和生产环境分别隔离在不同的 VPC 中，可以防止误操作或配置错误影响生产环境。通过 VPC 层面的隔离来预防\"误删生产数据\"此类事故，已成为业界通行的设计方案。\n\n**金融与医疗领域**，处理个人信息和金融数据的系统须遵守严格的法规（如中国的个人信息保护法，医疗领域的 HIPAA 等）。将数据库隔离在 VPC 私有子网中并记录访问日志的架构，是满足合规要求的标准做法。\n\n**IoT（物联网）领域**，工厂传感器和智能设备发送的数据由 VPC 内的专用服务器接收，仅向外部互联网暴露最少必要的信息。随着设备数量的增加，网络设计的重要性愈发凸显，VPC 所提供的清晰有序的网络结构也变得不可或缺。",
   "terms": [
     {
       "term": "VPC",
       "reading": "V P C",
       "en": "Virtual Private Cloud",
-      "definition": "在公有云上构建的逻辑隔离的私有网络空间。用户可以自行管理独立的IP地址范围和路由规则。"
+      "definition": "在公有云上构建的逻辑隔离的私有网络空间。用户可以自主管理独立的IP地址范围和路由设置。"
     },
     {
       "term": "CIDR",
       "reading": "CIDR",
       "en": "Classless Inter-Domain Routing",
-      "definition": "用前缀长度（斜线表示法）来表示IP地址范围的方式。例如，10.0.0.0/16表示包含65536个地址的地址段。"
+      "definition": "使用前缀长度（斜线表示法）来表示IP地址范围的方式。例如10.0.0.0/16表示65536个地址。"
     },
     {
       "term": "子网",
       "reading": "zǐ wǎng",
       "en": "Subnet",
-      "definition": "将VPC的IP地址空间进一步细分而成的网络单元。分为公有子网和私有子网两种类型。"
+      "definition": "将VPC的IP地址空间进一步细分的网络单元。分为公有子网和私有子网两种类型。"
     },
     {
       "term": "公有子网",
       "reading": "gōng yǒu zǐ wǎng",
       "en": "Public Subnet",
-      "definition": "可通过互联网网关与外部互联网通信的子网。用于部署Web服务器等需要被浏览器访问的资源。"
+      "definition": "可通过互联网网关与外部互联网通信的子网。用于放置需要从浏览器访问的资源，例如Web服务器。"
     },
     {
       "term": "私有子网",
       "reading": "sī yǒu zǐ wǎng",
       "en": "Private Subnet",
-      "definition": "无法从互联网直接访问的内部专用子网。用于部署数据库服务器等机密性较高的资源。"
+      "definition": "无法从互联网直接访问的内部专用子网。用于部署数据库服务器等高机密性资源。"
     },
     {
       "term": "安全组",
       "reading": "ān quán zǔ",
       "en": "Security Group",
-      "definition": "用于控制VPC内实例入站和出站通信的虚拟防火墙。基于IP地址和端口号定义访问允许规则。"
+      "definition": "用于控制VPC内实例的入站和出站通信的虚拟防火墙。基于IP地址和端口号定义访问许可规则。"
     },
     {
       "term": "网络ACL",
       "reading": "wǎng luò ACL",
       "en": "Network ACL (Access Control List)",
-      "definition": "以子网为单位对流量进行允许或拒绝控制的访问控制列表。常与安全组结合使用，实现多层防御。"
+      "definition": "以子网为单位对流量的允许或拒绝进行控制的访问控制列表。与安全组结合使用，构建多层防御体系。"
     },
     {
       "term": "互联网网关",
       "reading": "hù lián wǎng wǎng guān",
       "en": "Internet Gateway",
-      "definition": "用于连接VPC与外部互联网的出入口组件。使公有子网中的资源能够与互联网进行通信。"
+      "definition": "用于连接VPC与外部互联网的出入口组件。使公有子网中的资源能够与互联网通信。"
     },
     {
       "term": "IP地址",
       "reading": "IP dì zhǐ",
       "en": "IP Address",
-      "definition": "用于标识网络上设备的数字地址。在VPC中使用CIDR表示法来定义地址空间的范围。"
+      "definition": "用于识别网络上设备的数字地址。在VPC中使用CIDR表示法来定义地址空间的范围。"
     },
     {
       "term": "路由",
       "reading": "lù yóu",
       "en": "Routing",
-      "definition": "决定网络上的数据包（数据块）通过哪条路径到达目的地的机制。在VPC内由路由表进行控制。"
+      "definition": "决定网络上的数据包（数据块）通过哪条路径到达目的地的机制。在VPC内通过路由表进行控制。"
     },
     {
       "term": "混合云",
       "reading": "hùn hé yún",
       "en": "Hybrid Cloud",
-      "definition": "通过VPN或专用线路将本地环境与云环境连接并协同工作的架构。将VPC作为企业内部网络在云端的延伸来使用。"
+      "definition": "通过VPN或专用线路将本地环境与云环境连接并协同工作的架构。将VPC作为企业内部网络在云上的延伸来使用。"
     },
     {
       "term": "VPC对等连接",
       "reading": "VPC duì děng lián jiē",
       "en": "VPC Peering",
-      "definition": "将多个VPC以私有方式互联，实现相互通信的功能。也可用于不同账户或不同区域之间的VPC连接。"
+      "definition": "将多个VPC进行私有互联，使其能够相互通信的功能。也可用于不同账户或不同区域之间的VPC连接。"
     },
     {
       "term": "DNS",
       "reading": "DNS",
       "en": "Domain Name System",
-      "definition": "实现域名与IP地址相互转换的机制。VPC内也存在私有DNS，用于内部资源的名称解析。"
+      "definition": "实现域名与IP地址相互转换的机制。VPC内部也存在私有DNS，用于解析内部资源的名称。"
     },
     {
       "term": "可用区",
       "reading": "kě yòng qū",
       "en": "Availability Zone (AZ)",
-      "definition": "云服务提供商在某一区域内设置的物理上相互独立的数据中心集群。将子网分散部署到多个可用区可以提高系统可用性。"
+      "definition": "云服务提供商在某一区域内设置的物理上相互独立的数据中心群。通过将子网分散部署在多个可用区来提高可用性。"
     },
     {
       "term": "零信任网络",
       "reading": "líng xìn rèn wǎng luò",
       "en": "Zero Trust Network",
-      "definition": "超越VPC等边界防御模型，对所有访问始终进行验证和认证的安全模型。基于即使是内部网络也不无条件信任的理念。"
+      "definition": "超越VPC等边界防御模型，对所有访问始终进行验证和认证的安全模型。基于即使在内部网络中也不无条件信任的理念。"
     }
   ],
   "diagrams": [
     {
       "name": "concept-diagram.svg",
-      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background: Cloud Infrastructure -->\n  <rect x=\"10\" y=\"10\" width=\"580\" height=\"500\" rx=\"18\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\"/>\n  <text x=\"30\" y=\"35\" font-size=\"12\" fill=\"currentColor\" fill-opacity=\"0.45\" font-weight=\"bold\">云基础设施（共享物理环境）</text>\n\n  <!-- Internet -->\n  <ellipse cx=\"300\" cy=\"62\" rx=\"70\" ry=\"24\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"58\" font-size=\"13\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">互联网</text>\n  <text x=\"300\" y=\"73\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">外部网络</text>\n\n  <!-- Arrow: Internet -> IGW -->\n  <line x1=\"300\" y1=\"86\" x2=\"300\" y2=\"116\" stroke=\"#3b82f6\" stroke-width=\"1.8\" stroke-dasharray=\"4,3\"/>\n  <polygon points=\"300,118 295,109 305,109\" fill=\"#3b82f6\"/>\n\n  <!-- Internet Gateway -->\n  <rect x=\"230\" y=\"118\" width=\"140\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"140\" font-size=\"12\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">互联网网关</text>\n\n  <!-- VPC outer box -->\n  <rect x=\"40\" y=\"168\" width=\"520\" height=\"300\" rx=\"14\" fill=\"currentColor\" fill-opacity=\"0.06\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n  <text x=\"58\" y=\"190\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">VPC　10.0.0.0/16　（65,536个地址）</text>\n\n  <!-- CIDR label -->\n  <text x=\"480\" y=\"190\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.55\" text-anchor=\"middle\">2¹⁶ = 65536</text>\n\n  <!-- Arrow: IGW -> VPC area -->\n  <line x1=\"300\" y1=\"152\" x2=\"300\" y2=\"168\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <polygon points=\"300,170 295,161 305,161\" fill=\"#3b82f6\"/>\n\n  <!-- Public Subnet -->\n  <rect x=\"60\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"165\" y=\"220\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">公有子网</text>\n  <text x=\"165\" y=\"234\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">10.0.1.0/24（256个地址）</text>\n\n  <!-- Web Server in Public -->\n  <rect x=\"90\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.4\"/>\n  <text x=\"165\" y=\"265\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">🌐 Web服务器</text>\n  <text x=\"165\" y=\"279\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">对外公开・可访问</text>\n\n  <!-- Security Group label Public -->\n  <rect x=\"80\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"165\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 安全组（SG）</text>\n  <text x=\"165\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">HTTP/HTTPS: 允许</text>\n\n  <!-- Private Subnet -->\n  <rect x=\"330\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1.8\"/>\n  <text x=\"435\" y=\"220\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">私有子网</text>\n  <text x=\"435\" y=\"234\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">10.0.2.0/24（256个地址）</text>\n\n  <!-- DB Server in Private -->\n  <rect x=\"360\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"#ef4444\" stroke-width=\"1.4\"/>\n  <text x=\"435\" y=\"265\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">🗄 数据库服务器</text>\n  <text x=\"435\" y=\"279\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">无法从外部直接访问</text>\n\n  <!-- Security Group label Private -->\n  <rect x=\"350\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"435\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 安全组（SG）</text>\n  <text x=\"435\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">仅限VPC内部: 允许</text>\n\n  <!-- Arrow between subnets (internal traffic) -->\n  <line x1=\"270\" y1=\"267\" x2=\"330\" y2=\"267\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n  <polygon points=\"332,267 323,262 323,272\" fill=\"currentColor\"/>\n  <polygon points=\"268,267 277,262 277,272\" fill=\"currentColor\"/>\n  <text x=\"300\" y=\"260\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">内部通信</text>\n\n  <!-- Network ACL band -->\n  <rect x=\"55\" y=\"195\" width=\"520\" height=\"162\" rx=\"12\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"7,4\"/>\n  <text x=\"540\" y=\"213\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"end\" fill-opacity=\"0.8\">网络 ACL</text>\n\n  <!-- Route Table box -->\n  <rect x=\"130\" y=\"378\" width=\"340\" height=\"34\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"300\" y=\"392\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">📋 路由表</text>\n  <text x=\"300\" y=\"406\" font-size=\"9.5\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.75\">0.0.0.0/0 → IGW（公有）　|　10.0.0.0/16 → local（内部）</text>\n\n  <!-- Arrow: subnets -> route table -->\n  <line x1=\"200\" y1=\"360\" x2=\"230\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"400\" y1=\"360\" x2=\"370\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n\n  <!-- VPN Gateway / Hybrid -->\n  <rect x=\"60\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"140\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🏢 VPN网关</text>\n  <text x=\"140\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">本地连接（混合云）</text>\n\n  <!-- VPC Peering -->\n  <rect x=\"380\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"460\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🔗 VPC对等连接</text>\n  <text x=\"460\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">与其他VPC的连接</text>\n\n  <!-- Arrows from Route table -->\n  <line x1=\"210\" y1=\"412\" x2=\"160\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"390\" y1=\"412\" x2=\"440\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n\n  <!-- Legend -->\n  <rect x=\"55\" y=\"474\" width=\"490\" height=\"26\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <rect x=\"68\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.5\"/>\n  <text x=\"82\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">公有（对外公开）</text>\n  <rect x=\"188\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.5\"/>\n  <text x=\"202\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">私有（仅限内部）</text>\n  <rect x=\"318\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#22c55e\" fill-opacity=\"0.5\"/>\n  <text x=\"332\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">访问控制（SG / ACL）</text>\n  <line x1=\"448\" y1=\"487\" x2=\"468\" y2=\"487\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" stroke-opacity=\"0.6\"/>\n  <text x=\"473\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">扩展连接</text>\n\n</svg>"
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- Background: Cloud Infrastructure -->\n  <rect x=\"10\" y=\"10\" width=\"580\" height=\"500\" rx=\"18\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.2\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\"/>\n  <text x=\"30\" y=\"35\" font-size=\"12\" fill=\"currentColor\" fill-opacity=\"0.45\" font-weight=\"bold\">云基础设施（共享物理环境）</text>\n\n  <!-- Internet -->\n  <ellipse cx=\"300\" cy=\"62\" rx=\"70\" ry=\"24\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"58\" font-size=\"13\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">互联网</text>\n  <text x=\"300\" y=\"73\" font-size=\"10\" fill=\"#3b82f6\" text-anchor=\"middle\">外部网络</text>\n\n  <!-- Arrow: Internet -> IGW -->\n  <line x1=\"300\" y1=\"86\" x2=\"300\" y2=\"116\" stroke=\"#3b82f6\" stroke-width=\"1.8\" stroke-dasharray=\"4,3\"/>\n  <polygon points=\"300,118 295,109 305,109\" fill=\"#3b82f6\"/>\n\n  <!-- Internet Gateway -->\n  <rect x=\"230\" y=\"118\" width=\"140\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"140\" font-size=\"12\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">互联网网关</text>\n\n  <!-- VPC outer box -->\n  <rect x=\"40\" y=\"168\" width=\"520\" height=\"300\" rx=\"14\" fill=\"currentColor\" fill-opacity=\"0.06\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n  <text x=\"58\" y=\"190\" font-size=\"13\" fill=\"currentColor\" font-weight=\"bold\">VPC　10.0.0.0/16　（65,536个地址）</text>\n\n  <!-- CIDR label -->\n  <text x=\"480\" y=\"190\" font-size=\"10\" fill=\"currentColor\" fill-opacity=\"0.55\" text-anchor=\"middle\">2¹⁶ = 65536</text>\n\n  <!-- Arrow: IGW -> VPC area -->\n  <line x1=\"300\" y1=\"152\" x2=\"300\" y2=\"168\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <polygon points=\"300,170 295,161 305,161\" fill=\"#3b82f6\"/>\n\n  <!-- Public Subnet -->\n  <rect x=\"60\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.10\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"165\" y=\"220\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">公有子网</text>\n  <text x=\"165\" y=\"234\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">10.0.1.0/24（256个地址）</text>\n\n  <!-- Web Server in Public -->\n  <rect x=\"90\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#3b82f6\" fill-opacity=\"0.18\" stroke=\"#3b82f6\" stroke-width=\"1.4\"/>\n  <text x=\"165\" y=\"265\" font-size=\"11\" fill=\"#3b82f6\" text-anchor=\"middle\" font-weight=\"bold\">🌐 Web服务器</text>\n  <text x=\"165\" y=\"279\" font-size=\"9.5\" fill=\"#3b82f6\" text-anchor=\"middle\">对外公开·可访问</text>\n\n  <!-- Security Group label Public -->\n  <rect x=\"80\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"165\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 安全组（SG）</text>\n  <text x=\"165\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">HTTP/HTTPS: 允许</text>\n\n  <!-- Private Subnet -->\n  <rect x=\"330\" y=\"200\" width=\"210\" height=\"150\" rx=\"10\" fill=\"#ef4444\" fill-opacity=\"0.08\" stroke=\"#ef4444\" stroke-width=\"1.8\"/>\n  <text x=\"435\" y=\"220\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">私有子网</text>\n  <text x=\"435\" y=\"234\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">10.0.2.0/24（256个地址）</text>\n\n  <!-- DB Server in Private -->\n  <rect x=\"360\" y=\"248\" width=\"150\" height=\"38\" rx=\"7\" fill=\"#ef4444\" fill-opacity=\"0.15\" stroke=\"#ef4444\" stroke-width=\"1.4\"/>\n  <text x=\"435\" y=\"265\" font-size=\"11\" fill=\"#ef4444\" text-anchor=\"middle\" font-weight=\"bold\">🗄 数据库服务器</text>\n  <text x=\"435\" y=\"279\" font-size=\"9.5\" fill=\"#ef4444\" text-anchor=\"middle\">无法从外部直接访问</text>\n\n  <!-- Security Group label Private -->\n  <rect x=\"350\" y=\"298\" width=\"170\" height=\"22\" rx=\"5\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"4,3\"/>\n  <text x=\"435\" y=\"313\" font-size=\"9.5\" fill=\"#22c55e\" text-anchor=\"middle\">🔒 安全组（SG）</text>\n  <text x=\"435\" y=\"328\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"middle\" fill-opacity=\"0.85\">仅限VPC内部: 允许</text>\n\n  <!-- Arrow between subnets (internal traffic) -->\n  <line x1=\"270\" y1=\"267\" x2=\"330\" y2=\"267\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n  <polygon points=\"332,267 323,262 323,272\" fill=\"currentColor\"/>\n  <polygon points=\"268,267 277,262 277,272\" fill=\"currentColor\"/>\n  <text x=\"300\" y=\"260\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">内部通信</text>\n\n  <!-- Network ACL band -->\n  <rect x=\"55\" y=\"195\" width=\"520\" height=\"162\" rx=\"12\" fill=\"none\" stroke=\"#22c55e\" stroke-width=\"1.2\" stroke-dasharray=\"7,4\"/>\n  <text x=\"540\" y=\"213\" font-size=\"9\" fill=\"#22c55e\" text-anchor=\"end\" fill-opacity=\"0.8\">网络 ACL</text>\n\n  <!-- Route Table box -->\n  <rect x=\"130\" y=\"378\" width=\"340\" height=\"34\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"300\" y=\"392\" font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">📋 路由表</text>\n  <text x=\"300\" y=\"406\" font-size=\"9.5\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.75\">0.0.0.0/0 → IGW（公有）　|　10.0.0.0/16 → local（内部）</text>\n\n  <!-- Arrow: subnets -> route table -->\n  <line x1=\"200\" y1=\"360\" x2=\"230\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"400\" y1=\"360\" x2=\"370\" y2=\"378\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.5\" stroke-dasharray=\"3,3\"/>\n\n  <!-- VPN Gateway / Hybrid -->\n  <rect x=\"60\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"140\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🏢 VPN网关</text>\n  <text x=\"140\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">本地连接（混合云）</text>\n\n  <!-- VPC Peering -->\n  <rect x=\"380\" y=\"430\" width=\"160\" height=\"32\" rx=\"7\" fill=\"currentColor\" fill-opacity=\"0.09\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5,3\"/>\n  <text x=\"460\" y=\"444\" font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\" font-weight=\"bold\">🔗 VPC对等连接</text>\n  <text x=\"460\" y=\"456\" font-size=\"9\" fill=\"currentColor\" text-anchor=\"middle\" fill-opacity=\"0.7\">与其他VPC的连接</text>\n\n  <!-- Arrows from Route table -->\n  <line x1=\"210\" y1=\"412\" x2=\"160\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n  <line x1=\"390\" y1=\"412\" x2=\"440\" y2=\"430\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-opacity=\"0.45\" stroke-dasharray=\"3,3\"/>\n\n  <!-- Legend -->\n  <rect x=\"55\" y=\"474\" width=\"490\" height=\"26\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-opacity=\"0.15\" stroke-width=\"1\"/>\n  <rect x=\"68\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.5\"/>\n  <text x=\"82\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">公有（对外公开）</text>\n  <rect x=\"188\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.5\"/>\n  <text x=\"202\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">私有（仅限内部）</text>\n  <rect x=\"318\" y=\"482\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#22c55e\" fill-opacity=\"0.5\"/>\n  <text x=\"332\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">访问控制（SG / ACL）</text>\n  <line x1=\"448\" y1=\"487\" x2=\"468\" y2=\"487\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,2\" stroke-opacity=\"0.6\"/>\n  <text x=\"473\" y=\"491\" font-size=\"9.5\" fill=\"currentColor\" fill-opacity=\"0.75\">扩展连接</text>\n\n</svg>"
     }
   ],
-  "quiz": []
+  "quiz": [
+    {
+      "question": "在VPC中，使用CIDR表示法指定「10.0.0.0/16」时，该地址范围内包含的IP地址总数是多少？",
+      "choices": [
+        {
+          "text": "256个",
+          "isCorrect": false
+        },
+        {
+          "text": "1024个",
+          "isCorrect": false
+        },
+        {
+          "text": "65536个",
+          "isCorrect": true
+        },
+        {
+          "text": "16777216个",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "/16 表示主机部分的位数为 $32 - 16 = 16$ 位，因此地址数为 $2^{16} = 65536$ 个。/24 则为 $2^8 = 256$ 个，/8 则为 $2^{24} = 16777216$ 个。"
+    },
+    {
+      "question": "关于VPC中公有子网与私有子网的区别，以下哪种说法是正确的？",
+      "choices": [
+        {
+          "text": "公有子网拥有更多的IP地址，私有子网拥有更少的IP地址。",
+          "isCorrect": false
+        },
+        {
+          "text": "公有子网可通过互联网网关与外部通信，而私有子网无法从外部直接访问。",
+          "isCorrect": true
+        },
+        {
+          "text": "公有子网可以应用安全组，但私有子网无法应用安全组。",
+          "isCorrect": false
+        },
+        {
+          "text": "私有子网可以跨多个VPC部署，而公有子网只能部署在一个VPC中。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "公有子网连接了互联网网关，可以与外部进行通信；而私有子网是无法从互联网直接到达的内部专用区域。通过这种设计，可以将数据库等不应对外公开的资源放置在私有子网中加以保护，从而实现纵深防御。"
+    },
+    {
+      "question": "某企业通过VPN网关或专用线路将公司办公室网络与VPC连接，使员工能够像在公司内部一样访问云端服务器，这种架构称为什么？",
+      "choices": [
+        {
+          "text": "多云架构",
+          "isCorrect": false
+        },
+        {
+          "text": "零信任网络",
+          "isCorrect": false
+        },
+        {
+          "text": "VPC对等连接架构",
+          "isCorrect": false
+        },
+        {
+          "text": "混合云架构",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "将本地（企业现有系统）与云（VPC）通过专用线路或VPN连接，并将两者作为一个整体使用的架构称为混合云。在这种情况下，VPC作为「公司内网的延伸」发挥作用。多云是同时使用多个云服务的架构，VPC对等连接是将多个VPC相互连接的技术，两者均为不同的概念。"
+    }
+  ]
 }

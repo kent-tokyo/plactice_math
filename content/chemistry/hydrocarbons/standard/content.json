@@ -1,99 +1,173 @@
 {
-  "id": "cf408704-2309-478d-8872-853d3f0491f1",
+  "id": "d30c5513-0e83-4543-9461-9abf0a9d2628",
   "nodeId": "hydrocarbons",
   "level": "standard",
-  "generatedAt": "2026-03-22T00:48:05.854Z",
-  "content": "# 炭化水素\n\n## 何か — 直感的な説明\n\n炭化水素とは、その名の通り**炭素（C）と水素（H）だけからできた有機化合物**の総称です。シンプルな組成でありながら、炭素原子の結合の仕方によって驚くほど多様な種類の分子が生まれます。\n\n炭素原子は4本の「手」（結合の腕）を持つ特別な原子です。この4本の手を使って、炭素同士が鎖のようにつながったり、環を作ったり、二重結合・三重結合を形成したりすることができます。ちょうど**レゴブロックを組み合わせるように**、炭素の結合パターンが変わるだけで、ガス・液体・固体、においや反応性もまったく異なる物質ができあがるのです。\n\n炭化水素は大きく4種類に分類されます。炭素間が**単結合だけのアルカン**、**二重結合を含むアルケン**、**三重結合を含むアルキン**、そして**ベンゼン環を持つ芳香族化合物**です。この4つを理解することが、有機化学全体を読み解くカギになります。\n\n---\n\n## なぜ必要か — 化学の概念における位置づけ\n\n炭化水素は有機化学の**出発点**です。有機化学で扱う分子のほとんどは、炭化水素の骨格に酸素・窒素・硫黄などが加わった構造をしています。つまり、炭化水素の構造と性質を理解することは、アルコール・エーテル・アミン・カルボン酸など、すべての有機化合物を理解するための土台を築くことになります。\n\nまた、炭化水素は**エネルギー資源や素材産業とも直結**しています。石油・天然ガスはほぼ炭化水素の混合物であり、ガソリン・プラスチック・合成ゴム・医薬品原料の多くが炭化水素を出発物質として製造されています。化学の知識が現実の社会とつながっている、非常に身近な概念です。\n\nさらに、炭化水素の分類（アルカン・アルケン・アルキン・芳香族）は**反応性の違いを予測する枠組み**でもあります。どのタイプの炭化水素かを知るだけで、「この分子は付加反応を起こすか」「置換反応が主体か」という見通しが立てられます。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n### アルカン（Alkanes）— 飽和炭化水素\n\nアルカンは炭素間がすべて**単結合（C–C）**でつながった炭化水素です。一般式は次の通りです。\n\n$$\n\\text{C}_n\\text{H}_{2n+2} \\quad (n = 1, 2, 3, \\ldots)\n$$\n\n「飽和」とは、水素を最大限に持っている状態を意味します。$n=1$ のメタン $\\text{CH}_4$、$n=2$ のエタン $\\text{C}_2\\text{H}_6$、$n=3$ のプロパン $\\text{C}_3\\text{H}_8$ などが代表例です。単結合のみのため、電子密度は結合部に均等に分布しており、**反応性は比較的低く**、主に燃焼（酸化）反応や光照射下でのラジカル置換反応を起こします。\n\n### アルケン（Alkenes）— 二重結合を持つ炭化水素\n\nアルケンは炭素間に**二重結合（C＝C）**を少なくとも一つ含みます。一般式は：\n\n$$\n\\text{C}_n\\text{H}_{2n} \\quad (n = 2, 3, 4, \\ldots)\n$$\n\n二重結合は $\\sigma$ 結合と $\\pi$ 結合の2種類の結合で構成されています。このうち $\\pi$ 結合の電子は比較的ゆるく保持されており、**求電子試薬が攻撃しやすい**性質があります。そのため、アルケンは**付加反応（addition reaction）**を起こしやすいのが特徴です。\n\n### アルキン（Alkynes）— 三重結合を持つ炭化水素\n\nアルキンは炭素間に**三重結合（C≡C）**を持ちます。一般式は：\n\n$$\n\\text{C}_n\\text{H}_{2n-2} \\quad (n = 2, 3, 4, \\ldots)\n$$\n\n三重結合は $\\sigma$ 結合1つと $\\pi$ 結合2つからなります。アルケンよりもさらに $\\pi$ 電子が豊富で、付加反応を2段階行うことができます。最も単純なアルキンはアセチレン $\\text{HC{\\equiv}CH}$（エチン）です。\n\n### 芳香族化合物（Aromatic compounds）— 特別な安定性を持つ環状炭化水素\n\n芳香族炭化水素の代表はベンゼン $\\text{C}_6\\text{H}_6$ です。ベンゼンは6つの炭素が正六角形に並んだ環状構造を持ち、**6つの $\\pi$ 電子が環全体に非局在化（delocalization）**しています。\n\n$$\n\\text{C}_6\\text{H}_6\n$$\n\nこの電子の非局在化が、芳香族化合物に特別な安定性を与えています。二重結合があるにもかかわらず、アルケンのように付加反応を起こしにくく、代わりに**芳香族求電子置換反応（electrophilic aromatic substitution）**が主要な反応経路となります。環の安定性を「壊さない」ように反応する、という直感が重要です。\n\nなお、芳香族性の判定基準としてよく用いられるのが**ヒュッケル則**で、環状・平面状の共役系において $\\pi$ 電子数が $4n+2$（$n = 0, 1, 2, \\ldots$）個であるとき、特別な安定性（芳香族性）を持つとされます。ベンゼンは $\\pi$ 電子数が6（$n=1$）でこの条件を満たします。\n\n---\n\n## 具体例\n\n### 具体例 1：プロパンガス — 日常生活のアルカン\n\nカセットコンロやキャンプ用バーナーに使われる**プロパン（$\\text{C}_3\\text{H}_8$）**は、アルカンの代表例です。炭素3つが一列に並び、すべて単結合でつながっています。\n\nアルカンは単結合のみのため、電子的に安定しており、常温では他の物質とほとんど反応しません。しかし**点火すれば燃焼（酸化）して大量のエネルギーを放出**します。これがコンロの熱源として利用される理由です。プロパンは空気より重い（分子量 44）ため、漏れると床に溜まりやすいという安全上の注意点もあります。\n\n$$\n\\text{C}_3\\text{H}_8 + 5\\text{O}_2 \\rightarrow 3\\text{CO}_2 + 4\\text{H}_2\\text{O}\n$$\n\nアルカンの「単結合だけ → 反応性が低い → 燃焼が主な反応」という関係が、この身近な例でよく理解できます。\n\n### 具体例 2：エチレン — 果物を熟らせるアルケン\n\n**エチレン（$\\text{H}_2\\text{C{=}CH}_2$、エテン）**は、最も単純なアルケンです。実はこの分子、植物が果物を熟らせるために自ら分泌する**植物ホルモン**でもあります。バナナを他の熟れた果物と一緒に袋に入れておくと早く熟れる、という経験はありませんか？それはエチレンガスの仕業です。\n\n化学的な観点では、エチレンの $\\text{C{=}C}$ 二重結合は付加反応の場として機能します。たとえば、エチレンに水素（$\\text{H}_2$）を付加するとエタン（$\\text{C}_2\\text{H}_6$）、臭素（$\\text{Br}_2$）を付加すると1,2-ジブロモエタンが生成します。また、エチレン分子同士が付加重合することで**ポリエチレン**（ビニール袋やプラスチック製品の主原料）が作られます。二重結合という「反応できる場所」があるからこそ、さまざまな変換が可能になります。\n\n### 具体例 3：アセチレン — 切断と溶接に使われるアルキン\n\n**アセチレン（$\\text{HC{\\equiv}CH}$、エチン）**は、金属の溶接・切断に使われるガスです。三重結合を持ち、燃焼時の温度は約3,500°Cに達し、鉄も容易に溶かせます。\n\n三重結合の $\\pi$ 電子は豊富で反応性が高く、アセチレンは付加反応を2段階行うことができます。まず1段階の付加でビニル化合物（アルケン）が得られ、さらに付加するとアルカンになります。この「段階的に反応できる」性質は合成化学で非常に有用です。また、アセチレンへの水付加（水和）からアセトアルデヒドが生成する反応は、かつて工業的に重要なプロセスでした。\n\n### 具体例 4：ベンゼン・トルエン — 芳香族のわかりやすいイメージ\n\n**ベンゼン（$\\text{C}_6\\text{H}_6$）**は特徴的な甘い香りを持つ液体で、芳香族化合物の名前の由来にもなっています（\"aromatic\" = 芳香がある）。6つの炭素が正六角形に並び、$\\pi$ 電子が環全体を均等にカバーしている様子は、しばしば**「電子雲のドーナツ」**とたとえられます。\n\n**トルエン（メチルベンゼン）**はベンゼン環にメチル基（$-\\text{CH}_3$）が一つついた構造で、塗料の溶剤として日常的に使われています。芳香族化合物は、環の安定性を保ったまま環上の水素原子を別の原子団で「置き換える」置換反応が得意です。たとえばトルエンにニトロ基を導入するとトリニトロトルエン（TNT）が得られる、という反応は芳香族置換反応の有名な例です。\n\n---\n\n## つながり — 他の概念との関係\n\n### 前提知識との関係\n\n炭化水素を理解するには、まず**化学結合**の基礎が不可欠です。単結合・二重結合・三重結合の違いは、それぞれ $\\sigma$ 結合と $\\pi$ 結合の数の違いであり、これが反応性の違いに直結しています。また、炭素の**混成軌道**（$sp^3$・$sp^2$・$sp$）の概念を理解すると、各炭化水素の立体構造と反応性をより深く把握できます。具体的には、アルカンの炭素は $sp^3$ 混成（正四面体形）、アルケンの二重結合炭素は $sp^2$ 混成（平面形）、アルキンの三重結合炭素は $sp$ 混成（直線形）をとります。\n\n### 有機化学内での位置づけ\n\n炭化水素は有機化学の**骨格**となる概念です。ここから先に学ぶ：\n\n- **アルコール・エーテル**：炭化水素に $-\\text{OH}$ や $-\\text{O}-$ が加わった構造\n- **カルボン酸・エステル**：$-\\text{COOH}$ や $-\\text{COO}-$ を持つ化合物\n- **アミン・アミド**：窒素を含む有機化合物\n\nこれらはすべて「炭化水素の骨格に官能基が付いたもの」として理解できます。炭化水素の種類（アルカン系・アルケン系・芳香族系）が官能基の反応性にも影響するため、炭化水素の分類を知ることは有機化学全体の地図を持つことと同じです。\n\n### 立体化学との関係\n\nアルケンの二重結合は回転が制限されるため、**シス-トランス異性（幾何異性）**が生じます。同じ分子式でも空間的な配置が異なる2つの異性体が存在します。これは医薬品などの生理活性に大きな違いをもたらすことがあり、立体化学という発展的な概念へとつながります。\n\n---\n\n## 他分野への応用\n\n### 石油化学・エネルギー産業\n\n原油は主に様々な炭化水素の混合物です。精製によりガソリン（$\\text{C}_5$〜$\\text{C}_{10}$ のアルカン混合物）、灯油、軽油、重油などに分離されます。アルケンやアルキンは石油精製の過程で生成し、さらに加工されてプラスチック・合成ゴム・繊維などの**高分子材料**の原料になります。現代の産業社会は炭化水素化学の上に成り立っているといっても過言ではありません。\n\n### 医薬品・生化学\n\n多くの医薬品や生体分子は芳香族環を骨格として持っています。アスピリン・イブプロフェン・抗生物質・ステロイドホルモンなど、ベンゼン環やその誘導体は医薬品化学において核心的な構造要素です。また、DNAの塩基（アデニン・グアニン・シトシン・チミン）も芳香族性を持っており、生体内の情報伝達に重要な役割を担っています。\n\n### 材料科学・高分子化学\n\nエチレン（アルケン）の付加重合によるポリエチレン、プロピレンによるポリプロピレン、アセチレン系炭化水素から作られる導電性ポリマー（ポリアセチレン）など、炭化水素は**新素材開発**の基礎原料です。ポリアセチレンの発見と導電性の解明はノーベル化学賞（2000年）にも輝いており、炭化水素化学が最先端材料科学とつながっていることを示しています。\n\n### 環境科学\n\n自動車や工場からの不完全燃焼で生成する**多環芳香族炭化水素（PAH, Polycyclic Aromatic Hydrocarbons）**は、大気汚染物質として環境・健康問題と深く関わっています。ベンゾ[a]ピレンのような PAH は発がん性が問題視されており、炭化水素の化学的性質の理解が環境モニタリングや対策技術の基盤になっています。",
+  "generatedAt": "2026-03-22T01:09:59.663Z",
+  "content": "# 炭化水素\n\n## 何か — 直感的な説明\n\n炭化水素とは、**炭素（C）と水素（H）だけからできた有機化合物**の総称です。名前の通り「炭素と水素でできた化合物」であり、有機化学の世界で最も基本的な化合物群といえます。\n\n炭素原子は非常に特別な性質を持っています。炭素は4本の手（結合の腕）を持ち、炭素同士でつながって鎖や環を作ることができます。その鎖の長さ、形、そして炭素同士の結合が1本か2本か3本かによって、炭化水素は大きく4種類に分類されます。**アルカン**（単結合のみ）・**アルケン**（二重結合を含む）・**アルキン**（三重結合を含む）・**芳香族炭化水素**（ベンゼン環を含む）の4つです。\n\n日常生活に目を向けると、炭化水素は身近なところにあふれています。都市ガスの主成分であるメタン（$\\text{CH}_4$）、ガソリンの主成分であるオクタン（$\\text{C}_8\\text{H}_{18}$）、プラスチックの原料であるエチレン（$\\text{CH}_2\\text{=CH}_2$）、防虫剤の成分であるナフタレン——これらはすべて炭化水素です。炭化水素を理解することは、有機化学全体の「語彙」を身につけることに等しいのです。\n\n---\n\n## なぜ必要か — 化学の概念における位置づけ\n\n炭化水素は有機化学における**骨格（スケルトン）**の役割を担っています。私たちの体を構成するタンパク質・脂質・核酸といった生体分子も、炭化水素の骨格に様々な官能基（OH基、COOH基など）が付いたものとして理解できます。つまり炭化水素は、あらゆる有機化合物の「出発点」なのです。\n\nまた、現代のエネルギー産業・材料産業においても炭化水素は中心的な存在です。石油・天然ガスは炭化水素の混合物であり、そこから精製されたさまざまな炭化水素が燃料・プラスチック・合成ゴム・医薬品の原料になります。有機化学の反応性（どこで・どのように変化するか）は、骨格となる炭化水素の種類に大きく依存します。炭化水素の分類と性質を知ることは、有機化学全体の地図を手に入れることに等しいといえるでしょう。\n\n---\n\n## 核となるアイデア — 定義・定理の本質\n\n### 炭化水素の分類\n\n炭化水素は炭素間の結合の種類と構造によって以下のように分類されます。\n\n**アルカン（alkanes）— 飽和炭化水素**\n\n炭素間の結合がすべて単結合（$\\text{C-C}$）のみの炭化水素です。一般式は\n\n$$C_nH_{2n+2} \\quad (n = 1, 2, 3, \\ldots)$$\n\n「飽和」とは水素が最大限結合している状態を指します。単結合のみなので化学的に比較的安定で、反応性は低めです。\n\n**アルケン（alkenes）— 不飽和炭化水素（二重結合）**\n\n炭素間に少なくとも1つの二重結合（$\\text{C=C}$）を含む炭化水素です。一般式は\n\n$$C_nH_{2n} \\quad (n = 2, 3, 4, \\ldots)$$\n\n二重結合部分は反応性が高く、付加反応（二重結合が開いて他の原子が結合する反応）を起こしやすいです。\n\n**アルキン（alkynes）— 不飽和炭化水素（三重結合）**\n\n炭素間に少なくとも1つの三重結合（$\\text{C{\\equiv}C}$）を含む炭化水素です。一般式は\n\n$$C_nH_{2n-2} \\quad (n = 2, 3, 4, \\ldots)$$\n\n三重結合はさらに反応性が高く、付加反応が2段階起こり得ます。\n\n**芳香族炭化水素（aromatic hydrocarbons）**\n\nベンゼン環（$\\text{C}_6\\text{H}_6$）を基本単位とする炭化水素です。ベンゼン環では6つの炭素が正六角形を作り、電子が環全体に非局在化（ひとつの結合に固定されず、リング全体に広がる）しています。このため、アルケンの二重結合とは異なる独特の安定性と反応性を示します。\n\n### 炭素の結合の手をイメージする\n\n炭素は4本の手を持ちます。単結合ではその手を1本ずつ使って隣の原子とつながります。二重結合では2本まとめて使い、三重結合では3本まとめて使います。使った手の分だけ、水素と結合できる手が減る——これが「不飽和」の意味です。\n\n$$\\underset{\\text{手が全部Hと結合}}{C_nH_{2n+2}} \\xrightarrow{\\text{二重結合を1つ導入}} \\underset{\\text{H}_2\\text{が減る}}{C_nH_{2n}} \\xrightarrow{\\text{三重結合を1つ導入}} C_nH_{2n-2}$$\n\n---\n\n## 具体例\n\n### 例1：メタン $\\text{CH}_4$ — 都市ガスの主成分（アルカン・日常生活の例）\n\n台所のガスコンロで使われる都市ガスの主成分はメタンです。メタンは最も単純なアルカンで、炭素1個に水素4個が正四面体形に結合しています。\n\n$$\\text{CH}_4 + 2\\text{O}_2 \\rightarrow \\text{CO}_2 + 2\\text{H}_2\\text{O} + \\text{エネルギー}$$\n\nアルカンの代表的な反応は**燃焼**です。単結合のみの安定な構造ゆえ、付加反応や置換反応よりも燃焼が実用上最も重要な反応になります。プロパン（$\\text{C}_3\\text{H}_8$）やブタン（$\\text{C}_4\\text{H}_{10}$）もアルカンで、カセットコンロのガスや使い捨てライターの燃料として使われています。\n\n### 例2：エチレン $\\text{CH}_2\\text{=CH}_2$ — プラスチックの原料（アルケン）\n\nエチレンはアルケンの最も単純な例で、炭素間に二重結合を1つ持ちます。二重結合は反応性が高く、エチレン同士が次々と結合して長い鎖を作る**付加重合**が起こります。\n\n$$n\\text{CH}_2\\text{=CH}_2 \\rightarrow {(-\\text{CH}_2\\text{-CH}_2\\text{-})}_n$$\n\nこの反応で生成するポリエチレン（PE）はレジ袋や食品容器に広く使われているプラスチックです。二重結合の「開きやすさ」が材料産業を支えているといえます。アルケンのもう一つの例として、プロピレン（$\\text{CH}_3\\text{-CH{=}CH}_2$）は食品容器や繊維に使われるポリプロピレンの原料です。\n\n### 例3：ベンゼン $\\text{C}_6\\text{H}_6$ — 芳香族の代表（芳香族炭化水素）\n\nベンゼンは6つの炭素が正六角形に並んだ芳香族炭化水素の代表です。一見すると3つの二重結合があるように見えますが、実際には電子が環全体に均等に広がっており（電子の非局在化）、アルケンとは全く異なる性質を示します。\n\nベンゼン環のたとえ話として「電子の湖」があります。二重結合の電子が1か所に固定されるのではなく、環全体に広がった「湖」のような状態になっているため、特別な安定性（芳香族性）が生まれます。この安定性から、ベンゼンは付加反応よりも**置換反応**（水素が他の基と入れ替わる反応）を好みます。ベンゼンを基にした芳香族炭化水素にはトルエン（溶剤）、キシレン（塗料）、ナフタレン（防虫剤）などがあります。\n\n### 例4：アセチレン $\\text{HC{\\equiv}CH}$ — 溶接の炎（アルキン）\n\nアセチレンはアルキンの最も単純な例で、三重結合を持ちます。燃焼時に非常に高い温度（約3500°C）の炎を生じるため、金属の溶接・切断に使われています。三重結合を持つため、付加反応が2段階（まず二重結合に、さらに単結合に）起こり得る点が特徴的です。\n\n---\n\n## つながり — 他の概念との関係\n\n**前提知識：化学結合**\n\n炭化水素を理解するためには、**共有結合**の概念が不可欠です。炭素-炭素間の単結合・二重結合・三重結合はすべて共有結合であり、使われる電子の数と結合の強さ・長さ・反応性が異なります。二重結合（$\\sigma$結合＋$\\pi$結合）のうち$\\pi$結合は切れやすく、これが付加反応の起点となります。\n\n**発展先：官能基と有機化合物の分類**\n\n炭化水素の骨格にOH基、COOH基、NH₂基などの**官能基**が加わることで、アルコール・カルボン酸・アミンといった多様な有機化合物が生まれます。炭化水素はいわば「無装飾の骨格」であり、官能基の学習はこの骨格の理解の上に成り立っています。\n\n**発展先：有機反応の機構**\n\nアルカン・アルケン・アルキン・芳香族それぞれが示す特有の反応（置換・付加・脱離・芳香族置換）は有機化学の反応機構の中核を構成します。炭化水素の種類を判別できるようになることが、どの反応が起こるかを予測する第一歩です。\n\n---\n\n## 他分野への応用\n\n**エネルギー・環境科学**\n\n石油・天然ガスは炭化水素の混合物であり、その燃焼反応（アルカンの酸化）が現代社会のエネルギーの大部分を供給しています。一方、燃焼による $\\text{CO}_2$ 排出は気候変動の主因であるため、代替エネルギーや燃焼効率の研究においても炭化水素の化学は中心的な役割を担っています。\n\n**材料科学・高分子化学**\n\nアルケンの付加重合によって生成するポリエチレン・ポリプロピレン・ポリスチレンなどの高分子材料は、現代の生活に欠かせない素材です。芳香族炭化水素から合成されるナイロン・ポリエステル・エポキシ樹脂は繊維・電子部品・航空機材料など幅広い分野で利用されています。\n\n**生命科学・医薬品**\n\n生体内の脂質（細胞膜の構成成分）は長鎖の炭化水素骨格を持ちます。また、多くの医薬品・ホルモン・ビタミンの分子構造にも炭化水素骨格（特に芳香環やステロイド骨格）が含まれており、その立体構造が生物活性に直結しています。有機化学をベースとした創薬研究は炭化水素の化学なしには成立しません。",
   "terms": [
     {
       "term": "炭化水素",
       "reading": "たんかすいそ",
-      "en": "Hydrocarbon",
-      "definition": "炭素（C）と水素（H）だけからなる有機化合物の総称。アルカン・アルケン・アルキン・芳香族化合物に大別される。"
+      "en": "hydrocarbon",
+      "definition": "炭素（C）と水素（H）だけからなる有機化合物の総称。有機化学における最も基本的な化合物群であり、アルカン・アルケン・アルキン・芳香族炭化水素に分類される。"
     },
     {
       "term": "アルカン",
       "reading": "あるかん",
-      "en": "Alkane",
-      "definition": "炭素間がすべて単結合（C–C）でつながった飽和炭化水素で、一般式 CₙH₂ₙ₊₂ で表される。反応性は低く、主に燃焼反応を起こす。"
+      "en": "alkane",
+      "definition": "炭素間の結合がすべて単結合（C-C）のみからなる飽和炭化水素。一般式は CₙH₂ₙ₊₂ で表され、化学的に比較的安定で反応性が低い。"
     },
     {
       "term": "アルケン",
       "reading": "あるけん",
-      "en": "Alkene",
-      "definition": "炭素間に二重結合（C＝C）を少なくとも一つ含む炭化水素で、一般式 CₙH₂ₙ で表される。π結合の存在により付加反応を起こしやすい。"
+      "en": "alkene",
+      "definition": "炭素間に少なくとも1つの二重結合（C=C）を含む不飽和炭化水素。一般式は CₙH₂ₙ で表され、二重結合部分が反応性に富み付加反応を起こしやすい。"
     },
     {
       "term": "アルキン",
       "reading": "あるきん",
-      "en": "Alkyne",
-      "definition": "炭素間に三重結合（C≡C）を持つ炭化水素で、一般式 CₙH₂ₙ₋₂ で表される。π電子が豊富で反応性が高く、付加反応を2段階行える。"
+      "en": "alkyne",
+      "definition": "炭素間に少なくとも1つの三重結合（C≡C）を含む不飽和炭化水素。一般式は CₙH₂ₙ₋₂ で表され、付加反応が2段階起こり得るほど反応性が高い。"
     },
     {
-      "term": "芳香族化合物",
-      "reading": "ほうこうぞくかごうぶつ",
-      "en": "Aromatic compound",
-      "definition": "ベンゼン環のような環状構造にπ電子が非局在化した特別な安定性を持つ化合物。付加反応より芳香族求電子置換反応が主要な反応経路となる。"
+      "term": "芳香族炭化水素",
+      "reading": "ほうこうぞくたんかすいそ",
+      "en": "aromatic hydrocarbon",
+      "definition": "ベンゼン環（C₆H₆）を基本単位とする炭化水素。電子が環全体に非局在化しており、独特の安定性（芳香族性）と置換反応への親和性を示す。"
     },
     {
-      "term": "σ結合",
-      "reading": "しぐまけつごう",
-      "en": "Sigma bond",
-      "definition": "二つの原子軌道が結合軸に沿って直接重なることで形成される共有結合。単結合・二重結合・三重結合のすべてに含まれる。"
+      "term": "飽和炭化水素",
+      "reading": "ほうわたんかすいそ",
+      "en": "saturated hydrocarbon",
+      "definition": "炭素間の結合がすべて単結合で構成され、水素が最大限に結合している炭化水素。アルカンがその代表であり、化学的に安定している。"
     },
     {
-      "term": "π結合",
-      "reading": "ぱいけつごう",
-      "en": "Pi bond",
-      "definition": "二つの原子軌道が結合軸に対して側面で重なることで形成される共有結合。二重結合・三重結合に含まれ、求電子試薬に攻撃されやすい。"
+      "term": "不飽和炭化水素",
+      "reading": "ふほうわたんかすいそ",
+      "en": "unsaturated hydrocarbon",
+      "definition": "炭素間に二重結合または三重結合を含み、水素が最大限には結合していない炭化水素。アルケン・アルキンが該当し、反応性が高い。"
     },
     {
       "term": "付加反応",
       "reading": "ふかはんのう",
-      "en": "Addition reaction",
-      "definition": "二重結合や三重結合に他の原子・原子団が付け加わる反応。アルケンやアルキンに特徴的な反応形式。"
+      "en": "addition reaction",
+      "definition": "二重結合や三重結合が開いて他の原子や原子団が結合する反応。アルケンやアルキンに特徴的な反応であり、付加重合の基礎でもある。"
     },
     {
-      "term": "芳香族求電子置換反応",
-      "reading": "ほうこうぞくきゅうでんしちかんはんのう",
-      "en": "Electrophilic aromatic substitution",
-      "definition": "芳香族化合物の環上の水素原子が求電子試薬によって別の原子団に置き換えられる反応。環の安定性を保ったまま進行する。"
+      "term": "置換反応",
+      "reading": "ちかんはんのう",
+      "en": "substitution reaction",
+      "definition": "分子中の特定の原子や基が別の原子や基と入れ替わる反応。芳香族炭化水素（ベンゼン環）やアルカンに特徴的な反応形式。"
     },
     {
-      "term": "非局在化",
-      "reading": "ひきょくざいか",
-      "en": "Delocalization",
-      "definition": "電子が特定の結合に固定されず、分子内の広い範囲に分散している状態。ベンゼンのπ電子の非局在化が芳香族化合物の安定性の源となる。"
-    },
-    {
-      "term": "混成軌道",
-      "reading": "こんせいきどう",
-      "en": "Hybrid orbital",
-      "definition": "原子軌道が混ざり合って生じる新たな軌道。炭素のsp³・sp²・sp混成がアルカン・アルケン・アルキンの立体構造と反応性の違いを説明する。"
-    },
-    {
-      "term": "シス-トランス異性",
-      "reading": "しすとらんすいせい",
-      "en": "Cis-trans isomerism",
-      "definition": "二重結合の回転制限により、同じ分子式を持ちながら空間的配置が異なる2種類の異性体が存在する現象。幾何異性とも呼ばれる。"
+      "term": "電子の非局在化",
+      "reading": "でんしのひきょくざいか",
+      "en": "electron delocalization",
+      "definition": "電子が特定の結合に固定されず、複数の原子にわたって広がって存在する状態。ベンゼン環における非局在化が芳香族性の安定性の源となっている。"
     },
     {
       "term": "付加重合",
       "reading": "ふかじゅうごう",
-      "en": "Addition polymerization",
-      "definition": "アルケンなどの二重結合を持つ単量体が次々と付加反応を繰り返して高分子を形成する反応。エチレンからポリエチレンが生成する反応が代表例。"
+      "en": "addition polymerization",
+      "definition": "アルケンなどの二重結合が次々と開いて単量体同士が連結し、高分子（ポリマー）を生成する反応。ポリエチレンやポリプロピレンの製造に利用される。"
     },
     {
-      "term": "多環芳香族炭化水素",
-      "reading": "たかんほうこうぞくたんかすいそ",
-      "en": "Polycyclic Aromatic Hydrocarbons (PAH)",
-      "definition": "複数のベンゼン環が縮合した構造を持つ芳香族炭化水素の総称。不完全燃焼で生成し、発がん性などの環境・健康問題と関わる。"
+      "term": "官能基",
+      "reading": "かんのうき",
+      "en": "functional group",
+      "definition": "有機化合物の性質や反応性を主に決定する特定の原子団（OH基・COOH基・NH₂基など）。炭化水素骨格に官能基が加わることで多様な有機化合物が生まれる。"
+    },
+    {
+      "term": "共有結合",
+      "reading": "きょうゆうけつごう",
+      "en": "covalent bond",
+      "definition": "2つの原子が電子を共有することで形成される化学結合。炭化水素における炭素-炭素間の単結合・二重結合・三重結合はすべて共有結合である。"
+    },
+    {
+      "term": "ベンゼン環",
+      "reading": "べんぜんかん",
+      "en": "benzene ring",
+      "definition": "6つの炭素原子が正六角形に配置された芳香族炭化水素の基本構造単位（C₆H₆）。電子の非局在化により特別な安定性（芳香族性）を持つ。"
+    },
+    {
+      "term": "芳香族性",
+      "reading": "ほうこうぞくせい",
+      "en": "aromaticity",
+      "definition": "ベンゼン環のように電子が環状に非局在化していることに由来する特別な化学的安定性。芳香族化合物が付加反応よりも置換反応を好む原因となる。"
     }
   ],
   "diagrams": [
     {
       "name": "concept-diagram.svg",
-      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 中央：炭化水素 -->\n  <ellipse cx=\"300\" cy=\"260\" rx=\"72\" ry=\"36\" fill=\"#3b82f6\" fill-opacity=\"0.15\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"255\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"#3b82f6\">炭化水素</text>\n  <text x=\"300\" y=\"272\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">C と H のみ</text>\n\n  <!-- 上：アルカン -->\n  <rect x=\"60\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">アルカン</text>\n  <text x=\"130\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">C–C 単結合のみ</text>\n  <text x=\"130\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₊₂</text>\n  <text x=\"130\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: メタン CH₄</text>\n\n  <!-- 上右：アルケン -->\n  <rect x=\"400\" y=\"30\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"56\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">アルケン</text>\n  <text x=\"470\" y=\"74\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">C＝C 二重結合含む</text>\n  <text x=\"470\" y=\"90\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ</text>\n  <text x=\"470\" y=\"108\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: エチレン C₂H₄</text>\n\n  <!-- 下左：アルキン -->\n  <rect x=\"60\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"130\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">アルキン</text>\n  <text x=\"130\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">C≡C 三重結合含む</text>\n  <text x=\"130\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">CₙH₂ₙ₋₂</text>\n  <text x=\"130\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: アセチレン C₂H₂</text>\n\n  <!-- 下右：芳香族 -->\n  <rect x=\"400\" y=\"390\" width=\"140\" height=\"90\" rx=\"12\" fill=\"currentColor\" fill-opacity=\"0.07\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"470\" y=\"416\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">芳香族</text>\n  <text x=\"470\" y=\"434\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">ベンゼン環・π電子非局在</text>\n  <text x=\"470\" y=\"450\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">C₆H₆（ベンゼン）</text>\n  <text x=\"470\" y=\"468\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">例: ベンゼン, トルエン</text>\n\n  <!-- 接続線：中央→アルカン -->\n  <line x1=\"240\" y1=\"243\" x2=\"190\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→アルケン -->\n  <line x1=\"360\" y1=\"243\" x2=\"410\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→アルキン -->\n  <line x1=\"240\" y1=\"277\" x2=\"190\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n  <!-- 接続線：中央→芳香族 -->\n  <line x1=\"360\" y1=\"277\" x2=\"410\" y2=\"395\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"5,3\" marker-end=\"url(#arr)\"/>\n\n  <!-- 矢印マーカー -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n    <marker id=\"arr2\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#22c55e\"/>\n    </marker>\n    <marker id=\"arr3\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n  <!-- 反応性の軸ラベル -->\n  <!-- 反応性矢印（左側縦）-->\n  <line x1=\"22\" y1=\"430\" x2=\"22\" y2=\"80\" stroke=\"#ef4444\" stroke-width=\"2\" marker-end=\"url(#arr3)\"/>\n  <text x=\"14\" y=\"270\" text-anchor=\"middle\" font-size=\"11\" fill=\"#ef4444\" transform=\"rotate(-90,14,270)\">反応性（低 → 高）</text>\n\n  <!-- 飽和度矢印（上横）-->\n  <line x1=\"210\" y1=\"15\" x2=\"390\" y2=\"15\" stroke=\"#22c55e\" stroke-width=\"2\" marker-end=\"url(#arr2)\"/>\n  <text x=\"300\" y=\"11\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22c55e\">不飽和度（低 → 高）</text>\n\n  <!-- 結合タイプ比較ライン (アルカン→アルケン→アルキン) -->\n  <!-- σのみ → σ+π → σ+2π -->\n  <!-- ラベル: 結合の種類 -->\n  <text x=\"300\" y=\"198\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">結合の種類</text>\n  <text x=\"130\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ のみ</text>\n  <text x=\"470\" y=\"158\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + π</text>\n  <text x=\"130\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">σ + 2π</text>\n  <text x=\"470\" y=\"368\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">π 非局在化</text>\n\n  <!-- 主な反応ラベル -->\n  <text x=\"50\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">燃焼・</text>\n  <text x=\"50\" y=\"180\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">置換反応</text>\n  <text x=\"548\" y=\"168\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">付加反応</text>\n  <text x=\"50\" y=\"358\" text-anchor=\"middle\" font-size=\"9\" fill=\"#3b82f6\">付加反応</text>\n  <text x=\"548\" y=\"356\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">求電子</text>\n  <text x=\"548\" y=\"368\" text-anchor=\"middle\" font-size=\"9\" fill=\"#22c55e\">置換反応</text>\n\n  <!-- 有機化合物の基礎ラベル -->\n  <rect x=\"195\" y=\"290\" width=\"210\" height=\"34\" rx=\"8\" fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"309\" text-anchor=\"middle\" font-size=\"11\" fill=\"#3b82f6\">有機化学の骨格・出発点</text>\n  <text x=\"300\" y=\"323\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3b82f6\">（他官能基の土台）</text>\n\n  <!-- ベンゼン環の模式図（小） -->\n  <g transform=\"translate(448,445)\">\n    <polygon points=\"0,-12 10.4,-6 10.4,6 0,12 -10.4,6 -10.4,-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" opacity=\"0.5\"/>\n    <circle cx=\"0\" cy=\"0\" r=\"6.5\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"1\" opacity=\"0.7\"/>\n  </g>\n\n</svg>"
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 背景透明 -->\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"32\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">炭化水素の分類マップ</text>\n\n  <!-- 中央：炭化水素 -->\n  <ellipse cx=\"300\" cy=\"100\" rx=\"72\" ry=\"30\" fill=\"currentColor\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"96\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"bold\" fill=\"currentColor\">炭化水素</text>\n  <text x=\"300\" y=\"112\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">C と H のみ</text>\n\n  <!-- 矢印：中央→各分類 -->\n  <!-- → アルカン (左上) -->\n  <line x1=\"237\" y1=\"115\" x2=\"115\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n  <!-- → アルケン (右上) -->\n  <line x1=\"363\" y1=\"115\" x2=\"485\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n  <!-- → アルキン (左下) -->\n  <line x1=\"260\" y1=\"128\" x2=\"135\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n  <!-- → 芳香族 (右下) -->\n  <line x1=\"340\" y1=\"128\" x2=\"465\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arrow)\"/>\n\n  <!-- arrowhead marker -->\n  <defs>\n    <marker id=\"arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n    <marker id=\"arrow-blue\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#3b82f6\"/>\n    </marker>\n    <marker id=\"arrow-green\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#22c55e\"/>\n    </marker>\n  </defs>\n\n  <!-- ===== アルカン (左上) ===== -->\n  <rect x=\"30\" y=\"185\" width=\"165\" height=\"108\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.1\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <text x=\"112\" y=\"205\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#3b82f6\">アルカン</text>\n  <text x=\"112\" y=\"222\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">単結合のみ（C–C）</text>\n  <text x=\"112\" y=\"238\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">一般式: CₙH₂ₙ₊₂</text>\n  <text x=\"112\" y=\"254\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">飽和・安定・反応性低</text>\n  <!-- 単結合の図示 -->\n  <circle cx=\"85\" cy=\"277\" r=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.3\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <line x1=\"91\" y1=\"277\" x2=\"109\" y2=\"277\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <circle cx=\"115\" cy=\"277\" r=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.3\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <line x1=\"121\" y1=\"277\" x2=\"139\" y2=\"277\" stroke=\"#3b82f6\" stroke-width=\"2\"/>\n  <circle cx=\"145\" cy=\"277\" r=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.3\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n  <text x=\"75\" y=\"274\" font-size=\"9\" fill=\"#3b82f6\">C</text>\n  <text x=\"109\" y=\"274\" font-size=\"9\" fill=\"#3b82f6\">C</text>\n  <text x=\"139\" y=\"274\" font-size=\"9\" fill=\"#3b82f6\">C</text>\n\n  <!-- アルカン例 -->\n  <rect x=\"30\" y=\"305\" width=\"165\" height=\"42\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"112\" y=\"321\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">例: メタン CH₄</text>\n  <text x=\"112\" y=\"337\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">都市ガス・燃焼反応</text>\n\n  <!-- ===== アルケン (右上) ===== -->\n  <rect x=\"405\" y=\"185\" width=\"165\" height=\"108\" rx=\"10\" fill=\"#22c55e\" fill-opacity=\"0.1\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n  <text x=\"487\" y=\"205\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#22c55e\">アルケン</text>\n  <text x=\"487\" y=\"222\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">二重結合（C=C）</text>\n  <text x=\"487\" y=\"238\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">一般式: CₙH₂ₙ</text>\n  <text x=\"487\" y=\"254\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">不飽和・付加反応しやすい</text>\n  <!-- 二重結合の図示 -->\n  <circle cx=\"455\" cy=\"277\" r=\"6\" fill=\"#22c55e\" fill-opacity=\"0.3\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <line x1=\"461\" y1=\"274\" x2=\"479\" y2=\"274\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n  <line x1=\"461\" y1=\"280\" x2=\"479\" y2=\"280\" stroke=\"#22c55e\" stroke-width=\"2\"/>\n  <circle cx=\"485\" cy=\"277\" r=\"6\" fill=\"#22c55e\" fill-opacity=\"0.3\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n  <text x=\"445\" y=\"274\" font-size=\"9\" fill=\"#22c55e\">C</text>\n  <text x=\"479\" y=\"274\" font-size=\"9\" fill=\"#22c55e\">C</text>\n\n  <!-- アルケン例 -->\n  <rect x=\"405\" y=\"305\" width=\"165\" height=\"42\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"487\" y=\"321\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">例: エチレン CH₂=CH₂</text>\n  <text x=\"487\" y=\"337\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">プラスチック原料・付加重合</text>\n\n  <!-- ===== アルキン (左下) ===== -->\n  <rect x=\"30\" y=\"365\" width=\"165\" height=\"108\" rx=\"10\" fill=\"#ef4444\" fill-opacity=\"0.1\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <text x=\"112\" y=\"385\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"#ef4444\">アルキン</text>\n  <text x=\"112\" y=\"402\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">三重結合（C≡C）</text>\n  <text x=\"112\" y=\"418\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">一般式: CₙH₂ₙ₋₂</text>\n  <text x=\"112\" y=\"434\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">高反応性・2段階付加反応</text>\n  <!-- 三重結合の図示 -->\n  <circle cx=\"75\" cy=\"455\" r=\"6\" fill=\"#ef4444\" fill-opacity=\"0.3\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <line x1=\"81\" y1=\"451\" x2=\"99\" y2=\"451\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <line x1=\"81\" y1=\"455\" x2=\"99\" y2=\"455\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <line x1=\"81\" y1=\"459\" x2=\"99\" y2=\"459\" stroke=\"#ef4444\" stroke-width=\"2\"/>\n  <circle cx=\"105\" cy=\"455\" r=\"6\" fill=\"#ef4444\" fill-opacity=\"0.3\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n  <text x=\"65\" y=\"452\" font-size=\"9\" fill=\"#ef4444\">C</text>\n  <text x=\"99\" y=\"452\" font-size=\"9\" fill=\"#ef4444\">C</text>\n\n  <!-- アルキン例 -->\n  <rect x=\"30\" y=\"476\" width=\"165\" height=\"36\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"112\" y=\"492\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">例: アセチレン C₂H₂</text>\n  <text x=\"112\" y=\"506\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">溶接用ガス</text>\n\n  <!-- ===== 芳香族 (右下) ===== -->\n  <rect x=\"405\" y=\"365\" width=\"165\" height=\"108\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"6,2\"/>\n  <text x=\"487\" y=\"385\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">芳香族炭化水素</text>\n  <text x=\"487\" y=\"402\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">ベンゼン環（C₆H₆）</text>\n  <text x=\"487\" y=\"418\" text-anchor=\"middle\" font-size=\"11\" fill=\"currentColor\">電子の非局在化</text>\n  <text x=\"487\" y=\"434\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">特有の安定性・置換反応</text>\n  <!-- ベンゼン環の図示（六角形） -->\n  <polygon points=\"487,445 500,452 500,464 487,471 474,464 474,452\"\n    fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n  <!-- 内円で非局在化を表現 -->\n  <circle cx=\"487\" cy=\"458\" r=\"7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"3,2\"/>\n\n  <!-- 芳香族例 -->\n  <rect x=\"405\" y=\"476\" width=\"165\" height=\"36\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <text x=\"487\" y=\"492\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">例: ベンゼン C₆H₆</text>\n  <text x=\"487\" y=\"506\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">溶剤・合成原料</text>\n\n  <!-- ===== 結合の手の数（中央下） ===== -->\n  <rect x=\"195\" y=\"185\" width=\"210\" height=\"130\" rx=\"10\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <text x=\"300\" y=\"204\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">炭素の結合の「手」</text>\n\n  <!-- 単結合 -->\n  <text x=\"215\" y=\"225\" font-size=\"11\" fill=\"#3b82f6\">● 単結合</text>\n  <text x=\"215\" y=\"240\" font-size=\"10\" fill=\"currentColor\">手1本 → H最大 → 飽和</text>\n\n  <!-- 二重結合 -->\n  <text x=\"215\" y=\"258\" font-size=\"11\" fill=\"#22c55e\">● 二重結合</text>\n  <text x=\"215\" y=\"273\" font-size=\"10\" fill=\"currentColor\">手2本 → H₂減少 → 不飽和</text>\n\n  <!-- 三重結合 -->\n  <text x=\"215\" y=\"291\" font-size=\"11\" fill=\"#ef4444\">● 三重結合</text>\n  <text x=\"215\" y=\"306\" font-size=\"10\" fill=\"currentColor\">手3本 → H₄減少 → 高反応性</text>\n\n  <!-- 一般式の比較 矢印 -->\n  <text x=\"300\" y=\"355\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">CₙH₂ₙ₊₂ → CₙH₂ₙ → CₙH₂ₙ₋₂</text>\n  <text x=\"300\" y=\"370\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">← 水素が増える（安定）  反応性が高まる →</text>\n\n</svg>"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "アルカン・アルケン・アルキンの一般式の組み合わせとして正しいものはどれか。",
+      "choices": [
+        {
+          "text": "アルカン: $C_nH_{2n}$、アルケン: $C_nH_{2n+2}$、アルキン: $C_nH_{2n-2}$",
+          "isCorrect": false
+        },
+        {
+          "text": "アルカン: $C_nH_{2n+2}$、アルケン: $C_nH_{2n}$、アルキン: $C_nH_{2n-2}$",
+          "isCorrect": true
+        },
+        {
+          "text": "アルカン: $C_nH_{2n+2}$、アルケン: $C_nH_{2n-2}$、アルキン: $C_nH_{2n}$",
+          "isCorrect": false
+        },
+        {
+          "text": "アルカン: $C_nH_{2n-2}$、アルケン: $C_nH_{2n}$、アルキン: $C_nH_{2n+2}$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "アルカンは炭素間がすべて単結合で水素が最大限結合しているため $C_nH_{2n+2}$、アルケンは二重結合を1つ持つため水素が2つ少ない $C_nH_{2n}$、アルキンは三重結合を1つ持つためさらに2つ少ない $C_nH_{2n-2}$ となる。炭素間の結合が増えるほど水素の数が減る（不飽和度が高まる）という規則性を覚えておくとよい。"
+    },
+    {
+      "question": "ベンゼン（$\\text{C}_6\\text{H}_6$）が、同じく炭素間二重結合を持つアルケンと異なり、付加反応より置換反応を好む主な理由として正しいものはどれか。",
+      "choices": [
+        {
+          "text": "ベンゼン環の炭素数が6と多いため、立体障害によって付加反応が起こりにくいから。",
+          "isCorrect": false
+        },
+        {
+          "text": "ベンゼン環の電子が環全体に非局在化しており、特別な安定性（芳香族性）が生じているから。",
+          "isCorrect": true
+        },
+        {
+          "text": "ベンゼンは水素を持たないため、付加できる位置が存在しないから。",
+          "isCorrect": false
+        },
+        {
+          "text": "ベンゼン環はすべて単結合で構成されており、二重結合が存在しないから。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "ベンゼン環では6つの炭素が正六角形を形成し、二重結合の電子が1か所に固定されず環全体に均等に広がっている（電子の非局在化）。この「電子の湖」とも呼ばれる状態が特別な安定性（芳香族性）を生み出す。付加反応を起こすとこの安定な非局在化状態が崩れてしまうため、ベンゼンは水素を他の基と置き換える置換反応を優先する。"
+    },
+    {
+      "question": "エチレン（$\\text{CH}_2\\text{=CH}_2$）を原料としてポリエチレンが生成される反応の種類と、その反応が可能な理由の組み合わせとして正しいものはどれか。",
+      "choices": [
+        {
+          "text": "置換反応 — ベンゼン環を持つため、水素が他の基と入れ替わりやすいから。",
+          "isCorrect": false
+        },
+        {
+          "text": "燃焼反応 — アルケンはアルカンと同様に単結合のみで安定しており、燃焼が最も起こりやすいから。",
+          "isCorrect": false
+        },
+        {
+          "text": "付加重合 — 炭素間の二重結合が開きやすく、エチレン分子同士が次々と結合できるから。",
+          "isCorrect": true
+        },
+        {
+          "text": "脱離反応 — 三重結合を持つため、段階的に結合が切れて分子が脱離するから。",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "エチレンはアルケンであり、炭素間に二重結合（$\\text{C=C}$）を1つ持つ。二重結合のうち$\\pi$結合は切れやすく反応性が高い。この性質によってエチレン同士が次々と結合する付加重合が起こり、長い鎖状のポリエチレン $\\text{(-CH}_2\\text{-CH}_2\\text{-)}_n$ が生成される。この反応がレジ袋や食品容器などに使われるプラスチックの製造を支えている。"
     }
   ]
 }

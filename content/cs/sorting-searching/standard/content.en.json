@@ -1,90 +1,162 @@
 {
-  "id": "dd123d84-b7b6-431f-9077-0925fafa2c82",
+  "id": "d6007973-8e21-4ee3-93f0-554af963b19b",
   "nodeId": "sorting-searching",
   "level": "standard",
   "locale": "en",
-  "generatedAt": "2026-03-22T00:52:20.706Z",
-  "content": "# Sorting and Searching\n\n## What is it — Intuitive explanation\n\n\"Sorting\" is the process of arranging data according to a defined rule. \"Searching\" is the process of finding a specific value within a collection of data. Both are among the most fundamental operations that computers perform on a daily basis.\n\nImagine you're trying to find a specific book in a disorganized pile. If the books are arranged alphabetically by title, you can quickly zero in on the one you want by following the alphabet. First you **sort**, then you **search** — and that act of organizing makes the searching dramatically easier. This relationship is the essence of sorting and searching.\n\n## Why it matters — Its place in computer science\n\nSorting and searching are among the most foundational building blocks in all of algorithms. Nearly every system we use daily — database queries, search engine results, game leaderboards, social media timelines — is powered by these algorithms.\n\nSorting and searching are also ideal subjects for exploring **computational complexity** and **efficiency**. They provide a natural starting point for asking: \"How much faster can a clever approach be compared to a brute-force one?\" This question sits at the core of computer science education. Going beyond simply knowing how to use these algorithms, it is crucial to understand **why a given algorithm is fast**.\n\n## Core ideas — The essence of definitions and theorems\n\n### Fundamentals of sorting\n\nGiven a sequence of $n$ elements $a_1, a_2, \\ldots, a_n$, sorting means finding a rearrangement (a permutation $\\sigma$) such that\n\n$$a_{\\sigma(1)} \\leq a_{\\sigma(2)} \\leq \\cdots \\leq a_{\\sigma(n)}$$\n\nThe table below summarizes representative sorting algorithms and their complexities.\n\n| Algorithm | Average complexity | Worst-case complexity | Characteristics |\n|---|---|---|---|\n| Bubble sort | $O(n^2)$ | $O(n^2)$ | Simple but slow |\n| Selection sort | $O(n^2)$ | $O(n^2)$ | Straightforward to implement |\n| Insertion sort | $O(n^2)$ | $O(n^2)$ | Efficient for small or nearly sorted data |\n| Merge sort | $O(n \\log n)$ | $O(n \\log n)$ | Stable and consistent |\n| Quicksort | $O(n \\log n)$ | $O(n^2)$ | Among the fastest in practice |\n\nIntuitively, $O(n \\log n)$ means \"when $n$ doubles, the processing time grows only a little more than double.\" Compared to $O(n^2)$, the gap widens significantly as the number of elements grows.\n\n### Fundamentals of searching\n\n**Linear search**: Examines elements one by one from the beginning of the sequence. In the worst case, all $n$ elements must be checked, giving a complexity of $O(n)$.\n\n**Binary search**: A fast search method that works on a **sorted** sequence. It compares the target value against the middle element and determines which half of the remaining range must contain the target, repeatedly halving the search space.\n\n$$\\text{comparisons required} \\leq \\lceil \\log_2 n \\rceil$$\n\nFor example, when $n = 1{,}000{,}000$, linear search may require up to one million comparisons, while binary search needs at most $\\lceil \\log_2 1{,}000{,}000 \\rceil = 20$. This is a concrete illustration of why sorting data in advance is worthwhile.\n\n## Concrete examples\n\n### Example 1: Everyday life — Looking up a word in a dictionary\n\nWhen using a physical dictionary, do you flip through every page from the beginning? Of course not. Because a dictionary is **pre-sorted** alphabetically, you naturally perform something close to binary search without even thinking about it.\n\n\"Looking for `mathematics`\" → open to the middle → if you land past `m`, go left; if before `m`, go right → halve the range again… If the dictionary were not sorted, this intuition would be completely useless. **Fast searching is only possible because sorting has already been done** — a relationship that shows up in everyday life.\n\n### Example 2: How bubble sort works\n\nBubble sort is the simplest sorting algorithm: repeatedly compare adjacent elements and swap them if they are out of order.\n\n```\nInitial state: [5, 3, 8, 1, 4]\n\nPass 1:\n[3, 5, 8, 1, 4]  ← swap 5 and 3\n[3, 5, 8, 1, 4]  ← 5 and 8 stay\n[3, 5, 1, 8, 4]  ← swap 8 and 1\n[3, 5, 1, 4, 8]  ← swap 8 and 4 (8 \"bubbles up\" to the end)\n\nPass 2:\n[3, 1, 5, 4, 8]  ← swap 5 and 1\n[3, 1, 4, 5, 8]  ← swap 5 and 4\n[3, 1, 4, 5, 8]  ← 5 and 8 stay\n\nPass 3:\n[1, 3, 4, 5, 8]  ← swap 3 and 1\n[1, 3, 4, 5, 8]  ← remainder stays\n\nFinal result: [1, 3, 4, 5, 8]\n```\n\nJust like bubbles rising to the surface of water, larger numbers drift to the right end of the array with each pass. It is simple to understand, but its $O(n^2)$ complexity makes it unsuitable for large datasets.\n\n### Example 3: Binary search in action\n\nLet's trace a search for `7` in the sorted array `[1, 3, 5, 7, 9, 11, 13, 15]`.\n\n```\nArray:   [1,  3,  5,  7,  9, 11, 13, 15]\nIndex:    0   1   2   3   4   5   6   7\n\nStep 1: left=0, right=7, mid=3 → a[3]=7 → Found!\n```\n\nNow let's search for `11`.\n\n```\nStep 1: left=0, right=7, mid=3 → a[3]=7 < 11 → go right half\nStep 2: left=4, right=7, mid=5 → a[5]=11 → Found!\n```\n\nThe target value was located among 8 elements in just 2 comparisons. This is the power of $O(\\log n)$.\n\n### Example 4: Insertion sort and sorting a hand of cards\n\nWhen organizing a hand of playing cards, what do you do? Most people naturally \"insert each new card into its correct position among the cards already in order.\" That is exactly insertion sort.\n\n```\nHand (left side already sorted):\n[3] | 5, 1, 4, 2  ← insert 5 → [3, 5]\n[3, 5] | 1, 4, 2  ← insert 1 → [1, 3, 5]\n[1, 3, 5] | 4, 2  ← insert 4 → [1, 3, 4, 5]\n[1, 3, 4, 5] | 2  ← insert 2 → [1, 2, 3, 4, 5]\n```\n\nWhen the hand is already nearly in order, the correct insertion point is found almost immediately, making the process very fast. This builds the intuition that insertion sort can be surprisingly efficient on **nearly sorted data**.\n\n## Connections — Relationships with other concepts\n\n### Prerequisite concepts\n\n**Arrays and lists** are the primary data structures on which sorting and searching operate. The ability to access any element in $O(1)$ time is exactly what enables binary search to \"jump to the middle\" so efficiently. **Tree structures** give concrete form to the binary search idea, leading to the **binary search tree (BST)**, where search, insertion, and deletion can all be performed in $O(\\log n)$. **Hash tables** take searching even further, achieving $O(1)$ lookup without any sorting at all. The progression from sorting → binary search → hash tables forms a coherent thread united by the common theme of speeding up search.\n\n### Where these ideas lead\n\nA solid understanding of sorting and searching makes it natural to appreciate **computational complexity theory** (including the proof that comparison-based sorting cannot be faster than $O(n \\log n)$) and the necessity of **advanced data structures** such as heaps, B-trees, and tries. These topics also serve as a bridge to higher-level algorithm design techniques such as **divide and conquer** (the organizing principle behind merge sort and quicksort) and **dynamic programming**.\n\n## Applications in other fields\n\n**Databases and information retrieval**: Relational databases use index structures such as B-trees to enable fast searches over large datasets. The SQL `ORDER BY` clause is a direct application of sorting algorithms.\n\n**Bioinformatics**: Specialized string searching and sorting algorithms are used to rapidly query databases of DNA sequences for particular gene patterns. Because billions of base pairs must be handled, the choice of an efficient algorithm directly determines the speed of research.\n\n**E-commerce and recommendation systems**: Displaying products sorted by price or rating is a direct application of sorting. Recommendation systems rely on **Approximate Nearest Neighbor (ANN) search** — an advanced descendant of sorting and searching — to quickly find similar users or products.\n\n**Operating systems**: Sorting and searching concepts are deeply embedded in process scheduling (priority queues) and file system directory management. When you sort files by name, the OS is running a sorting algorithm behind the scenes.",
+  "generatedAt": "2026-03-22T01:17:07.367Z",
+  "content": "# Sorting and Searching\n\n## What is it — Intuitive explanation\n\n**Sorting** is the process of arranging data in a defined order (such as ascending or descending). **Searching** is the process of finding a specific piece of data within a collection. These two operations are often discussed together, and together they capture something very human: the idea of *organizing first, then looking things up*. As an algorithm, this mirrors what we do every day without thinking.\n\nImagine a bookshelf. Finding a single book among randomly placed books is frustrating, but if the books are arranged alphabetically by title (sorting), you can locate the one you need in no time (searching). Computers apply exactly this same logic — sorting and searching are how they handle data efficiently.\n\n---\n\n## Why it matters — Its place in computer science\n\nSorting and searching are among the first topics to study when learning algorithms, and they are also among the most frequently encountered operations in real-world software. Database queries, file management, search engines, game leaderboards — behind all of these, sorting and searching algorithms are running constantly.\n\nStudying these topics also builds the foundation for **algorithmic thinking**: specifically, how to estimate the cost of a computation in terms of time and space. Because the difference between a naïve approach and a smarter one becomes concretely visible through **Big O notation**, sorting and searching serve as an ideal bridge into the theory of computational complexity.\n\n---\n\n## The core ideas — Definitions and key results\n\n### Searching algorithms\n\n**Linear Search** is the simplest method: examine each element one by one, starting from the beginning.\n\n$$T(n) = O(n)$$\n\nWith $n$ elements, up to $n$ comparisons may be needed in the worst case. Its advantage is that it works on any data, regardless of whether it is sorted.\n\n**Binary Search** is a far more efficient method, but it requires a **sorted array**. It works by repeatedly comparing the target value against the middle element, cutting the search space in half each time.\n\n$$T(n) = O(\\log n)$$\n\nEven with $n = 1{,}000{,}000$ elements, at most $\\lceil \\log_2 1{,}000{,}000 \\rceil = 20$ comparisons are needed — a remarkable improvement.\n\n### Sorting algorithms\n\n**Bubble Sort** repeatedly compares adjacent elements and swaps them if they are out of order, gradually \"bubbling\" larger values toward the end of the array.\n\n$$T(n) = O(n^2)$$\n\nIt is easy to understand, but becomes very slow as the amount of data grows.\n\n**Merge Sort** works by repeatedly splitting the array in half down to individual elements, then merging the pieces back together in sorted order. It is a classic example of the **divide and conquer** strategy.\n\n$$T(n) = O(n \\log n)$$\n\nIt has been proven that $\\Omega(n \\log n)$ is the theoretical lower bound for any comparison-based sorting algorithm, and Merge Sort achieves this bound.\n\n---\n\n## Concrete examples\n\n### Example 1: Everyday life — Looking up a word in a dictionary\n\nThink about how you use a printed dictionary. The words are already sorted alphabetically. You open to roughly the middle, decide whether your target word comes before or after that point, then focus on the relevant half. Repeating this process gets you to the right page very quickly. This is exactly **binary search**. If the dictionary were in random order, you would have no choice but to check every page from the start — that would be **linear search**.\n\n### Example 2: Sorting a hand of playing cards — Insertion Sort\n\nWhen you are dealt cards in a card game, most people naturally pick up each new card and slide it into the correct position among the cards already in hand. This is the idea behind **Insertion Sort**.\n\n```\nHand: [7, 3, 5]\n→ Hold 7 (sorted: [7])\n→ Pick up 3 → smaller than 7, so insert before → [3, 7]\n→ Pick up 5 → larger than 3 and smaller than 7, so insert between → [3, 5, 7]\n```\n\nInsertion Sort is highly efficient for small datasets or data that is already nearly sorted, achieving a best-case time complexity of $O(n)$.\n\n### Example 3: Searching for a name in a contacts app — how sorting speeds up searching\n\nA smartphone contacts app may hold hundreds of names. Because the app stores them in alphabetical order, searching for someone whose name starts with \"M\" means the app never needs to look through names starting with \"A\" through \"L.\" When you type characters into the search box, binary search or a similar technique instantly narrows down the candidates. Without sorting, searching through a few hundred contacts might be tolerable, but with hundreds of thousands of contacts it could take several seconds per query.\n\n### Example 4: Partitioning around a pivot in Quick Sort\n\n**Quick Sort** selects one element as a \"pivot,\" places all elements smaller than the pivot to its left and all larger elements to its right, then recursively repeats this process on each side.\n\n```\n[5, 3, 8, 1, 4]  ← pivot = 5\n→ Left: [3, 1, 4]  Right: [8]\n→ Recursively sort left and right\n→ [1, 3, 4, 5, 8]\n```\n\nThe average time complexity is $O(n \\log n)$, but if pivot selection is poor (for example, always picking the smallest or largest element), the worst-case complexity degrades to $O(n^2)$. In practice, techniques such as random pivot selection keep it fast, and Quick Sort is used in the standard libraries of many programming languages.\n\n---\n\n## Connections — Relationships to other concepts\n\n**Prerequisite concepts:**\n\n- **Array**: The most fundamental data structure that sorting and searching operate on. Bubble Sort and Binary Search both assume array-based storage.\n- **Tree**: A binary search tree (BST) maintains a sorted structure at all times, enabling $O(\\log n)$ search, insertion, and deletion. It is essentially the idea of sorting and searching extended to a tree structure.\n- **Hash Table**: An alternative approach that achieves $O(1)$ average search time without sorting. Understanding \"sort then binary search\" alongside \"hash table\" as the two major searching strategies deepens your grasp of both.\n\n**Topics this leads into:**\n\n- **Computational complexity theory (Big O notation)**: Sorting provides a natural entry point into topics like the proof of the $\\Omega(n \\log n)$ lower bound for comparison-based sorting.\n- **Divide and Conquer**: Merge Sort and Quick Sort are canonical examples of divide and conquer, and serve as a bridge to more advanced algorithm design patterns.\n- **Heap**: Leads naturally to Heap Sort and to the use of priority queues for efficient data management.\n\n---\n\n## Applications in other fields\n\n**Databases and web services:**\nDatabases use **indexes** to speed up queries, and internally these indexes are typically implemented as B-Trees — sorted tree structures. In environments such as e-commerce product searches or social media feed retrieval, where tens of thousands of queries run every second, the efficiency of sorting and searching has a direct impact on the user experience.\n\n**Bioinformatics:**\nGenome analysis requires searching for specific patterns within DNA sequences that can be billions of characters long. Variants of binary search and sorted data structures such as suffix arrays are used extensively here, making sorting and searching ideas directly applicable to cutting-edge biological research.\n\n**Machine learning:**\nThe k-nearest neighbors (k-NN) algorithm classifies new data points by finding the $k$ training examples closest to them. For large-scale datasets, approximate nearest neighbor (ANN) search methods are used, and the efficiency of the underlying search algorithm directly governs the trade-off between accuracy and speed.",
   "terms": [
     {
       "term": "Sort",
       "reading": "",
       "en": "Sort",
-      "definition": "The operation of rearranging data according to a fixed rule (such as ascending or descending order). Also called sorting."
+      "definition": "The operation of rearranging data into a defined order, such as ascending or descending. Also important as a preprocessing step to enable efficient searching."
     },
     {
       "term": "Search",
       "reading": "",
       "en": "Search",
-      "definition": "The operation of finding elements that match a specific value or condition within a collection of data. Also called lookup."
-    },
-    {
-      "term": "Computational Complexity",
-      "reading": "",
-      "en": "Computational Complexity",
-      "definition": "A measure of the amount of time or memory an algorithm requires to solve a problem, expressed as a function of the input size n. Often expressed using Big-O notation."
-    },
-    {
-      "term": "Bubble Sort",
-      "reading": "",
-      "en": "Bubble Sort",
-      "definition": "A sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in the wrong order. Both average and worst-case complexity are O(n²). The implementation is simple, but it is not suitable for large datasets."
-    },
-    {
-      "term": "Selection Sort",
-      "reading": "",
-      "en": "Selection Sort",
-      "definition": "A sorting algorithm that repeatedly selects the minimum value from the unsorted portion and swaps it with the element at the front. Both average and worst-case complexity are O(n²)."
-    },
-    {
-      "term": "Insertion Sort",
-      "reading": "",
-      "en": "Insertion Sort",
-      "definition": "A sorting algorithm that takes elements from the unsorted portion one at a time and inserts each into the correct position within the sorted portion. It operates efficiently on nearly sorted data."
-    },
-    {
-      "term": "Merge Sort",
-      "reading": "",
-      "en": "Merge Sort",
-      "definition": "A sorting algorithm based on the divide and conquer approach that recursively splits a list in half and then merges (combines) the halves to produce a sorted result. Both average and worst-case complexity are O(n log n), and it is a stable sort."
-    },
-    {
-      "term": "Quick Sort",
-      "reading": "",
-      "en": "Quick Sort",
-      "definition": "A sorting algorithm that selects a reference value called a pivot, partitions elements into those smaller and those larger than the pivot, and recursively sorts each partition. Average complexity is O(n log n), making it extremely fast in practice."
+      "definition": "The operation of finding a target piece of data within a collection of data. Multiple algorithms exist, including linear search and binary search."
     },
     {
       "term": "Linear Search",
       "reading": "",
       "en": "Linear Search",
-      "definition": "The simplest search algorithm, which examines elements in an array sequentially from the beginning. Its complexity is O(n)."
+      "definition": "The simplest search method, which checks items one by one from the beginning. Its time complexity is O(n), and it can be used even when the data is not sorted."
     },
     {
       "term": "Binary Search",
       "reading": "",
       "en": "Binary Search",
-      "definition": "A fast search algorithm for sorted arrays that compares the middle element with the target value and repeatedly halves the search range. Its complexity is O(log n)."
+      "definition": "A search method that narrows the search range by half at each step by comparing with the middle value of a sorted array. Its time complexity is O(log n)."
+    },
+    {
+      "term": "Bubble Sort",
+      "reading": "",
+      "en": "Bubble Sort",
+      "definition": "A sorting algorithm that repeatedly compares and swaps adjacent elements to move larger values toward the end. Its time complexity is O(n²); it is easy to understand but inefficient."
+    },
+    {
+      "term": "Merge Sort",
+      "reading": "",
+      "en": "Merge Sort",
+      "definition": "A sorting algorithm based on the divide and conquer approach that recursively splits an array in half and merges the halves back together in sorted order. Its time complexity is O(n log n)."
+    },
+    {
+      "term": "Insertion Sort",
+      "reading": "",
+      "en": "Insertion Sort",
+      "definition": "A sorting algorithm that takes elements from the unsorted portion one at a time and inserts each into the correct position within the sorted portion. Efficient for data that is nearly sorted."
+    },
+    {
+      "term": "Quick Sort",
+      "reading": "",
+      "en": "Quick Sort",
+      "definition": "A sorting algorithm that recursively selects a pivot (reference value) and partitions the array into values smaller and larger than the pivot. Its average time complexity is O(n log n)."
+    },
+    {
+      "term": "Pivot",
+      "reading": "",
+      "en": "Pivot",
+      "definition": "The reference value used to partition an array in Quick Sort. Values smaller than the pivot are placed to the left, and values larger are placed to the right."
     },
     {
       "term": "Divide and Conquer",
       "reading": "",
       "en": "Divide and Conquer",
-      "definition": "An algorithm design technique that recursively breaks a problem into smaller subproblems, solves each one, and combines the results to solve the original problem. It is the underlying design principle of merge sort and quick sort."
+      "definition": "An algorithm design pattern that recursively breaks a problem into smaller subproblems, solves them, and combines the results. It is the foundational idea behind Merge Sort and Quick Sort."
+    },
+    {
+      "term": "Big O Notation",
+      "reading": "",
+      "en": "Big O Notation",
+      "definition": "A notation that expresses the computational complexity (time and space cost) of an algorithm as a function of the number of data items n. Used to compare efficiency using expressions such as O(n), O(log n), and O(n²)."
     },
     {
       "term": "Binary Search Tree (BST)",
       "reading": "",
       "en": "Binary Search Tree (BST)",
-      "definition": "A tree data structure in which each node follows the rule that smaller values are stored in the left subtree and larger values in the right subtree. Search, insertion, and deletion can each be performed in O(log n)."
+      "definition": "A data structure that maintains a sorted state using a tree structure, enabling search, insertion, and deletion in O(log n). It extends the concepts of sorting and searching to a tree."
     },
     {
       "term": "Hash Table",
       "reading": "",
       "en": "Hash Table",
-      "definition": "A data structure that uses a hash function to convert keys into array indices, enabling average O(1) search, insertion, and deletion."
+      "definition": "A data structure that stores and retrieves data by transforming keys with a hash function. Achieves average O(1) search performance without the need for sorting."
     }
   ],
-  "diagrams": [],
-  "quiz": []
+  "diagrams": [
+    {
+      "name": "concept-diagram.svg",
+      "svg": "<svg viewBox=\"0 0 600 520\" width=\"600\" xmlns=\"http://www.w3.org/2000/svg\" font-family=\"system-ui, sans-serif\">\n\n  <!-- 背景なし（透明） -->\n\n  <!-- タイトル -->\n  <text x=\"300\" y=\"30\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"bold\" fill=\"currentColor\">Sorting and Searching — Concept Map</text>\n\n  <!-- ===== 中央：ソート＆探索 ===== -->\n  <ellipse cx=\"300\" cy=\"130\" rx=\"80\" ry=\"32\" fill=\"currentColor\" fill-opacity=\"0.1\" stroke=\"currentColor\" stroke-width=\"2\"/>\n  <text x=\"300\" y=\"125\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">Sorting &amp; Searching</text>\n  <text x=\"300\" y=\"143\" text-anchor=\"middle\" font-size=\"10\" fill=\"currentColor\">Organize and find</text>\n\n  <!-- ===== 前提知識エリア（左上） ===== -->\n  <rect x=\"20\" y=\"60\" width=\"110\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"75\" y=\"80\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Array</text>\n  <text x=\"75\" y=\"93\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Foundation of operations</text>\n\n  <rect x=\"20\" y=\"115\" width=\"110\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"75\" y=\"135\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Tree</text>\n  <text x=\"75\" y=\"148\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Binary Search Tree BST</text>\n\n  <rect x=\"20\" y=\"170\" width=\"110\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"75\" y=\"190\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Hash Table</text>\n  <text x=\"75\" y=\"203\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">O(1) search</text>\n\n  <!-- 前提知識 → 中央 矢印 -->\n  <line x1=\"130\" y1=\"79\" x2=\"218\" y2=\"118\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"4,3\" marker-end=\"url(#arr)\"/>\n  <line x1=\"130\" y1=\"134\" x2=\"218\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"4,3\" marker-end=\"url(#arr)\"/>\n  <line x1=\"130\" y1=\"189\" x2=\"218\" y2=\"142\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"4,3\" marker-end=\"url(#arr)\"/>\n\n  <!-- 前提知識ラベル -->\n  <text x=\"20\" y=\"55\" font-size=\"9\" fill=\"currentColor\" fill-opacity=\"0.7\">《Prerequisites》</text>\n\n  <!-- ===== ソートアルゴリズム（左下） ===== -->\n  <rect x=\"10\" y=\"265\" width=\"175\" height=\"175\" rx=\"10\" fill=\"#3b82f6\" fill-opacity=\"0.06\" stroke=\"#3b82f6\" stroke-width=\"1.8\"/>\n  <text x=\"97\" y=\"283\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#3b82f6\">Sorting Algorithms</text>\n\n  <!-- バブルソート -->\n  <rect x=\"22\" y=\"292\" width=\"151\" height=\"34\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"97\" y=\"307\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">Bubble Sort</text>\n  <text x=\"97\" y=\"320\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Compare &amp; swap neighbors  O(n²)</text>\n\n  <!-- 挿入ソート -->\n  <rect x=\"22\" y=\"333\" width=\"151\" height=\"34\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"97\" y=\"348\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">Insertion Sort</text>\n  <text x=\"97\" y=\"361\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Insert at correct position  O(n)~O(n²)</text>\n\n  <!-- マージソート -->\n  <rect x=\"22\" y=\"374\" width=\"151\" height=\"34\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"97\" y=\"389\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">Merge Sort</text>\n  <text x=\"97\" y=\"402\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Divide and conquer  O(n log n)</text>\n\n  <!-- クイックソート -->\n  <rect x=\"22\" y=\"415\" width=\"151\" height=\"34\" rx=\"6\" fill=\"#3b82f6\" fill-opacity=\"0.12\" stroke=\"#3b82f6\" stroke-width=\"1\"/>\n  <text x=\"97\" y=\"430\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#3b82f6\">Quick Sort</text>\n  <text x=\"97\" y=\"443\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Pivot partition  O(n log n) avg</text>\n\n  <!-- ===== 探索アルゴリズム（右下） ===== -->\n  <rect x=\"415\" y=\"265\" width=\"170\" height=\"120\" rx=\"10\" fill=\"#22c55e\" fill-opacity=\"0.06\" stroke=\"#22c55e\" stroke-width=\"1.8\"/>\n  <text x=\"500\" y=\"283\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"bold\" fill=\"#22c55e\">Search Algorithms</text>\n\n  <!-- 線形探索 -->\n  <rect x=\"427\" y=\"292\" width=\"146\" height=\"40\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1\"/>\n  <text x=\"500\" y=\"307\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#22c55e\">Linear Search</text>\n  <text x=\"500\" y=\"320\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Scan from start  O(n)</text>\n  <text x=\"500\" y=\"330\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">No sorting needed</text>\n\n  <!-- 二分探索 -->\n  <rect x=\"427\" y=\"339\" width=\"146\" height=\"40\" rx=\"6\" fill=\"#22c55e\" fill-opacity=\"0.12\" stroke=\"#22c55e\" stroke-width=\"1\"/>\n  <text x=\"500\" y=\"354\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"#22c55e\">Binary Search</text>\n  <text x=\"500\" y=\"367\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Compare middle &amp; halve  O(log n)</text>\n  <text x=\"500\" y=\"377\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">Sorted input required</text>\n\n  <!-- ===== ソート済みの前提リンク ===== -->\n  <line x1=\"185\" y1=\"390\" x2=\"415\" y2=\"354\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"6,3\" marker-end=\"url(#arrRed)\"/>\n  <text x=\"300\" y=\"363\" text-anchor=\"middle\" font-size=\"9\" fill=\"#ef4444\">Provides sorted data</text>\n\n  <!-- ===== 発展先（右上） ===== -->\n  <rect x=\"465\" y=\"60\" width=\"120\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"525\" y=\"80\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Complexity Theory</text>\n  <text x=\"525\" y=\"93\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Big O notation</text>\n\n  <rect x=\"465\" y=\"115\" width=\"120\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"525\" y=\"135\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Divide &amp; Conquer</text>\n  <text x=\"525\" y=\"148\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">D&amp;C pattern</text>\n\n  <rect x=\"465\" y=\"170\" width=\"120\" height=\"38\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n  <text x=\"525\" y=\"190\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">Heap</text>\n  <text x=\"525\" y=\"203\" text-anchor=\"middle\" font-size=\"9\" fill=\"currentColor\">Priority queue</text>\n\n  <!-- 中央 → 発展先 矢印 -->\n  <line x1=\"382\" y1=\"118\" x2=\"463\" y2=\"79\" stroke=\"currentColor\" stroke-width=\"1.3\" marker-end=\"url(#arr)\"/>\n  <line x1=\"382\" y1=\"130\" x2=\"463\" y2=\"134\" stroke=\"currentColor\" stroke-width=\"1.3\" marker-end=\"url(#arr)\"/>\n  <line x1=\"382\" y1=\"142\" x2=\"463\" y2=\"189\" stroke=\"currentColor\" stroke-width=\"1.3\" marker-end=\"url(#arr)\"/>\n\n  <text x=\"580\" y=\"55\" font-size=\"9\" fill=\"currentColor\" fill-opacity=\"0.7\" text-anchor=\"end\">《Advanced Topics》</text>\n\n  <!-- ===== 中央 → ソート/探索 矢印 ===== -->\n  <line x1=\"240\" y1=\"155\" x2=\"155\" y2=\"265\" stroke=\"#3b82f6\" stroke-width=\"1.6\" marker-end=\"url(#arrBlue)\"/>\n  <line x1=\"360\" y1=\"155\" x2=\"450\" y2=\"265\" stroke=\"#22c55e\" stroke-width=\"1.6\" marker-end=\"url(#arrGreen)\"/>\n\n  <!-- ===== 計算量比較バー（下部） ===== -->\n  <rect x=\"185\" y=\"400\" width=\"225\" height=\"95\" rx=\"8\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/>\n  <text x=\"297\" y=\"416\" text-anchor=\"middle\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\">Complexity Comparison (n=1 million)</text>\n\n  <!-- O(n^2) -->\n  <text x=\"195\" y=\"433\" font-size=\"9\" fill=\"currentColor\">O(n²)</text>\n  <rect x=\"235\" y=\"423\" width=\"100\" height=\"8\" rx=\"2\" fill=\"#ef4444\" fill-opacity=\"0.7\"/>\n  <text x=\"340\" y=\"432\" font-size=\"8\" fill=\"#ef4444\">1 trillion ops</text>\n\n  <!-- O(n log n) -->\n  <text x=\"195\" y=\"452\" font-size=\"9\" fill=\"currentColor\">O(n log n)</text>\n  <rect x=\"235\" y=\"442\" width=\"40\" height=\"8\" rx=\"2\" fill=\"#3b82f6\" fill-opacity=\"0.7\"/>\n  <text x=\"280\" y=\"451\" font-size=\"8\" fill=\"#3b82f6\">20 million ops</text>\n\n  <!-- O(n) -->\n  <text x=\"195\" y=\"471\" font-size=\"9\" fill=\"currentColor\">O(n)</text>\n  <rect x=\"235\" y=\"461\" width=\"16\" height=\"8\" rx=\"2\" fill=\"#22c55e\" fill-opacity=\"0.7\"/>\n  <text x=\"256\" y=\"470\" font-size=\"8\" fill=\"#22c55e\">1 million ops</text>\n\n  <!-- O(log n) -->\n  <text x=\"195\" y=\"490\" font-size=\"9\" fill=\"currentColor\">O(log n)</text>\n  <rect x=\"235\" y=\"480\" width=\"3\" height=\"8\" rx=\"1\" fill=\"#22c55e\" fill-opacity=\"0.9\"/>\n  <text x=\"242\" y=\"489\" font-size=\"8\" fill=\"#22c55e\">~20 ops!</text>\n\n  <!-- ===== 矢印マーカー定義 ===== -->\n  <defs>\n    <marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"currentColor\"/>\n    </marker>\n    <marker id=\"arrBlue\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#3b82f6\"/>\n    </marker>\n    <marker id=\"arrGreen\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#22c55e\"/>\n    </marker>\n    <marker id=\"arrRed\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\">\n      <path d=\"M0,0 L0,6 L8,3 z\" fill=\"#ef4444\"/>\n    </marker>\n  </defs>\n\n</svg>"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Which of the following is a required condition for using Binary Search?",
+      "choices": [
+        {
+          "text": "The number of data elements must be even",
+          "isCorrect": false
+        },
+        {
+          "text": "The array to be searched must be sorted",
+          "isCorrect": true
+        },
+        {
+          "text": "All data must be integers",
+          "isCorrect": false
+        },
+        {
+          "text": "The first element of the array must be the maximum value",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Binary Search is a technique that narrows the search range in half by comparing the middle value with the target value. For this operation to work, the array must be sorted in ascending or descending order. The data type and whether the number of elements is odd or even are not relevant conditions."
+    },
+    {
+      "question": "Which of the following best describes why the $O(n \\log n)$ time complexity of Merge Sort is particularly significant?",
+      "choices": [
+        {
+          "text": "Because the theoretical lower bound of time complexity for comparison-based sorting algorithms is $O(n \\log n)$, and Merge Sort achieves that limit",
+          "isCorrect": true
+        },
+        {
+          "text": "Because it can deliver performance close to $O(n)$ for any kind of data",
+          "isCorrect": false
+        },
+        {
+          "text": "Because it has been proven to have the same time complexity as searches using a hash table",
+          "isCorrect": false
+        },
+        {
+          "text": "Because it is the only sorting algorithm that uses the divide-and-conquer approach",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "It has been proven that a theoretical lower bound of $O(n \\log n)$ exists for comparison-based sorting algorithms. Merge Sort achieves exactly this lower bound, making it one of the theoretically optimal algorithms in terms of efficiency for comparison-based sorting."
+    },
+    {
+      "question": "Which of the following correctly compares linear search and binary search?",
+      "choices": [
+        {
+          "text": "Linear search can only be used on sorted arrays, while binary search can be used on any array",
+          "isCorrect": false
+        },
+        {
+          "text": "Binary search is always faster than linear search, so there is no situation where linear search should be used",
+          "isCorrect": false
+        },
+        {
+          "text": "Linear search can be used on unsorted data, whereas binary search requires sorted data and offers a higher search efficiency of $O(\\log n)$",
+          "isCorrect": true
+        },
+        {
+          "text": "Binary search has a time complexity of $O(n)$, which is slower than linear search’s $O(\\log n)$",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Linear search examines data sequentially from the beginning at $O(n)$, so it can be applied to unsorted arrays. Binary search, on the other hand, requires a sorted array and narrows the search range in half each time, achieving $O(\\log n)$ speed, but cannot be used on unsorted data. Each has its own appropriate use case."
+    }
+  ]
 }
