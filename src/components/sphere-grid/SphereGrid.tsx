@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -9,6 +9,8 @@ import {
   type Node,
   type Edge,
   type Viewport,
+  type NodeChange,
+  applyNodeChanges,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useRouter } from 'next/navigation';
@@ -22,6 +24,33 @@ import { localize } from '@/i18n/localize';
 
 const nodeTypes = { sphere: SphereNode, area: AreaNode };
 const edgeTypes = { sphere: SphereEdge };
+
+// --- Node position persistence ---
+function getNodePositionsKey(viewportKey: string): string {
+  return `skillmap:nodepos:${viewportKey}`;
+}
+
+function loadNodePositions(viewportKey: string): Record<string, { x: number; y: number }> | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = localStorage.getItem(getNodePositionsKey(viewportKey));
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveNodePositions(viewportKey: string, positions: Record<string, { x: number; y: number }>) {
+  try {
+    localStorage.setItem(getNodePositionsKey(viewportKey), JSON.stringify(positions));
+  } catch { /* ignore */ }
+}
+
+function clearNodePositions(viewportKey: string) {
+  try {
+    localStorage.removeItem(getNodePositionsKey(viewportKey));
+  } catch { /* ignore */ }
+}
 
 interface SphereGridProps {
   level: 'area' | 'detail';
@@ -54,7 +83,7 @@ export default function SphereGrid({
 }: SphereGridProps) {
   const router = useRouter();
   const { savedViewport, saveViewport } = useViewportPersistence(viewportKey);
-  const { locale } = useLocale();
+  const { locale, t } = useLocale();
 
   const handleNodeClick = useCallback((nodeId: string) => {
     const prefix = domain ? `/${domain}` : '';
@@ -65,14 +94,16 @@ export default function SphereGrid({
     onAreaClick?.(areaId);
   }, [onAreaClick]);
 
-  const nodes: Node[] = useMemo(() => {
+  // Build initial nodes with saved positions applied
+  const initialNodes: Node[] = useMemo(() => {
+    const savedPositions = loadNodePositions(viewportKey);
+
     if (level === 'area' && areas) {
       const targetAreaIds = new Set((areaEdges ?? []).map(e => e.target));
       return areas.map(a => ({
         id: a.id,
         type: 'area',
-        position: a.position,
-        draggable: false,
+        position: savedPositions?.[a.id] ?? a.position,
         data: {
           label: localize(locale, a.label, a.labels),
           description: localize(locale, a.description, a.descriptions),
@@ -91,8 +122,7 @@ export default function SphereGrid({
       return mathNodes.map(n => ({
         id: n.id,
         type: 'sphere',
-        position: n.position,
-        draggable: false,
+        position: savedPositions?.[n.id] ?? n.position,
         data: {
           label: localize(locale, n.label, n.labels),
           number: n.number,
@@ -106,7 +136,53 @@ export default function SphereGrid({
       }));
     }
     return [];
-  }, [level, areas, areaNodeCounts, handleAreaClick, mathNodes, nodeStatuses, handleNodeClick, locale]);
+  }, [level, areas, areaNodeCounts, handleAreaClick, mathNodes, nodeStatuses, handleNodeClick, locale, viewportKey, areaEdges]);
+
+  const [nodes, setNodes] = useState<Node[]>(initialNodes);
+  const [hasCustomPositions, setHasCustomPositions] = useState(() => loadNodePositions(viewportKey) !== null);
+
+  // Sync nodes when initialNodes change (e.g. progress update, locale change)
+  // but preserve custom positions
+  useMemo(() => {
+    const savedPositions = loadNodePositions(viewportKey);
+    setNodes(initialNodes.map(n => ({
+      ...n,
+      position: savedPositions?.[n.id] ?? n.position,
+    })));
+  }, [initialNodes, viewportKey]);
+
+  const onNodesChange = useCallback((changes: NodeChange[]) => {
+    setNodes(prev => {
+      const updated = applyNodeChanges(changes, prev);
+
+      // Save positions on drag end
+      const hasDragEnd = changes.some(c => c.type === 'position' && c.dragging === false);
+      if (hasDragEnd) {
+        const positions: Record<string, { x: number; y: number }> = {};
+        for (const node of updated) {
+          positions[node.id] = node.position;
+        }
+        saveNodePositions(viewportKey, positions);
+        setHasCustomPositions(true);
+      }
+
+      return updated;
+    });
+  }, [viewportKey]);
+
+  const handleReset = useCallback(() => {
+    clearNodePositions(viewportKey);
+    setHasCustomPositions(false);
+    // Restore original positions
+    setNodes(prev => {
+      const origMap = level === 'area' && areas
+        ? Object.fromEntries(areas.map(a => [a.id, a.position]))
+        : level === 'detail' && mathNodes
+          ? Object.fromEntries(mathNodes.map(n => [n.id, n.position]))
+          : {};
+      return prev.map(n => ({ ...n, position: origMap[n.id] ?? n.position }));
+    });
+  }, [viewportKey, level, areas, mathNodes]);
 
   const edges: Edge[] = useMemo(() => {
     const edgeList = level === 'area' ? areaEdges : mathEdges;
@@ -156,10 +232,11 @@ export default function SphereGrid({
   }, [level, areas, areaEdges, mathNodes, savedViewport]);
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full relative">
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         fitView={shouldFitView}
@@ -196,6 +273,14 @@ export default function SphereGrid({
           maskColor="rgba(128, 128, 128, 0.3)"
         />
       </ReactFlow>
+      {hasCustomPositions && (
+        <button
+          onClick={handleReset}
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 rounded-md bg-zinc-700 dark:bg-zinc-600 px-3 py-1.5 text-xs text-white shadow-lg hover:bg-zinc-600 dark:hover:bg-zinc-500 transition-colors"
+        >
+          {t('common.resetLayout')}
+        </button>
+      )}
     </div>
   );
 }

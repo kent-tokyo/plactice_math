@@ -7,7 +7,8 @@
     "loading": "正在加载内容...",
     "notFound": "未找到内容。",
     "processing": "处理中...",
-    "backToTop": "返回顶部"
+    "backToTop": "返回顶部",
+    "resetLayout": "重置布局"
   },
   "domain": {
     "selectTitle": "选择学习领域",
